@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="description" content="Platform Belajar Mandiri Mobile-First TKA (Fisika, MTK Lanjut, MTK Wajib) & UTBK (7 Subtes) dengan KaTeX Formula dan Offline Ready.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="EduMandiri">
+  
+  <title>EduMandiri - Belajar Mandiri TKA & UTBK</title>
+  
+  <!-- Manifest & Favicon -->
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/svg+xml" href="./icon.svg">
+  <link rel="apple-touch-icon" href="./icon.svg">
+  
+  <!-- KaTeX CSS untuk Formula LaTeX (Lokal & Offline) -->
+  <link rel="stylesheet" href="./vendor/katex/katex.min.css">
+
+  <!-- Stylesheet Utama -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Header Aplikasi -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-title">EduMandiri</h1>
+          <span class="brand-subtitle">TKA & UTBK 7 Subtes • Offline Ready</span>
+        </div>
+      </div>
+
+      <!-- Status Bar Jaringan & Progres -->
+      <div class="header-actions">
+        <div id="network-badge" class="badge badge-online" title="Status Jaringan">
+          <span class="status-dot"></span>
+          <span id="network-status-text">Online</span>
+        </div>
+        <div class="progress-pill" id="header-progress-pill" title="Soal yang diselesaikan">
+          <span id="header-completed-count">0</span>/<span id="header-total-count">0</span> Selesai
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigasi Tab Desktop -->
+    <nav class="spa-nav desktop-nav" aria-label="Navigasi Utama">
+      <button class="nav-tab active" data-view="materi" id="tab-materi">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+        <span>Materi & Rangkuman</span>
+      </button>
+      <button class="nav-tab" data-view="latihan" id="tab-latihan">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+        <span>Drilling Soal Per Bab</span>
+      </button>
+      <button class="nav-tab" data-view="pembahasan" id="tab-pembahasan">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <span>Pembahasan</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Kontainer Konten SPA -->
+  <main class="app-main" id="app-container">
+    
+    <!-- Banner Notifikasi Status / Offline -->
+    <div id="app-banner" class="app-banner hidden"></div>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 1: DAFTAR MATERI & RANGKUMAN (Per Bab) -->
+    <!-- ===================================================================== -->
+    <section id="view-materi" class="view-section active">
+      
+      <!-- Top Segment Switcher: TKA vs UTBK -->
+      <div class="category-main-switcher">
+        <button class="cat-pill active" id="btn-cat-tka" data-category="tka">
+          <span>🎓 TKA Saintek</span>
+        </button>
+        <button class="cat-pill" id="btn-cat-utbk" data-category="utbk">
+          <span>📝 UTBK SNBT (7 Subtes)</span>
+        </button>
+      </div>
+
+      <!-- Filter Subtes / Mapel Dinamis -->
+      <div class="materi-section-header">
+        <div class="materi-filter-group" id="materi-subtes-filters" aria-label="Filter Subtes">
+          <!-- Rendered via JS sesuai TKA / UTBK -->
+        </div>
+      </div>
+
+      <!-- Penjelasan Alur Belajar per Bab -->
+      <div class="mode-info-banner" id="materi-mode-banner">
+        <span class="info-icon">💡</span>
+        <span id="materi-mode-desc">Pilih bab yang ingin dipelajari untuk mengakses <strong>Materi Lengkap</strong>, <strong>Variasi Contoh Soal</strong>, <strong>Rangkuman Rumus</strong>, atau <strong>Latihan Kuis</strong>.</span>
+      </div>
+
+      <!-- Container Daftar Modul / Bab -->
+      <div id="materi-list" class="cards-grid">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 1B: HALAMAN BACA MATERI / RANGKUMAN (FULL PAGE SPA) -->
+    <!-- ===================================================================== -->
+    <section id="view-materi-detail" class="view-section">
+      <div class="reader-full-page">
+        <!-- Top Reader Action Bar -->
+        <div class="reader-nav-bar">
+          <button id="btn-back-to-materi-list" class="btn-back-link" title="Kembali ke Daftar Bab">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Daftar Bab</span>
+          </button>
+
+          <!-- In-Chapter Mode Tabs: Materi, Variasi Soal, Rangkuman -->
+          <div class="reader-mode-switcher" id="reader-mode-switcher" role="tablist" aria-label="Pilihan Modul Bab">
+            <button class="reader-mode-tab active" id="btn-reader-tab-materi" data-mode="materi">
+              <span>📖 Materi</span>
+            </button>
+            <button class="reader-mode-tab" id="btn-reader-tab-contoh-soal" data-mode="contoh-soal">
+              <span>🎯 Variasi Soal</span>
+            </button>
+            <button class="reader-mode-tab" id="btn-reader-tab-rangkuman" data-mode="rangkuman">
+              <span>📑 Rangkuman</span>
+            </button>
+          </div>
+
+          <div class="reader-breadcrumbs">
+            <span id="reader-breadcrumb-cat" class="tag-subject fisika">TKA Fisika</span>
+            <span id="reader-breadcrumb-type" class="badge" style="background:var(--bg-muted);">Bab 01</span>
+          </div>
+        </div>
+
+        <!-- Konten Bacaan Markdown dengan LaTeX -->
+        <article class="reader-content-card">
+          <div id="reader-markdown-body" class="markdown-reader">
+            <!-- Rendered via JS -->
+          </div>
+        </article>
+
+        <!-- Bottom Reader Actions -->
+        <div class="reader-bottom-bar">
+          <button id="btn-bottom-back-list" class="btn btn-secondary">
+            ← Kembali ke Daftar Bab
+          </button>
+          <button id="btn-jump-to-drilling" class="btn btn-primary">
+            🎯 Latihan Soal Bab Ini →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 2: DRILLING SOAL PER BAB -->
+    <!-- ===================================================================== -->
+    <section id="view-latihan" class="view-section">
+
+      <!-- SUB-VIEW 2A: SETUP & KONFIGURASI DRILLING PER BAB -->
+      <div id="quiz-setup-panel" class="quiz-setup-panel">
+        <div class="setup-header">
+          <h2>🎯 Drilling Soal Per Bab</h2>
+          <p class="section-desc">Pilih target kategori, subtes, dan bab spesifik untuk melatih pemahaman konsep Anda.</p>
+        </div>
+
+        <div class="setup-cards-stack">
+          <!-- Step 1: Kategori Utama (TKA / UTBK) -->
+          <div class="setup-card">
+            <label class="setup-label">
+              <span class="step-num">1</span>
+              <span>Pilih Kategori Utama:</span>
+            </label>
+            <div class="pill-group" id="setup-category-group">
+              <button class="pill-option active" data-cat="tka">🎓 TKA Saintek</button>
+              <button class="pill-option" data-cat="utbk">📝 UTBK (7 Subtes)</button>
+            </div>
+          </div>
+
+          <!-- Step 2: Subtes / Mata Pelajaran -->
+          <div class="setup-card">
+            <label class="setup-label">
+              <span class="step-num">2</span>
+              <span>Pilih Mata Pelajaran / Subtes:</span>
+            </label>
+            <div class="pill-group" id="setup-subtes-group">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Step 3: Pilihan Bab Spesifik (Drilling Per Bab) -->
+          <div class="setup-card">
+            <label class="setup-label">
+              <span class="step-num">3</span>
+              <span>Pilih Bab Spesifik:</span>
+            </label>
+            <div class="bab-select-wrapper">
+              <select id="setup-bab-select" class="app-select">
+                <option value="semua">-- Semua Bab dalam Subtes Ini --</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Step 4: Konfigurasi Soal, Kesulitan, & Timer -->
+          <div class="setup-card">
+            <label class="setup-label">
+              <span class="step-num">4</span>
+              <span>Jumlah Soal & Kesulitan:</span>
+            </label>
+            <div class="setup-grid-2col">
+              <div>
+                <label style="font-size:0.75rem; color:var(--text-muted); font-weight:600; display:block; margin-bottom:0.3rem;">Jumlah Soal:</label>
+                <div class="pill-group" id="setup-count-group">
+                  <button class="pill-option active" data-value="5">5</button>
+                  <button class="pill-option" data-value="10">10</button>
+                  <button class="pill-option" data-value="15">15</button>
+                  <button class="pill-option" data-value="semua">Semua</button>
+                </div>
+              </div>
+              <div>
+                <label style="font-size:0.75rem; color:var(--text-muted); font-weight:600; display:block; margin-bottom:0.3rem;">Kesulitan:</label>
+                <div class="pill-group" id="setup-difficulty-group">
+                  <button class="pill-option active" data-value="semua">Semua</button>
+                  <button class="pill-option" data-value="mudah">Mudah</button>
+                  <button class="pill-option" data-value="sedang">Sedang</button>
+                  <button class="pill-option" data-value="sulit">Sulit</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timer Toggle -->
+            <div class="timer-config-row" style="margin-top: 1rem; border-top: 1px solid var(--border-subtle); padding-top: 0.75rem;">
+              <label class="toggle-container">
+                <input type="checkbox" id="setup-timer-toggle" checked>
+                <span class="toggle-slider"></span>
+                <span class="toggle-label" id="setup-timer-toggle-label">Gunakan Timer</span>
+              </label>
+            </div>
+            
+            <div id="timer-duration-wrapper" class="timer-duration-wrapper">
+              <div class="pill-group duration-pills" id="setup-duration-group">
+                <button class="pill-option active" data-value="auto">⏱️ 1 Menit / Soal</button>
+                <button class="pill-option" data-value="300">5 Menit</button>
+                <button class="pill-option" data-value="600">10 Menit</button>
+                <button class="pill-option" data-value="900">15 Menit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info Soal Tersedia & CTA Mulai -->
+        <div class="setup-action-footer">
+          <div class="setup-summary-badge">
+            <span id="setup-available-info">Tersedia: <strong>... soal</strong> sesuai kriteria bab</span>
+          </div>
+          <button id="btn-start-quiz" class="btn btn-primary btn-block btn-lg">
+            🚀 Mulai Drilling Soal
+          </button>
+          <div class="setup-secondary-actions">
+            <button id="btn-setup-reset-history" class="btn btn-outline btn-sm">
+              🔄 Reset Riwayat Soal
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUB-VIEW 2B: KOTAK SOAL AKTIF & KUIS -->
+      <div id="quiz-active-panel" class="quiz-active-panel hidden">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- SUB-VIEW 2C: SUMMARY HASIL KUIS -->
+      <div id="quiz-result-panel" class="quiz-result-panel hidden">
+        <!-- Rendered via JS -->
+      </div>
+
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 3: PEMBAHASAN LENGKAP -->
+    <!-- ===================================================================== -->
+    <section id="view-pembahasan" class="view-section">
+      <div class="section-heading">
+        <div>
+          <h2>Kunci Jawaban & Pembahasan Lengkap</h2>
+          <p class="section-desc">Analisis langkah pengerjaan analitis, rumus LaTeX terkait, dan trik pengerjaan per bab.</p>
+        </div>
+        <div class="pembahasan-filter-group">
+          <div class="chip-filter-row" id="pembahasan-subtes-filters">
+            <!-- Filter Subtes Rendered via JS -->
+          </div>
+          <label class="toggle-container" style="margin-top: 0.5rem;">
+            <input type="checkbox" id="toggle-only-completed">
+            <span class="toggle-slider"></span>
+            <span class="toggle-label">Hanya Soal yang Telah Dikerjakan</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Container Daftar Pembahasan (Rendered via JS) -->
+      <div id="pembahasan-list" class="pembahasan-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================= -->
+  <!-- MOBILE BOTTOM NAVIGATION (Prioritas HP) -->
+  <!-- ======================================================================= -->
+  <nav class="mobile-bottom-nav" aria-label="Navigasi Bawah">
+    <button class="bottom-tab-btn active" data-view="materi" id="mob-tab-materi">
+      <div class="bottom-tab-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+      </div>
+      <span class="bottom-tab-label">Materi</span>
+    </button>
+    <button class="bottom-tab-btn" data-view="latihan" id="mob-tab-latihan">
+      <div class="bottom-tab-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+      </div>
+      <span class="bottom-tab-label">Drilling Bab</span>
+    </button>
+    <button class="bottom-tab-btn" data-view="pembahasan" id="mob-tab-pembahasan">
+      <div class="bottom-tab-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+      </div>
+      <span class="bottom-tab-label">Pembahasan</span>
+    </button>
+  </nav>
+
+  <!-- Footer Desktop -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <p>EduMandiri &bull; TKA (Fisika, MTK Lanjut, MTK Wajib) & UTBK (7 Subtes) &bull; KaTeX LaTeX &bull; Vanilla JS</p>
+    </div>
+  </footer>
+
+  <!-- Vendor Scripts (Offline Bundled) -->
+  <script src="./vendor/marked.min.js"></script>
+  <script src="./vendor/katex/katex.min.js"></script>
+  <script src="./vendor/katex/auto-render.min.js"></script>
+
+  <!-- Database Materi Markdown Per Bab -->
+  <script src="./data_materi.js"></script>
+
+  <!-- Script Logika Aplikasi Utama -->
+  <script src="./app.js"></script>
+</body>
+</html>

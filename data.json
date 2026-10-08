@@ -1,0 +1,436 @@
+{
+  "soal": [
+    {
+      "id": "FIS-M-01",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Kinematika Gerak Lurus (GLB dan GLBB)",
+      "kesulitan": "mudah",
+      "pertanyaan": "Sebuah mobil bergerak dari keadaan diam dengan percepatan konstan $a = 4\\text{ m/s}^2$. Berapakah kecepatan mobil tersebut setelah bergerak selama $t = 5\\text{ s}$?",
+      "pilihan": [
+        "$10\\text{ m/s}$",
+        "$20\\text{ m/s}$",
+        "$25\\text{ m/s}$",
+        "$40\\text{ m/s}$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Menggunakan persamaan GLBB tanpa perpindahan: $$v_t = v_0 + a \\cdot t$$ Karena mobil berangkat dari keadaan diam ($v_0 = 0\\text{ m/s}$): $$v_t = 0 + (4\\text{ m/s}^2)(5\\text{ s}) = 20\\text{ m/s}$$"
+    },
+    {
+      "id": "FIS-M-02",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Dinamika Gerak (Hukum Newton)",
+      "kesulitan": "mudah",
+      "pertanyaan": "Sebuah balok bermassa $m = 5\\text{ kg}$ ditarik dengan gaya mendatar $F = 30\\text{ N}$ di atas lantai licin tanpa gesekan. Berapakah percepatan balok tersebut?",
+      "pilihan": [
+        "$4\\text{ m/s}^2$",
+        "$6\\text{ m/s}^2$",
+        "$8\\text{ m/s}^2$",
+        "$15\\text{ m/s}^2$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Berdasarkan Hukum II Newton: $$\\sum F = m \\cdot a \\implies a = \\frac{F}{m}$$ Substitusi nilai: $$a = \\frac{30\\text{ N}}{5\\text{ kg}} = 6\\text{ m/s}^2$$"
+    },
+    {
+      "id": "FIS-M-03",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Listrik Arus Searah (DC)",
+      "kesulitan": "mudah",
+      "pertanyaan": "Sebuah kawat penghantar memiliki hambatan $R = 12\\ \\Omega$ dihubungkan ke sumber tegangan $V = 24\\text{ V}$. Berapakah kuat arus listrik yang mengalir pada kawat?",
+      "pilihan": [
+        "$0{,}5\\text{ A}$",
+        "$2{,}0\\text{ A}$",
+        "$4{,}0\\text{ A}$",
+        "$288\\text{ A}$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Sesuai Hukum Ohm: $$I = \\frac{V}{R} = \\frac{24\\text{ V}}{12\\ \\Omega} = 2{,}0\\text{ A}$$"
+    },
+    {
+      "id": "FIS-M-04",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Fluida Statis",
+      "kesulitan": "mudah",
+      "pertanyaan": "Seorang penyelam berada pada kedalaman $h = 8\\text{ m}$ di bawah permukaan air laut (massa jenis $\\rho = 1000\\text{ kg/m}^3$). Jika $g = 10\\text{ m/s}^2$, berapakah tekanan hidrostatis yang dialami penyelam?",
+      "pilihan": [
+        "$8\\text{ kPa}$",
+        "$80\\text{ kPa}$",
+        "$800\\text{ kPa}$",
+        "$8000\\text{ kPa}$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Tekanan hidrostatis dihitung dengan: $$P_h = \\rho \\cdot g \\cdot h$$ $$P_h = (1000\\text{ kg/m}^3) \\times (10\\text{ m/s}^2) \\times (8\\text{ m}) = 80.000\\text{ Pa} = 80\\text{ kPa}$$"
+    },
+    {
+      "id": "FIS-S-01",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Hukum Termodinamika dan Siklus Mesin",
+      "kesulitan": "sedang",
+      "pertanyaan": "Sebuah mesin kalor Carnot menyerap kalor dari reservoir bersuhu tinggi $T_H = 500\\text{ K}$ dan membuang kalor ke reservoir bersuhu rendah $T_C = 350\\text{ K}$. Berapakah efisiensi termal $\\eta$ mesin Carnot tersebut?",
+      "pilihan": [
+        "$25\\%$",
+        "$30\\%$",
+        "$45\\%$",
+        "$70\\%$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Efisiensi teoritis siklus Carnot: $$\\eta = \\left(1 - \\frac{T_C}{T_H}\\right) \\times 100\\%$$ $$\\eta = \\left(1 - \\frac{350}{500}\\right) \\times 100\\% = (1 - 0{,}70) \\times 100\\% = 30\\%$$"
+    },
+    {
+      "id": "FIS-S-02",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Gelombang Bunyi",
+      "kesulitan": "sedang",
+      "pertanyaan": "Sebuah ambulans bergerak mendekati pendengar diam dengan laju $v_s = 20\\text{ m/s}$ sambil membunyikan sirine berfrekuensi $f_s = 640\\text{ Hz}$. Jika cepat rambat bunyi di udara $v = 340\\text{ m/s}$, frekuensi yang didengar pendengar adalah...",
+      "pilihan": [
+        "$600\\text{ Hz}$",
+        "$640\\text{ Hz}$",
+        "$680\\text{ Hz}$",
+        "$720\\text{ Hz}$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Menggunakan Efek Doppler untuk pendengar diam ($v_p = 0$) dan sumber mendekat: $$f_p = \\left(\\frac{v}{v - v_s}\\right) f_s$$ $$f_p = \\left(\\frac{340}{340 - 20}\\right) \\times 640 = \\left(\\frac{340}{320}\\right) \\times 640 = 340 \\times 2 = 680\\text{ Hz}$$"
+    },
+    {
+      "id": "FIS-S-03",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Medan Magnetik dan Gaya Lorentz",
+      "kesulitan": "sedang",
+      "pertanyaan": "Kawat lurus berarus listrik $I = 5\\text{ A}$ sepanjang $L = 0{,}4\\text{ m}$ berada tegak lurus dalam medan magnet homogen $B = 0{,}6\\text{ T}$. Besar gaya Lorentz yang dialami kawat adalah...",
+      "pilihan": [
+        "$0{,}8\\text{ N}$",
+        "$1{,}2\\text{ N}$",
+        "$1{,}5\\text{ N}$",
+        "$2{,}4\\text{ N}$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Gaya Lorentz pada kawat berarus: $$F = B \\cdot I \\cdot L \\sin\\theta$$ Karena tegak lurus ($\\theta = 90^\\circ \\implies \\sin 90^\\circ = 1$): $$F = (0{,}6\\text{ T}) \\times (5\\text{ A}) \\times (0{,}4\\text{ m}) \\times 1 = 1{,}2\\text{ N}$$"
+    },
+    {
+      "id": "FIS-S-04",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Kinematika Gerak Lurus (GLB dan GLBB)",
+      "kesulitan": "sedang",
+      "pertanyaan": "Benda bermassa $m = 2\\text{ kg}$ dilempar vertikal ke atas dengan kecepatan awal $v_0 = 20\\text{ m/s}$. Jika $g = 10\\text{ m/s}^2$, ketinggian maksimum $h_{\\text{maks}}$ yang dicapai benda adalah...",
+      "pilihan": [
+        "$10\\text{ m}$",
+        "$15\\text{ m}$",
+        "$20\\text{ m}$",
+        "$40\\text{ m}$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Pada ketinggian maksimum, kecepatan akhir $v_t = 0\\text{ m/s}$. $$v_t^2 = v_0^2 - 2gh_{\\text{maks}} \\implies h_{\\text{maks}} = \\frac{v_0^2}{2g}$$ $$h_{\\text{maks}} = \\frac{20^2}{2(10)} = \\frac{400}{20} = 20\\text{ m}$$"
+    },
+    {
+      "id": "FIS-H-01",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Dinamika Rotasi dan Kesetimbangan Benda Tegar",
+      "kesulitan": "sulit",
+      "pertanyaan": "Sebuah silinder pejal bermassa $M = 4\\text{ kg}$ dan jari-jari $R = 0{,}2\\text{ m}$ menggelinding murni tanpa slip dari ketinggian $h = 3\\text{ m}$. Jika momen inersia $I = \\frac{1}{2} M R^2$ dan $g = 10\\text{ m/s}^2$, kecepatan linier silinder di dasar adalah...",
+      "pilihan": [
+        "$\\sqrt{40}\\text{ m/s} \\approx 6{,}32\\text{ m/s}$",
+        "$\\sqrt{60}\\text{ m/s} \\approx 7{,}75\\text{ m/s}$",
+        "$\\sqrt{30}\\text{ m/s} \\approx 5{,}48\\text{ m/s}$",
+        "$2\\sqrt{10}\\text{ m/s} \\approx 6{,}32\\text{ m/s}$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Hukum Kekekalan Energi Mekanik: $$Mgh = \\frac{1}{2}Mv^2 + \\frac{1}{2}I\\omega^2$$ Karena $\\omega = \\frac{v}{R}$ dan $I = \\frac{1}{2}MR^2$, total $E_k = \\frac{3}{4}Mv^2$. $$Mgh = \\frac{3}{4}Mv^2 \\implies v = \\sqrt{\\frac{4}{3}gh}$$ Substitusi $g = 10, h = 3$: $$v = \\sqrt{\\frac{4}{3} \\cdot 10 \\cdot 3} = \\sqrt{40}\\text{ m/s}$$"
+    },
+    {
+      "id": "FIS-H-02",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Gejala Kuantum dan Dualisme Gelombang-Partikel",
+      "kesulitan": "sulit",
+      "pertanyaan": "Fungsi kerja suatu logam adalah $W_0 = 2{,}2\\text{ eV}$. Logam tersebut disinari foton berfrekuensi $f = 10^{15}\\text{ Hz}$. Jika konstanta Planck $h = 6{,}63 \\times 10^{-34}\\text{ J}\\cdot\\text{s}$ dan $1\\text{ eV} = 1{,}6 \\times 10^{-19}\\text{ J}$, energi kinetik maksimum elektron yang keluar adalah...",
+      "pilihan": [
+        "$1{,}94\\text{ eV}$",
+        "$2{,}20\\text{ eV}$",
+        "$4{,}14\\text{ eV}$",
+        "$0{,}85\\text{ eV}$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Energi foton datang: $$E = hf = (6{,}63 \\times 10^{-34})(10^{15}) = 6{,}63 \\times 10^{-19}\\text{ J}$$ Dalam satuan eV: $$E = \\frac{6{,}63 \\times 10^{-19}}{1{,}6 \\times 10^{-19}} \\approx 4{,}14\\text{ eV}$$ Berdasarkan persamaan efek fotolistrik Einstein: $$E_{k,\\text{maks}} = E - W_0 = 4{,}14\\text{ eV} - 2{,}20\\text{ eV} = 1{,}94\\text{ eV}$$"
+    },
+    {
+      "id": "FIS-H-03",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Teori Relativitas Khusus",
+      "kesulitan": "sulit",
+      "pertanyaan": "Sebuah pesawat luar angkasa melintas dengan kecepatan $v = 0{,}8c$. Jika pengamat di dalam pesawat mencatat perjalanan memakan waktu $\\Delta t_0 = 6\\text{ jam}$, waktu perjalanan menurut pengamat diam di bumi adalah...",
+      "pilihan": [
+        "$3{,}6\\text{ jam}$",
+        "$7{,}5\\text{ jam}$",
+        "$10{,}0\\text{ jam}$",
+        "$12{,}0\\text{ jam}$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Berdasarkan efek dilatasi waktu relativitas khusus Einstein: $$\\Delta t = \\frac{\\Delta t_0}{\\sqrt{1 - \\frac{v^2}{c^2}}}$$ Untuk $v = 0{,}8c$, faktor Lorentz $\\gamma$: $$\\gamma = \\frac{1}{\\sqrt{1 - (0{,}8)^2}} = \\frac{1}{\\sqrt{0{,}36}} = \\frac{1}{0{,}6} = \\frac{5}{3}$$ Maka: $$\\Delta t = 6 \\times \\frac{5}{3} = 10\\text{ jam}$$"
+    },
+    {
+      "id": "FIS-H-04",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Rangkaian Arus Bolak-Balik (AC)",
+      "kesulitan": "sulit",
+      "pertanyaan": "Rangkaian RLC seri memiliki induktor $L = 0{,}1\\text{ H}$ dan kapasitor $C = 10\\ \\mu\\text{F}$. Frekuensi resonansi sudut $\\omega_0$ dari rangkaian tersebut adalah...",
+      "pilihan": [
+        "$100\\text{ rad/s}$",
+        "$1.000\\text{ rad/s}$",
+        "$10.000\\text{ rad/s}$",
+        "$500\\text{ rad/s}$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Frekuensi sudut resonansi rangkaian RLC seri terjadi saat $X_L = X_C$: $$\\omega_0 = \\frac{1}{\\sqrt{LC}}$$ Substitusi $L = 0{,}1\\text{ H}$ dan $C = 10 \\times 10^{-6}\\text{ F} = 10^{-5}\\text{ F}$: $$\\omega_0 = \\frac{1}{\\sqrt{0{,}1 \\times 10^{-5}}} = \\frac{1}{\\sqrt{10^{-6}}} = 1.000\\text{ rad/s}$$"
+    },
+    {
+      "id": "MTK-M-01",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Lanjut",
+      "bab": "Turunan (Diferensial) & Aplikasi",
+      "kesulitan": "mudah",
+      "pertanyaan": "Jika $f(x) = 3x^3 - 5x^2 + 7x - 4$, berapakah nilai turunan pertama $f'(2)$?",
+      "pilihan": [
+        "$19$",
+        "$23$",
+        "$27$",
+        "$31$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Turunan pertama fungsi polinomial: $$f'(x) = \\frac{d}{dx}(3x^3 - 5x^2 + 7x - 4) = 9x^2 - 10x + 7$$ Substitusikan nilai $x = 2$: $$f'(2) = 9(2)^2 - 10(2) + 7 = 9(4) - 20 + 7 = 36 - 20 + 7 = 23$$"
+    },
+    {
+      "id": "MTK-M-02",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Lanjut",
+      "bab": "Logaritma",
+      "kesulitan": "mudah",
+      "pertanyaan": "Nilai dari $^2\\log 48 - ^2\\log 3$ adalah...",
+      "pilihan": [
+        "$2$",
+        "$3$",
+        "$4$",
+        "$5$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Menggunakan sifat pengurangan logaritma: $$^a\\log b - ^a\\log c = ^a\\log\\left(\\frac{b}{c}\\right)$$ Maka: $$^2\\log 48 - ^2\\log 3 = ^2\\log\\left(\\frac{48}{3}\\right) = ^2\\log 16 = 4$$"
+    },
+    {
+      "id": "MTK-M-03",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Lanjut",
+      "bab": "Eksponen & Bentuk Akar",
+      "kesulitan": "mudah",
+      "pertanyaan": "Bentuk sederhana dari pecahan aljabar eksponen $\\frac{a^3 b^{-2}}{a^{-1} b^4}$ adalah...",
+      "pilihan": [
+        "$\\frac{a^4}{b^6}$",
+        "$\\frac{a^2}{b^2}$",
+        "$a^4 b^2$",
+        "$\\frac{a^2}{b^6}$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Menggunakan aturan eksponen $\\frac{x^m}{x^n} = x^{m-n}$: $$\\frac{a^3}{a^{-1}} = a^{3 - (-1)} = a^4, \\quad \\frac{b^{-2}}{b^4} = b^{-2 - 4} = b^{-6} = \\frac{1}{b^6} \\implies \\frac{a^4}{b^6}$$"
+    },
+    {
+      "id": "MTK-M-04",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Lanjut",
+      "bab": "Persamaan & Fungsi Kuadrat",
+      "kesulitan": "mudah",
+      "pertanyaan": "Akar-akar persamaan kuadrat $x^2 - 7x + 12 = 0$ adalah $x_1$ dan $x_2$. Nilai dari $x_1 + x_2$ dan $x_1 \\cdot x_2$ berturut-turut adalah...",
+      "pilihan": [
+        "$7$ dan $12$",
+        "$-7$ dan $12$",
+        "$7$ dan $-12$",
+        "$-7$ dan $-12$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Berdasarkan Teorema Vieta untuk $ax^2 + bx + c = 0$: $$x_1 + x_2 = -\\frac{b}{a} = -\\frac{-7}{1} = 7$$ $$x_1 \\cdot x_2 = \\frac{c}{a} = \\frac{12}{1} = 12$$"
+    },
+    {
+      "id": "MTK-S-01",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Lanjut",
+      "bab": "Integral & Aplikasi",
+      "kesulitan": "sedang",
+      "pertanyaan": "Nilai dari integral tentu $\\int_0^2 (3x^2 - 4x + 1)\\,dx$ adalah...",
+      "pilihan": [
+        "$0$",
+        "$2$",
+        "$4$",
+        "$6$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Antiturunan dari integrand: $$F(x) = x^3 - 2x^2 + x$$ Evaluasi pada interval $[0, 2]$: $$F(2) = (2)^3 - 2(2)^2 + (2) = 8 - 8 + 2 = 2, \\quad F(0) = 0 \\implies F(2) - F(0) = 2$$"
+    },
+    {
+      "id": "MTK-S-02",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Lanjut",
+      "bab": "Nilai Mutlak & Pertidaksamaan",
+      "kesulitan": "sedang",
+      "pertanyaan": "Himpunan penyelesaian dari pertidaksamaan nilai mutlak $|2x - 3| \\le 7$ adalah...",
+      "pilihan": [
+        "$-2 \\le x \\le 5$",
+        "$-5 \\le x \\le 2$",
+        "$x \\le -2 \\text{ atau } x \\ge 5$",
+        "$-2 < x < 5$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Sifat $|u| \\le a \\iff -a \\le u \\le a$: $$-7 \\le 2x - 3 \\le 7 \\implies -4 \\le 2x \\le 10 \\implies -2 \\le x \\le 5$$"
+    },
+    {
+      "id": "MTK-S-03",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Lanjut",
+      "bab": "Operasi & Sifat Matriks",
+      "kesulitan": "sedang",
+      "pertanyaan": "Diberikan matriks $A = \\begin{pmatrix} 3 & 4 \\\\ 1 & 2 \\end{pmatrix}$. Determinan dari matriks $A^{-1}$ (invers dari $A$) adalah...",
+      "pilihan": [
+        "$2$",
+        "$\\frac{1}{2}$",
+        "$-2$",
+        "$-\\frac{1}{2}$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Determinan matriks $A$: $$\\det(A) = (3)(2) - (4)(1) = 6 - 4 = 2$$ Maka determinan inversnya: $$\\det(A^{-1}) = \\frac{1}{\\det(A)} = \\frac{1}{2}$$"
+    },
+    {
+      "id": "MTK-S-04",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Lanjut",
+      "bab": "Kaidah Pencacahan & Teori Peluang",
+      "kesulitan": "sedang",
+      "pertanyaan": "Dari 8 orang calon pengurus OSIS, akan dipilih 3 orang untuk menjadi delegasi lomba. Banyaknya susunan delegasi yang dapat dibentuk adalah...",
+      "pilihan": [
+        "$24$",
+        "$56$",
+        "$112$",
+        "$336$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Gunakan kombinasi $C(8, 3)$: $$C(8, 3) = \\frac{8!}{3!(8 - 3)!} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56$$"
+    },
+    {
+      "id": "MTK-H-01",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Lanjut",
+      "bab": "Limit Fungsi, Asimtotik, & Kekontinuan",
+      "kesulitan": "sulit",
+      "pertanyaan": "Nilai dari $\\lim_{x \\to 2} \\frac{\\sqrt{x + 2} - 2}{x - 2}$ adalah...",
+      "pilihan": [
+        "$\\frac{1}{2}$",
+        "$\\frac{1}{4}$",
+        "$\\frac{1}{8}$",
+        "$1$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Mengalikan dengan sekawan: $$\\lim_{x \\to 2} \\frac{(x+2) - 4}{(x-2)(\\sqrt{x+2} + 2)} = \\lim_{x \\to 2} \\frac{1}{\\sqrt{x+2} + 2} = \\frac{1}{2 + 2} = \\frac{1}{4}$$"
+    },
+    {
+      "id": "MTK-H-02",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Lanjut",
+      "bab": "Turunan (Diferensial) & Aplikasi",
+      "kesulitan": "sulit",
+      "pertanyaan": "Persamaan garis singgung kurva $y = x^2 - 4x + 3$ yang sejajar dengan garis $2x - y + 5 = 0$ adalah...",
+      "pilihan": [
+        "$y = 2x - 6$",
+        "$y = 2x - 4$",
+        "$y = 2x + 1$",
+        "$y = 2x - 8$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Gradien $m = 2$. Turunan kurva $y' = 2x - 4 = 2 \\implies x = 3$. Titik singgung $(3, 0)$. Persamaan garis singgung: $y - 0 = 2(x - 3) \\implies y = 2x - 6$."
+    },
+    {
+      "id": "MTK-H-03",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Lanjut",
+      "bab": "Geometri Ruang (Dimensi Tiga)",
+      "kesulitan": "sulit",
+      "pertanyaan": "Diketahui kubus $ABCD.EFGH$ dengan panjang rusuk $6\\text{ cm}$. Jarak titik $E$ ke bidang $BDG$ adalah...",
+      "pilihan": [
+        "$2\\sqrt{3}\\text{ cm}$",
+        "$3\\sqrt{3}\\text{ cm}$",
+        "$4\\sqrt{3}\\text{ cm}$",
+        "$2\\sqrt{6}\\text{ cm}$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Diagonal ruang $EC = 6\\sqrt{3}\\text{ cm}$. Jarak titik $E$ ke bidang $BDG$ adalah $\\frac{2}{3} EC = \\frac{2}{3} (6\\sqrt{3}) = 4\\sqrt{3}\\text{ cm}$."
+    },
+    {
+      "id": "MTK-H-04",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Lanjut",
+      "bab": "Persamaan & Fungsi Kuadrat",
+      "kesulitan": "sulit",
+      "pertanyaan": "Jumlah tak hingga dari deret geometri $18 + 12 + 8 + \\frac{16}{3} + \\dots$ adalah...",
+      "pilihan": [
+        "$36$",
+        "$48$",
+        "$54$",
+        "$72$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "$a = 18$, $r = \\frac{12}{18} = \\frac{2}{3}$. $$S_\\infty = \\frac{a}{1 - r} = \\frac{18}{1 - 2/3} = 18 \\times 3 = 54$$"
+    },
+    {
+      "id": "FIS-M-00A",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Pengukuran, Besaran, Dimensi, dan Angka Penting",
+      "kesulitan": "mudah",
+      "pertanyaan": "Hasil pengukuran panjang dan lebar pelat seng berturut-turut adalah $12{,}5\\text{ cm}$ dan $4{,}2\\text{ cm}$. Berdasarkan aturan angka penting, luas pelat tersebut adalah...",
+      "pilihan": [
+        "$52{,}5\\text{ cm}^2$",
+        "$52{,}50\\text{ cm}^2$",
+        "$53\\text{ cm}^2$",
+        "$52\\text{ cm}^2$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Panjang $= 12{,}5\\text{ cm}$ (3 angka penting), lebar $= 4{,}2\\text{ cm}$ (2 angka penting). Hasil perkalian: $$12{,}5 \\times 4{,}2 = 52{,}5\\text{ cm}^2$$ Menurut aturan angka penting, hasil perkalian harus dibulatkan mengikuti faktor dengan angka penting paling sedikit, yaitu 2 angka penting. Angka $52{,}5$ dibulatkan menjadi $53\\text{ cm}^2$."
+    },
+    {
+      "id": "FIS-M-00B",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Vektor",
+      "kesulitan": "mudah",
+      "pertanyaan": "Dua buah vektor gaya masing-masing besarnya $F_1 = 6\\text{ N}$ dan $F_2 = 8\\text{ N}$ bekerja pada satu titik tangkap yang sama dan saling tegak lurus ($\\theta = 90^\\circ$). Berapakah besar resultan kedua vektor gaya tersebut?",
+      "pilihan": [
+        "$10\\text{ N}$",
+        "$14\\text{ N}$",
+        "$2\\text{ N}$",
+        "$48\\text{ N}$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Karena kedua vektor saling tegak lurus ($\\theta = 90^\\circ$), nilai $\\cos 90^\\circ = 0$. Besar resultan dihitung dengan teorema Pythagoras: $$R = \\sqrt{F_1^2 + F_2^2} = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10\\text{ N}$$"
+    },
+    {
+      "id": "FIS-M-05",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Fluida Dinamis",
+      "kesulitan": "mudah",
+      "pertanyaan": "Air mengalir melalui pipa mendatar dengan luas penampang $A_1 = 12\\text{ cm}^2$ dengan kelajuan $v_1 = 2\\text{ m/s}$. Jika pipa tersebut menyempit ke luas penampang $A_2 = 3\\text{ cm}^2$, kelajuan air pada penampang sempit $v_2$ adalah...",
+      "pilihan": [
+        "$4\\text{ m/s}$",
+        "$6\\text{ m/s}$",
+        "$8\\text{ m/s}$",
+        "$12\\text{ m/s}$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Berdasarkan Persamaan Kontinuitas untuk fluida inkompresibel: $$A_1 \\cdot v_1 = A_2 \\cdot v_2$$ Substitusi nilai: $$(12\\text{ cm}^2)(2\\text{ m/s}) = (3\\text{ cm}^2) \\cdot v_2$$ $$v_2 = \\frac{24}{3} = 8\\text{ m/s}$$"
+    }
+  ]
+}

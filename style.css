@@ -1,0 +1,1876 @@
+/* ==========================================================================
+   EDUMANDIRI - MOBILE-FIRST RESPONSIVE STYLESHEET
+   Desain Adaptif Prioritas Smartphone / HP, LaTeX KaTeX Support, Offline PWA
+   Struktur: TKA (Fisika, MTK Lanjut, MTK Wajib) & UTBK (7 Subtes)
+   ========================================================================== */
+
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-light: #eef2ff;
+  --primary-text: #312e81;
+
+  --secondary: #0ea5e9;
+  --secondary-hover: #0284c7;
+
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-muted: #f1f5f9;
+
+  --border-subtle: #e2e8f0;
+  --border-strong: #cbd5e1;
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+
+  --badge-easy-bg: #dcfce7;
+  --badge-easy-text: #15803d;
+  --badge-medium-bg: #fef3c7;
+  --badge-medium-text: #b45309;
+  --badge-hard-bg: #fee2e2;
+  --badge-hard-text: #b91c1c;
+
+  --subject-fisika-bg: #e0f2fe;
+  --subject-fisika-text: #0369a1;
+  --subject-mtk-bg: #f3e8ff;
+  --subject-mtk-text: #7e22ce;
+  --subject-utbk-bg: #fef3c7;
+  --subject-utbk-text: #b45309;
+
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.07);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.08);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.08);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.08);
+
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Helvetica Neue", Arial, sans-serif;
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* ========================================================================
+     FLUID TYPOGRAPHY SCALE (ADAPTIF & PEDAGOGICAL FOR OPTIMAL LEARNING)
+     Berdasarkan kaidah Cognitive Load Theory & Optimal Reading Measure:
+     - Nyaman dibaca berjam-jam tanpa kelelahan mata
+     - Ukuran halus berskala otomatis dari HP (360px) ke Desktop (1440px)
+     ======================================================================== */
+  --font-size-base: clamp(0.98rem, 0.92rem + 0.3vw, 1.14rem); /* ~15.7px - 18.2px */
+  --font-size-sm: clamp(0.82rem, 0.78rem + 0.18vw, 0.92rem);
+  --font-size-xs: clamp(0.72rem, 0.68rem + 0.15vw, 0.82rem);
+  --font-size-h1: clamp(1.4rem, 1.22rem + 0.9vw, 2.05rem);
+  --font-size-h2: clamp(1.2rem, 1.08rem + 0.55vw, 1.6rem);
+  --font-size-h3: clamp(1.05rem, 0.98rem + 0.35vw, 1.35rem);
+  --font-size-h4: clamp(0.96rem, 0.92rem + 0.2vw, 1.18rem);
+  
+  --line-height-body: 1.72; /* Standar emas pedagogis: kenyamanan membaca teks panjang */
+  --line-height-heading: 1.3;
+  --reading-measure: 72ch; /* 65-75 karakter per baris untuk meminimalkan eye fatigue */
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   APP HEADER
+   ========================================================================== */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+.header-container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+  flex-shrink: 0;
+}
+
+.brand-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  display: block;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.badge-online {
+  background-color: #ecfdf5;
+  color: #065f46;
+}
+.badge-online .status-dot {
+  background-color: #10b981;
+}
+
+.badge-offline {
+  background-color: #fef2f2;
+  color: #991b1b;
+}
+.badge-offline .status-dot {
+  background-color: #ef4444;
+}
+
+.progress-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--primary-text);
+  background-color: var(--primary-light);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(79, 70, 229, 0.15);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   NAVIGATION (DESKTOP & MOBILE BOTTOM BAR)
+   ========================================================================== */
+.desktop-nav {
+  display: none;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.desktop-nav .nav-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.desktop-nav .nav-tab:hover {
+  color: var(--primary);
+}
+
+.desktop-nav .nav-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+/* Mobile Bottom Navigation Bar (Prioritas HP) */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-around;
+  padding: 0.4rem 0.5rem calc(0.4rem + var(--safe-bottom));
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.bottom-tab-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 0.35rem 0.2rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+  min-height: 48px;
+}
+
+.bottom-tab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.bottom-tab-btn.active {
+  color: var(--primary);
+}
+
+.bottom-tab-btn.active .bottom-tab-icon {
+  transform: translateY(-2px);
+}
+
+.bottom-tab-btn.active .bottom-tab-label {
+  font-weight: 700;
+}
+
+@media (min-width: 769px) {
+  .desktop-nav {
+    display: flex;
+  }
+  .mobile-bottom-nav {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   APP MAIN & LAYOUT
+   ========================================================================== */
+.app-main {
+  flex: 1;
+  max-width: 1040px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.75rem 0.65rem calc(4rem + var(--safe-bottom));
+}
+
+@media (min-width: 769px) {
+  .app-main {
+    padding: 1rem 1rem 2rem;
+  }
+}
+
+.view-section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.view-section.active {
+  display: block;
+  opacity: 1;
+  animation: fadeIn 0.25s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.app-banner {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.banner-offline {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* ==========================================================================
+   CATEGORY MAIN SWITCHER: TKA vs UTBK
+   ========================================================================== */
+.category-main-switcher {
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--bg-muted);
+  padding: 3px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.cat-pill {
+  flex: 1;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+  min-height: 34px;
+}
+
+.cat-pill.active {
+  background-color: var(--bg-surface);
+  color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================================================
+   VIEW 1: MATERI & RANGKUMAN (Pemisahan Mode & List Bab)
+   ========================================================================== */
+.materi-section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .materi-section-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.materi-mode-segmented {
+  display: inline-flex;
+  background-color: var(--bg-muted);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 3px;
+  width: 100%;
+  max-width: 340px;
+}
+
+.segment-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  min-height: 32px;
+}
+
+.segment-btn.active {
+  background-color: var(--bg-surface);
+  color: var(--primary);
+  box-shadow: var(--shadow-sm);
+  font-weight: 700;
+}
+
+.materi-filter-group, .chip-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.materi-filter-group::-webkit-scrollbar,
+.chip-filter-row::-webkit-scrollbar {
+  display: none;
+}
+
+.chip-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+  min-height: 28px;
+}
+
+.chip-filter:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.chip-filter.active {
+  background-color: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 1px 4px rgba(79, 70, 229, 0.25);
+}
+
+.mode-info-banner {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  color: #166534;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+
+/* Cards Grid: Lebih rapat, multi-kolom rapi */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+@media (min-width: 600px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.55rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+  }
+}
+
+/* ==========================================================================
+   CARD BAB TERPADU: Wadah Bab Tunggal dengan Akses Materi, Variasi Soal & Rangkuman
+   ========================================================================== */
+.bab-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.bab-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.bab-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.bab-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.55rem;
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  border-radius: var(--radius-full);
+  background-color: var(--primary-light);
+  color: var(--primary-text);
+  letter-spacing: 0.02em;
+}
+
+.bab-card-title {
+  font-size: clamp(0.98rem, 0.92rem + 0.25vw, 1.15rem);
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.35;
+  margin-bottom: 0.25rem;
+}
+
+.bab-card-blok {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* Grid Pilihan Aksi Modul di dalam Bab */
+.bab-module-options {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+}
+
+.btn-bab-choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.65rem;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  text-align: left;
+  line-height: 1.25;
+}
+
+.btn-choice-materi {
+  background-color: #eef2ff;
+  color: #3730a3;
+  border-color: #c7d2fe;
+}
+.btn-choice-materi:hover {
+  background-color: #e0e7ff;
+  border-color: #a5b4fc;
+}
+
+.btn-choice-cs {
+  background-color: #f0f9ff;
+  color: #0369a1;
+  border-color: #bae6fd;
+}
+.btn-choice-cs:hover:not(.disabled) {
+  background-color: #e0f2fe;
+  border-color: #7dd3fc;
+}
+
+.btn-choice-rangkuman {
+  background-color: #f0fdf4;
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+.btn-choice-rangkuman:hover:not(.disabled) {
+  background-color: #dcfce7;
+  border-color: #86efac;
+}
+
+.btn-choice-quiz {
+  background-color: #fffbeb;
+  color: #92400e;
+  border-color: #fde68a;
+}
+.btn-choice-quiz:hover {
+  background-color: #fef3c7;
+  border-color: #fcd34d;
+}
+
+.btn-bab-choice.disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+}
+
+.choice-badge {
+  margin-left: auto;
+  font-size: 0.65rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: var(--radius-full);
+  background-color: #0284c7;
+  color: #fff;
+  font-weight: 700;
+}
+
+.choice-badge.muted {
+  background-color: #cbd5e1;
+  color: #475569;
+}
+
+.card-header-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+  gap: 0.35rem;
+}
+
+.tag-subject {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.tag-subject.fisika {
+  background-color: var(--subject-fisika-bg);
+  color: var(--subject-fisika-text);
+}
+
+.tag-subject.matematika,
+.tag-subject.matematika-lanjut {
+  background-color: var(--subject-mtk-bg);
+  color: var(--subject-mtk-text);
+}
+
+.tag-subject.matematika-wajib {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.tag-subject.utbk {
+  background-color: var(--subject-utbk-bg);
+  color: var(--subject-utbk-text);
+}
+
+/* ==========================================================================
+   VIEW 1B: FULL PAGE SPA READER (HALAMAN BACA PENUH ADAPTIF)
+   ========================================================================== */
+.reader-full-page {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.reader-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.85rem;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 56px;
+  z-index: 20;
+  flex-wrap: wrap;
+}
+
+.btn-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.3rem 0.55rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.btn-back-link:hover {
+  background-color: var(--primary-light);
+}
+
+/* In-Reader Mode Switcher: Tab segmented sticky di top reader bar */
+.reader-mode-switcher {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--bg-muted);
+  border-radius: var(--radius-sm);
+  padding: 3px;
+  gap: 3px;
+}
+
+.reader-mode-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.75rem;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.reader-mode-tab:hover:not(:disabled) {
+  color: var(--text-main);
+}
+
+.reader-mode-tab.active {
+  background-color: var(--bg-surface);
+  color: var(--primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.reader-mode-tab:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.reader-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.reader-content-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: clamp(1rem, 0.85rem + 1vw, 2rem) clamp(1rem, 0.85rem + 1.2vw, 2.5rem);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.25rem;
+}
+
+.reader-bottom-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 600px) {
+  .reader-bottom-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* ==========================================================================
+   MARKDOWN READER & LATEX KA-TEX (PEDAGOGICAL & COGNITIVE-FRIENDLY TYPOGRAPHY)
+   Berdasarkan riset membaca intensif:
+   - Font adaptif dengan clamp()
+   - Line height lega 1.72 untuk mencegah kelelahan mata
+   - Line measure optimal max 72ch
+   - Visual anchors pada headings dan langkah penyelesaian
+   ========================================================================== */
+.markdown-reader {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-body);
+  color: #1e293b;
+  max-width: var(--reading-measure);
+  margin: 0 auto;
+}
+
+.markdown-reader h1 {
+  font-size: var(--font-size-h1);
+  font-weight: 800;
+  margin-top: 0.4rem;
+  margin-bottom: 0.85rem;
+  color: var(--text-main);
+  line-height: var(--line-height-heading);
+  border-bottom: 2px solid var(--border-subtle);
+  padding-bottom: 0.5rem;
+}
+
+.markdown-reader h2 {
+  font-size: var(--font-size-h2);
+  font-weight: 700;
+  margin-top: 1.8rem;
+  margin-bottom: 0.75rem;
+  color: var(--primary-text);
+  border-left: 4px solid var(--primary);
+  background: linear-gradient(to right, rgba(238, 242, 255, 0.7), transparent);
+  padding: 0.4rem 0.75rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  line-height: var(--line-height-heading);
+}
+
+.markdown-reader h3 {
+  font-size: var(--font-size-h3);
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+  color: var(--text-main);
+  line-height: var(--line-height-heading);
+}
+
+.markdown-reader h4 {
+  font-size: var(--font-size-h4);
+  font-weight: 700;
+  margin-top: 1.15rem;
+  margin-bottom: 0.45rem;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.markdown-reader p {
+  margin-bottom: 1.1rem;
+}
+
+.markdown-reader ul, .markdown-reader ol {
+  margin-bottom: 1.15rem;
+  padding-left: 1.45rem;
+}
+
+.markdown-reader li {
+  margin-bottom: 0.35rem;
+}
+
+.markdown-reader hr {
+  margin: 1.5rem 0;
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Responsive Table Wrapper untuk Mobile */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1rem 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  -webkit-overflow-scrolling: touch;
+}
+
+.markdown-reader table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+  background-color: var(--bg-surface);
+}
+
+.markdown-reader th,
+.markdown-reader td {
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--border-subtle);
+  text-align: left;
+  line-height: 1.45;
+}
+
+.markdown-reader th {
+  background-color: var(--bg-muted);
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.markdown-reader tr:nth-child(even) {
+  background-color: var(--bg-app);
+}
+
+/* KaTeX Responsive Equation Handling */
+.katex-display {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  max-width: 100% !important;
+  padding: 0.5rem 0.25rem !important;
+  margin: 0.4rem 0 !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+.katex {
+  font-size: 1.08em;
+  text-rendering: auto;
+}
+
+/* Proteksi KaTeX: Simbol akar (\sqrt), panah, aksen, dan delimiter SVG */
+.katex svg,
+.markdown-reader .katex svg,
+#reader-markdown-body .katex svg {
+  display: block !important;
+  position: absolute !important;
+  width: 100% !important;
+  height: inherit !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+  max-height: none !important;
+  box-sizing: content-box !important;
+}
+
+.katex svg path,
+.markdown-reader .katex svg path,
+#reader-markdown-body .katex svg path {
+  stroke: none !important;
+  fill: currentColor !important;
+}
+
+/* KaTeX Display Block Container: Nyaman dibaca, bersih, dan elegan */
+.katex-display-block {
+  margin: 0.95rem 0;
+  text-align: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.85rem 1.25rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  -webkit-overflow-scrolling: touch;
+}
+
+.katex-inline-block {
+  display: inline;
+  padding: 0 0.12em;
+}
+
+.katex-error {
+  color: #ef4444;
+  background-color: #fef2f2;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.88em;
+  border: 1px dashed #fca5a5;
+}
+
+/* Step-by-Step Clarity: Badge Langkah */
+.langkah-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-weight: 700;
+  font-size: var(--font-size-xs);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  margin-right: 0.35rem;
+  border: 1px solid #bae6fd;
+}
+
+/* Hasil Akhir Highlight */
+.hasil-highlight {
+  background: #ecfdf5;
+  border-left: 4px solid #10b981;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  margin: 0.95rem 0;
+  color: #065f46;
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.katex-inline-block {
+  display: inline;
+  white-space: nowrap;
+}
+
+.katex-error {
+  color: #ef4444;
+  background-color: #fef2f2;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.85em;
+  border: 1px dashed #fca5a5;
+}
+
+/* ==========================================================================
+   CALLOUT BOXES & VISUAL STUDY CARDS (INFORMATIF, MENARIK, & ENAK DIPELAJARI)
+   ========================================================================== */
+.callout-box {
+  margin: 0.75rem 0;
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--primary);
+  padding: 0.65rem 0.85rem;
+  font-size: 0.86rem;
+  line-height: 1.52;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.callout-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.callout-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.callout-title {
+  flex: 1;
+}
+
+.callout-body {
+  font-size: 0.86rem;
+  color: inherit;
+}
+
+.callout-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Callout Varian 1: Rumus Kunci & Persamaan (Indigo) */
+.callout-box.callout-formula {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  border-left-color: #6366f1;
+  color: #312e81;
+}
+.callout-formula .callout-header {
+  color: #4338ca;
+}
+
+/* Callout Varian 2: Tips & Trik Cepat (Emerald) */
+.callout-box.callout-tip {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-left-color: #10b981;
+  color: #064e3b;
+}
+.callout-tip .callout-header {
+  color: #047857;
+}
+
+/* Callout Varian 3: Jebakan Soal & Kesalahan Umum (Amber) */
+.callout-box.callout-warning {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border-left-color: #f59e0b;
+  color: #78350f;
+}
+.callout-warning .callout-header {
+  color: #b45309;
+}
+
+/* Callout Varian 4: Contoh Soal & Solusi Kilat (Sky) */
+.callout-box.callout-example {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-left-color: #0284c7;
+  color: #0c4a6e;
+}
+.callout-example .callout-header {
+  color: #0369a1;
+}
+
+/* Callout Varian 5: Catatan Konsep Penting (Slate/Blue) */
+.callout-box.callout-note {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-left-color: #64748b;
+  color: #1e293b;
+}
+.callout-note .callout-header {
+  color: #334155;
+}
+
+/* Responsive SVGs (Hanya untuk gambar ilustrasi/diagram Markdown, JANGAN terapkan ke KaTeX SVG) */
+.markdown-reader svg:not(.katex svg):not([class*="katex"]) {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0.5rem auto;
+}
+
+/* ==========================================================================
+   VIEW 2: DRILLING SOAL PER BAB (SETUP WIZARD, KUIS, TIMER, & HASIL)
+   ========================================================================== */
+.quiz-setup-panel {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.setup-header {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.setup-header h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.section-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.setup-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.setup-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 0.85rem 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.setup-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.65rem;
+}
+
+.step-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.setup-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+/* Dropdown Select Bab */
+.bab-select-wrapper {
+  position: relative;
+}
+
+.app-select {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition);
+  min-height: 42px;
+}
+
+.app-select:focus {
+  border-color: var(--primary);
+  background-color: var(--bg-surface);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+/* Pill Option Groups */
+.pill-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+  gap: 0.4rem;
+}
+
+.pill-option {
+  padding: 0.55rem 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-app);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pill-option:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.pill-option.active {
+  background-color: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary-text);
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(79, 70, 229, 0.15);
+}
+
+/* Timer Toggle & Options */
+.timer-config-row {
+  margin-bottom: 0.65rem;
+}
+
+.toggle-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-container input {
+  display: none;
+}
+
+.toggle-slider {
+  width: 44px;
+  height: 24px;
+  background-color: var(--border-strong);
+  border-radius: var(--radius-full);
+  position: relative;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.toggle-container input:checked + .toggle-slider {
+  background-color: var(--primary);
+}
+
+.toggle-container input:checked + .toggle-slider::before {
+  transform: translateX(20px);
+}
+
+.toggle-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.timer-duration-wrapper {
+  transition: var(--transition);
+}
+
+.timer-duration-wrapper.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Setup Action Footer */
+.setup-action-footer {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.setup-summary-badge {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.setup-summary-badge strong {
+  color: var(--primary);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.25rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  min-height: 44px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  background-color: #cbd5e1;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background-color: var(--bg-muted);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-secondary:hover {
+  background-color: var(--border-subtle);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-outline:hover {
+  background-color: var(--bg-muted);
+  color: var(--text-main);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-lg {
+  padding: 0.85rem 1.5rem;
+  font-size: 0.95rem;
+  border-radius: var(--radius-lg);
+  font-weight: 700;
+}
+
+.btn-sm {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  min-height: 32px;
+}
+
+/* ==========================================================================
+   KUIS PANEL (SOAL AKTIF & LIVE COUNTDOWN TIMER)
+   ========================================================================== */
+.quiz-active-panel {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.quiz-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.85rem;
+  margin-bottom: 0.85rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.quiz-progress-text {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.quiz-timer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full);
+  background-color: #f0fdf4;
+  color: #166534;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border: 1px solid #bbf7d0;
+  font-variant-numeric: tabular-nums;
+}
+
+.quiz-timer-pill.warning {
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border-color: #fca5a5;
+  animation: timerPulse 1s infinite alternate;
+}
+
+@keyframes timerPulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.04); }
+}
+
+.btn-quit-quiz {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-quit-quiz:hover {
+  color: var(--danger);
+}
+
+.quiz-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.quiz-meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.badge-difficulty {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  text-transform: capitalize;
+}
+
+.badge-difficulty.mudah {
+  background-color: var(--badge-easy-bg);
+  color: var(--badge-easy-text);
+}
+.badge-difficulty.sedang {
+  background-color: var(--badge-medium-bg);
+  color: var(--badge-medium-text);
+}
+.badge-difficulty.sulit {
+  background-color: var(--badge-hard-bg);
+  color: var(--badge-hard-text);
+}
+
+.question-text {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.6;
+  margin-bottom: 1.15rem;
+}
+
+/* Option Items */
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-bottom: 1.25rem;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface);
+  cursor: pointer;
+  transition: var(--transition);
+  min-height: 48px;
+}
+
+.option-item:hover {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.option-item.selected {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.option-prefix {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.option-item.selected .option-prefix {
+  border-color: var(--primary);
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.option-label {
+  font-size: 0.88rem;
+  color: var(--text-main);
+  line-height: 1.4;
+  flex: 1;
+}
+
+.option-item.locked {
+  cursor: default;
+  pointer-events: none;
+}
+
+.option-item.correct {
+  border-color: var(--success) !important;
+  background-color: #ecfdf5 !important;
+}
+
+.option-item.correct .option-prefix {
+  background-color: var(--success);
+  border-color: var(--success);
+  color: #fff;
+}
+
+.option-item.incorrect {
+  border-color: var(--danger) !important;
+  background-color: #fef2f2 !important;
+}
+
+.option-item.incorrect .option-prefix {
+  background-color: var(--danger);
+  border-color: var(--danger);
+  color: #fff;
+}
+
+/* Feedback Block */
+.quiz-feedback {
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.15rem;
+  font-size: 0.85rem;
+  animation: fadeIn 0.2s ease;
+}
+
+.quiz-feedback.correct {
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+}
+
+.quiz-feedback.incorrect {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.feedback-title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin-bottom: 0.4rem;
+}
+
+.feedback-explanation {
+  line-height: 1.55;
+}
+
+.quiz-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+/* ==========================================================================
+   RESULT PANEL
+   ========================================================================== */
+.quiz-result-panel {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.result-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.result-score-badge {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.result-score-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.result-score-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+.result-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+}
+
+.result-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin: 1.25rem 0;
+  background-color: var(--bg-app);
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+}
+
+.stat-item .stat-val {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.stat-item.correct .stat-val { color: var(--success); }
+.stat-item.incorrect .stat-val { color: var(--danger); }
+
+.stat-item .stat-lbl {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.result-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* ==========================================================================
+   VIEW 3: PEMBAHASAN
+   ========================================================================== */
+.pembahasan-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.pembahasan-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.pembahasan-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pembahasan-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.pembahasan-q {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.55;
+  margin-bottom: 0.75rem;
+}
+
+.pembahasan-solution-box {
+  background-color: var(--bg-app);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+  margin-top: 0.65rem;
+}
+
+.solution-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+}
+
+.solution-text {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+/* ==========================================================================
+   STATE EMPTY & SKELETON
+   ========================================================================== */
+.state-empty {
+  background-color: var(--bg-surface);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1rem;
+  text-align: center;
+  max-width: 480px;
+  margin: 1.5rem auto;
+}
+
+.state-empty-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--bg-muted);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+}
+
+.state-empty h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.state-empty p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.skeleton-card {
+  height: 140px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Footer Desktop */
+.app-footer {
+  margin-top: auto;
+  border-top: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .app-footer {
+    display: block;
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "EduMandiri - Platform Belajar Mandiri",
+  "short_name": "EduMandiri",
+  "description": "Platform Belajar Mandiri TKA Fisika & Matematika berbasis SPA dan PWA offline-first",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f172a",
+  "theme_color": "#4f46e5",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

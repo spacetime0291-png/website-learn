@@ -1,0 +1,48 @@
+{
+  "bab": "Pengukuran, Besaran, Dimensi, dan Angka Penting",
+  "subtes": "Fisika",
+  "kategoriUtama": "tka",
+  "paketId": "paket-2",
+  "paketNama": "Paket 2: Variasi Analisis Ketidakpastian & Kesalahan Relatif",
+  "deskripsiVariasi": "Memuat seluruh variasi tipe analitis: penentuan rumus empiris dari dimensi, perambatan ketidakpastian pengukuran berulang, dan persentase kesalahan relatif.",
+  "soal": [
+    {
+      "id": "FIS-B01-P2-01",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Pengukuran, Besaran, Dimensi, dan Angka Penting",
+      "paketId": "paket-2",
+      "paketNama": "Paket 2: Variasi Analisis Ketidakpastian & Kesalahan Relatif",
+      "variasiTipe": "Variasi 4: Penurunan Rumus Fisika Metode Dimensi",
+      "kesulitan": "sulit",
+      "pertanyaan": "Periode ayunan sederhana $T$ bergantung pada panjang tali $l$, massa beban $m$, dan percepatan gravitasi $g$, yang dirumuskan $T = k \\cdot l^x \\cdot m^y \\cdot g^z$ dengan $k$ konstanta tak berdimensi. Nilai eksponen $x$, $y$, dan $z$ berturut-turut adalah...",
+      "pilihan": [
+        "$\\frac{1}{2},\\ 0,\\ -\\frac{1}{2}$",
+        "$\\frac{1}{2},\\ 1,\\ -\\frac{1}{2}$",
+        "$1,\\ 0,\\ -1$",
+        "$-\\frac{1}{2},\\ 0,\\ \\frac{1}{2}$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Dimensi: $[T] = [L]^x [M]^y ([L][T]^{-2})^z = [M]^y [L]^{x+z} [T]^{-2z}$. Mencocokkan kedua ruas: untuk $[M]$ diperoleh $y = 0$; untuk $[T]$ diperoleh $-2z = 1 \\implies z = -\\frac{1}{2}$; untuk $[L]$ diperoleh $x + z = 0 \\implies x = \\frac{1}{2}$. Jadi $(x, y, z) = (\\frac{1}{2}, 0, -\\frac{1}{2})$."
+    },
+    {
+      "id": "FIS-B01-P2-02",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Pengukuran, Besaran, Dimensi, dan Angka Penting",
+      "paketId": "paket-2",
+      "paketNama": "Paket 2: Variasi Analisis Ketidakpastian & Kesalahan Relatif",
+      "variasiTipe": "Variasi 5: Ketidakpastian Relatif & Aturan Penulisan Laporan",
+      "kesulitan": "sedang",
+      "pertanyaan": "Sebuah kubus memiliki rusuk $s = (2{,}00 \\pm 0{,}02)\\text{ cm}$. Persentase ketidakpastian relatif dari pengukuran volume kubus tersebut adalah...",
+      "pilihan": [
+        "$1\\%$",
+        "$2\\%$",
+        "$3\\%$",
+        "$6\\%$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Volume kubus $V = s^3$. Ketidakpastian fraksional untuk pemangkatan: $$\\frac{\\Delta V}{V} = 3 \\times \\frac{\\Delta s}{s} = 3 \\times \\frac{0{,}02}{2{,}00} = 3 \\times 0{,}01 = 0{,}03$$ Dalam persentase: $0{,}03 \\times 100\\% = 3\\%$."
+    }
+  ]
+}

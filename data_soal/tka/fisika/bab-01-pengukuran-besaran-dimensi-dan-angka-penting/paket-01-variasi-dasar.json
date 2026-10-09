@@ -1,0 +1,67 @@
+{
+  "bab": "Pengukuran, Besaran, Dimensi, dan Angka Penting",
+  "subtes": "Fisika",
+  "kategoriUtama": "tka",
+  "paketId": "paket-1",
+  "paketNama": "Paket 1: Variasi Konsep & Ketelitian Pengukuran",
+  "deskripsiVariasi": "Memuat seluruh variasi tipe dasar: pembacaan jangka sorong/mikrometer, aturan angka penting, dan analisis dimensi besaran pokok/turunan.",
+  "soal": [
+    {
+      "id": "FIS-B01-P1-01",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Pengukuran, Besaran, Dimensi, dan Angka Penting",
+      "paketId": "paket-1",
+      "paketNama": "Paket 1: Variasi Konsep & Ketelitian Pengukuran",
+      "variasiTipe": "Variasi 1: Aturan Operasi Angka Penting",
+      "kesulitan": "mudah",
+      "pertanyaan": "Hasil pengukuran panjang dan lebar pelat seng berturut-turut adalah $12{,}5\\text{ cm}$ dan $4{,}2\\text{ cm}$. Berdasarkan aturan angka penting, luas pelat tersebut adalah...",
+      "pilihan": [
+        "$52{,}5\\text{ cm}^2$",
+        "$52{,}50\\text{ cm}^2$",
+        "$53\\text{ cm}^2$",
+        "$52\\text{ cm}^2$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Panjang $= 12{,}5\\text{ cm}$ (3 angka penting), lebar $= 4{,}2\\text{ cm}$ (2 angka penting). Hasil perkalian: $$12{,}5 \\times 4{,}2 = 52{,}5\\text{ cm}^2$$ Menurut aturan angka penting, hasil perkalian harus dibulatkan mengikuti faktor dengan angka penting paling sedikit, yaitu 2 angka penting. Angka $52{,}5$ dibulatkan menjadi $53\\text{ cm}^2$."
+    },
+    {
+      "id": "FIS-B01-P1-02",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Pengukuran, Besaran, Dimensi, dan Angka Penting",
+      "paketId": "paket-1",
+      "paketNama": "Paket 1: Variasi Konsep & Ketelitian Pengukuran",
+      "variasiTipe": "Variasi 2: Analisis Dimensi Besaran Turunan",
+      "kesulitan": "sedang",
+      "pertanyaan": "Konstanta gravitasi universal $G$ muncul dalam persamaan $F = G \\frac{m_1 m_2}{r^2}$. Dimensi dari konstanta gravitasi $G$ adalah...",
+      "pilihan": [
+        "$[M]^{-1} [L]^3 [T]^{-2}$",
+        "$[M] [L]^2 [T]^{-2}$",
+        "$[M]^{-1} [L]^2 [T]^{-1}$",
+        "$[M] [L]^3 [T]^{-2}$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Dari rumus $G = \\frac{F \\cdot r^2}{m_1 \\cdot m_2}$, satuan $G$ adalah $\\text{N}\\cdot\\text{m}^2/\\text{kg}^2$. Karena $[\text{N}] = [M][L][T]^{-2}$, maka: $$[G] = \\frac{([M][L][T]^{-2})([L]^2)}{[M]^2} = [M]^{-1}[L]^3[T]^{-2}$$"
+    },
+    {
+      "id": "FIS-B01-P1-03",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Pengukuran, Besaran, Dimensi, dan Angka Penting",
+      "paketId": "paket-1",
+      "paketNama": "Paket 1: Variasi Konsep & Ketelitian Pengukuran",
+      "variasiTipe": "Variasi 3: Pembacaan Mikrometer Sekrup",
+      "kesulitan": "mudah",
+      "pertanyaan": "Pengukuran tebal kawat dengan mikrometer sekrup menunjukkan skala utama $3{,}5\\text{ mm}$ dan garis skala nonius ke-28 berimpit dengan garis mendatar (ketelitian $0{,}01\\text{ mm}$). Tebal kawat tersebut adalah...",
+      "pilihan": [
+        "$3{,}28\\text{ mm}$",
+        "$3{,}78\\text{ mm}$",
+        "$3{,}528\\text{ mm}$",
+        "$3{,}82\\text{ mm}$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Hasil bacaan mikrometer sekrup: $$\\text{Tebal} = \\text{Skala Utama} + (\\text{Skala Nonius} \\times 0{,}01\\text{ mm})$$ $$\\text{Tebal} = 3{,}5\\text{ mm} + (28 \\times 0{,}01\\text{ mm}) = 3{,}5 + 0{,}28 = 3{,}78\\text{ mm}$$"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "bab": "Kinematika Gerak Lurus (GLB dan GLBB)",
+  "subtes": "Fisika",
+  "kategoriUtama": "tka",
+  "paketId": "paket-1",
+  "paketNama": "Paket 1: Variasi GLB & GLBB Horizontal Dasar",
+  "deskripsiVariasi": "Memuat seluruh variasi tipe: percepatan konstan GLBB, grafik kecepatan-waktu (v-t), dan jarak tempuh dua benda yang berpapasan.",
+  "soal": [
+    {
+      "id": "FIS-B03-P1-01",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Kinematika Gerak Lurus (GLB dan GLBB)",
+      "paketId": "paket-1",
+      "paketNama": "Paket 1: Variasi GLB & GLBB Horizontal Dasar",
+      "variasiTipe": "Variasi 1: GLBB Horizontal dengan Percepatan Tetap",
+      "kesulitan": "mudah",
+      "pertanyaan": "Sebuah mobil bergerak dari keadaan diam dengan percepatan konstan $a = 4\\text{ m/s}^2$. Berapakah kecepatan mobil tersebut setelah bergerak selama $t = 5\\text{ s}$?",
+      "pilihan": [
+        "$10\\text{ m/s}$",
+        "$20\\text{ m/s}$",
+        "$25\\text{ m/s}$",
+        "$40\\text{ m/s}$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Menggunakan persamaan GLBB tanpa perpindahan: $$v_t = v_0 + a \\cdot t$$ Karena mobil berangkat dari keadaan diam ($v_0 = 0\\text{ m/s}$): $$v_t = 0 + (4\\text{ m/s}^2)(5\\text{ s}) = 20\\text{ m/s}$$"
+    },
+    {
+      "id": "FIS-B03-P1-02",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Kinematika Gerak Lurus (GLB dan GLBB)",
+      "paketId": "paket-1",
+      "paketNama": "Paket 1: Variasi GLB & GLBB Horizontal Dasar",
+      "variasiTipe": "Variasi 2: Gerak Vertikal ke Atas & Ketinggian Maksimum",
+      "kesulitan": "sedang",
+      "pertanyaan": "Benda bermassa $m = 2\\text{ kg}$ dilempar vertikal ke atas dengan kecepatan awal $v_0 = 20\\text{ m/s}$. Jika $g = 10\\text{ m/s}^2$, ketinggian maksimum $h_{\\text{maks}}$ yang dicapai benda adalah...",
+      "pilihan": [
+        "$10\\text{ m}$",
+        "$15\\text{ m}$",
+        "$20\\text{ m}$",
+        "$40\\text{ m}$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Pada ketinggian maksimum, kecepatan akhir $v_t = 0\\text{ m/s}$. $$v_t^2 = v_0^2 - 2gh_{\\text{maks}} \\implies h_{\\text{maks}} = \\frac{v_0^2}{2g}$$ $$h_{\\text{maks}} = \\frac{20^2}{2(10)} = \\frac{400}{20} = 20\\text{ m}$$"
+    }
+  ]
+}

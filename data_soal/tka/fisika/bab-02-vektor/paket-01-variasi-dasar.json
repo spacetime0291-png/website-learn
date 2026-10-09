@@ -1,0 +1,48 @@
+{
+  "bab": "Vektor",
+  "subtes": "Fisika",
+  "kategoriUtama": "tka",
+  "paketId": "paket-1",
+  "paketNama": "Paket 1: Variasi Penjumlahan & Komponen Sumbu Vektor",
+  "deskripsiVariasi": "Memuat seluruh variasi tipe: penguraian vektor ke sumbu X dan Y, resultan dua vektor tegak lurus/bersudut sembarang, dan perkalian titik (dot product).",
+  "soal": [
+    {
+      "id": "FIS-B02-P1-01",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Vektor",
+      "paketId": "paket-1",
+      "paketNama": "Paket 1: Variasi Penjumlahan & Komponen Sumbu Vektor",
+      "variasiTipe": "Variasi 1: Resultan Vektor Saling Tegak Lurus",
+      "kesulitan": "mudah",
+      "pertanyaan": "Dua buah vektor gaya masing-masing besarnya $F_1 = 6\\text{ N}$ dan $F_2 = 8\\text{ N}$ bekerja pada satu titik tangkap yang sama dan saling tegak lurus ($\\theta = 90^\\circ$). Berapakah besar resultan kedua vektor gaya tersebut?",
+      "pilihan": [
+        "$10\\text{ N}$",
+        "$14\\text{ N}$",
+        "$2\\text{ N}$",
+        "$48\\text{ N}$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Karena kedua vektor saling tegak lurus ($\\theta = 90^\\circ$), nilai $\\cos 90^\\circ = 0$. Besar resultan dihitung dengan teorema Pythagoras: $$R = \\sqrt{F_1^2 + F_2^2} = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10\\text{ N}$$"
+    },
+    {
+      "id": "FIS-B02-P1-02",
+      "kategoriUtama": "tka",
+      "subtes": "Fisika",
+      "bab": "Vektor",
+      "paketId": "paket-1",
+      "paketNama": "Paket 1: Variasi Penjumlahan & Komponen Sumbu Vektor",
+      "variasiTipe": "Variasi 2: Perkalian Titik (Dot Product) & Sudut Apit",
+      "kesulitan": "sedang",
+      "pertanyaan": "Diketahui dua vektor $\\vec{A} = 2\\hat{i} + 3\\hat{j} - \\hat{k}$ dan $\\vec{B} = 4\\hat{i} - 2\\hat{j} + 2\\hat{k}$. Nilai perkalian skalar $\\vec{A} \\cdot \\vec{B}$ adalah...",
+      "pilihan": [
+        "$0$",
+        "$2$",
+        "$4$",
+        "$-2$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Perkalian skalar: $$\\vec{A} \\cdot \\vec{B} = A_x B_x + A_y B_y + A_z B_z$$ $$\\vec{A} \\cdot \\vec{B} = (2)(4) + (3)(-2) + (-1)(2) = 8 - 6 - 2 = 0$$ Karena hasil dot product adalah 0, kedua vektor saling tegak lurus (ortogonal)."
+    }
+  ]
+}

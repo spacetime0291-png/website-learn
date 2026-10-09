@@ -1,4 +1,4 @@
-const CACHE_NAME = 'edumandiri-cache-v14';
+const CACHE_NAME = 'edumandiri-cache-v18';
 
 const STATIC_ASSETS = [
   './',
@@ -6,6 +6,7 @@ const STATIC_ASSETS = [
   './style.css',
   './app.js',
   './data_materi.js',
+  './data_soal.js',
   './data.json',
   './manifest.json',
   './icon.svg',

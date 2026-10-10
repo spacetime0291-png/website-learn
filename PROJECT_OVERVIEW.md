@@ -9,20 +9,22 @@
   1. **TKA Saintek:** Fisika (30 Bab), Matematika Wajib (15 Bab), Matematika Tingkat Lanjut (9 Bab).
   2. **UTBK SNBT:** 7 Subtes (Penalaran Umum, PPU, PBM, PK, Literasi B. Indonesia, Literasi B. Inggris, Penalaran Matematika).
 * **Fitur Utama Terkini:**
-  * **Daftar Bab Minimalis (Accordion Clean List):** Menampilkan daftar bab bersih dengan nomor/ikon minimalis. Opsi modul (*Materi Lengkap*, *Variasi Soal*, *Rangkuman*, dan *Latihan Kuis*) tersimpan rapi dan muncul saat kartu bab diklik (accordion).
+  * **Daftar Bab Materi Format Kartu Multi-Kolom (`.bab-list-minimal`):** Redesain tampilan daftar bab dari satu baris penuh menjadi grid kartu multi-kolom yang proporsional, padat, dan adaptif (1 kolom di smartphone, 2 kolom di tablet, 3 kolom di desktop). Opsi modul (*Materi Lengkap*, *Variasi Soal*, *Rangkuman*, dan *Latihan Kuis*) tersimpan rapi dan dapat dibuka secara accordion.
   * **Minimalist Reader Bottom Dock:** Bilah navigasi melayang adaptif di bagian bawah saat membaca materi/rangkuman, menggantikan footer statis/navigasi umum. Memungkinkan pindah bab (Prev/Next) dan beralih instan antar-modul (*Materi*, *Variasi*, *Rangkuman*, *Latihan*) secara ergonomis di HP maupun laptop tanpa memakan ruang baca.
-  * **Drilling Dashboard Berbasis Kartu Bab & Pilihan Sub Bab Spesifik:**
-    - Format pemilihan bab menggunakan **kartu-kartu responsif (`.bab-card`)** dengan penamaan simpel, jelas, dan **teks judul tidak pernah terpotong** (`white-space: normal; line-height: 1.35;`).
-    - Mendukung **multi-select bab** (bisa memilih banyak bab sekaligus atau semua bab).
-    - **Pilihan Sub Bab Terpisah Antar Bab (`.subbab-chapter-group`):** Setelah bab dipilih, muncul opsi sub bab target yang dikelompokkan secara rapi terpisah per bab dengan kontrol *Pilih Semua Sub Bab* dan toggle per modul sub-bab.
-    - Sistem *Paket Soal* terdahulu telah sepenuhnya **dihapus dan digantikan oleh hierarki Sub Bab granular** (`subBabId` dan `subBab`) untuk latihan target yang terarah dan bebas repetisi.
+  * **Drilling Dashboard Berbasis Kartu Bab & Pilihan Sub Bab Terarah:**
+    - **Spacious Bab Cards Grid (`.bab-cards-grid` & `.bab-card`):** Ukuran ruang dan kartu bab diperbesar dengan padding lega, min-height nyaman, dan judul fleksibel tanpa clipping.
+    - **Seleksi Deterministik Berbasis Integer Index (`babIndex`):** Bug duplikasi seleksi (di mana klik satu bab ikut mencentang bab lain karena kesamaan kata seperti *Kinematika Gerak Lurus* & *Parabola*, atau *Fluida Statis* & *Dinamis*) telah 100% tuntas diperbaiki dengan pelacakan indeks integer.
+    - **Default Non-'Semua' & Prioritas Bab 15:** Wizard drilling tidak lagi mendefaultkan 'Pilih Semua', melainkan memprioritaskan bab unggulan pertama (khususnya **Matematika Wajib Bab 15: Aturan Pencacahan & Peluang**).
+    - **Hierarki Sub-Bab Granular Berurutan (K13 & Kurikulum Merdeka):** Seluruh konsep dijabarkan spesifik tanpa penggabungan paksa (misalnya Bab 15 MTK dijabarkan ke 12 sub-bab berurutan dari *Kaidah Membilang* hingga *Peluang Bersyarat*).
+    - **Multi-Sub-Bab Mapping (`subBabIds: [...]`):** Soal yang memuat irisan konsep dipetakan ke seluruh sub-bab terkait.
+    - **Penyaringan Soal Selesai (Anti-Repetisi):** Soal yang telah dikerjakan (`completedQuestionIds`) secara otomatis tidak akan dimunculkan lagi di sesi kuis drilling baru, dengan indikator jumlah soal baru vs. sudah selesai dan tombol reset riwayat.
   * **Variasi Contoh Soal Lengkap:** Bab 1 s.d. Bab 5 Fisika aktif dengan total 73 variasi soal, serta **Bab 15 Matematika Wajib (Aturan Pencacahan & Teori Peluang)** aktif dengan **30 variasi soal lengkap**, semuanya 100% tervalidasi bebas KaTeX error.
   * **Pedagogical Fluid Typography:** Tipografi adaptif berbasis ukuran layar (`clamp()`), pembatasan kolom baca maksimal 72 karakter (`max-width: 72ch`), line-height lega (`1.72`), dan visual anchor penomoran langkah.
   * **Database Bank Soal Klien & IndexedDB:** Bank soal tersimpan langsung di `data_soal.js` (`window.EDUMANDIRI_SOAL_BANK` = 53 soal terverifikasi) dan disinkronkan ke IndexedDB (`EduMandiri_DB`). Tidak memerlukan `fetch` network HTTP atau GitHub push/fetch untuk pengoperasian dan pembaruan lokal.
 * **Filosofi Arsitektur:** **Zero-Build Vanilla Web Application**.
   * Tidak menggunakan bundler (Webpack/Vite/Rollup) dan tidak memerlukan runtime Node.js saat produksi.
   * Murni Vanilla HTML5, CSS3 kustom, dan Vanilla JavaScript (ES6+).
-  * 100% Offline-Ready menggunakan Service Worker (`sw.js`, `edumandiri-cache-v19`) dan pustaka lokal vendor (KaTeX + Marked.js tanpa CDN). Kompatibel dibuka langsung via protokol `file:///` maupun server web lokal/hosting.
+  * 100% Offline-Ready menggunakan Service Worker (`sw.js`, `edumandiri-cache-v20`) dan pustaka lokal vendor (KaTeX + Marked.js tanpa CDN). Kompatibel dibuka langsung via protokol `file:///` maupun server web lokal/hosting.
 
 ---
 
@@ -80,10 +82,10 @@ const AppState = {
   },
   drillingSetup: {                 // Konfigurasi wizard drilling kuis
     category: 'tka',               // 'tka' | 'utbk'
-    subtes: 'Fisika',              // 'Fisika' | 'Matematika Wajib' | 'Matematika Lanjut' | ...
-    bab: 'semua',                  // fallback single bab
-    selectedBabs: ['semua'],       // multi-select bab array atau ['semua']
-    selectedSubBabs: ['semua'],   // multi-select sub-bab IDs array atau ['semua']
+    subtes: 'Matematika Wajib',    // Prioritas default: 'Matematika Wajib'
+    bab: '15',                     // Indeks bab fokus
+    selectedBabs: [15],            // Array integer indeks bab (misal: [15] untuk Pencacahan & Peluang)
+    selectedSubBabs: ['semua'],    // Multi-select sub-bab IDs array atau ['semua']
     count: '5',                    // '5' | '10' | '15' | 'semua'
     difficulty: 'semua',           // 'mudah' | 'sedang' | 'sulit' | 'semua'
     timerEnabled: true,

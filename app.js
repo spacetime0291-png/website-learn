@@ -44,9 +44,9 @@ const AppState = {
   // Konfigurasi Drilling Soal Per Bab (Wizard)
   drillingSetup: {
     category: 'tka',         // 'tka' | 'utbk'
-    subtes: 'Fisika',        // 'Fisika' | 'Matematika Wajib' | 'Matematika Lanjut' | ...
-    bab: 'semua',            // fallback single bab
-    selectedBabs: ['semua'],    // multi-select bab array or ['semua']
+    subtes: 'Matematika Wajib', // Prioritaskan Bab 15 MTK Wajib
+    bab: '15',
+    selectedBabs: [15],         // Default Bab 15 (Pencacahan & Peluang, bukan 'semua')
     selectedSubBabs: ['semua'], // multi-select sub-bab IDs array or ['semua']
     count: '5',                 // '5' | '10' | '15' | 'semua'
     difficulty: 'semua',        // 'mudah' | 'sedang' | 'sulit' | 'semua'
@@ -667,7 +667,13 @@ window.openMateriPage = function(babId) {
 window.startDrillingForBab = function(subtes, babJudul) {
   AppState.drillingSetup.subtes = subtes;
   AppState.drillingSetup.bab = babJudul;
-  AppState.drillingSetup.selectedBabs = [babJudul];
+
+  // Tentukan indeks bab integer agar presisi & bebas bug duplikasi seleksi
+  const allBabModules = window.EDUMANDIRI_MATERI_BAB || [];
+  const foundMod = allBabModules.find((m) => m.subtes.toLowerCase() === (subtes || '').toLowerCase() && m.babJudul === babJudul);
+  const babIndex = foundMod ? foundMod.babIndex : 1;
+
+  AppState.drillingSetup.selectedBabs = [babIndex];
   AppState.drillingSetup.selectedSubBabs = ['semua'];
 
   // Update UI Drilling
@@ -746,6 +752,150 @@ const CANONICAL_BAB_TITLES = {
   }
 };
 
+// Hierarki Sub Bab Spesifik Berurutan (Kurikulum 2013 & Kurikulum Merdeka)
+const CANONICAL_CHAPTER_SUBBABS = {
+  'matematika wajib': {
+    15: [
+      { id: 'mtk-w-15-sb01', nama: 'Kaidah Dasar Membilang (Aturan Penjumlahan & Perkalian)' },
+      { id: 'mtk-w-15-sb02', nama: 'Aturan Pengisian Tempat (Filling Slots)' },
+      { id: 'mtk-w-15-sb03', nama: 'Notasi Faktorial & Permutasi n Unsur Berbeda' },
+      { id: 'mtk-w-15-sb04', nama: 'Permutasi r dari n Unsur Berbeda' },
+      { id: 'mtk-w-15-sb05', nama: 'Permutasi dengan Beberapa Unsur Sama (Anagram)' },
+      { id: 'mtk-w-15-sb06', nama: 'Permutasi Siklis (Melingkar)' },
+      { id: 'mtk-w-15-sb07', nama: 'Kombinasi & Pemilihan Bebas / Bersyarat' },
+      { id: 'mtk-w-15-sb08', nama: 'Ekspansi Binomial Newton' },
+      { id: 'mtk-w-15-sb09', nama: 'Ruang Sampel, Titik Sampel, & Peluang Klasik' },
+      { id: 'mtk-w-15-sb10', nama: 'Peluang Komplemen Kejadian & Frekuensi Harapan' },
+      { id: 'mtk-w-15-sb11', nama: 'Peluang Kejadian Majemuk Saling Lepas & Tidak Saling Lepas' },
+      { id: 'mtk-w-15-sb12', nama: 'Peluang Kejadian Saling Bebas & Peluang Bersyarat' }
+    ],
+    1: [
+      { id: 'mtk-w-01-sb01', nama: 'Sifat & Operasi Aljabar Eksponen' },
+      { id: 'mtk-w-01-sb02', nama: 'Persamaan & Pertidaksamaan Eksponen' },
+      { id: 'mtk-w-01-sb03', nama: 'Sifat & Operasi Logaritma' },
+      { id: 'mtk-w-01-sb04', nama: 'Persamaan & Pertidaksamaan Logaritma' }
+    ],
+    2: [
+      { id: 'mtk-w-02-sb01', nama: 'Konsep Geometris & Definisi Nilai Mutlak' },
+      { id: 'mtk-w-02-sb02', nama: 'Persamaan Nilai Mutlak Linear' },
+      { id: 'mtk-w-02-sb03', nama: 'Pertidaksamaan Nilai Mutlak Linear' }
+    ],
+    5: [
+      { id: 'mtk-w-05-sb01', nama: 'Karakteristik & Titik Puncak Fungsi Kuadrat' },
+      { id: 'mtk-w-05-sb02', nama: 'Diskriminan & Definit Positif/Negatif' },
+      { id: 'mtk-w-05-sb03', nama: 'Fungsi Rasional & Asimtot Datar/Tegak' }
+    ],
+    10: [
+      { id: 'mtk-w-10-sb01', nama: 'Operasi Penjumlahan & Perkalian Matriks' },
+      { id: 'mtk-w-10-sb02', nama: 'Determinan & Invers Matriks Ordo 2x2' },
+      { id: 'mtk-w-10-sb03', nama: 'Penyelesaian SPLDV Menggunakan Matriks' }
+    ],
+    12: [
+      { id: 'mtk-w-12-sb01', nama: 'Kedudukan Titik, Garis, dan Bidang' },
+      { id: 'mtk-w-12-sb02', nama: 'Jarak Titik ke Titik, Titik ke Garis' },
+      { id: 'mtk-w-12-sb03', nama: 'Jarak Titik ke Bidang & Sudut dalam Ruang' }
+    ]
+  },
+  'matematika lanjut': {
+    6: [
+      { id: 'mtk-l-06-sb01', nama: 'Limit Fungsi Aljabar (Pemfaktoran & Kali Sekawan)' },
+      { id: 'mtk-l-06-sb02', nama: 'Limit Fungsi Menuju Tak Hingga' },
+      { id: 'mtk-l-06-sb03', nama: 'Limit Fungsi Trigonometri Dasar' }
+    ],
+    7: [
+      { id: 'mtk-l-07-sb01', nama: 'Konsep Turunan & Aturan Dasar Aljabar' },
+      { id: 'mtk-l-07-sb02', nama: 'Turunan Perkalian, Pembagian, & Aturan Rantai' },
+      { id: 'mtk-l-07-sb03', nama: 'Turunan Fungsi Trigonometri' },
+      { id: 'mtk-l-07-sb04', nama: 'Aplikasi Turunan (Garis Singgung & Nilai Ekstrim)' }
+    ],
+    8: [
+      { id: 'mtk-l-08-sb01', nama: 'Integral Tak Tentu & Tentu Fungsi Aljabar' },
+      { id: 'mtk-l-08-sb02', nama: 'Teknik Pengintegralan Substitusi & Parsial' },
+      { id: 'mtk-l-08-sb03', nama: 'Aplikasi Integral (Luas Daerah & Volume Putar)' }
+    ]
+  },
+  'fisika': {
+    1: [
+      { id: 'fis-b01-sb01', nama: 'Besaran Pokok, Satuan SI, & Dimensi' },
+      { id: 'fis-b01-sb02', nama: 'Alat Ukur Panjang & Ketelitian (Jangka Sorong & Mikrometer)' },
+      { id: 'fis-b01-sb03', nama: 'Angka Penting & Aturan Operasi Hitung' },
+      { id: 'fis-b01-sb04', nama: 'Ketidakpastian Pengukuran & Notasi Ilmiah' }
+    ],
+    2: [
+      { id: 'fis-b02-sb01', nama: 'Konsep & Notasi Vektor' },
+      { id: 'fis-b02-sb02', nama: 'Penjumlahan & Pengurangan Vektor (Poligon & Jajar Genjang)' },
+      { id: 'fis-b02-sb03', nama: 'Analisis Komponen Vektor Sumbu X dan Y' },
+      { id: 'fis-b02-sb04', nama: 'Perkalian Titik (Dot Product) & Perkalian Silang (Cross Product)' }
+    ],
+    3: [
+      { id: 'fis-b03-sb01', nama: 'Besaran Kinematika (Posisi, Perpindahan, Kecepatan)' },
+      { id: 'fis-b03-sb02', nama: 'Gerak Lurus Beraturan (GLB)' },
+      { id: 'fis-b03-sb03', nama: 'Gerak Lurus Berubah Beraturan (GLBB)' },
+      { id: 'fis-b03-sb04', nama: 'Gerak Vertikal & Gerak Jatuh Bebas' }
+    ],
+    4: [
+      { id: 'fis-b04-sb01', nama: 'Analisis Komponen Gerak Parabola' },
+      { id: 'fis-b04-sb02', nama: 'Titik Tertinggi & Jangkauan Terjauh Parabola' },
+      { id: 'fis-b04-sb03', nama: 'Gerak Melingkar Beraturan (GMB) & Percepatan Sentripetal' }
+    ],
+    5: [
+      { id: 'fis-b05-sb01', nama: 'Hukum I, II, & III Newton tentang Gerak' },
+      { id: 'fis-b05-sb02', nama: 'Gaya Gesek (Statis & Kinetis) pada Bidang Datar & Miring' },
+      { id: 'fis-b05-sb03', nama: 'Penerapan Hukum Newton pada Sistem Katrol' }
+    ],
+    8: [
+      { id: 'fis-b08-sb01', nama: 'Momen Gaya (Torsi) & Momen Inersia' },
+      { id: 'fis-b08-sb02', nama: 'Hukum II Newton Rotasi & Gerak Menggelinding' },
+      { id: 'fis-b08-sb03', nama: 'Kesetimbangan Benda Tegar & Titik Berat' }
+    ],
+    11: [
+      { id: 'fis-b11-sb01', nama: 'Tekanan Hidrostatis & Hukum Pokok Hidrostatis' },
+      { id: 'fis-b11-sb02', nama: 'Hukum Pascal & Pompa Hidrolik' },
+      { id: 'fis-b11-sb03', nama: 'Hukum Archimedes & Gaya Apung' }
+    ],
+    12: [
+      { id: 'fis-b12-sb01', nama: 'Debit & Persamaan Kontinuitas' },
+      { id: 'fis-b12-sb02', nama: 'Asas & Persamaan Bernoulli' },
+      { id: 'fis-b12-sb03', nama: 'Aplikasi Bernoulli (Venturimeter, Tabung Pitot, & Gaya Angkat)' }
+    ],
+    15: [
+      { id: 'fis-b15-sb01', nama: 'Usaha Gas & Hukum I Termodinamika' },
+      { id: 'fis-b15-sb02', nama: 'Proses Termodinamika (Isobarik, Isokhorik, Isotermal, Adiabatik)' },
+      { id: 'fis-b15-sb03', nama: 'Mesin Carnot & Efisiensi Termal' }
+    ],
+    17: [
+      { id: 'fis-b17-sb01', nama: 'Cepat Rambat & Karakteristik Gelombang Bunyi' },
+      { id: 'fis-b17-sb02', nama: 'Intensitas & Taraf Intensitas Bunyi' },
+      { id: 'fis-b17-sb03', nama: 'Efek Doppler pada Gelombang Bunyi' }
+    ],
+    21: [
+      { id: 'fis-b21-sb01', nama: 'Hukum Ohm & Hambatan Kawat Penghantar' },
+      { id: 'fis-b21-sb02', nama: 'Rangkaian Seri, Paralel, & Jembatan Wheatstone' },
+      { id: 'fis-b21-sb03', nama: 'Hukum I & II Kirchhoff (Rangkaian Majemuk)' }
+    ],
+    22: [
+      { id: 'fis-b22-sb01', nama: 'Medan Magnet di Sekitar Kawat Lurus & Melingkar' },
+      { id: 'fis-b22-sb02', nama: 'Gaya Lorentz pada Muatan & Kawat Berarus' },
+      { id: 'fis-b22-sb03', nama: 'Solenoida & Toroida' }
+    ],
+    24: [
+      { id: 'fis-b24-sb01', nama: 'Nilai Efektif & Maksimum Arus/Tegangan AC' },
+      { id: 'fis-b24-sb02', nama: 'Rangkaian R-L-C Seri & Impedansi' },
+      { id: 'fis-b24-sb03', nama: 'Resonansi & Daya Rangkaian AC' }
+    ],
+    26: [
+      { id: 'fis-b26-sb01', nama: 'Postulat Relativitas Khusus Einstein' },
+      { id: 'fis-b26-sb02', nama: 'Dilatasi Waktu & Kontraksi Panjang' },
+      { id: 'fis-b26-sb03', nama: 'Massa Relativistik, Momentum, & Energi' }
+    ],
+    27: [
+      { id: 'fis-b27-sb01', nama: 'Radiasi Benda Hitam & Teori Foton Planck' },
+      { id: 'fis-b27-sb02', nama: 'Efek Fotolistrik & Fungsi Kerja Logam' },
+      { id: 'fis-b27-sb03', nama: 'Efek Compton & Panjang Gelombang De Broglie' }
+    ]
+  }
+};
+
 // Helper: Mendapatkan Judul Bab Ringkas
 function getSimplifiedBabTitle(subtes, babIndex, rawTitle) {
   const subKey = (subtes || '').toLowerCase();
@@ -753,58 +903,10 @@ function getSimplifiedBabTitle(subtes, babIndex, rawTitle) {
     return CANONICAL_BAB_TITLES[subKey][babIndex];
   }
   if (!rawTitle) return `Bab ${babIndex}`;
-  // Bersihkan format bab bawaan jika tidak ada di tabel kanonikal
   return rawTitle
     .replace(/^(?:bab\s*)?\d+[\.\:\s\-]+/i, '')
     .replace(/\s*\([^)]*\)/g, '')
     .trim();
-}
-
-// Mengisi Pilihan Subtes di Setup Drilling
-function updateDrillingSubtesPills() {
-  const container = document.getElementById('setup-subtes-group');
-  if (!container) return;
-
-  const isTka = AppState.drillingSetup.category === 'tka';
-  const subtests = isTka ? TKA_SUBTESTS : UTBK_SUBTESTS;
-
-  container.innerHTML = subtests.map((sub, idx) => {
-    const isActive = AppState.drillingSetup.subtes.toLowerCase() === sub.toLowerCase() || (idx === 0 && !AppState.drillingSetup.subtes);
-    if (isActive) AppState.drillingSetup.subtes = sub;
-    const icon = sub.includes('Fisika') ? '⚛️ ' : sub.includes('Matematika') ? '📐 ' : '📝 ';
-    return `
-      <button class="chip-filter ${isActive ? 'active' : ''}" data-subtes="${sub}">
-        ${icon}${sub}
-      </button>
-    `;
-  }).join('');
-
-  // Event listener
-  container.querySelectorAll('.chip-filter').forEach((pill) => {
-    pill.addEventListener('click', () => {
-      container.querySelectorAll('.chip-filter').forEach((p) => p.classList.remove('active'));
-      pill.classList.add('active');
-      AppState.drillingSetup.subtes = pill.dataset.subtes;
-      AppState.drillingSetup.selectedBabs = ['semua'];
-      AppState.drillingSetup.selectedSubBabs = ['semua'];
-      renderDrillingBabCards();
-      renderDrillingSubBabSelector();
-      updateDrillingSetupSummary();
-    });
-  });
-
-  renderDrillingBabCards();
-}
-
-// Helper: Mencocokkan Subtes
-function isSubtesMatching(q, subtes) {
-  if (!subtes || subtes === 'semua') return true;
-  const qSub = (q.subtes || '').toLowerCase();
-  const targetSub = subtes.toLowerCase();
-  if (qSub === targetSub) return true;
-  if (targetSub === 'fisika' && (q.mataPelajaran || '').toLowerCase() === 'fisika') return true;
-  if ((targetSub === 'matematika lanjut' || targetSub === 'matematika wajib') && (q.mataPelajaran || '').toLowerCase() === 'matematika') return true;
-  return false;
 }
 
 // Helper: Membersihkan Judul Bab
@@ -818,35 +920,182 @@ function cleanBabTitle(str) {
     .trim();
 }
 
-// Helper: Mencocokkan Dua Judul Bab (Fleksibel & Presisi)
-function isBabMatching(questionBab, selectedBab) {
-  if (!selectedBab || selectedBab === 'semua') return true;
-  if (!questionBab) return false;
-  const qClean = cleanBabTitle(questionBab);
-  const selClean = cleanBabTitle(selectedBab);
-  if (qClean === selClean || qClean.includes(selClean) || selClean.includes(qClean)) return true;
+// Helper Deterministik: Mendapatkan Indeks Bab Integer (Bebas Bug String Duplikasi)
+function getQuestionBabIndex(q, subtes) {
+  if (!q) return null;
+  if (typeof q.babIndex === 'number') return q.babIndex;
 
-  const qWords = qClean.split(' ').filter(w => w.length > 2);
-  const selWords = selClean.split(' ').filter(w => w.length > 2);
-  const overlap = qWords.filter(w => selWords.includes(w));
-  return overlap.length >= 2 || (qWords.length === 1 && selWords.includes(qWords[0])) || (selWords.length === 1 && qWords.includes(selWords[0]));
+  // 1. Ekstrak langsung dari ID format FIS-B01 atau MTK-B15
+  const idMatch = (q.id || '').match(/^(?:FIS|MTK)-B(\d+)/i);
+  if (idMatch) {
+    const rawNum = parseInt(idMatch[1], 10);
+    const subStr = (subtes || q.subtes || q.mataPelajaran || '').toLowerCase();
+    if (subStr.includes('lanjut')) {
+      if (rawNum === 12) return 6;
+      if (rawNum === 13) return 7;
+      if (rawNum === 14) return 8;
+    } else if (subStr.includes('wajib') || subStr.includes('matematika')) {
+      if (rawNum === 1 || rawNum === 2) return 1;
+      if (rawNum === 3) return 5;
+      if (rawNum === 4) return 2;
+      if (rawNum === 6) return 10;
+      if (rawNum === 9) return 12;
+      if (rawNum === 15) return 15;
+    }
+  }
+
+  // 2. Cocokkan string q.bab dengan tabel kanonikal
+  const subKey = (subtes || q.subtes || q.mataPelajaran || '').toLowerCase();
+  const canon = CANONICAL_BAB_TITLES[subKey];
+  if (canon) {
+    const qClean = cleanBabTitle(q.bab);
+    for (const [idxStr, title] of Object.entries(canon)) {
+      if (qClean === cleanBabTitle(title)) {
+        return parseInt(idxStr, 10);
+      }
+    }
+  }
+
+  // 3. Cek di seluruh tabel kanonikal jika subtes belum tepat
+  for (const sKey of ['matematika wajib', 'matematika lanjut', 'fisika']) {
+    const cTable = CANONICAL_BAB_TITLES[sKey];
+    if (cTable) {
+      const qClean = cleanBabTitle(q.bab);
+      for (const [idxStr, title] of Object.entries(cTable)) {
+        if (qClean === cleanBabTitle(title)) {
+          return parseInt(idxStr, 10);
+        }
+      }
+    }
+  }
+
+  // 4. Fallback regex nomor bab pada teks q.bab
+  const bMatch = (q.bab || '').match(/^(?:bab\s*)?(\d+)/i);
+  if (bMatch) return parseInt(bMatch[1], 10);
+
+  return null;
 }
 
-// Helper: Memeriksa apakah Soal termasuk dalam Daftar Bab yang Dipilih
-function isBabSelected(questionBab, selectedBabs) {
-  if (!selectedBabs || selectedBabs.length === 0 || selectedBabs.includes('semua')) return true;
-  if (!questionBab) return false;
-  return selectedBabs.some((b) => isBabMatching(questionBab, b));
+// Helper: Mendapatkan Seluruh SubBab IDs Milik Suatu Soal (Multi-SubBab Support)
+function getQuestionSubBabIds(q) {
+  if (!q) return [];
+  if (Array.isArray(q.subBabIds) && q.subBabIds.length > 0) {
+    return q.subBabIds;
+  }
+  if (q.subBabId) {
+    return [q.subBabId];
+  }
+  return [];
 }
 
-// Helper: Memeriksa apakah Soal termasuk dalam Daftar Sub Bab yang Dipilih
+// Helper: Memeriksa apakah Soal termasuk dalam Bab yang Dipilih (Integer Based)
+function isBabSelected(q, selectedBabs, subtes) {
+  if (!selectedBabs || selectedBabs.length === 0) return false;
+  if (selectedBabs.includes('semua')) return true;
+  const qIdx = getQuestionBabIndex(q, subtes);
+  if (qIdx === null) return false;
+  return selectedBabs.includes(qIdx);
+}
+
+// Helper: Memeriksa apakah Soal termasuk dalam Sub Bab yang Dipilih
 function isSubBabSelected(q, selectedSubBabs) {
-  if (!selectedSubBabs || selectedSubBabs.length === 0 || selectedSubBabs.includes('semua')) return true;
-  if (!q || !q.subBabId) return true;
-  return selectedSubBabs.includes(q.subBabId);
+  if (!selectedSubBabs || selectedSubBabs.length === 0 || selectedSubBabs.includes('semua')) {
+    return true;
+  }
+  const qSbIds = getQuestionSubBabIds(q);
+  if (qSbIds.length === 0) return true;
+  return qSbIds.some((id) => selectedSubBabs.includes(id));
 }
 
-// Mengisi & Mengelola Kartu-Kartu Bab Target (Judul Rapi & Tidak Terpotong)
+// Helper: Mencocokkan Subtes
+function isSubtesMatching(q, subtes) {
+  if (!subtes || subtes === 'semua') return true;
+  const qSub = (q.subtes || '').toLowerCase();
+  const targetSub = subtes.toLowerCase();
+  if (qSub === targetSub) return true;
+  if (targetSub === 'fisika' && (q.mataPelajaran || '').toLowerCase() === 'fisika') return true;
+  if ((targetSub === 'matematika lanjut' || targetSub === 'matematika wajib') && (q.mataPelajaran || '').toLowerCase() === 'matematika') return true;
+  return false;
+}
+
+// Helper Utama: Mengambil Kumpulan Soal yang Cocok dengan Kriteria Drilling
+// Parameter excludeCompleted memastikan soal yang sudah selesai TIDAK dimunculkan lagi
+function getDrillingMatchingQuestions(options = {}) {
+  const { excludeCompleted = true } = options;
+  const allQuestions = AppState.dataset.soal || [];
+  const { category, subtes, selectedBabs, selectedSubBabs, difficulty } = AppState.drillingSetup;
+
+  return allQuestions.filter((q) => {
+    // 1. Kategori (TKA / UTBK)
+    const matchCat = !q.kategoriUtama || q.kategoriUtama.toLowerCase() === category.toLowerCase();
+    // 2. Subtes
+    const matchSubtes = isSubtesMatching(q, subtes);
+    // 3. Bab Terpilih (Integer Index Presisi)
+    const matchBab = isBabSelected(q, selectedBabs, subtes);
+    // 4. Sub Bab Terpilih (Multi-SubBab Matching)
+    const matchSubBab = isSubBabSelected(q, selectedSubBabs);
+    // 5. Tingkat Kesulitan
+    const matchDiff = difficulty === 'semua' || (q.kesulitan || '').toLowerCase() === difficulty.toLowerCase();
+
+    if (!matchCat || !matchSubtes || !matchBab || !matchSubBab || !matchDiff) {
+      return false;
+    }
+
+    // 6. Eksklusi Soal yang Sudah Selesai Dikerjakan
+    if (excludeCompleted && AppState.completedQuestionIds.includes(q.id)) {
+      return false;
+    }
+
+    return true;
+  });
+}
+
+// Mengisi Pilihan Subtes di Setup Drilling
+function updateDrillingSubtesPills() {
+  const container = document.getElementById('setup-subtes-group');
+  if (!container) return;
+
+  const isTka = AppState.drillingSetup.category === 'tka';
+  const subtests = isTka ? TKA_SUBTESTS : UTBK_SUBTESTS;
+
+  container.innerHTML = subtests.map((sub) => {
+    const isActive = AppState.drillingSetup.subtes.toLowerCase() === sub.toLowerCase();
+    const icon = sub.includes('Fisika') ? '⚛️ ' : sub.includes('Matematika') ? '📐 ' : '📝 ';
+    return `
+      <button class="chip-filter ${isActive ? 'active' : ''}" data-subtes="${sub}">
+        ${icon}${sub}
+      </button>
+    `;
+  }).join('');
+
+  // Event listener tombol subtes
+  container.querySelectorAll('.chip-filter').forEach((pill) => {
+    pill.addEventListener('click', () => {
+      container.querySelectorAll('.chip-filter').forEach((p) => p.classList.remove('active'));
+      pill.classList.add('active');
+      const chosen = pill.dataset.subtes;
+      AppState.drillingSetup.subtes = chosen;
+
+      // Default bab spesifik (Bukan 'semua'!) Prioritaskan Bab 15 untuk Matematika Wajib
+      if (chosen.toLowerCase() === 'matematika wajib') {
+        AppState.drillingSetup.selectedBabs = [15];
+      } else if (chosen.toLowerCase() === 'matematika lanjut') {
+        AppState.drillingSetup.selectedBabs = [6];
+      } else {
+        AppState.drillingSetup.selectedBabs = [1];
+      }
+      AppState.drillingSetup.selectedSubBabs = ['semua'];
+
+      renderDrillingBabCards();
+      renderDrillingSubBabSelector();
+      updateDrillingSetupSummary();
+    });
+  });
+
+  renderDrillingBabCards();
+}
+
+// Mengisi & Mengelola Kartu-Kartu Bab Target (Seleksi Berdasarkan Integer Index)
 function renderDrillingBabCards() {
   const container = document.getElementById('setup-bab-cards-container');
   const badge = document.getElementById('bab-selected-count-badge');
@@ -865,16 +1114,17 @@ function renderDrillingBabCards() {
     .filter((m) => m.kategoriUtama === category && m.subtes.toLowerCase() === subtes.toLowerCase())
     .map((m) => ({ judul: m.babJudul, index: m.babIndex }));
 
-  // Hapus duplikat
-  const seen = new Set();
+  // Hapus duplikat berdasarkan babIndex
+  const seenIndices = new Set();
   const uniqueBabs = fallbackBabList.filter((b) => {
-    if (seen.has(b.judul)) return false;
-    seen.add(b.judul);
+    if (seenIndices.has(b.index)) return false;
+    seenIndices.add(b.index);
     return true;
   }).sort((a, b) => a.index - b.index);
 
-  if (!Array.isArray(AppState.drillingSetup.selectedBabs)) {
-    AppState.drillingSetup.selectedBabs = ['semua'];
+  // Inisialisasi default jika belum berupa array integer
+  if (!Array.isArray(AppState.drillingSetup.selectedBabs) || AppState.drillingSetup.selectedBabs.length === 0) {
+    AppState.drillingSetup.selectedBabs = subtes.toLowerCase() === 'matematika wajib' ? [15] : [1];
   }
 
   const isAll = AppState.drillingSetup.selectedBabs.includes('semua') || 
@@ -887,63 +1137,66 @@ function renderDrillingBabCards() {
     } else if (AppState.drillingSetup.selectedBabs.length === 0) {
       badge.textContent = '0 Bab Dipilih';
     } else if (AppState.drillingSetup.selectedBabs.length === 1) {
-      badge.textContent = '1 Bab Dipilih';
+      const singleIdx = AppState.drillingSetup.selectedBabs[0];
+      const singleTitle = getSimplifiedBabTitle(subtes, singleIdx, '');
+      badge.textContent = `Bab ${singleIdx}: ${singleTitle}`;
     } else {
       badge.textContent = `${AppState.drillingSetup.selectedBabs.length} Bab Dipilih`;
     }
   }
 
   // Hitung jumlah soal per bab untuk tampilan meta di kartu
-  const questionsInSubtes = allQuestions.filter(q => {
+  const questionsInSubtes = allQuestions.filter((q) => {
     const matchCat = !q.kategoriUtama || q.kategoriUtama.toLowerCase() === category.toLowerCase();
     const matchSubtes = isSubtesMatching(q, subtes);
     return matchCat && matchSubtes;
   });
 
-  // Render Grid Kartu Bab (Judul Tidak Terpotong & Penamaan Simpel)
+  // Render Grid Kartu Bab
   container.innerHTML = uniqueBabs.map((b) => {
-    const isChecked = isAll || AppState.drillingSetup.selectedBabs.some(sel => isBabMatching(b.judul, sel));
+    const isChecked = isAll || AppState.drillingSetup.selectedBabs.includes(b.index);
     const padded = String(b.index).padStart(2, '0');
     const simpleTitle = getSimplifiedBabTitle(subtes, b.index, b.judul);
 
-    // Hitung soal di bab ini
-    const qCountInBab = questionsInSubtes.filter(q => isBabMatching(q.bab, b.judul)).length;
+    // Hitung soal di bab ini (total & belum dikerjakan)
+    const qInBab = questionsInSubtes.filter((q) => getQuestionBabIndex(q, subtes) === b.index);
+    const uncompletedInBab = qInBab.filter((q) => !AppState.completedQuestionIds.includes(q.id));
 
     return `
-      <div class="bab-card ${isChecked ? 'selected' : ''}" data-bab-title="${escapeHtml(b.judul)}">
+      <div class="bab-card ${isChecked ? 'selected' : ''}" data-bab-index="${b.index}">
         <div class="bab-card-top">
           <span class="bab-card-index">Bab ${padded}</span>
           <span class="bab-card-check">${isChecked ? '✓' : ''}</span>
         </div>
         <h4 class="bab-card-title">${escapeHtml(simpleTitle)}</h4>
         <div class="bab-card-meta">
-          <span class="bab-card-count-badge ${qCountInBab > 0 ? 'has-questions' : ''}">
-            ${qCountInBab > 0 ? `🎯 ${qCountInBab} Soal` : 'Belum Ada Soal'}
+          <span class="bab-card-count-badge ${qInBab.length > 0 ? 'has-questions' : ''}">
+            ${qInBab.length > 0 ? `🎯 ${uncompletedInBab.length}/${qInBab.length} Soal` : 'Belum Ada Soal'}
           </span>
         </div>
       </div>
     `;
   }).join('');
 
-  // Event listener klik pada tiap kartu bab
+  // Event listener klik pada tiap kartu bab (Bebas bug: hanya toggle babIndex bersangkutan)
   container.querySelectorAll('.bab-card').forEach((card) => {
     card.addEventListener('click', () => {
-      const clickedTitle = card.dataset.babTitle;
-      if (!clickedTitle) return;
+      const bIndex = parseInt(card.dataset.babIndex, 10);
+      if (isNaN(bIndex)) return;
 
       if (AppState.drillingSetup.selectedBabs.includes('semua')) {
-        // Jika sebelumnya 'semua', klik beralih fokus ke bab spesifik ini
-        AppState.drillingSetup.selectedBabs = [clickedTitle];
+        // Dari 'semua', klik fokus ke 1 bab ini saja
+        AppState.drillingSetup.selectedBabs = [bIndex];
         AppState.drillingSetup.selectedSubBabs = ['semua'];
       } else {
-        const idx = AppState.drillingSetup.selectedBabs.findIndex(sel => isBabMatching(clickedTitle, sel));
+        const idx = AppState.drillingSetup.selectedBabs.indexOf(bIndex);
         if (idx >= 0) {
           AppState.drillingSetup.selectedBabs.splice(idx, 1);
         } else {
-          AppState.drillingSetup.selectedBabs.push(clickedTitle);
+          AppState.drillingSetup.selectedBabs.push(bIndex);
         }
 
-        if (AppState.drillingSetup.selectedBabs.length === uniqueBabs.length || AppState.drillingSetup.selectedBabs.length === 0) {
+        if (AppState.drillingSetup.selectedBabs.length === uniqueBabs.length) {
           AppState.drillingSetup.selectedBabs = ['semua'];
           AppState.drillingSetup.selectedSubBabs = ['semua'];
         }
@@ -983,7 +1236,31 @@ function renderDrillingBabCards() {
   renderDrillingSubBabSelector();
 }
 
-// Render Pilihan Sub Bab Target (Terpisah Antar Bab Secara Rapi & Terstruktur)
+// Helper: Ambil Seluruh ID Sub Bab dari Bab yang Aktif Terpilih
+function getAllAvailableSubBabIds() {
+  const { subtes, selectedBabs } = AppState.drillingSetup;
+  const subKey = (subtes || '').toLowerCase();
+  const allQuestions = AppState.dataset.soal || [];
+  const sbSet = new Set();
+
+  const babIndices = selectedBabs.includes('semua')
+    ? (CANONICAL_BAB_TITLES[subKey] ? Object.keys(CANONICAL_BAB_TITLES[subKey]).map(Number) : [])
+    : selectedBabs;
+
+  babIndices.forEach((bIdx) => {
+    if (CANONICAL_CHAPTER_SUBBABS[subKey] && CANONICAL_CHAPTER_SUBBABS[subKey][bIdx]) {
+      CANONICAL_CHAPTER_SUBBABS[subKey][bIdx].forEach((sb) => sbSet.add(sb.id));
+    }
+  });
+
+  allQuestions
+    .filter((q) => isSubtesMatching(q, subtes) && isBabSelected(q, selectedBabs, subtes))
+    .forEach((q) => getQuestionSubBabIds(q).forEach((id) => sbSet.add(id)));
+
+  return Array.from(sbSet);
+}
+
+// Render Pilihan Sub Bab Target (Terpisah Antar Bab Secara Rapi & Berurutan Sesuai Kurikulum)
 function renderDrillingSubBabSelector() {
   const container = document.getElementById('setup-subbab-container');
   if (!container) return;
@@ -991,6 +1268,7 @@ function renderDrillingSubBabSelector() {
   const allBabModules = window.EDUMANDIRI_MATERI_BAB || [];
   const allQuestions = AppState.dataset.soal || [];
   const { category, subtes, selectedBabs } = AppState.drillingSetup;
+  const subKey = (subtes || '').toLowerCase();
 
   // Jika tidak ada bab yang dipilih
   if (!selectedBabs || selectedBabs.length === 0) {
@@ -1004,23 +1282,23 @@ function renderDrillingSubBabSelector() {
 
   // Dapatkan daftar bab unik yang sedang aktif (terpilih)
   const babList = allBabModules
-    .filter((m) => m.kategoriUtama === category && m.subtes.toLowerCase() === subtes.toLowerCase() && m.tipe === 'materi')
+    .filter((m) => m.kategoriUtama === category && m.subtes.toLowerCase() === subKey && m.tipe === 'materi')
     .map((m) => ({ judul: m.babJudul, index: m.babIndex }));
 
   const fallbackBabList = babList.length > 0 ? babList : allBabModules
-    .filter((m) => m.kategoriUtama === category && m.subtes.toLowerCase() === subtes.toLowerCase())
+    .filter((m) => m.kategoriUtama === category && m.subtes.toLowerCase() === subKey)
     .map((m) => ({ judul: m.babJudul, index: m.babIndex }));
 
-  const seen = new Set();
+  const seenIndices = new Set();
   const uniqueBabs = fallbackBabList.filter((b) => {
-    if (seen.has(b.judul)) return false;
-    seen.add(b.judul);
+    if (seenIndices.has(b.index)) return false;
+    seenIndices.add(b.index);
     return true;
   }).sort((a, b) => a.index - b.index);
 
   const activeBabs = selectedBabs.includes('semua')
     ? uniqueBabs
-    : uniqueBabs.filter(b => selectedBabs.some(sel => isBabMatching(b.judul, sel)));
+    : uniqueBabs.filter((b) => selectedBabs.includes(b.index));
 
   if (activeBabs.length === 0) {
     container.innerHTML = `
@@ -1042,40 +1320,66 @@ function renderDrillingSubBabSelector() {
     const simpleTitle = getSimplifiedBabTitle(subtes, b.index, b.judul);
 
     // Ambil semua soal untuk bab ini
-    const babQuestions = allQuestions.filter(q => {
+    const babQuestions = allQuestions.filter((q) => {
       const matchCat = !q.kategoriUtama || q.kategoriUtama.toLowerCase() === category.toLowerCase();
       const matchSubtes = isSubtesMatching(q, subtes);
-      const matchBab = isBabMatching(q.bab, b.judul);
+      const matchBab = getQuestionBabIndex(q, subtes) === b.index;
       return matchCat && matchSubtes && matchBab;
     });
 
-    // Kelompokkan berdasarkan subBabId
+    // Sub bab kanonikal dari kurikulum
+    const canonicalList = (CANONICAL_CHAPTER_SUBBABS[subKey] && CANONICAL_CHAPTER_SUBBABS[subKey][b.index])
+      ? CANONICAL_CHAPTER_SUBBABS[subKey][b.index]
+      : [];
+
+    // Map sub-bab
     const subBabMap = new Map();
+    canonicalList.forEach((csb) => {
+      subBabMap.set(csb.id, { id: csb.id, nama: csb.nama, count: 0, uncompleted: 0 });
+    });
+
+    // Petakan soal ke sub bab (mendukung multi-subbab)
     babQuestions.forEach((q) => {
-      const sbId = q.subBabId || `sb-${b.index}-default`;
-      const sbNama = q.subBab || simpleTitle;
-      if (!subBabMap.has(sbId)) {
-        subBabMap.set(sbId, { id: sbId, nama: sbNama, count: 0 });
+      const qSbIds = getQuestionSubBabIds(q);
+      const isCompleted = AppState.completedQuestionIds.includes(q.id);
+
+      if (qSbIds.length === 0) {
+        const fallbackId = `sb-${b.index}-default`;
+        if (!subBabMap.has(fallbackId)) {
+          subBabMap.set(fallbackId, { id: fallbackId, nama: q.subBab || simpleTitle, count: 0, uncompleted: 0 });
+        }
+        subBabMap.get(fallbackId).count++;
+        if (!isCompleted) subBabMap.get(fallbackId).uncompleted++;
+      } else {
+        qSbIds.forEach((sbId) => {
+          if (!subBabMap.has(sbId)) {
+            subBabMap.set(sbId, { id: sbId, nama: q.subBab || sbId, count: 0, uncompleted: 0 });
+          }
+          subBabMap.get(sbId).count++;
+          if (!isCompleted) subBabMap.get(sbId).uncompleted++;
+        });
       }
-      subBabMap.get(sbId).count++;
     });
 
     const subBabList = Array.from(subBabMap.values());
     const totalCount = babQuestions.length;
+    const totalUncompleted = babQuestions.filter((q) => !AppState.completedQuestionIds.includes(q.id)).length;
 
     html += `
-      <div class="subbab-chapter-group" data-chapter-bab="${escapeHtml(b.judul)}">
+      <div class="subbab-chapter-group" data-chapter-index="${b.index}">
         <div class="subbab-chapter-header">
           <div class="subbab-chapter-title-wrap">
             <span class="subbab-chapter-tag">Bab ${padded}</span>
             <span class="subbab-chapter-title">${escapeHtml(simpleTitle)}</span>
-            <span style="font-size:0.7rem; color:var(--text-muted); font-weight:600;">(${totalCount} Soal)</span>
+            <span style="font-size:0.75rem; color:var(--text-muted); font-weight:600;">
+              (${totalUncompleted}/${totalCount} Soal Tersedia)
+            </span>
           </div>
           ${subBabList.length > 0 ? `
             <div class="subbab-chapter-actions">
-              <button type="button" class="btn-subbab-action" onclick="toggleChapterAllSubBabs('${escapeHtml(b.judul)}', true)">Pilih Semua</button>
+              <button type="button" class="btn-subbab-action" onclick="toggleChapterAllSubBabs(${b.index}, true)">Pilih Semua</button>
               <span class="action-divider">•</span>
-              <button type="button" class="btn-subbab-action" onclick="toggleChapterAllSubBabs('${escapeHtml(b.judul)}', false)">Batal</button>
+              <button type="button" class="btn-subbab-action" onclick="toggleChapterAllSubBabs(${b.index}, false)">Batal</button>
             </div>
           ` : ''}
         </div>
@@ -1091,6 +1395,11 @@ function renderDrillingSubBabSelector() {
       html += `<div class="subbab-pills-container">`;
       subBabList.forEach((sb) => {
         const isChecked = isAllSubBabs || AppState.drillingSetup.selectedSubBabs.includes(sb.id);
+        const hasQuestions = sb.count > 0;
+        const badgeLabel = hasQuestions 
+          ? (sb.uncompleted < sb.count ? `${sb.uncompleted}/${sb.count} Soal` : `${sb.count} Soal`)
+          : 'Segera';
+
         html += `
           <button type="button" 
                   class="subbab-pill ${isChecked ? 'active' : ''}" 
@@ -1098,7 +1407,9 @@ function renderDrillingSubBabSelector() {
                   onclick="toggleSingleSubBab('${escapeHtml(sb.id)}')">
             <span class="subbab-pill-check">${isChecked ? '✓' : ''}</span>
             <span>${escapeHtml(sb.nama)}</span>
-            <span class="subbab-pill-badge">${sb.count} Soal</span>
+            <span class="subbab-pill-badge ${hasQuestions ? 'has-questions' : ''}">
+              ${badgeLabel}
+            </span>
           </button>
         `;
       });
@@ -1136,9 +1447,8 @@ window.toggleSingleSubBab = function(subBabId) {
   if (!subBabId) return;
 
   if (!Array.isArray(AppState.drillingSetup.selectedSubBabs) || AppState.drillingSetup.selectedSubBabs.includes('semua')) {
-    const allQuestions = AppState.dataset.soal || [];
-    const allAvailableSbIds = [...new Set(allQuestions.map(q => q.subBabId).filter(Boolean))];
-    AppState.drillingSetup.selectedSubBabs = allAvailableSbIds.filter(id => id !== subBabId);
+    const allAvailable = getAllAvailableSubBabIds();
+    AppState.drillingSetup.selectedSubBabs = allAvailable.filter((id) => id !== subBabId);
   } else {
     const idx = AppState.drillingSetup.selectedSubBabs.indexOf(subBabId);
     if (idx >= 0) {
@@ -1152,33 +1462,40 @@ window.toggleSingleSubBab = function(subBabId) {
   updateDrillingSetupSummary();
 };
 
-// Handler Toggle Semua Sub Bab untuk Bab Tertentu
-window.toggleChapterAllSubBabs = function(babJudul, selectAll) {
-  const allQuestions = AppState.dataset.soal || [];
-  const chapterSbIds = [...new Set(
-    allQuestions
-      .filter(q => isBabMatching(q.bab, babJudul))
-      .map(q => q.subBabId)
-      .filter(Boolean)
-  )];
+// Handler Toggle Semua Sub Bab untuk Bab Tertentu (Berdasarkan chapterIndex)
+window.toggleChapterAllSubBabs = function(chapterIndex, selectAll) {
+  chapterIndex = parseInt(chapterIndex, 10);
+  const { subtes } = AppState.drillingSetup;
+  const subKey = (subtes || '').toLowerCase();
 
+  let chapterSbIds = [];
+  if (CANONICAL_CHAPTER_SUBBABS[subKey] && CANONICAL_CHAPTER_SUBBABS[subKey][chapterIndex]) {
+    chapterSbIds = CANONICAL_CHAPTER_SUBBABS[subKey][chapterIndex].map((sb) => sb.id);
+  }
+
+  const allQuestions = AppState.dataset.soal || [];
+  const qSbIds = allQuestions
+    .filter((q) => isSubtesMatching(q, subtes) && getQuestionBabIndex(q, subtes) === chapterIndex)
+    .flatMap((q) => getQuestionSubBabIds(q));
+
+  chapterSbIds = [...new Set([...chapterSbIds, ...qSbIds])];
   if (chapterSbIds.length === 0) return;
 
   if (selectAll) {
     if (!Array.isArray(AppState.drillingSetup.selectedSubBabs) || AppState.drillingSetup.selectedSubBabs.includes('semua')) {
       return;
     }
-    chapterSbIds.forEach(id => {
+    chapterSbIds.forEach((id) => {
       if (!AppState.drillingSetup.selectedSubBabs.includes(id)) {
         AppState.drillingSetup.selectedSubBabs.push(id);
       }
     });
   } else {
     if (!Array.isArray(AppState.drillingSetup.selectedSubBabs) || AppState.drillingSetup.selectedSubBabs.includes('semua')) {
-      const allAvailableSbIds = [...new Set(allQuestions.map(q => q.subBabId).filter(Boolean))];
-      AppState.drillingSetup.selectedSubBabs = allAvailableSbIds.filter(id => !chapterSbIds.includes(id));
+      const allActiveSbIds = getAllAvailableSubBabIds();
+      AppState.drillingSetup.selectedSubBabs = allActiveSbIds.filter((id) => !chapterSbIds.includes(id));
     } else {
-      AppState.drillingSetup.selectedSubBabs = AppState.drillingSetup.selectedSubBabs.filter(id => !chapterSbIds.includes(id));
+      AppState.drillingSetup.selectedSubBabs = AppState.drillingSetup.selectedSubBabs.filter((id) => !chapterSbIds.includes(id));
     }
   }
 
@@ -1186,57 +1503,57 @@ window.toggleChapterAllSubBabs = function(babJudul, selectAll) {
   updateDrillingSetupSummary();
 };
 
-// Memperbarui hitungan soal yang cocok di Setup Drilling
+// Memperbarui Hitungan Soal yang Cocok di Setup Drilling (Dengan Indikator Soal Belum Dikerjakan)
 function updateDrillingSetupSummary() {
-  const allQuestions = AppState.dataset.soal || [];
-  const { category, subtes, selectedBabs, selectedSubBabs, difficulty } = AppState.drillingSetup;
+  const { selectedSubBabs } = AppState.drillingSetup;
 
-  const matchingQuestions = allQuestions.filter((q) => {
-    const matchCat = !q.kategoriUtama || q.kategoriUtama.toLowerCase() === category.toLowerCase();
-    const matchSubtes = isSubtesMatching(q, subtes);
-    const matchBab = isBabSelected(q.bab, selectedBabs);
-    const matchSubBab = isSubBabSelected(q, selectedSubBabs);
-    const matchDiff = difficulty === 'semua' || q.kesulitan.toLowerCase() === difficulty.toLowerCase();
-    return matchCat && matchSubtes && matchBab && matchSubBab && matchDiff;
-  });
+  const allMatching = getDrillingMatchingQuestions({ excludeCompleted: false });
+  const availableQuestions = getDrillingMatchingQuestions({ excludeCompleted: true });
+  const completedCount = allMatching.length - availableQuestions.length;
 
   const infoElem = document.getElementById('setup-available-info');
   const startBtn = document.getElementById('btn-start-quiz');
 
   if (infoElem) {
     const isFilteredSub = selectedSubBabs && !selectedSubBabs.includes('semua');
-    const subText = isFilteredSub ? ' (Sub Bab Target)' : '';
-    infoElem.innerHTML = `Tersedia: <strong>${matchingQuestions.length} soal</strong> target${subText}`;
+    const subText = isFilteredSub ? ' (Sub Bab Terpilih)' : '';
+
+    if (availableQuestions.length > 0) {
+      infoElem.innerHTML = `Tersedia: <strong>${availableQuestions.length} soal baru</strong> target${subText}` +
+        (completedCount > 0 ? ` <span style="font-size:0.75rem; color:var(--text-muted); font-weight:600;">(${completedCount} soal sudah selesai)</span>` : '');
+    } else if (allMatching.length > 0) {
+      infoElem.innerHTML = `⚠️ Seluruh <strong>${allMatching.length} soal</strong> target sudah selesai dikerjakan! ` +
+        `<button type="button" onclick="resetCompletedQuestions()" style="background:none; border:none; color:var(--primary); text-decoration:underline; cursor:pointer; font-weight:700; font-size:0.8rem; padding:0;">Reset Riwayat</button> untuk mengulang.`;
+    } else {
+      infoElem.innerHTML = `Tidak ada soal yang tersedia untuk kriteria bab/sub bab yang dipilih.`;
+    }
   }
 
   if (startBtn) {
-    startBtn.disabled = matchingQuestions.length === 0;
+    startBtn.disabled = availableQuestions.length === 0;
   }
 }
 
-// Memulai Sesi Drilling Soal
+// Memulai Sesi Drilling Soal (Soal yang Sudah Dikerjakan Tidak Dimunculkan Lagi)
 function startDrillingQuizSession() {
-  const allQuestions = AppState.dataset.soal || [];
-  const { category, subtes, selectedBabs, selectedSubBabs, count, difficulty, timerEnabled, timerDuration } = AppState.drillingSetup;
-
-  let pool = allQuestions.filter((q) => {
-    const matchCat = !q.kategoriUtama || q.kategoriUtama.toLowerCase() === category.toLowerCase();
-    const matchSubtes = isSubtesMatching(q, subtes);
-    const matchBab = isBabSelected(q.bab, selectedBabs);
-    const matchSubBab = isSubBabSelected(q, selectedSubBabs);
-    const matchDiff = difficulty === 'semua' || q.kesulitan.toLowerCase() === difficulty.toLowerCase();
-    return matchCat && matchSubtes && matchBab && matchSubBab && matchDiff;
-  });
+  const pool = getDrillingMatchingQuestions({ excludeCompleted: true });
 
   if (pool.length === 0) {
-    alert('Tidak ada soal yang tersedia untuk kriteria bab/sub bab yang dipilih.');
+    const allMatching = getDrillingMatchingQuestions({ excludeCompleted: false });
+    if (allMatching.length > 0) {
+      if (confirm('Seluruh soal untuk bab/sub bab ini telah Anda selesaikan sebelumnya. Ingin mereset riwayat dan mengerjakannya kembali?')) {
+        resetCompletedQuestions();
+      }
+    } else {
+      alert('Tidak ada soal yang tersedia untuk kriteria bab/sub bab yang dipilih.');
+    }
     return;
   }
 
-  pool = fisherYatesShuffle(pool);
-
-  const questionCount = count === 'semua' ? pool.length : Math.min(parseInt(count, 10), pool.length);
-  const queue = pool.slice(0, questionCount);
+  const shuffledPool = fisherYatesShuffle(pool);
+  const { count, timerEnabled, timerDuration } = AppState.drillingSetup;
+  const questionCount = count === 'semua' ? shuffledPool.length : Math.min(parseInt(count, 10), shuffledPool.length);
+  const queue = shuffledPool.slice(0, questionCount);
 
   let totalSeconds = 0;
   if (timerEnabled) {
@@ -1264,11 +1581,12 @@ function startDrillingQuizSession() {
   document.getElementById('quiz-result-panel').classList.add('hidden');
   document.getElementById('quiz-active-panel').classList.remove('hidden');
 
-  if (timerEnabled) {
+  if (timerEnabled && totalSeconds > 0) {
     startQuizTimer();
   }
 
   renderActiveQuizCard();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function startQuizTimer() {

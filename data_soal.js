@@ -1,8 +1,8 @@
 // ============================================================================
 // EDUMANDIRI: DATABASE BANK SOAL LATIHAN & DRILLING (TKA & UTBK)
 // Disusun sebagai Database Client-Side JavaScript Offline-Ready Per Sub Bab
-// Menggunakan Sub Bab ID & Multi-SubBab agar latihan terarah & komprehensif
-// Total: 53 Soal Latihan Terverifikasi Bebas KaTeX Error
+// Bab Pencacahan dan Peluang dipisah menjadi 2 bab mandiri
+// Total: 58 Soal Latihan Terverifikasi Bebas KaTeX Error
 // ============================================================================
 
 window.EDUMANDIRI_SOAL_BANK = [
@@ -707,9 +707,9 @@ window.EDUMANDIRI_SOAL_BANK = [
     "id": "MTK-B15-P1-01",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb06",
-    "subBab": "Kombinasi Pemilihan (Tanpa Urutan)",
+    "bab": "Aturan Pencacahan",
+    "subBabId": "mtk-b15-sb03",
+    "subBab": "Kombinasi & Ekspansi Binomial Newton",
     "kesulitan": "sedang",
     "pertanyaan": "Dari 8 orang calon pengurus OSIS, akan dipilih 3 orang untuk menjadi delegasi lomba debat tanpa membedakan jabatan. Banyaknya susunan delegasi yang dapat dibentuk adalah...",
     "pilihan": [
@@ -721,16 +721,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 1,
     "pembahasan": "Pemilihan delegasi tidak memperhatikan urutan jabatan, sehingga dihitung menggunakan kombinasi: $$C(8, 3) = \\frac{8!}{3!(8 - 3)!} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56$$",
     "subBabIds": [
-      "mtkw-b15-sb06"
+      "mtk-b15-sb03"
     ]
   },
   {
     "id": "MTK-B15-P1-02",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb02",
-    "subBab": "Pengisian Tempat (Filling Slots)",
+    "bab": "Aturan Pencacahan",
+    "subBabId": "mtk-b15-sb01",
+    "subBab": "Kaidah Pencacahan & Aturan Pengisian Tempat (Filling Slots)",
     "kesulitan": "mudah",
     "pertanyaan": "Dari angka-angka $1, 2, 3, 5, 7, 8$, dan $9$ akan disusun bilangan ratusan ganjil yang terdiri atas 3 angka berbeda. Banyaknya bilangan yang dapat disusun adalah...",
     "pilihan": [
@@ -742,17 +742,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 2,
     "pembahasan": "Bilangan ratusan ganjil 3 angka berbeda dari himpunan 7 angka ${1, 2, 3, 5, 7, 8, 9}$: digit satuan harus ganjil ${1, 3, 5, 7, 9}$ ($5$ pilihan). Digit ratusan dapat diisi oleh sisa $7 - 1 = 6$ angka. Digit puluhan dapat diisi oleh sisa $7 - 2 = 5$ angka. Banyak susunan bilangan $= 6 \\times 5 \\times 5 = 150$.",
     "subBabIds": [
-      "mtkw-b15-sb01",
-      "mtkw-b15-sb02"
+      "mtk-b15-sb01"
     ]
   },
   {
     "id": "MTK-B15-P1-03",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb02",
-    "subBab": "Pengisian Tempat (Filling Slots)",
+    "bab": "Aturan Pencacahan",
+    "subBabId": "mtk-b15-sb01",
+    "subBab": "Kaidah Pencacahan & Aturan Pengisian Tempat (Filling Slots)",
     "kesulitan": "sedang",
     "pertanyaan": "Dari angka-angka $0, 1, 2, 3, 4, 5$, dan $6$ akan disusun bilangan genap yang terdiri atas 3 angka berlainan. Banyaknya bilangan genap yang dapat dibentuk adalah...",
     "pilihan": [
@@ -764,17 +763,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 1,
     "pembahasan": "Karena angka $0$ tidak boleh di ratusan dan mempengaruhi syarat satuan genap, pisahkan menjadi 2 kasus: (1) Satuan angka $0$: ratusan ${1..6}$ ($6$ cara), puluhan ($5$ cara) $\\implies 6 \\times 5 \\times 1 = 30$. (2) Satuan genap ${2, 4, 6}$ ($3$ cara): ratusan bukan 0 dan bukan satuan ($5$ cara), puluhan ($5$ cara) $\\implies 5 \\times 5 \\times 3 = 75$. Total bilangan genap $= 30 + 75 = 105$.",
     "subBabIds": [
-      "mtkw-b15-sb01",
-      "mtkw-b15-sb02"
+      "mtk-b15-sb01"
     ]
   },
   {
     "id": "MTK-B15-P1-04",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb01",
-    "subBab": "Aturan Perkalian & Penjumlahan (Kaidah Dasar)",
+    "bab": "Aturan Pencacahan",
+    "subBabId": "mtk-b15-sb01",
+    "subBab": "Kaidah Pencacahan & Aturan Pengisian Tempat (Filling Slots)",
     "kesulitan": "sedang",
     "pertanyaan": "Dari kota A ke kota B terdapat 5 jalan yang berbeda, dan dari kota B ke kota C terdapat 4 jalan yang berbeda. Seseorang berangkat dari kota A ke kota C melalui B, lalu kembali ke kota A melalui B. Jika saat kembali ia tidak boleh menggunakan jalan yang sama dengan saat berangkat, banyak rute perjalanan yang dapat dipilih adalah...",
     "pilihan": [
@@ -786,17 +784,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 1,
     "pembahasan": "Rute berangkat (A $\\to$ B $\\to$ C): $5 \\times 4 = 20$ cara. Rute kembali (C $\\to$ B $\\to$ A) tanpa melalui jalan yang sama: dari C ke B tersisa $4 - 1 = 3$ jalan, dan dari B ke A tersisa $5 - 1 = 4$ jalan, sehingga rute pulang $= 3 \\times 4 = 12$ cara. Total variasi rute $= 20 \\times 12 = 240$.",
     "subBabIds": [
-      "mtkw-b15-sb01",
-      "mtkw-b15-sb02"
+      "mtk-b15-sb01"
     ]
   },
   {
     "id": "MTK-B15-P1-05",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb02",
-    "subBab": "Pengisian Tempat (Filling Slots)",
+    "bab": "Aturan Pencacahan",
+    "subBabId": "mtk-b15-sb01",
+    "subBab": "Kaidah Pencacahan & Aturan Pengisian Tempat (Filling Slots)",
     "kesulitan": "sulit",
     "pertanyaan": "Dari angka-angka $1, 2, 3, 4, 5, 6, 7$ akan disusun bilangan ribuan berbeda yang bernilai di antara $3.000$ dan $6.000$. Banyaknya bilangan yang dapat dibentuk adalah...",
     "pilihan": [
@@ -808,17 +805,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 0,
     "pembahasan": "Bilangan ribuan terdiri dari 4 digit. Agar nilainya berada di antara $3.000$ dan $6.000$, digit ribuan harus dipilih dari ${3, 4, 5}$ ($3$ pilihan). Digit ratusan diisi dari sisa $7 - 1 = 6$ angka, puluhan dari $5$ angka, dan satuan dari $4$ angka. Banyak bilangan $= 3 \\times 6 \\times 5 \\times 4 = 360$.",
     "subBabIds": [
-      "mtkw-b15-sb01",
-      "mtkw-b15-sb02"
+      "mtk-b15-sb01"
     ]
   },
   {
     "id": "MTK-B15-P2-01",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb03",
-    "subBab": "Notasi Faktorial & Permutasi Unsur Berbeda",
+    "bab": "Aturan Pencacahan",
+    "subBabId": "mtk-b15-sb02",
+    "subBab": "Permutasi (Unsur Berbeda, Unsur Sama, & Siklis)",
     "kesulitan": "mudah",
     "pertanyaan": "Dalam pemilihan pengurus kelas yang terdiri atas Ketua, Sekretaris, dan Bendahara, terdapat 7 calon siswa yang memenuhi kriteria. Jika setiap orang hanya boleh menempati paling banyak satu jabatan, banyaknya susunan pengurus yang mungkin terbentuk adalah...",
     "pilihan": [
@@ -830,16 +826,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 2,
     "pembahasan": "Karena jabatan yang dipilih memiliki fungsi dan peran berbeda (urutan diperhitungkan), gunakan permutasi $P(7, 3)$: $$P(7, 3) = \\frac{7!}{(7 - 3)!} = \\frac{7!}{4!} = 7 \\times 6 \\times 5 = 210$$",
     "subBabIds": [
-      "mtkw-b15-sb03"
+      "mtk-b15-sb02"
     ]
   },
   {
     "id": "MTK-B15-P2-02",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb04",
-    "subBab": "Permutasi dengan Unsur yang Sama (Anagram)",
+    "bab": "Aturan Pencacahan",
+    "subBabId": "mtk-b15-sb02",
+    "subBab": "Permutasi (Unsur Berbeda, Unsur Sama, & Siklis)",
     "kesulitan": "mudah",
     "pertanyaan": "Banyaknya susunan huruf berbeda yang dapat dibentuk dari huruf-huruf pada kata \"SURABAYA\" adalah...",
     "pilihan": [
@@ -851,16 +847,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 2,
     "pembahasan": "Kata 'SURABAYA' memiliki $n = 8$ huruf dengan huruf 'A' muncul sebanyak $3$ kali. Banyak susunan anagram dihitung dengan permutasi unsur sama: $$P = \\frac{8!}{3!} = \\frac{8 \\times 7 \\times 6 \\times 5 \\times 4 \\times 3!}{3!} = 6.720$$",
     "subBabIds": [
-      "mtkw-b15-sb04"
+      "mtk-b15-sb02"
     ]
   },
   {
     "id": "MTK-B15-P2-03",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb03",
-    "subBab": "Notasi Faktorial & Permutasi Unsur Berbeda",
+    "bab": "Aturan Pencacahan",
+    "subBabId": "mtk-b15-sb02",
+    "subBab": "Permutasi (Unsur Berbeda, Unsur Sama, & Siklis)",
     "kesulitan": "sedang",
     "pertanyaan": "Terdapat 5 siswa laki-laki dan 2 siswi perempuan yang akan berbaris dalam satu barisan lurus untuk upacara. Jika kedua siswi perempuan harus selalu berdiri berdampingan, banyaknya variasi susunan barisan adalah...",
     "pilihan": [
@@ -872,16 +868,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 1,
     "pembahasan": "Ikat kedua siswi perempuan menjadi $1$ kelompok kesatuan. Jumlah elemen efektif menjadi $5 + 1 = 6$ elemen. Permutasi susunan luar kelompok adalah $6! = 720$. Pertukaran posisi internal antar kedua siswi adalah $2! = 2$. Total susunan $= 6! \\times 2! = 720 \\times 2 = 1.440$.",
     "subBabIds": [
-      "mtkw-b15-sb03"
+      "mtk-b15-sb02"
     ]
   },
   {
     "id": "MTK-B15-P2-04",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb05",
-    "subBab": "Permutasi Siklis (Melingkar)",
+    "bab": "Aturan Pencacahan",
+    "subBabId": "mtk-b15-sb02",
+    "subBab": "Permutasi (Unsur Berbeda, Unsur Sama, & Siklis)",
     "kesulitan": "sedang",
     "pertanyaan": "Sebanyak 6 orang sahabat (termasuk Budi dan Dedi) duduk mengelilingi meja bundar untuk makan malam bersama. Jika Budi dan Dedi disyaratkan harus duduk berdampingan, banyak cara susunan duduk mereka adalah...",
     "pilihan": [
@@ -893,17 +889,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 1,
     "pembahasan": "Anggap Budi dan Dedi sebagai $1$ kesatuan, sehingga terdapat $5$ objek melingkar. Permutasi siklis $5$ objek adalah $(5 - 1)! = 4! = 24$. Di dalam kelompoknya, Budi dan Dedi dapat bertukar posisi dalam $2! = 2$ cara. Total susunan duduk $= 24 \\times 2 = 48$.",
     "subBabIds": [
-      "mtkw-b15-sb03",
-      "mtkw-b15-sb05"
+      "mtk-b15-sb02"
     ]
   },
   {
     "id": "MTK-B15-P2-05",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb03",
-    "subBab": "Notasi Faktorial & Permutasi Unsur Berbeda",
+    "bab": "Aturan Pencacahan",
+    "subBabId": "mtk-b15-sb02",
+    "subBab": "Permutasi (Unsur Berbeda, Unsur Sama, & Siklis)",
     "kesulitan": "sulit",
     "pertanyaan": "Empat anak laki-laki dan 3 anak perempuan akan duduk berjajar pada 7 kursi kosong. Jika disyaratkan tidak boleh ada anak perempuan yang duduk berdampingan satu sama lain, banyaknya susunan duduk yang mungkin adalah...",
     "pilihan": [
@@ -915,17 +910,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 1,
     "pembahasan": "Gunakan metode celah (*slot method*): Susun terlebih dahulu $4$ anak laki-laki dalam satu baris $\\implies 4! = 24$ cara. Di antara dan di ujung-ujung anak laki-laki terdapat $5$ celah kosong. Tempatkan $3$ anak perempuan ke dalam $5$ celah tersebut $\\implies P(5, 3) = 5 \\times 4 \\times 3 = 60$ cara. Banyak susunan total $= 24 \\times 60 = 1.440$.",
     "subBabIds": [
-      "mtkw-b15-sb03",
-      "mtkw-b15-sb06"
+      "mtk-b15-sb02"
     ]
   },
   {
     "id": "MTK-B15-P3-01",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb06",
-    "subBab": "Kombinasi Pemilihan (Tanpa Urutan)",
+    "bab": "Aturan Pencacahan",
+    "subBabId": "mtk-b15-sb03",
+    "subBab": "Kombinasi & Ekspansi Binomial Newton",
     "kesulitan": "mudah",
     "pertanyaan": "Seorang siswa diwajibkan mengerjakan 7 dari 10 soal ulangan matematika yang diberikan. Jika soal nomor 1 sampai nomor 3 wajib dikerjakan, banyak pilihan soal yang dapat diambil siswa tersebut adalah...",
     "pilihan": [
@@ -937,16 +931,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 1,
     "pembahasan": "Karena $3$ soal pertama wajib dikerjakan, siswa tinggal memilih sisa $7 - 3 = 4$ soal dari sisa $10 - 3 = 7$ soal yang tersedia: $$C(7, 4) = C(7, 3) = \\frac{7 \\times 6 \\times 5}{3 \\times 2 \\times 1} = 35$$",
     "subBabIds": [
-      "mtkw-b15-sb06"
+      "mtk-b15-sb03"
     ]
   },
   {
     "id": "MTK-B15-P3-02",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb06",
-    "subBab": "Kombinasi Pemilihan (Tanpa Urutan)",
+    "bab": "Aturan Pencacahan",
+    "subBabId": "mtk-b15-sb03",
+    "subBab": "Kombinasi & Ekspansi Binomial Newton",
     "kesulitan": "sedang",
     "pertanyaan": "Dari 6 orang dokter dan 5 orang perawat akan dibentuk satu tim medis beranggotakan 4 orang untuk bertugas di daerah bencana. Jika tim tersebut harus memuat paling sedikit 2 orang dokter, banyaknya formasi tim medis yang dapat dibentuk adalah...",
     "pilihan": [
@@ -958,17 +952,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 2,
     "pembahasan": "Bagi menjadi 3 kasus komposisi tim: (1) 2 Dokter & 2 Perawat: $\\binom{6}{2} \\times \\binom{5}{2} = 15 \\times 10 = 150$. (2) 3 Dokter & 1 Perawat: $\\binom{6}{3} \\times \\binom{5}{1} = 20 \\times 5 = 100$. (3) 4 Dokter: $\\binom{6}{4} = 15$. Total formasi tim $= 150 + 100 + 15 = 265$.",
     "subBabIds": [
-      "mtkw-b15-sb01",
-      "mtkw-b15-sb06"
+      "mtk-b15-sb03"
     ]
   },
   {
     "id": "MTK-B15-P3-03",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb06",
-    "subBab": "Kombinasi Pemilihan (Tanpa Urutan)",
+    "bab": "Aturan Pencacahan",
+    "subBabId": "mtk-b15-sb03",
+    "subBab": "Kombinasi & Ekspansi Binomial Newton",
     "kesulitan": "sedang",
     "pertanyaan": "Sebuah poligon segi-10 beraturan ($n = 10$) memiliki sejumlah ruas garis penghubung titik-titik sudutnya. Banyaknya diagonal bidang pada poligon segi-10 tersebut adalah...",
     "pilihan": [
@@ -980,16 +973,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 1,
     "pembahasan": "Banyak diagonal bidang pada segi-$n$ beraturan dihitung dengan rumus: $$D = \\binom{n}{2} - n = \\frac{n(n - 3)}{2} = \\frac{10 \\times (10 - 3)}{2} = \\frac{70}{2} = 35$$",
     "subBabIds": [
-      "mtkw-b15-sb06"
+      "mtk-b15-sb03"
     ]
   },
   {
     "id": "MTK-B15-P3-04",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb07",
-    "subBab": "Teorema Binomial Newton & Segitiga Pascal",
+    "bab": "Aturan Pencacahan",
+    "subBabId": "mtk-b15-sb03",
+    "subBab": "Kombinasi & Ekspansi Binomial Newton",
     "kesulitan": "sedang",
     "pertanyaan": "Koefisien suku yang memuat $x^3$ pada ekspansi bentuk aljabar $(x - 2)^6$ adalah...",
     "pilihan": [
@@ -1001,16 +994,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 0,
     "pembahasan": "Berdasarkan Teorema Binomial Newton, suku umum ekspansi $(x - 2)^6$ adalah: $$T_{r+1} = \\binom{6}{r} x^{6-r} (-2)^r$$ Untuk memperoleh suku $x^3$, ambil $6 - r = 3 \\implies r = 3$. Koefisien $= \\binom{6}{3} (-2)^3 = 20 \\times (-8) = -160$.",
     "subBabIds": [
-      "mtkw-b15-sb07"
+      "mtk-b15-sb03"
     ]
   },
   {
     "id": "MTK-B15-P3-05",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb07",
-    "subBab": "Teorema Binomial Newton & Segitiga Pascal",
+    "bab": "Aturan Pencacahan",
+    "subBabId": "mtk-b15-sb03",
+    "subBab": "Kombinasi & Ekspansi Binomial Newton",
     "kesulitan": "sulit",
     "pertanyaan": "Nilai suku konstan (suku yang tidak memuat variabel $x$) pada penjabaran bentuk perpangkatan $\\left(2x + \\frac{1}{x^2}\\right)^6$ adalah...",
     "pilihan": [
@@ -1022,16 +1015,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 2,
     "pembahasan": "Suku umum ekspansi $\\left(2x + \\frac{1}{x^2}\\right)^6$ adalah: $$T_{r+1} = \\binom{6}{r} (2x)^{6-r} (x^{-2})^r = \\binom{6}{r} 2^{6-r} x^{6 - 3r}$$ Agar menjadi suku bebas $x$ (konstan), pangkat $x$ harus bernilai nol: $$6 - 3r = 0 \\implies r = 2$$ Nilai suku konstan $= \\binom{6}{2} \\times 2^{6 - 2} = 15 \\times 16 = 240$.",
     "subBabIds": [
-      "mtkw-b15-sb07"
+      "mtk-b15-sb03"
     ]
   },
   {
-    "id": "MTK-B15-P4-01",
+    "id": "MTK-B16-P1-01",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb08",
-    "subBab": "Ruang Sampel & Peluang Sederhana",
+    "bab": "Peluang",
+    "subBabId": "mtk-b16-sb01",
+    "subBab": "Ruang Sampel & Peluang Kejadian Sederhana",
     "kesulitan": "mudah",
     "pertanyaan": "Sebuah kantong berisi 5 kelereng merah dan 3 kelereng kuning. Jika dari kantong tersebut diambil 2 kelereng sekaligus secara acak, peluang terambilnya 1 kelereng merah dan 1 kelereng kuning adalah...",
     "pilihan": [
@@ -1043,17 +1036,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 1,
     "pembahasan": "Ruang sampel pengambilan $2$ kelereng dari total $8$ kelereng: $$n(S) = \\binom{8}{2} = \\frac{8 \\times 7}{2} = 28$$ Titik sampel terambil $1$ merah dan $1$ kuning: $$n(A) = \\binom{5}{1} \\times \\binom{3}{1} = 5 \\times 3 = 15$$ Peluang $= \\frac{n(A)}{n(S)} = \\frac{15}{28}$.",
     "subBabIds": [
-      "mtkw-b15-sb06",
-      "mtkw-b15-sb08"
+      "mtk-b16-sb01"
     ]
   },
   {
-    "id": "MTK-B15-P4-02",
+    "id": "MTK-B16-P1-02",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb11",
-    "subBab": "Peluang Kejadian Bebas & Bersyarat Dasar",
+    "bab": "Peluang",
+    "subBabId": "mtk-b16-sb03",
+    "subBab": "Peluang Kejadian Majemuk & Peluang Bersyarat",
     "kesulitan": "sedang",
     "pertanyaan": "Dalam sebuah kotak terdapat 4 bola hijau dan 6 bola putih. Dua bola diambil satu per satu secara berturut-turut tanpa pengembalian. Peluang terambilnya kedua bola berwarna hijau adalah...",
     "pilihan": [
@@ -1065,17 +1057,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 1,
     "pembahasan": "Peluang bola pertama hijau adalah $\\frac{4}{10}$. Karena bola tidak dikembalikan, tersisa $3$ bola hijau dari $9$ bola. Peluang bola kedua hijau adalah $\\frac{3}{9}$. Peluang keduanya hijau: $$P = \\frac{4}{10} \\times \\frac{3}{9} = \\frac{2}{5} \\times \\frac{1}{3} = \\frac{2}{15}$$",
     "subBabIds": [
-      "mtkw-b15-sb11",
-      "mtkw-b15-sb12"
+      "mtk-b16-sb03"
     ]
   },
   {
-    "id": "MTK-B15-P4-03",
+    "id": "MTK-B16-P1-03",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb10",
-    "subBab": "Peluang Kejadian Majemuk (Saling Lepas/Gabungan)",
+    "bab": "Peluang",
+    "subBabId": "mtk-b16-sb03",
+    "subBab": "Peluang Kejadian Majemuk & Peluang Bersyarat",
     "kesulitan": "sedang",
     "pertanyaan": "Peluang seorang siswa lulus tes matematika adalah $0{,}8$ dan peluang ia lulus tes fisika adalah $0{,}7$. Jika kelulusan kedua tes tersebut saling bebas, peluang bahwa siswa tersebut hanya lulus tepat satu tes adalah...",
     "pilihan": [
@@ -1087,16 +1078,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 1,
     "pembahasan": "Peluang gagal matematika $= 1 - 0{,}8 = 0{,}2$, dan gagal fisika $= 1 - 0{,}7 = 0{,}3$. Kejadian 'hanya lulus tepat satu tes' terdiri atas dua kejadian saling lepas: (1) Lulus Matematika & Gagal Fisika: $0{,}8 \\times 0{,}3 = 0{,}24$. (2) Gagal Matematika & Lulus Fisika: $0{,}2 \\times 0{,}7 = 0{,}14$. Peluang total $= 0{,}24 + 0{,}14 = 0{,}38$.",
     "subBabIds": [
-      "mtkw-b15-sb10"
+      "mtk-b16-sb03"
     ]
   },
   {
-    "id": "MTK-B15-P4-04",
+    "id": "MTK-B16-P1-04",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb09",
-    "subBab": "Frekuensi Harapan & Peluang Komplemen",
+    "bab": "Peluang",
+    "subBabId": "mtk-b16-sb02",
+    "subBab": "Peluang Komplemen & Frekuensi Harapan",
     "kesulitan": "sedang",
     "pertanyaan": "Tiga buah uang logam dilempar bersama-sama satu kali. Peluang munculnya paling sedikit satu sisi angka (A) adalah...",
     "pilihan": [
@@ -1108,17 +1099,16 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 3,
     "pembahasan": "Ruang sampel pelemparan $3$ koin adalah $n(S) = 2^3 = 8$. Kejadian tidak ada angka sama sekali adalah ketiga koin memunculkan Gambar (GGG), yaitu $1$ titik sampel. $$P(\\text{paling sedikit 1 A}) = 1 - P(\\text{semua G}) = 1 - \\frac{1}{8} = \\frac{7}{8}$$",
     "subBabIds": [
-      "mtkw-b15-sb08",
-      "mtkw-b15-sb09"
+      "mtk-b16-sb02"
     ]
   },
   {
-    "id": "MTK-B15-P4-05",
+    "id": "MTK-B16-P1-05",
     "kategoriUtama": "tka",
     "subtes": "Matematika Wajib",
-    "bab": "Pencacahan & Peluang",
-    "subBabId": "mtkw-b15-sb12",
-    "subBab": "Peluang Bersyarat & Teorema Bayes Dasar",
+    "bab": "Peluang",
+    "subBabId": "mtk-b16-sb03",
+    "subBab": "Peluang Kejadian Majemuk & Peluang Bersyarat",
     "kesulitan": "sulit",
     "pertanyaan": "Dari 80 orang peserta seleksi beasiswa, terdapat 50 orang yang menguasai bahasa Inggris dan 30 orang yang menguasai bahasa Jepang, dengan 15 orang di antaranya menguasai kedua bahasa tersebut. Jika dipilih seorang peserta secara acak dan ternyata ia menguasai bahasa Inggris, peluang bahwa peserta tersebut juga menguasai bahasa Jepang adalah...",
     "pilihan": [
@@ -1130,7 +1120,113 @@ window.EDUMANDIRI_SOAL_BANK = [
     "kunciJawaban": 1,
     "pembahasan": "Merupakan persoalan peluang bersyarat $P(J \\mid I)$, di mana ruang sampel dibatasi hanya pada peserta yang menguasai bahasa Inggris ($n(I) = 50$): $$P(J \\mid I) = \\frac{n(I \\cap J)}{n(I)} = \\frac{15}{50} = \\frac{3}{10} = 0{,}30$$",
     "subBabIds": [
-      "mtkw-b15-sb12"
+      "mtk-b16-sb03"
+    ]
+  },
+  {
+    "id": "MTK-B16-P2-01",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Wajib",
+    "bab": "Peluang",
+    "subBabId": "mtk-b16-sb01",
+    "subBab": "Ruang Sampel & Peluang Kejadian Sederhana",
+    "kesulitan": "sedang",
+    "pertanyaan": "Dua buah dadu bermata enam dilempar bersama-sama satu kali. Peluang munculnya jumlah kedua mata dadu sama dengan 7 atau 10 adalah...",
+    "pilihan": [
+      "$\\frac{1}{6}$",
+      "$\\frac{1}{4}$",
+      "$\\frac{5}{18}$",
+      "$\\frac{1}{3}$"
+    ],
+    "kunciJawaban": 1,
+    "pembahasan": "Ruang sampel pelemparan $2$ dadu adalah $n(S) = 6 \\times 6 = 36$. Kejadian berjumlah $7$: ${(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)}$ ($6$ titik). Kejadian berjumlah $10$: ${(4,6), (5,5), (6,4)}$ ($3$ titik). Karena kedua kejadian saling lepas, $n(A) = 6 + 3 = 9$. $$P = \\frac{9}{36} = \\frac{1}{4}$$",
+    "subBabIds": [
+      "mtk-b16-sb01",
+      "mtk-b16-sb03"
+    ]
+  },
+  {
+    "id": "MTK-B16-P2-02",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Wajib",
+    "bab": "Peluang",
+    "subBabId": "mtk-b16-sb02",
+    "subBab": "Peluang Komplemen & Frekuensi Harapan",
+    "kesulitan": "mudah",
+    "pertanyaan": "Sebuah dadu dilemparkan sebanyak $180$ kali. Frekuensi harapan munculnya mata dadu bilangan prima adalah...",
+    "pilihan": [
+      "$60$ kali",
+      "$90$ kali",
+      "$120$ kali",
+      "$150$ kali"
+    ],
+    "kunciJawaban": 1,
+    "pembahasan": "Mata dadu prima pada dadu 6 sisi adalah ${2, 3, 5}$ ($3$ titik). Peluang muncul prima: $$P = \\frac{3}{6} = \\frac{1}{2}$$ Frekuensi harapan: $$F_h = n \\times P = 180 \\times \\frac{1}{2} = 90\\text{ kali}$$",
+    "subBabIds": [
+      "mtk-b16-sb02"
+    ]
+  },
+  {
+    "id": "MTK-B16-P2-03",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Wajib",
+    "bab": "Peluang",
+    "subBabId": "mtk-b16-sb03",
+    "subBab": "Peluang Kejadian Majemuk & Peluang Bersyarat",
+    "kesulitan": "sedang",
+    "pertanyaan": "Satu kartu diambil secara acak dari satu set kartu bridge lengkap (52 kartu). Peluang terambilnya kartu berwarna merah atau kartu bergambar As adalah...",
+    "pilihan": [
+      "$\\frac{7}{13}$",
+      "$\\frac{15}{26}$",
+      "$\\frac{8}{13}$",
+      "$\\frac{17}{26}$"
+    ],
+    "kunciJawaban": 0,
+    "pembahasan": "Jumlah total kartu $n(S) = 52$. Kartu merah ($M$): $26$ kartu. Kartu As ($A$): $4$ kartu. Kartu merah sekaligus As ($M \\cap A$): $2$ kartu (As Hati dan As Wajik). Menggunakan aturan kejadian majemuk: $$P(M \\cup A) = P(M) + P(A) - P(M \\cap A) = \\frac{26}{52} + \\frac{4}{52} - \\frac{2}{52} = \\frac{28}{52} = \\frac{7}{13}$$",
+    "subBabIds": [
+      "mtk-b16-sb03"
+    ]
+  },
+  {
+    "id": "MTK-B16-P2-04",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Wajib",
+    "bab": "Peluang",
+    "subBabId": "mtk-b16-sb03",
+    "subBab": "Peluang Kejadian Majemuk & Peluang Bersyarat",
+    "kesulitan": "sedang",
+    "pertanyaan": "Kotak I berisi 3 bola merah dan 2 bola putih. Kotak II berisi 4 bola merah dan 3 bola putih. Dari masing-masing kotak diambil 1 bola secara acak. Peluang terambilnya kedua bola berwarna sama adalah...",
+    "pilihan": [
+      "$\\frac{12}{35}$",
+      "$\\frac{18}{35}$",
+      "$\\frac{6}{35}$",
+      "$\\frac{24}{35}$"
+    ],
+    "kunciJawaban": 1,
+    "pembahasan": "Kedua bola berwarna sama jika keduanya merah ($M_1$ dan $M_2$) ATAU keduanya putih ($P_1$ dan $P_2$): $$P(M_1 \\cap M_2) = \\frac{3}{5} \\times \\frac{4}{7} = \\frac{12}{35}$$ $$P(P_1 \\cap P_2) = \\frac{2}{5} \\times \\frac{3}{7} = \\frac{6}{35}$$ Karena saling lepas: $$P = \\frac{12}{35} + \\frac{6}{35} = \\frac{18}{35}$$",
+    "subBabIds": [
+      "mtk-b16-sb03"
+    ]
+  },
+  {
+    "id": "MTK-B16-P2-05",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Wajib",
+    "bab": "Peluang",
+    "subBabId": "mtk-b16-sb03",
+    "subBab": "Peluang Kejadian Majemuk & Peluang Bersyarat",
+    "kesulitan": "sulit",
+    "pertanyaan": "Suatu tes laboratorium mendeteksi suatu penyakit dengan akurasi: jika seseorang terjangkit penyakit, tes memberikan hasil positif sebesar $95\\%$. Namun tes juga memberikan hasil positif palsu (*false positive*) sebesar $2\\%$ pada orang sehat. Jika pada populasi terdapat $1\\%$ orang yang mengidap penyakit tersebut, peluang seseorang benar-benar sakit jika hasil tesnya positif adalah...",
+    "pilihan": [
+      "$\\frac{95}{293}$",
+      "$\\frac{95}{193}$",
+      "$\\frac{95}{100}$",
+      "$\\frac{19}{20}$"
+    ],
+    "kunciJawaban": 0,
+    "pembahasan": "Gunakan Teorema Bayes: Misal $S$ = sakit, $H$ = hasil tes positif. $P(S) = 0{,}01$, $P(S^c) = 0{,}99$. $P(H \\mid S) = 0{,}95$, $P(H \\mid S^c) = 0{,}02$. Peluang total tes positif: $$P(H) = P(S)P(H \\mid S) + P(S^c)P(H \\mid S^c) = (0{,}01)(0{,}95) + (0{,}99)(0{,}02) = 0{,}0095 + 0{,}0198 = 0{,}0293$$ Peluang bersyarat $P(S \\mid H)$: $$P(S \\mid H) = \\frac{P(S \\cap H)}{P(H)} = \\frac{0{,}0095}{0{,}0293} = \\frac{95}{293} \\approx 32{,}4\\%$$",
+    "subBabIds": [
+      "mtk-b16-sb03"
     ]
   }
 ];

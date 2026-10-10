@@ -44,9 +44,9 @@ const AppState = {
   // Konfigurasi Drilling Soal Per Bab (Wizard)
   drillingSetup: {
     category: 'tka',         // 'tka' | 'utbk'
-    subtes: 'Matematika Wajib', // Prioritaskan Bab 15 MTK Wajib
-    bab: '15',
-    selectedBabs: [15],         // Default Bab 15 (Pencacahan & Peluang, bukan 'semua')
+    subtes: 'Matematika Wajib',
+    bab: null,
+    selectedBabs: [],         // Default KOSONG (fleksibel, pengguna bebas memilih)
     selectedSubBabs: ['semua'], // multi-select sub-bab IDs array or ['semua']
     count: '5',                 // '5' | '10' | '15' | 'semua'
     difficulty: 'semua',        // 'mudah' | 'sedang' | 'sulit' | 'semua'
@@ -737,7 +737,8 @@ const CANONICAL_BAB_TITLES = {
     12: 'Geometri Ruang (Dimensi 3)',
     13: 'Persamaan Lingkaran',
     14: 'Statistika Deskriptif',
-    15: 'Pencacahan & Peluang'
+    15: 'Aturan Pencacahan',
+    16: 'Peluang'
   },
   'matematika lanjut': {
     1: 'Bilangan Kompleks',
@@ -752,146 +753,114 @@ const CANONICAL_BAB_TITLES = {
   }
 };
 
-// Hierarki Sub Bab Spesifik Berurutan (Kurikulum 2013 & Kurikulum Merdeka)
+// Hierarki Sub Bab Utama Berurutan (Hanya Sub Bab Besar / Inti)
 const CANONICAL_CHAPTER_SUBBABS = {
   'matematika wajib': {
     15: [
-      { id: 'mtk-w-15-sb01', nama: 'Kaidah Dasar Membilang (Aturan Penjumlahan & Perkalian)' },
-      { id: 'mtk-w-15-sb02', nama: 'Aturan Pengisian Tempat (Filling Slots)' },
-      { id: 'mtk-w-15-sb03', nama: 'Notasi Faktorial & Permutasi n Unsur Berbeda' },
-      { id: 'mtk-w-15-sb04', nama: 'Permutasi r dari n Unsur Berbeda' },
-      { id: 'mtk-w-15-sb05', nama: 'Permutasi dengan Beberapa Unsur Sama (Anagram)' },
-      { id: 'mtk-w-15-sb06', nama: 'Permutasi Siklis (Melingkar)' },
-      { id: 'mtk-w-15-sb07', nama: 'Kombinasi & Pemilihan Bebas / Bersyarat' },
-      { id: 'mtk-w-15-sb08', nama: 'Ekspansi Binomial Newton' },
-      { id: 'mtk-w-15-sb09', nama: 'Ruang Sampel, Titik Sampel, & Peluang Klasik' },
-      { id: 'mtk-w-15-sb10', nama: 'Peluang Komplemen Kejadian & Frekuensi Harapan' },
-      { id: 'mtk-w-15-sb11', nama: 'Peluang Kejadian Majemuk Saling Lepas & Tidak Saling Lepas' },
-      { id: 'mtk-w-15-sb12', nama: 'Peluang Kejadian Saling Bebas & Peluang Bersyarat' }
+      { id: 'mtk-b15-sb01', nama: 'Kaidah Pencacahan & Filling Slots' },
+      { id: 'mtk-b15-sb02', nama: 'Permutasi (Unsur Berbeda, Sama, & Siklis)' },
+      { id: 'mtk-b15-sb03', nama: 'Kombinasi & Binomial Newton' }
+    ],
+    16: [
+      { id: 'mtk-b16-sb01', nama: 'Ruang Sampel & Peluang Sederhana' },
+      { id: 'mtk-b16-sb02', nama: 'Komplemen & Frekuensi Harapan' },
+      { id: 'mtk-b16-sb03', nama: 'Peluang Kejadian Majemuk & Bersyarat' }
     ],
     1: [
-      { id: 'mtk-w-01-sb01', nama: 'Sifat & Operasi Aljabar Eksponen' },
-      { id: 'mtk-w-01-sb02', nama: 'Persamaan & Pertidaksamaan Eksponen' },
-      { id: 'mtk-w-01-sb03', nama: 'Sifat & Operasi Logaritma' },
-      { id: 'mtk-w-01-sb04', nama: 'Persamaan & Pertidaksamaan Logaritma' }
+      { id: 'mtk-w-01-sb01', nama: 'Eksponen & Persamaan Eksponen' },
+      { id: 'mtk-w-01-sb02', nama: 'Logaritma & Persamaan Logaritma' }
     ],
     2: [
-      { id: 'mtk-w-02-sb01', nama: 'Konsep Geometris & Definisi Nilai Mutlak' },
-      { id: 'mtk-w-02-sb02', nama: 'Persamaan Nilai Mutlak Linear' },
-      { id: 'mtk-w-02-sb03', nama: 'Pertidaksamaan Nilai Mutlak Linear' }
+      { id: 'mtk-w-02-sb01', nama: 'Konsep & Persamaan Nilai Mutlak' },
+      { id: 'mtk-w-02-sb02', nama: 'Pertidaksamaan Nilai Mutlak' }
     ],
     5: [
-      { id: 'mtk-w-05-sb01', nama: 'Karakteristik & Titik Puncak Fungsi Kuadrat' },
-      { id: 'mtk-w-05-sb02', nama: 'Diskriminan & Definit Positif/Negatif' },
-      { id: 'mtk-w-05-sb03', nama: 'Fungsi Rasional & Asimtot Datar/Tegak' }
+      { id: 'mtk-w-05-sb01', nama: 'Fungsi & Persamaan Kuadrat' },
+      { id: 'mtk-w-05-sb02', nama: 'Fungsi Rasional & Asimtot' }
     ],
     10: [
-      { id: 'mtk-w-10-sb01', nama: 'Operasi Penjumlahan & Perkalian Matriks' },
-      { id: 'mtk-w-10-sb02', nama: 'Determinan & Invers Matriks Ordo 2x2' },
-      { id: 'mtk-w-10-sb03', nama: 'Penyelesaian SPLDV Menggunakan Matriks' }
+      { id: 'mtk-w-10-sb01', nama: 'Operasi & Aljabar Matriks' },
+      { id: 'mtk-w-10-sb02', nama: 'Determinan & Invers Matriks' }
     ],
     12: [
-      { id: 'mtk-w-12-sb01', nama: 'Kedudukan Titik, Garis, dan Bidang' },
-      { id: 'mtk-w-12-sb02', nama: 'Jarak Titik ke Titik, Titik ke Garis' },
-      { id: 'mtk-w-12-sb03', nama: 'Jarak Titik ke Bidang & Sudut dalam Ruang' }
+      { id: 'mtk-w-12-sb01', nama: 'Jarak Titik, Garis, dan Bidang' },
+      { id: 'mtk-w-12-sb02', nama: 'Sudut dalam Dimensi Tiga' }
     ]
   },
   'matematika lanjut': {
     6: [
-      { id: 'mtk-l-06-sb01', nama: 'Limit Fungsi Aljabar (Pemfaktoran & Kali Sekawan)' },
-      { id: 'mtk-l-06-sb02', nama: 'Limit Fungsi Menuju Tak Hingga' },
-      { id: 'mtk-l-06-sb03', nama: 'Limit Fungsi Trigonometri Dasar' }
+      { id: 'mtk-l-06-sb01', nama: 'Limit Fungsi Aljabar & Tak Hingga' },
+      { id: 'mtk-l-06-sb02', nama: 'Limit Fungsi Trigonometri' }
     ],
     7: [
-      { id: 'mtk-l-07-sb01', nama: 'Konsep Turunan & Aturan Dasar Aljabar' },
-      { id: 'mtk-l-07-sb02', nama: 'Turunan Perkalian, Pembagian, & Aturan Rantai' },
-      { id: 'mtk-l-07-sb03', nama: 'Turunan Fungsi Trigonometri' },
-      { id: 'mtk-l-07-sb04', nama: 'Aplikasi Turunan (Garis Singgung & Nilai Ekstrim)' }
+      { id: 'mtk-l-07-sb01', nama: 'Aturan Turunan Aljabar & Trigonometri' },
+      { id: 'mtk-l-07-sb02', nama: 'Aplikasi Turunan (Garis Singgung & Nilai Ekstrim)' }
     ],
     8: [
-      { id: 'mtk-l-08-sb01', nama: 'Integral Tak Tentu & Tentu Fungsi Aljabar' },
-      { id: 'mtk-l-08-sb02', nama: 'Teknik Pengintegralan Substitusi & Parsial' },
-      { id: 'mtk-l-08-sb03', nama: 'Aplikasi Integral (Luas Daerah & Volume Putar)' }
+      { id: 'mtk-l-08-sb01', nama: 'Teknik Pengintegralan (Substitusi & Parsial)' },
+      { id: 'mtk-l-08-sb02', nama: 'Aplikasi Integral (Luas Daerah & Volume)' }
     ]
   },
   'fisika': {
     1: [
-      { id: 'fis-b01-sb01', nama: 'Besaran Pokok, Satuan SI, & Dimensi' },
-      { id: 'fis-b01-sb02', nama: 'Alat Ukur Panjang & Ketelitian (Jangka Sorong & Mikrometer)' },
-      { id: 'fis-b01-sb03', nama: 'Angka Penting & Aturan Operasi Hitung' },
-      { id: 'fis-b01-sb04', nama: 'Ketidakpastian Pengukuran & Notasi Ilmiah' }
+      { id: 'fis-b01-sb01', nama: 'Besaran, Satuan, Dimensi, & Ketidakpastian' },
+      { id: 'fis-b01-sb02', nama: 'Alat Ukur Panjang & Angka Penting' }
     ],
     2: [
-      { id: 'fis-b02-sb01', nama: 'Konsep & Notasi Vektor' },
-      { id: 'fis-b02-sb02', nama: 'Penjumlahan & Pengurangan Vektor (Poligon & Jajar Genjang)' },
-      { id: 'fis-b02-sb03', nama: 'Analisis Komponen Vektor Sumbu X dan Y' },
-      { id: 'fis-b02-sb04', nama: 'Perkalian Titik (Dot Product) & Perkalian Silang (Cross Product)' }
+      { id: 'fis-b02-sb01', nama: 'Komponen Vektor & Penjumlahan Vektor' },
+      { id: 'fis-b02-sb02', nama: 'Perkalian Vektor (Dot & Cross Product)' }
     ],
     3: [
-      { id: 'fis-b03-sb01', nama: 'Besaran Kinematika (Posisi, Perpindahan, Kecepatan)' },
-      { id: 'fis-b03-sb02', nama: 'Gerak Lurus Beraturan (GLB)' },
-      { id: 'fis-b03-sb03', nama: 'Gerak Lurus Berubah Beraturan (GLBB)' },
-      { id: 'fis-b03-sb04', nama: 'Gerak Vertikal & Gerak Jatuh Bebas' }
+      { id: 'fis-b03-sb01', nama: 'Kinematika Gerak Lurus (GLB & GLBB)' },
+      { id: 'fis-b03-sb02', nama: 'Gerak Vertikal & Gerak Jatuh Bebas' }
     ],
     4: [
-      { id: 'fis-b04-sb01', nama: 'Analisis Komponen Gerak Parabola' },
-      { id: 'fis-b04-sb02', nama: 'Titik Tertinggi & Jangkauan Terjauh Parabola' },
-      { id: 'fis-b04-sb03', nama: 'Gerak Melingkar Beraturan (GMB) & Percepatan Sentripetal' }
+      { id: 'fis-b04-sb01', nama: 'Analisis Gerak Parabola' },
+      { id: 'fis-b04-sb02', nama: 'Gerak Melingkar Beraturan (GMB & GMBB)' }
     ],
     5: [
-      { id: 'fis-b05-sb01', nama: 'Hukum I, II, & III Newton tentang Gerak' },
-      { id: 'fis-b05-sb02', nama: 'Gaya Gesek (Statis & Kinetis) pada Bidang Datar & Miring' },
-      { id: 'fis-b05-sb03', nama: 'Penerapan Hukum Newton pada Sistem Katrol' }
+      { id: 'fis-b05-sb01', nama: 'Hukum Newton tentang Gerak' },
+      { id: 'fis-b05-sb02', nama: 'Penerapan Gaya Gesek & Sistem Katrol' }
     ],
     8: [
-      { id: 'fis-b08-sb01', nama: 'Momen Gaya (Torsi) & Momen Inersia' },
-      { id: 'fis-b08-sb02', nama: 'Hukum II Newton Rotasi & Gerak Menggelinding' },
-      { id: 'fis-b08-sb03', nama: 'Kesetimbangan Benda Tegar & Titik Berat' }
+      { id: 'fis-b08-sb01', nama: 'Momen Gaya, Inersia, & Dinamika Rotasi' },
+      { id: 'fis-b08-sb02', nama: 'Kesetimbangan Benda Tegar & Titik Berat' }
     ],
     11: [
-      { id: 'fis-b11-sb01', nama: 'Tekanan Hidrostatis & Hukum Pokok Hidrostatis' },
-      { id: 'fis-b11-sb02', nama: 'Hukum Pascal & Pompa Hidrolik' },
-      { id: 'fis-b11-sb03', nama: 'Hukum Archimedes & Gaya Apung' }
+      { id: 'fis-b11-sb01', nama: 'Tekanan Hidrostatis & Hukum Pascal' },
+      { id: 'fis-b11-sb02', nama: 'Hukum Archimedes & Gaya Apung' }
     ],
     12: [
       { id: 'fis-b12-sb01', nama: 'Debit & Persamaan Kontinuitas' },
-      { id: 'fis-b12-sb02', nama: 'Asas & Persamaan Bernoulli' },
-      { id: 'fis-b12-sb03', nama: 'Aplikasi Bernoulli (Venturimeter, Tabung Pitot, & Gaya Angkat)' }
+      { id: 'fis-b12-sb02', nama: 'Asas & Persamaan Bernoulli' }
     ],
     15: [
-      { id: 'fis-b15-sb01', nama: 'Usaha Gas & Hukum I Termodinamika' },
-      { id: 'fis-b15-sb02', nama: 'Proses Termodinamika (Isobarik, Isokhorik, Isotermal, Adiabatik)' },
-      { id: 'fis-b15-sb03', nama: 'Mesin Carnot & Efisiensi Termal' }
+      { id: 'fis-b15-sb01', nama: 'Hukum I Termodinamika & Proses Gas Ideal' },
+      { id: 'fis-b15-sb02', nama: 'Siklus Mesin Carnot & Efisiensi Termal' }
     ],
     17: [
-      { id: 'fis-b17-sb01', nama: 'Cepat Rambat & Karakteristik Gelombang Bunyi' },
-      { id: 'fis-b17-sb02', nama: 'Intensitas & Taraf Intensitas Bunyi' },
-      { id: 'fis-b17-sb03', nama: 'Efek Doppler pada Gelombang Bunyi' }
+      { id: 'fis-b17-sb01', nama: 'Cepat Rambat, Karakteristik, & Efek Doppler Bunyi' },
+      { id: 'fis-b17-sb02', nama: 'Intensitas & Taraf Intensitas Bunyi' }
     ],
     21: [
-      { id: 'fis-b21-sb01', nama: 'Hukum Ohm & Hambatan Kawat Penghantar' },
-      { id: 'fis-b21-sb02', nama: 'Rangkaian Seri, Paralel, & Jembatan Wheatstone' },
-      { id: 'fis-b21-sb03', nama: 'Hukum I & II Kirchhoff (Rangkaian Majemuk)' }
+      { id: 'fis-b21-sb01', nama: 'Hukum Ohm & Hambatan Rangkaian Kawat' },
+      { id: 'fis-b21-sb02', nama: 'Hukum Kirchhoff (Rangkaian Listrik Majemuk)' }
     ],
     22: [
-      { id: 'fis-b22-sb01', nama: 'Medan Magnet di Sekitar Kawat Lurus & Melingkar' },
-      { id: 'fis-b22-sb02', nama: 'Gaya Lorentz pada Muatan & Kawat Berarus' },
-      { id: 'fis-b22-sb03', nama: 'Solenoida & Toroida' }
+      { id: 'fis-b22-sb01', nama: 'Medan Magnetik di Sekitar Kawat Berarus' },
+      { id: 'fis-b22-sb02', nama: 'Gaya Lorentz pada Kawat & Muatan Bergerak' }
     ],
     24: [
-      { id: 'fis-b24-sb01', nama: 'Nilai Efektif & Maksimum Arus/Tegangan AC' },
-      { id: 'fis-b24-sb02', nama: 'Rangkaian R-L-C Seri & Impedansi' },
-      { id: 'fis-b24-sb03', nama: 'Resonansi & Daya Rangkaian AC' }
+      { id: 'fis-b24-sb01', nama: 'Rangkaian AC R-L-C Seri & Impedansi' },
+      { id: 'fis-b24-sb02', nama: 'Resonansi & Daya Rangkaian Bolak-Balik' }
     ],
     26: [
-      { id: 'fis-b26-sb01', nama: 'Postulat Relativitas Khusus Einstein' },
-      { id: 'fis-b26-sb02', nama: 'Dilatasi Waktu & Kontraksi Panjang' },
-      { id: 'fis-b26-sb03', nama: 'Massa Relativistik, Momentum, & Energi' }
+      { id: 'fis-b26-sb01', nama: 'Postulat Relativitas, Dilatasi Waktu, & Panjang' },
+      { id: 'fis-b26-sb02', nama: 'Massa, Momentum, & Energi Relativistik' }
     ],
     27: [
-      { id: 'fis-b27-sb01', nama: 'Radiasi Benda Hitam & Teori Foton Planck' },
-      { id: 'fis-b27-sb02', nama: 'Efek Fotolistrik & Fungsi Kerja Logam' },
-      { id: 'fis-b27-sb03', nama: 'Efek Compton & Panjang Gelombang De Broglie' }
+      { id: 'fis-b27-sb01', nama: 'Radiasi Benda Hitam & Efek Fotolistrik' },
+      { id: 'fis-b27-sb02', nama: 'Efek Compton & Dualisme Gelombang De Broglie' }
     ]
   }
 };
@@ -941,8 +910,14 @@ function getQuestionBabIndex(q, subtes) {
       if (rawNum === 6) return 10;
       if (rawNum === 9) return 12;
       if (rawNum === 15) return 15;
+      if (rawNum === 16) return 16;
     }
   }
+
+  // 1b. Cek kata kunci spesifik pada teks q.bab
+  const bLower = (q.bab || '').toLowerCase();
+  if (bLower.includes('pencacahan')) return 15;
+  if (bLower.includes('peluang')) return 16;
 
   // 2. Cocokkan string q.bab dengan tabel kanonikal
   const subKey = (subtes || q.subtes || q.mataPelajaran || '').toLowerCase();
@@ -1076,14 +1051,8 @@ function updateDrillingSubtesPills() {
       const chosen = pill.dataset.subtes;
       AppState.drillingSetup.subtes = chosen;
 
-      // Default bab spesifik (Bukan 'semua'!) Prioritaskan Bab 15 untuk Matematika Wajib
-      if (chosen.toLowerCase() === 'matematika wajib') {
-        AppState.drillingSetup.selectedBabs = [15];
-      } else if (chosen.toLowerCase() === 'matematika lanjut') {
-        AppState.drillingSetup.selectedBabs = [6];
-      } else {
-        AppState.drillingSetup.selectedBabs = [1];
-      }
+      // Default kosong (fleksibel) agar pengguna bebas memilih bab target
+      AppState.drillingSetup.selectedBabs = [];
       AppState.drillingSetup.selectedSubBabs = ['semua'];
 
       renderDrillingBabCards();
@@ -1104,31 +1073,37 @@ function renderDrillingBabCards() {
   const allBabModules = window.EDUMANDIRI_MATERI_BAB || [];
   const allQuestions = AppState.dataset.soal || [];
   const { category, subtes } = AppState.drillingSetup;
+  const subKey = (subtes || '').toLowerCase();
 
-  // Ambil daftar bab unik dari data materi untuk subtes ini
-  const babList = allBabModules
-    .filter((m) => m.kategoriUtama === category && m.subtes.toLowerCase() === subtes.toLowerCase() && m.tipe === 'materi')
-    .map((m) => ({ judul: m.babJudul, index: m.babIndex }));
+  // Dapatkan daftar bab kanonikal dari tabel kanonikal
+  let uniqueBabs = [];
+  if (CANONICAL_BAB_TITLES[subKey]) {
+    uniqueBabs = Object.entries(CANONICAL_BAB_TITLES[subKey]).map(([idxStr, title]) => ({
+      index: parseInt(idxStr, 10),
+      judul: title
+    })).sort((a, b) => a.index - b.index);
+  } else {
+    const babList = allBabModules
+      .filter((m) => m.kategoriUtama === category && m.subtes.toLowerCase() === subKey && m.tipe === 'materi')
+      .map((m) => ({ judul: m.babJudul, index: m.babIndex }));
+    const fallbackList = babList.length > 0 ? babList : allBabModules
+      .filter((m) => m.kategoriUtama === category && m.subtes.toLowerCase() === subKey)
+      .map((m) => ({ judul: m.babJudul, index: m.babIndex }));
+    const seenIndices = new Set();
+    uniqueBabs = fallbackList.filter((b) => {
+      if (seenIndices.has(b.index)) return false;
+      seenIndices.add(b.index);
+      return true;
+    }).sort((a, b) => a.index - b.index);
+  }
 
-  const fallbackBabList = babList.length > 0 ? babList : allBabModules
-    .filter((m) => m.kategoriUtama === category && m.subtes.toLowerCase() === subtes.toLowerCase())
-    .map((m) => ({ judul: m.babJudul, index: m.babIndex }));
-
-  // Hapus duplikat berdasarkan babIndex
-  const seenIndices = new Set();
-  const uniqueBabs = fallbackBabList.filter((b) => {
-    if (seenIndices.has(b.index)) return false;
-    seenIndices.add(b.index);
-    return true;
-  }).sort((a, b) => a.index - b.index);
-
-  // Inisialisasi default jika belum berupa array integer
-  if (!Array.isArray(AppState.drillingSetup.selectedBabs) || AppState.drillingSetup.selectedBabs.length === 0) {
-    AppState.drillingSetup.selectedBabs = subtes.toLowerCase() === 'matematika wajib' ? [15] : [1];
+  // Inisialisasi default array integer kosong (fleksibel, jangan paksa bab tertentu)
+  if (!Array.isArray(AppState.drillingSetup.selectedBabs)) {
+    AppState.drillingSetup.selectedBabs = [];
   }
 
   const isAll = AppState.drillingSetup.selectedBabs.includes('semua') || 
-    (AppState.drillingSetup.selectedBabs.length === uniqueBabs.length && uniqueBabs.length > 0);
+    (uniqueBabs.length > 0 && AppState.drillingSetup.selectedBabs.length === uniqueBabs.length);
 
   // Update Badge Jumlah Terpilih
   if (badge) {
@@ -1178,7 +1153,7 @@ function renderDrillingBabCards() {
     `;
   }).join('');
 
-  // Event listener klik pada tiap kartu bab (Bebas bug: hanya toggle babIndex bersangkutan)
+  // Event listener klik pada tiap kartu bab (Fleksibel, toggle babIndex bersangkutan)
   container.querySelectorAll('.bab-card').forEach((card) => {
     card.addEventListener('click', () => {
       const bIndex = parseInt(card.dataset.babIndex, 10);
@@ -1196,7 +1171,7 @@ function renderDrillingBabCards() {
           AppState.drillingSetup.selectedBabs.push(bIndex);
         }
 
-        if (AppState.drillingSetup.selectedBabs.length === uniqueBabs.length) {
+        if (uniqueBabs.length > 0 && AppState.drillingSetup.selectedBabs.length === uniqueBabs.length) {
           AppState.drillingSetup.selectedBabs = ['semua'];
           AppState.drillingSetup.selectedSubBabs = ['semua'];
         }
@@ -1243,6 +1218,8 @@ function getAllAvailableSubBabIds() {
   const allQuestions = AppState.dataset.soal || [];
   const sbSet = new Set();
 
+  if (!selectedBabs || selectedBabs.length === 0) return [];
+
   const babIndices = selectedBabs.includes('semua')
     ? (CANONICAL_BAB_TITLES[subKey] ? Object.keys(CANONICAL_BAB_TITLES[subKey]).map(Number) : [])
     : selectedBabs;
@@ -1274,31 +1251,37 @@ function renderDrillingSubBabSelector() {
   if (!selectedBabs || selectedBabs.length === 0) {
     container.innerHTML = `
       <div class="subbab-empty-note">
-        <span>⚠️ Silakan pilih minimal 1 bab target di atas untuk menampilkan pilihan sub bab.</span>
+        <span>👈 Silakan pilih minimal 1 bab target di atas untuk menampilkan opsi sub bab.</span>
       </div>
     `;
     return;
   }
 
   // Dapatkan daftar bab unik yang sedang aktif (terpilih)
-  const babList = allBabModules
-    .filter((m) => m.kategoriUtama === category && m.subtes.toLowerCase() === subKey && m.tipe === 'materi')
-    .map((m) => ({ judul: m.babJudul, index: m.babIndex }));
-
-  const fallbackBabList = babList.length > 0 ? babList : allBabModules
-    .filter((m) => m.kategoriUtama === category && m.subtes.toLowerCase() === subKey)
-    .map((m) => ({ judul: m.babJudul, index: m.babIndex }));
-
-  const seenIndices = new Set();
-  const uniqueBabs = fallbackBabList.filter((b) => {
-    if (seenIndices.has(b.index)) return false;
-    seenIndices.add(b.index);
-    return true;
-  }).sort((a, b) => a.index - b.index);
+  let allCanonBabs = [];
+  if (CANONICAL_BAB_TITLES[subKey]) {
+    allCanonBabs = Object.entries(CANONICAL_BAB_TITLES[subKey]).map(([idxStr, title]) => ({
+      index: parseInt(idxStr, 10),
+      judul: title
+    })).sort((a, b) => a.index - b.index);
+  } else {
+    const babList = allBabModules
+      .filter((m) => m.kategoriUtama === category && m.subtes.toLowerCase() === subKey && m.tipe === 'materi')
+      .map((m) => ({ judul: m.babJudul, index: m.babIndex }));
+    const fallbackList = babList.length > 0 ? babList : allBabModules
+      .filter((m) => m.kategoriUtama === category && m.subtes.toLowerCase() === subKey)
+      .map((m) => ({ judul: m.babJudul, index: m.babIndex }));
+    const seenIndices = new Set();
+    allCanonBabs = fallbackList.filter((b) => {
+      if (seenIndices.has(b.index)) return false;
+      seenIndices.add(b.index);
+      return true;
+    }).sort((a, b) => a.index - b.index);
+  }
 
   const activeBabs = selectedBabs.includes('semua')
-    ? uniqueBabs
-    : uniqueBabs.filter((b) => selectedBabs.includes(b.index));
+    ? allCanonBabs
+    : allCanonBabs.filter((b) => selectedBabs.includes(b.index));
 
   if (activeBabs.length === 0) {
     container.innerHTML = `
@@ -1327,7 +1310,7 @@ function renderDrillingSubBabSelector() {
       return matchCat && matchSubtes && matchBab;
     });
 
-    // Sub bab kanonikal dari kurikulum
+    // Sub bab kanonikal dari kurikulum (hanya sub bab besar)
     const canonicalList = (CANONICAL_CHAPTER_SUBBABS[subKey] && CANONICAL_CHAPTER_SUBBABS[subKey][b.index])
       ? CANONICAL_CHAPTER_SUBBABS[subKey][b.index]
       : [];
@@ -1505,14 +1488,24 @@ window.toggleChapterAllSubBabs = function(chapterIndex, selectAll) {
 
 // Memperbarui Hitungan Soal yang Cocok di Setup Drilling (Dengan Indikator Soal Belum Dikerjakan)
 function updateDrillingSetupSummary() {
-  const { selectedSubBabs } = AppState.drillingSetup;
+  const { selectedBabs, selectedSubBabs } = AppState.drillingSetup;
+  const infoElem = document.getElementById('setup-available-info');
+  const startBtn = document.getElementById('btn-start-quiz');
+
+  // Jika belum ada bab yang dipilih
+  if (!selectedBabs || selectedBabs.length === 0) {
+    if (infoElem) {
+      infoElem.innerHTML = `<span>Silakan pilih minimal 1 bab target di atas untuk memulai latihan.</span>`;
+    }
+    if (startBtn) {
+      startBtn.disabled = true;
+    }
+    return;
+  }
 
   const allMatching = getDrillingMatchingQuestions({ excludeCompleted: false });
   const availableQuestions = getDrillingMatchingQuestions({ excludeCompleted: true });
   const completedCount = allMatching.length - availableQuestions.length;
-
-  const infoElem = document.getElementById('setup-available-info');
-  const startBtn = document.getElementById('btn-start-quiz');
 
   if (infoElem) {
     const isFilteredSub = selectedSubBabs && !selectedSubBabs.includes('semua');

@@ -12,8 +12,8 @@
   * **Daftar Bab Materi Format Kartu Multi-Kolom (`.bab-list-minimal`):** Redesain tampilan daftar bab dari satu baris penuh menjadi grid kartu multi-kolom yang proporsional, padat, dan adaptif (1 kolom di smartphone, 2 kolom di tablet, 3 kolom di desktop). Opsi modul (*Materi Lengkap*, *Variasi Soal*, *Rangkuman*, dan *Latihan Kuis*) tersimpan rapi dan dapat dibuka secara accordion.
   * **Minimalist Reader Bottom Dock:** Bilah navigasi melayang adaptif di bagian bawah saat membaca materi/rangkuman, menggantikan footer statis/navigasi umum. Memungkinkan pindah bab (Prev/Next) dan beralih instan antar-modul (*Materi*, *Variasi*, *Rangkuman*, *Latihan*) secara ergonomis di HP maupun laptop tanpa memakan ruang baca.
   * **Pemisahan Bab Besar Mandiri di Drilling & Data Soal:** Bab gabungan besar dipecah menjadi dua bab terpisah dengan bank soal mandiri:
-    - **Bab 15:** Aturan Pencacahan (15 Soal, 3 Sub-Bab Besar: Kaidah & Filling Slots, Permutasi, Kombinasi & Binomial).
-    - **Bab 16:** Peluang (10 Soal, 3 Sub-Bab Besar: Ruang Sampel & Peluang Sederhana, Komplemen & Frekuensi Harapan, Peluang Majemuk & Bersyarat).
+    - **Bab 15:** Aturan Pencacahan (39 Soal Drilling Berkualitas, 3 Sub-Bab Besar: Kaidah & Filling Slots, Permutasi, Kombinasi & Binomial).
+    - **Bab 16:** Peluang (34 Soal Drilling Berkualitas, 3 Sub-Bab Besar: Ruang Sampel & Peluang Sederhana, Komplemen & Frekuensi Harapan, Peluang Majemuk & Bersyarat).
   * **Drilling Dashboard Berbasis Kartu Bab & Pilihan Sub Bab Terarah:**
     - **Perluasan Window Pilihan Bab (`.drilling-minimal-panel` 1040px & `.bab-cards-grid` max-height 640px):** Area daftar kartu bab diperluas signifikan agar seluruh kartu terlihat lapang dan tidak sesak saat scroll.
     - **Seleksi Deterministik Berbasis Integer Index (`babIndex`):** Menggunakan integer index presisi sehingga bebas duplikasi atau salah pilih antar-bab dengan kemiripan kata.
@@ -22,11 +22,11 @@
     - **Penyaringan Soal Selesai (Anti-Repetisi):** Soal yang telah dikerjakan (`completedQuestionIds`) secara otomatis tidak akan dimunculkan lagi di sesi kuis drilling baru, dengan indikator jumlah soal baru vs. sudah selesai dan tombol reset riwayat.
   * **Variasi Contoh Soal Lengkap:** Bab 1 s.d. Bab 5 Fisika aktif dengan total 73 variasi soal, serta **Bab 15 Matematika Wajib (Aturan Pencacahan & Teori Peluang)** aktif dengan **30 variasi soal lengkap**, semuanya 100% tervalidasi bebas KaTeX error.
   * **Pedagogical Fluid Typography:** Tipografi adaptif berbasis ukuran layar (`clamp()`), pembatasan kolom baca maksimal 72 karakter (`max-width: 72ch`), line-height lega (`1.72`), dan visual anchor penomoran langkah.
-  * **Database Bank Soal Klien & IndexedDB:** Bank soal tersimpan langsung di `data_soal.js` (`window.EDUMANDIRI_SOAL_BANK` = 58 soal terverifikasi) dan disinkronkan ke IndexedDB (`EduMandiri_DB`). Tidak memerlukan `fetch` network HTTP atau GitHub push/fetch untuk pengoperasian dan pembaruan lokal.
+  * **Database Bank Soal Klien & IndexedDB:** Bank soal tersimpan langsung di `data_soal.js` (`window.EDUMANDIRI_SOAL_BANK` = 106 soal terverifikasi) dan disinkronkan ke IndexedDB (`EduMandiri_DB`). Tidak memerlukan `fetch` network HTTP atau GitHub push/fetch untuk pengoperasian dan pembaruan lokal.
 * **Filosofi Arsitektur:** **Zero-Build Vanilla Web Application**.
   * Tidak menggunakan bundler (Webpack/Vite/Rollup) dan tidak memerlukan runtime Node.js saat produksi.
   * Murni Vanilla HTML5, CSS3 kustom, dan Vanilla JavaScript (ES6+).
-  * 100% Offline-Ready menggunakan Service Worker (`sw.js`, `edumandiri-cache-v21`) dan pustaka lokal vendor (KaTeX + Marked.js tanpa CDN). Kompatibel dibuka langsung via protokol `file:///` maupun server web lokal/hosting.
+  * 100% Offline-Ready menggunakan Service Worker (`sw.js`, `edumandiri-cache-v23`) dan pustaka lokal vendor (KaTeX + Marked.js tanpa CDN). Kompatibel dibuka langsung via protokol `file:///` maupun server web lokal/hosting.
 
 ---
 
@@ -37,11 +37,11 @@ d:/web/learn/
 ├── style.css                  # Fluid Typography vars, tema mobile-first, bab cards, subbab groups, reader dock
 ├── app.js                     # SPA engine: router, AppState, KaTeX shielding, quiz engine, IndexedDB loader, localStorage
 ├── data_materi.js             # Database materi, rangkuman & contoh soal client-side (window.EDUMANDIRI_MATERI_BAB = 137 modul)
-├── data_soal.js               # Database bank soal client-side (window.EDUMANDIRI_SOAL_BANK = 58 soal terverifikasi, per sub-bab)
+├── data_soal.js               # Database bank soal client-side (window.EDUMANDIRI_SOAL_BANK = 106 soal terverifikasi, per sub-bab)
 ├── data.json                  # Cadangan JSON bank soal drilling (sinkron dengan data_soal.js via sync-soal.js)
 ├── sync-soal.js               # Tool sinkronisasi database soal & validator KaTeX otomatis
 ├── sync-to-db.js              # Tool sinkronisasi berkas markdown materi & contoh soal ke data_materi.js
-├── sw.js                      # Service Worker PWA (Cache-first offline strategy, versi: edumandiri-cache-v21)
+├── sw.js                      # Service Worker PWA (Cache-first offline strategy, versi: edumandiri-cache-v23)
 ├── manifest.json              # Web App Manifest untuk instalasi PWA di Android/iOS/Desktop
 ├── icon.svg                   # Icon logo SVG EduMandiri
 ├── .nojekyll                  # Penanda bypass pemrosesan Jekyll di GitHub Pages
@@ -303,7 +303,7 @@ Antarmuka dan tampilan materi di [`style.css`](file:///d:/web/learn/style.css) m
 ### C. Prosedur Update PWA Service Worker:
 Setiap kali ada pembaruan pada berkas inti (`app.js`, `style.css`, `index.html`, `data_materi.js`, `data_soal.js`), wajib menaikkan nomor versi `CACHE_NAME` di [`sw.js`](file:///d:/web/learn/sw.js):
 ```javascript
-const CACHE_NAME = 'edumandiri-cache-v19'; // Naikkan ke v20, dst.
+const CACHE_NAME = 'edumandiri-cache-v23'; // Naikkan ke v24, dst.
 ```
 
 ---

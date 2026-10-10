@@ -1222,6 +1222,1019 @@
       "subBabIds": [
         "mtk-b16-sb03"
       ]
+    },
+    {
+      "id": "MTK-B15-P4-01",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb01",
+      "subBab": "Kaidah Pencacahan & Filling Slots",
+      "kesulitan": "sedang",
+      "pertanyaan": "Sebuah sistem perbankan mewajibkan nasabah membuat PIN 6 digit angka dengan aturan: digit pertama tidak boleh 0, digit terakhir harus berupa angka ganjil, dan tidak boleh ada angka yang digunakan lebih dari satu kali (semua digit berbeda). Banyaknya variasi PIN yang memenuhi kriteria tersebut adalah...",
+      "pilihan": [
+        "$53.760$",
+        "$60.480$",
+        "$67.200$",
+        "$75.600$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Kita gunakan metode pengisian tempat (*filling slots*) untuk 6 digit $[d_1][d_2][d_3][d_4][d_5][d_6]$ dari 10 angka yang tersedia $\\{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\\}$:\n\n1. **Digit terakhir ($d_6$):** Harus angka ganjil $\\{1, 3, 5, 7, 9\\} \\implies 5$ pilihan.\n2. **Digit pertama ($d_1$):** Tidak boleh 0 dan tidak boleh sama dengan $d_6$. Karena $d_6$ ganjil (bukan 0), maka dari 10 angka telah terpakai 1 angka ($d_6$) dan angka 0 dilarang, tersisa $10 - 1 - 1 = 8$ pilihan.\n3. **Digit kedua ($d_2$):** Angka 0 sekarang boleh digunakan, tetapi 2 angka telah dipakai ($d_1$ dan $d_6$) $\\implies 10 - 2 = 8$ pilihan.\n4. **Digit ketiga ($d_3$):** $10 - 3 = 7$ pilihan.\n5. **Digit keempat ($d_4$):** $10 - 4 = 6$ pilihan.\n6. **Digit kelima ($d_5$):** $10 - 5 = 5$ pilihan.\n\nTotal variasi PIN:\n$$N = 8 \\times 8 \\times 7 \\times 6 \\times 5 \\times 5 = 67.200$$",
+      "subBabIds": [
+        "mtk-b15-sb01"
+      ]
+    },
+    {
+      "id": "MTK-B15-P4-02",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb01",
+      "subBab": "Kaidah Pencacahan & Filling Slots",
+      "kesulitan": "sulit",
+      "pertanyaan": "Seorang kurir mengantar paket dari titik $A(0,0)$ menuju kantor cabang di titik $B(6,4)$ pada jaringan jalan berkisi-kisi. Kurir hanya boleh bergerak 1 satuan ke Timur ($+x$) atau 1 satuan ke Utara ($+y$). Jika kurir wajib singgah di titik transit $C(2,2)$ namun tidak boleh melewati titik perbaikan jalan di $D(4,3)$, banyaknya rute perjalanan berbeda yang dapat ditempuh kurir adalah...",
+      "pilihan": [
+        "$32$",
+        "$36$",
+        "$45$",
+        "$54$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Gunakan prinsip kombinatorika jalur kisi (*grid path*):\n\n1. **Rute dari $A(0,0)$ ke $C(2,2)$:**\n   Memerlukan 2 langkah Timur dan 2 langkah Utara:\n   $$N(A \\to C) = \\binom{2 + 2}{2} = \\binom{4}{2} = 6$$\n\n2. **Rute dari $C(2,2)$ ke $B(6,4)$ tanpa syarat:**\n   Memerlukan $(6 - 2) = 4$ langkah Timur dan $(4 - 2) = 2$ langkah Utara:\n   $$N(C \\to B) = \\binom{4 + 2}{2} = \\binom{6}{2} = 15$$\n   Maka total rute dari $A \\to C \\to B$ adalah $6 \\times 15 = 90$ rute.\n\n3. **Rute terlarang yang melewati $D(4,3)$:**\n   - $C(2,2) \\to D(4,3)$: butuh 2 langkah Timur dan 1 langkah Utara $\\implies \\binom{2 + 1}{1} = 3$ rute.\n   - $D(4,3) \\to B(6,4)$: butuh 2 langkah Timur dan 1 langkah Utara $\\implies \\binom{2 + 1}{1} = 3$ rute.\n   - Total rute $C \\to D \\to B = 3 \\times 3 = 9$ rute.\n   - Rute terlarang dari $A \\to C \\to D \\to B = 6 \\times 9 = 54$ rute.\n\nBanyaknya rute yang sah:\n$$N_{\\text{sah}} = 90 - 54 = 36$$",
+      "subBabIds": [
+        "mtk-b15-sb01"
+      ]
+    },
+    {
+      "id": "MTK-B15-P4-03",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb01",
+      "subBab": "Kaidah Pencacahan & Filling Slots",
+      "kesulitan": "sedang",
+      "pertanyaan": "Dari angka-angka $0, 1, 2, 3, 4, 5, 6, 7, 8, 9$ akan dibentuk nomor plat khusus yang terdiri atas 4 digit angka berbeda dengan angka pertama tidak nol. Jika disyaratkan jumlah digit pertama dan digit terakhir harus merupakan bilangan ganjil, banyaknya nomor polisi berbeda yang dapat dibentuk adalah...",
+      "pilihan": [
+        "$2.160$",
+        "$2.352$",
+        "$2.520$",
+        "$2.880$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Jumlah digit pertama ($d_1$) dan digit terakhir ($d_4$) bernilai ganjil jika dan hanya jika salah satu digit ganjil dan digit lainnya genap:\n\n- Angka ganjil: $\\{1, 3, 5, 7, 9\\}$ (5 angka)\n- Angka genap: $\\{0, 2, 4, 6, 8\\}$ (5 angka)\n\n**Kasus 1: $d_1$ ganjil dan $d_4$ genap**\n- $d_1$: 5 pilihan (angka ganjil)\n- $d_4$: 5 pilihan (angka genap)\n- $d_2$: 8 pilihan (dari 10 angka sudah terpakai 2)\n- $d_3$: 7 pilihan\n$$N_1 = 5 \\times 5 \\times 8 \\times 7 = 1.400$$\n\n**Kasus 2: $d_1$ genap dan $d_4$ ganjil**\n- $d_1$: 4 pilihan (karena $d_1 \\ne 0$, maka $\\{2, 4, 6, 8\\}$)\n- $d_4$: 5 pilihan (angka ganjil)\n- $d_2$: 8 pilihan\n- $d_3$: 7 pilihan\n$$N_2 = 4 \\times 5 \\times 8 \\times 7 = 1.120$$\n\nTotal nomor polisi yang dapat dibentuk:\n$$N_{\\text{total}} = 1.400 + 1.120 = 2.520$$",
+      "subBabIds": [
+        "mtk-b15-sb01"
+      ]
+    },
+    {
+      "id": "MTK-B15-P4-04",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb01",
+      "subBab": "Kaidah Pencacahan & Filling Slots",
+      "kesulitan": "mudah",
+      "pertanyaan": "Sebuah restoran cepat saji menyediakan paket hemat yang terdiri dari 1 pilihan makanan pokok, 1 pilihan lauk, 1 pilihan minuman, dan 1 pilihan hidangan penutup. Tersedia 3 jenis makanan pokok, 5 jenis lauk (3 olahan ayam dan 2 olahan sapi), 4 jenis minuman, dan 2 jenis hidangan penutup. Jika seorang pelanggan tidak mengonsumsi daging sapi dan memesan satu paket hemat lengkap, banyaknya variasi kombinasi paket yang dapat ia pilih adalah...",
+      "pilihan": [
+        "$36$",
+        "$72$",
+        "$96$",
+        "$120$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Gunakan aturan perkalian dasar:\n- Pilihan makanan pokok = $3$\n- Pilihan lauk (hanya olahan ayam karena tidak mengonsumsi sapi) = $3$\n- Pilihan minuman = $4$\n- Pilihan hidangan penutup = $2$\n\nTotal variasi kombinasi menu:\n$$N = 3 \\times 3 \\times 4 \\times 2 = 72$$",
+      "subBabIds": [
+        "mtk-b15-sb01"
+      ]
+    },
+    {
+      "id": "MTK-B15-P4-05",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb02",
+      "subBab": "Permutasi (Unsur Berbeda, Sama, & Siklis)",
+      "kesulitan": "sedang",
+      "pertanyaan": "Seorang petugas mercusuar menyusun sederet bendera isyarat pada satu tiang vertikal lurus untuk mengirimkan kode maritim. Ia memiliki 3 bendera merah identik, 2 bendera biru identik, 2 bendera kuning identik, dan 1 bendera putih. Jika disyaratkan bahwa bendera putih harus selalu berada di posisi paling atas tiang, banyaknya sinyal kode berbeda yang dapat dibentuk adalah...",
+      "pilihan": [
+        "$105$",
+        "$210$",
+        "$420$",
+        "$1.260$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Karena bendera putih harus diletakkan pada posisi paling atas, posisi tersebut terkunci (1 cara).\n\nTersisa 7 bendera yang harus disusun pada posisi di bawahnya, yaitu:\n- 3 bendera merah identik\n- 2 bendera biru identik\n- 2 bendera kuning identik\n\nGunakan rumus permutasi dengan unsur yang sama:\n$$P = \\frac{n!}{n_1! \\times n_2! \\times n_3!} = \\frac{7!}{3! \\times 2! \\times 2!} = \\frac{5.040}{6 \\times 2 \\times 2} = \\frac{5.040}{24} = 210$$",
+      "subBabIds": [
+        "mtk-b15-sb02"
+      ]
+    },
+    {
+      "id": "MTK-B15-P4-06",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb02",
+      "subBab": "Permutasi (Unsur Berbeda, Sama, & Siklis)",
+      "kesulitan": "sulit",
+      "pertanyaan": "Dalam jamuan makan malam internasional, 4 orang delegasi pria dan 4 orang delegasi wanita duduk mengelilingi sebuah meja bundar. Jika setiap delegasi pria harus duduk berdampingan langsung dengan seorang pasangan wanita (sehingga terbentuk 4 pasangan berpasangan pria-wanita yang masing-masing duduk berdampingan), banyaknya susunan duduk berbeda yang mungkin terjadi adalah...",
+      "pilihan": [
+        "$576$",
+        "$1.152$",
+        "$2.304$",
+        "$5.040$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Langkah-langkah penyelesaian:\n\n1. **Memasangkan pria dan wanita:**\n   Setiap pria dipasangkan dengan tepat 1 wanita $\\implies 4! = 24$ cara pembentukan 4 pasangan.\n2. **Posisi duduk internal per pasangan:**\n   Di dalam setiap pasangan, pria dan wanita dapat bertukar posisi (kiri/kanan) $\\implies 2^4 = 16$ cara.\n3. **Menyusun 4 pasangan di meja bundar:**\n   Keempat pasangan dipandang sebagai 4 objek yang disusun secara siklis:\n   $$P_{\\text{siklis}} = (4 - 1)! = 3! = 6$$\n\nTotal susunan duduk berbeda:\n$$N = 4! \\times 2^4 \\times (4 - 1)! = 24 \\times 16 \\times 6 = 2.304$$",
+      "subBabIds": [
+        "mtk-b15-sb02"
+      ]
+    },
+    {
+      "id": "MTK-B15-P5-01",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb02",
+      "subBab": "Permutasi (Unsur Berbeda, Sama, & Siklis)",
+      "kesulitan": "sedang",
+      "pertanyaan": "Seorang pustakawan ingin menyusun 3 buku Matematika berbeda, 4 buku Fisika berbeda, dan 2 buku Kimia berbeda dalam satu baris di rak buku. Jika buku-buku dengan bidang ilmu yang sama harus selalu diletakkan mengelompok secara berdampingan, banyaknya susunan penataan buku yang dapat dilakukan adalah...",
+      "pilihan": [
+        "$864$",
+        "$1.728$",
+        "$3.456$",
+        "$40.320$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Gunakan permutasi berkelompok:\n\n1. Ada 3 kelompok mata pelajaran (Matematika, Fisika, Kimia). Banyak cara menyusun urutan ketiga kelompok tersebut di rak:\n   $$3! = 6$$\n2. Di dalam kelompok Matematika (3 buku berbeda):\n   $$3! = 6$$\n3. Di dalam kelompok Fisika (4 buku berbeda):\n   $$4! = 24$$\n4. Di dalam kelompok Kimia (2 buku berbeda):\n   $$2! = 2$$\n\nBanyaknya susunan total:\n$$N = 3! \\times 3! \\times 4! \\times 2! = 6 \\times 6 \\times 24 \\times 2 = 1.728$$",
+      "subBabIds": [
+        "mtk-b15-sb02"
+      ]
+    },
+    {
+      "id": "MTK-B15-P5-02",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb03",
+      "subBab": "Kombinasi & Binomial Newton",
+      "kesulitan": "sedang",
+      "pertanyaan": "Sembilan mahasiswa baru akan dibagi ke dalam 3 kelompok kerja mandiri untuk tugas proyek, di mana masing-masing kelompok beranggotakan tepat 3 orang. Jika ketiga kelompok tersebut tidak memiliki nama atau label hierarki khusus (kelompok tak berlabel), banyaknya cara pembagian kelompok yang berbeda adalah...",
+      "pilihan": [
+        "$280$",
+        "$560$",
+        "$840$",
+        "$1.680$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Perhatikan perbedaan antara pembagian kelompok berlabel dan tak berlabel:\n\n1. Jika kelompok memiliki label pembeda (misalnya Kelompok A, Kelompok B, Kelompok C), banyak cara memilih adalah:\n   $$C(9, 3) \\times C(6, 3) \\times C(3, 3) = 84 \\times 20 \\times 1 = 1.680$$\n2. Namun karena ketiga kelompok berukuran sama ($3, 3, 3$) dan tidak memiliki label, setiap susunan terhitung ganda sebanyak $3!$ kali (urutan ketiga kelompok tidak berpengaruh).\n\nMaka banyaknya cara pembagian yang sebenarnya:\n$$N = \\frac{C(9, 3) \\times C(6, 3) \\times C(3, 3)}{3!} = \\frac{1.680}{6} = 280$$",
+      "subBabIds": [
+        "mtk-b15-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B15-P5-03",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb03",
+      "subBab": "Kombinasi & Binomial Newton",
+      "kesulitan": "sulit",
+      "pertanyaan": "Sebuah toko kue menjual 4 varian donat: Cokelat, Keju, Stroberi, dan Vanilla. Seorang pelanggan ingin membeli 9 buah donat. Jika disyaratkan ia harus membeli paling sedikit 1 donat Cokelat, paling sedikit 2 donat Keju, dan varian lainnya bebas, banyaknya variasi kombinasi pembelian donat yang mungkin adalah...",
+      "pilihan": [
+        "$56$",
+        "$84$",
+        "$120$",
+        "$220$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Persoalan ini setara dengan mencari banyaknya solusi bilangan bulat dari persamaan:\n$$x_1 + x_2 + x_3 + x_4 = 9$$\ndengan syarat batasan:\n$$x_1 \\ge 1, \\quad x_2 \\ge 2, \\quad x_3 \\ge 0, \\quad x_4 \\ge 0$$\n\nDefinisikan variabel baru yang non-negatif:\n- $y_1 = x_1 - 1 \\ge 0$\n- $y_2 = x_2 - 2 \\ge 0$\n- $y_3 = x_3 \\ge 0$\n- $y_4 = x_4 \\ge 0$\n\nSubstitusikan ke persamaan:\n$$(y_1 + 1) + (y_2 + 2) + y_3 + y_4 = 9 \\implies y_1 + y_2 + y_3 + y_4 = 6$$\n\nBerdasarkan teorema *Stars and Bars* (kombinasi dengan pengulangan), banyaknya solusi adalah:\n$$\\binom{n + k - 1}{k - 1} = \\binom{6 + 4 - 1}{4 - 1} = \\binom{9}{3} = \\frac{9 \\times 8 \\times 7}{3 \\times 2 \\times 1} = 84$$",
+      "subBabIds": [
+        "mtk-b15-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B15-P5-04",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb03",
+      "subBab": "Kombinasi & Binomial Newton",
+      "kesulitan": "sedang",
+      "pertanyaan": "Dalam suatu turnamen e-sports, 16 tim peserta dibagi rata ke dalam 4 grup (masing-masing 4 tim). Pada babak penyisihan grup, setiap grup memainkan pertandingan setengah kompetisi (setiap tim bertanding satu kali melawan setiap tim lain di grupnya). Selanjutnya, 2 tim teratas dari masing-masing grup lolos ke babak perempat final yang menggunakan sistem gugur tunggal hingga partai final (termasuk 1 laga perebutan juara ketiga). Berapa total seluruh pertandingan yang dimainkan sepanjang turnamen tersebut?",
+      "pilihan": [
+        "$28$",
+        "$30$",
+        "$32$",
+        "$36$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Hitung jumlah pertandingan per fase:\n\n1. **Babak Penyisihan Grup:**\n   Dalam satu grup terdapat 4 tim. Setiap pasang tim bertanding sekali $\\implies C(4, 2) = 6$ pertandingan.\n   Karena terdapat 4 grup, total laga babak grup:\n   $$4 \\times 6 = 24 \\text{ pertandingan}$$\n\n2. **Babak Gugur (Playoff):**\n   Ada $4 \\times 2 = 8$ tim yang lolos.\n   - Perempat final (8 tim) $\\implies 4$ pertandingan\n   - Semifinal (4 tim) $\\implies 2$ pertandingan\n   - Perebutan juara ketiga $\\implies 1$ pertandingan\n   - Partai Final $\\implies 1$ pertandingan\n   Total laga babak gugur:\n   $$4 + 2 + 1 + 1 = 8 \\text{ pertandingan}$$\n\nTotal seluruh pertandingan sepanjang turnamen:\n$$N_{\\text{total}} = 24 + 8 = 32 \\text{ pertandingan}$$",
+      "subBabIds": [
+        "mtk-b15-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B15-P5-05",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb03",
+      "subBab": "Kombinasi & Binomial Newton",
+      "kesulitan": "sulit",
+      "pertanyaan": "Koefisien suku yang memuat variabel $x^2 y^3 z^2$ pada penjabaran bentuk aljabar $(2x - y + 3z)^7$ adalah...",
+      "pilihan": [
+        "$-7.560$",
+        "$-3.780$",
+        "$3.780$",
+        "$7.560$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Berdasarkan Teorema Multinomial, bentuk umum suku pada penjabaran $(a + b + c)^n$ adalah:\n$$\\frac{n!}{n_1! \\, n_2! \\, n_3!} a^{n_1} b^{n_2} c^{n_3} \\quad \\text{dengan } n_1 + n_2 + n_3 = n$$\n\nDi sini $a = 2x, b = -y, c = 3z$, dan $n = 7$.\nKita mencari suku dengan $x^2 y^3 z^2$, sehingga $n_1 = 2, n_2 = 3, n_3 = 2$ ($2 + 3 + 2 = 7$).\n\nSubstitusikan nilai:\n$$\\begin{aligned}\n\\text{Suku} &= \\frac{7!}{2! \\, 3! \\, 2!} (2x)^2 (-y)^3 (3z)^2 \\\\\n&= \\frac{5.040}{2 \\times 6 \\times 2} \\cdot (4x^2) \\cdot (-y^3) \\cdot (9z^2) \\\\\n&= 210 \\cdot (-36) \\cdot x^2 y^3 z^2 \\\\\n&= -7.560 x^2 y^3 z^2\n\\end{aligned}$$\n\nMaka koefisien suku tersebut adalah $\\mathbf{-7.560}$.",
+      "subBabIds": [
+        "mtk-b15-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B15-P5-06",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb03",
+      "subBab": "Kombinasi & Binomial Newton",
+      "kesulitan": "sedang",
+      "pertanyaan": "Sepuluh titik terletak pada keliling sebuah lingkaran sedemikian sehingga tidak ada tiga titik yang segaris (kolinear). Dari 10 titik tersebut, berapa banyak segitiga berbeda yang dapat dibentuk dengan syarat bahwa salah satu titik sudutnya harus merupakan titik tertentu yang telah ditandai (titik $P$)?",
+      "pilihan": [
+        "$24$",
+        "$36$",
+        "$45$",
+        "$120$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Untuk membentuk sebuah segitiga diperlukan 3 titik sudut yang tidak segaris (semua titik pada lingkaran memenuhi syarat tidak segaris):\n\n- Titik sudut pertama sudah pasti titik $P$ (1 cara).\n- Dua titik sudut lainnya harus dipilih dari 9 titik yang tersisa pada lingkaran.\n\nMaka banyaknya segitiga yang dapat dibentuk dihitung menggunakan kombinasi:\n$$C(9, 2) = \\frac{9!}{2!(9 - 2)!} = \\frac{9 \\times 8}{2 \\times 1} = 36$$",
+      "subBabIds": [
+        "mtk-b15-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B16-P3-01",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb01",
+      "subBab": "Ruang Sampel & Peluang Sederhana",
+      "kesulitan": "sedang",
+      "pertanyaan": "Sebuah kotak karton pengiriman berisi 15 komponen mikroprosesor, di mana 3 di antaranya mengalami cacat produksi. Tim quality control mengambil sampel 2 mikroprosesor secara acak sekaligus untuk diuji. Peluang bahwa paling sedikit satu mikroprosesor yang terambil mengalami cacat produksi adalah...",
+      "pilihan": [
+        "$\\frac{8}{35}$",
+        "$\\frac{11}{35}$",
+        "$\\frac{13}{35}$",
+        "$\\frac{23}{35}$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Gunakan pendekatan komplemen:\n\n1. **Total ruang sampel:** Mengambil 2 dari 15 mikroprosesor:\n   $$n(S) = C(15, 2) = \\frac{15 \\times 14}{2 \\times 1} = 105$$\n\n2. **Komplemen (keduanya baik / tidak ada yang cacat):**\n   Komponen yang baik berjumlah $15 - 3 = 12$ unit. Banyak cara mengambil 2 komponen baik:\n   $$n(A') = C(12, 2) = \\frac{12 \\times 11}{2 \\times 1} = 66$$\n\n3. **Peluang kejadian komplemen:**\n   $$P(A') = \\frac{66}{105} = \\frac{22}{35}$$\n\n4. **Peluang paling sedikit 1 cacat:**\n   $$P(A) = 1 - P(A') = 1 - \\frac{22}{35} = \\frac{13}{35}$$",
+      "subBabIds": [
+        "mtk-b16-sb01",
+        "mtk-b16-sb02"
+      ]
+    },
+    {
+      "id": "MTK-B16-P3-02",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb02",
+      "subBab": "Komplemen & Frekuensi Harapan",
+      "kesulitan": "sedang",
+      "pertanyaan": "Sebuah fasilitas data center dilindungi oleh 3 generator darurat independen ($G_1, G_2, G_3$) yang beroperasi secara paralel. Fasilitas tetap beroperasi normal selama setidaknya satu generator berfungsi saat pemadaman listrik terjadi. Jika peluang masing-masing generator mengalami malafungsi berturut-turut adalah $0{,}1$, $0{,}2$, dan $0{,}05$, peluang sistem fasilitas data center tetap beroperasi normal saat pemadaman listrik adalah...",
+      "pilihan": [
+        "$0{,}684$",
+        "$0{,}855$",
+        "$0{,}950$",
+        "$0{,}999$"
+      ],
+      "kunciJawaban": 3,
+      "pembahasan": "Gunakan konsep peluang komplemen dan kejadian saling bebas:\n\n1. Fasilitas **gagal beroperasi** jika dan hanya jika ketiga generator semuanya mengalami malafungsi secara bersamaan.\n2. Karena kinerja ketiga generator saling bebas (independen), peluang ketiga generator gagal bersamaan adalah:\n   $$P(\\text{Semua Gagal}) = P(G_1 \\text{ gagal}) \\times P(G_2 \\text{ gagal}) \\times P(G_3 \\text{ gagal})$$\n   $$P(\\text{Semua Gagal}) = 0{,}1 \\times 0{,}2 \\times 0{,}05 = 0{,}001$$\n\n3. Peluang fasilitas tetap beroperasi normal (sedikitnya 1 generator berfungsi):\n   $$P(\\text{Beroperasi}) = 1 - P(\\text{Semua Gagal}) = 1 - 0{,}001 = 0{,}999$$",
+      "subBabIds": [
+        "mtk-b16-sb02",
+        "mtk-b16-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B16-P3-03",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb03",
+      "subBab": "Peluang Kejadian Majemuk & Bersyarat",
+      "kesulitan": "sedang",
+      "pertanyaan": "Dua tim futsal, Tim Harimau dan Tim Singa, bertanding dalam babak final dengan format *Best-of-3* (tim pertama yang memenangkan 2 pertandingan menjadi juara). Peluang Tim Harimau memenangkan setiap laga tunggal adalah $0{,}6$ dan tidak ada hasil seri. Peluang Tim Singa keluar sebagai juara turnamen adalah...",
+      "pilihan": [
+        "$0{,}288$",
+        "$0{,}352$",
+        "$0{,}400$",
+        "$0{,}432$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Peluang Tim Singa menang pada setiap laga tunggal adalah:\n$$P(S) = 1 - 0{,}6 = 0{,}4$$\n\nTim Singa menjadi juara turnamen pada skenario berikut:\n\n1. **Menang dalam 2 pertandingan langsung (S - S):**\n   $$P(S - S) = 0{,}4 \\times 0{,}4 = 0{,}16$$\n\n2. **Menang dalam 3 pertandingan (seri ditentukan di laga ke-3):**\n   - Skenario Harimau menang di laga 1, Singa menang laga 2 & 3 ($H - S - S$):\n     $$P(H - S - S) = 0{,}6 \\times 0{,}4 \\times 0{,}4 = 0{,}096$$\n   - Skenario Singa menang di laga 1, Harimau menang laga 2, Singa menang laga 3 ($S - H - S$):\n     $$P(S - H - S) = 0{,}4 \\times 0{,}6 \\times 0{,}4 = 0{,}096$$\n\nTotal peluang Tim Singa keluar sebagai juara:\n$$P = 0{,}16 + 0{,}096 + 0{,}096 = 0{,}352$$",
+      "subBabIds": [
+        "mtk-b16-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B16-P3-04",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb01",
+      "subBab": "Ruang Sampel & Peluang Sederhana",
+      "kesulitan": "sulit",
+      "pertanyaan": "Dika dan Risa berjanji untuk bertemu di kafe antara pukul 14.00 dan 15.00 WIB. Waktu kedatangan masing-masing orang bersifat acak seragam dan independen. Orang yang tiba lebih dahulu akan menunggu selama maksimal 20 menit, lalu akan meninggalkan kafe jika orang kedua belum datang. Peluang Dika dan Risa berhasil bertemu di kafe tersebut adalah...",
+      "pilihan": [
+        "$\\frac{4}{9}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{5}{9}$",
+        "$\\frac{2}{3}$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Gunakan pendekatan **Peluang Geometris** (*Geometric Probability*):\n\n1. Misalkan waktu kedatangan Dika adalah $x$ menit setelah pukul 14.00 ($0 \\le x \\le 60$).\n2. Misalkan waktu kedatangan Risa adalah $y$ menit setelah pukul 14.00 ($0 \\le y \\le 60$).\n3. Luas ruang sampel berupa persegi dengan luas:\n   $$L_{\\text{sampel}} = 60 \\times 60 = 3.600$$\n4. Mereka berhasil bertemu jika selisih waktu kedatangan paling banyak 20 menit:\n   $$|x - y| \\le 20 \\iff -20 \\le x - y \\le 20$$\n5. Luas daerah di mana mereka **tidak bertemu** ($|x - y| > 20$) terdiri atas 2 segitiga siku-siku sama kaki dengan panjang sisi kaki $60 - 20 = 40$:\n   $$L_{\\text{tidak bertemu}} = 2 \\times \\left(\\frac{1}{2} \\times 40 \\times 40\\right) = 1.600$$\n6. Luas daerah kejadian bertemu:\n   $$L_{\\text{bertemu}} = 3.600 - 1.600 = 2.000$$\n\nMaka peluang mereka bertemu:\n$$P = \\frac{2.000}{3.600} = \\frac{5}{9}$$",
+      "subBabIds": [
+        "mtk-b16-sb01"
+      ]
+    },
+    {
+      "id": "MTK-B16-P3-05",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb03",
+      "subBab": "Peluang Kejadian Majemuk & Bersyarat",
+      "kesulitan": "sulit",
+      "pertanyaan": "Pada suatu kejuaraan atletik, diperkirakan $2\\%$ dari atlet peserta menggunakan zat doping terlarang. Suatu tes laboratorium memiliki akurasi: $95\\%$ memberikan hasil positif jika atlet memang menggunakan doping, dan $90\\%$ memberikan hasil negatif jika atlet bersih (tidak menggunakan doping). Jika seorang atlet dipilih secara acak dan hasil tesnya menunjukkan positif, peluang bahwa atlet tersebut memang benar-benar menggunakan zat doping adalah...",
+      "pilihan": [
+        "$\\frac{19}{117}$",
+        "$\\frac{19}{95}$",
+        "$\\frac{38}{117}$",
+        "$\\frac{95}{100}$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Gunakan **Teorema Bayes**:\n\nDefinisikan kejadian:\n- $D$: atlet menggunakan doping $\\implies P(D) = 0{,}02$\n- $B$: atlet bersih (tanpa doping) $\\implies P(B) = 0{,}98$\n- $+$: hasil tes positif\n  - $P(+ \\mid D) = 0{,}95$\n  - $P(+ \\mid B) = 1 - 0{,}90 = 0{,}10$ (positif palsu)\n\nHitung peluang total hasil tes positif $P(+)$:\n$$\\begin{aligned}\nP(+) &= P(D) \\cdot P(+ \\mid D) + P(B) \\cdot P(+ \\mid B) \\\\\n&= (0{,}02 \\times 0{,}95) + (0{,}98 \\times 0{,}10) \\\\\n&= 0{,}019 + 0{,}098 = 0{,}117\n\\end{aligned}$$\n\nBerdasarkan Teorema Bayes, peluang atlet benar-benar menggunakan doping jika hasil tes positif:\n$$P(D \\mid +) = \\frac{P(D) \\cdot P(+ \\mid D)}{P(+)} = \\frac{0{,}019}{0{,}117} = \\frac{19}{117} \\approx 16{,}24\\%$$",
+      "subBabIds": [
+        "mtk-b16-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B16-P3-06",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb02",
+      "subBab": "Komplemen & Frekuensi Harapan",
+      "kesulitan": "sedang",
+      "pertanyaan": "Dalam stan permainan karnaval sekolah, seorang pemain membayar biaya tiket Rp15.000 untuk memutar sebuah roda undian yang terbagi ke dalam 6 sektor juring lingkaran yang sama luasnya. Ketentuan hadiah: 1 sektor berhadiah uang tunai Rp60.000, 2 sektor berhadiah Rp15.000, dan 3 sektor tidak berhadiah (Rp0). Ekspektasi keuntungan bersih pemain dari satu kali permainan tersebut adalah...",
+      "pilihan": [
+        "Rugi Rp2.500",
+        "Impas (Rp0)",
+        "Untung Rp2.500",
+        "Untung Rp5.000"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Hitung nilai harapan (*expected value*) hadiah kotor yang diperoleh pemain:\n\nSetiap sektor memiliki peluang yang sama: $P = \\frac{1}{6}$.\n- Sektor hadiah Rp60.000: $P = \\frac{1}{6}$\n- Sektor hadiah Rp15.000: $P = \\frac{2}{6} = \\frac{1}{3}$\n- Sektor hadiah Rp0: $P = \\frac{3}{6} = \\frac{1}{2}$\n\nEkspektasi penerimaan hadiah kotor $E(X)$:\n$$\\begin{aligned}\nE(X) &= \\left(60.000 \\times \\frac{1}{6}\\right) + \\left(15.000 \\times \\frac{2}{6}\\right) + \\left(0 \\times \\frac{3}{6}\\right) \\\\\n&= 10.000 + 5.000 + 0 = \\text{Rp}15.000\n\\end{aligned}$$\n\nEkspektasi keuntungan bersih pemain:\n$$E(\\text{Net}) = E(X) - \\text{Biaya Tiket} = 15.000 - 15.000 = \\text{Rp}0$$\n\nArtinya permainan ini bersifat adil (*fair game*) dengan nilai harapan impas.",
+      "subBabIds": [
+        "mtk-b16-sb02"
+      ]
+    },
+    {
+      "id": "MTK-B16-P4-01",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb03",
+      "subBab": "Peluang Kejadian Majemuk & Bersyarat",
+      "kesulitan": "sedang",
+      "pertanyaan": "Kantong A berisi 4 kelereng biru dan 2 kelereng putih. Kantong B berisi 3 kelereng biru dan 3 kelereng putih. Satu kelereng diambil secara acak dari Kantong A dan langsung dipindahkan ke dalam Kantong B tanpa melihat warnanya. Selanjutnya, satu kelereng diambil secara acak dari Kantong B. Peluang kelereng yang terambil dari Kantong B berwarna biru adalah...",
+      "pilihan": [
+        "$\\frac{9}{21}$",
+        "$\\frac{10}{21}$",
+        "$\\frac{11}{21}$",
+        "$\\frac{13}{21}$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Gunakan aturan probabilitas total dengan membagi dua kasus kelereng yang dipindahkan dari Kantong A:\n\n**Kasus 1: Terambil kelereng Biru dari Kantong A**\n- Peluang terambil Biru dari A: $P(B_A) = \\frac{4}{6} = \\frac{2}{3}$\n- Setelah 1 kelereng biru masuk ke Kantong B, isi Kantong B menjadi 4 biru dan 3 putih (total 7).\n- Peluang terambil Biru dari B: $P(B_B \\mid B_A) = \\frac{4}{7}$\n- Peluang Kasus 1: $\\frac{2}{3} \\times \\frac{4}{7} = \\frac{8}{21}$\n\n**Kasus 2: Terambil kelereng Putih dari Kantong A**\n- Peluang terambil Putih dari A: $P(P_A) = \\frac{2}{6} = \\frac{1}{3}$\n- Setelah 1 kelereng putih masuk ke Kantong B, isi Kantong B menjadi 3 biru dan 4 putih (total 7).\n- Peluang terambil Biru dari B: $P(B_B \\mid P_A) = \\frac{3}{7}$\n- Peluang Kasus 2: $\\frac{1}{3} \\times \\frac{3}{7} = \\frac{3}{21}$\n\nTotal peluang terambil kelereng Biru dari Kantong B:\n$$P(B_B) = \\frac{8}{21} + \\frac{3}{21} = \\frac{11}{21}$$",
+      "subBabIds": [
+        "mtk-b16-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B16-P4-02",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb03",
+      "subBab": "Peluang Kejadian Majemuk & Bersyarat",
+      "kesulitan": "sedang",
+      "pertanyaan": "Dua buah dadu bermata enam yang setimbang dilemparkan bersamaan. Jika diketahui bahwa jumlah kedua mata dadu yang muncul adalah bilangan ganjil, peluang munculnya mata dadu berangka 3 pada salah satu dadu adalah...",
+      "pilihan": [
+        "$\\frac{1}{6}$",
+        "$\\frac{2}{9}$",
+        "$\\frac{1}{3}$",
+        "$\\frac{5}{18}$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Gunakan konsep peluang bersyarat $P(A \\mid B) = \\frac{n(A \\cap B)}{n(B)}$:\n\n1. **Kejadian B (Jumlah kedua dadu ganjil):**\n   Jumlah ganjil terjadi jika satu dadu ganjil dan dadu lainnya genap:\n   - Dadu 1 ganjil dan Dadu 2 genap: $3 \\times 3 = 9$ titik sampel.\n   - Dadu 1 genap dan Dadu 2 ganjil: $3 \\times 3 = 9$ titik sampel.\n   - Total ruang sampel bersyarat $n(B) = 9 + 9 = 18$.\n\n2. **Kejadian $A \\cap B$ (Jumlah ganjil dan ada angka 3):**\n   Karena 3 adalah angka ganjil, pasangannya harus berupa angka genap:\n   - Dadu 1 bernilai 3: $(3, 2), (3, 4), (3, 6) \\implies 3$ kemungkinan.\n   - Dadu 2 bernilai 3: $(2, 3), (4, 3), (6, 3) \\implies 3$ kemungkinan.\n   - Pasangan $(3, 3)$ tidak mungkin karena jumlahnya genap (6).\n   - Total titik sampel yang memenuhi: $n(A \\cap B) = 3 + 3 = 6$.\n\nPeluang bersyarat:\n$$P(A \\mid B) = \\frac{6}{18} = \\frac{1}{3}$$",
+      "subBabIds": [
+        "mtk-b16-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B16-P4-03",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb01",
+      "subBab": "Ruang Sampel & Peluang Sederhana",
+      "kesulitan": "sedang",
+      "pertanyaan": "Dalam sebuah kelompok belajar yang beranggotakan 4 orang mahasiswa yang lahir pada tahun yang sama, berapakah peluang bahwa sedikitnya 2 orang di antara mereka lahir pada hari yang sama dalam seminggu (Senin s.d. Minggu)?",
+      "pilihan": [
+        "$\\frac{120}{343}$",
+        "$\\frac{180}{343}$",
+        "$\\frac{223}{343}$",
+        "$\\frac{245}{343}$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Gunakan pendekatan komplemen (*Birthday Paradox Mini*):\n\n1. Ada 7 kemungkinan hari lahir dalam seminggu (Senin s.d. Minggu).\n2. Total ruang sampel hari lahir 4 orang mahasiswa:\n   $$n(S) = 7^4 = 2.401$$\n3. Kejadian komplemen ($A'$): keempat orang lahir pada hari yang **semuanya berbeda**:\n   $$n(A') = P(7, 4) = 7 \\times 6 \\times 5 \\times 4 = 840$$\n4. Peluang keempatnya lahir pada hari berbeda:\n   $$P(A') = \\frac{840}{2.401} = \\frac{120}{343}$$\n5. Peluang sedikitnya 2 orang lahir pada hari yang sama:\n   $$P(A) = 1 - P(A') = 1 - \\frac{120}{343} = \\frac{223}{343}$$",
+      "subBabIds": [
+        "mtk-b16-sb01",
+        "mtk-b16-sb02"
+      ]
+    },
+    {
+      "id": "MTK-B16-P4-04",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb02",
+      "subBab": "Komplemen & Frekuensi Harapan",
+      "kesulitan": "sedang",
+      "pertanyaan": "Seorang atlet panahan memiliki peluang mengenai sasaran sebesar $p = \\frac{2}{3}$ pada setiap kali melepaskan anak panah. Jika ia melepaskan 4 anak panah secara independen, peluang atlet tersebut mengenai sasaran tepat 3 kali adalah...",
+      "pilihan": [
+        "$\\frac{16}{81}$",
+        "$\\frac{24}{81}$",
+        "$\\frac{32}{81}$",
+        "$\\frac{40}{81}$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Gunakan rumus **Peluang Binomial (Percobaan Bernoulli)**:\n$$P(X = k) = \\binom{n}{k} p^k (1 - p)^{n - k}$$\n\nDiketahui:\n- $n = 4$ (banyak tembakan)\n- $k = 3$ (banyak tembakan sukses mengenai sasaran)\n- $p = \\frac{2}{3}$ (peluang sukses per tembakan)\n- $q = 1 - p = 1 - \\frac{2}{3} = \\frac{1}{3}$ (peluang gagal)\n\nSubstitusikan nilai:\n$$\\begin{aligned}\nP(X = 3) &= \\binom{4}{3} \\left(\\frac{2}{3}\\right)^3 \\left(\\frac{1}{3}\\right)^{4 - 3} \\\\\n&= 4 \\times \\frac{8}{27} \\times \\frac{1}{3} \\\\\n&= \\frac{32}{81}\n\\end{aligned}$$",
+      "subBabIds": [
+        "mtk-b16-sb02",
+        "mtk-b16-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B16-P4-05",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb03",
+      "subBab": "Peluang Kejadian Majemuk & Bersyarat",
+      "kesulitan": "sulit",
+      "pertanyaan": "Dari satu set lengkap kartu bridge (52 kartu, terdiri atas 13 nilai nominal yang masing-masing memiliki 4 jenis lambang), diambil 3 kartu secara acak sekaligus. Peluang mendapatkan tepat 2 kartu berangka sama (One Pair) dan 1 kartu lainnya berangka berbeda adalah...",
+      "pilihan": [
+        "$\\frac{36}{425}$",
+        "$\\frac{72}{425}$",
+        "$\\frac{96}{425}$",
+        "$\\frac{108}{425}$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Langkah-langkah menghitung peluang kombinasi kartu:\n\n1. **Total ruang sampel:** Mengambil 3 kartu dari 52 kartu:\n   $$n(S) = C(52, 3) = \\frac{52 \\times 51 \\times 50}{3 \\times 2 \\times 1} = 22.100$$\n\n2. **Banyak cara membentuk One Pair (2 bernilai sama, 1 bernilai berbeda):**\n   - Pilih 1 nilai nominal untuk pasangan kembar dari 13 nominal: $\\binom{13}{1} = 13$ cara.\n   - Dari 4 kartu pada nominal tersebut, ambil 2 kartu: $\\binom{4}{2} = 6$ cara.\n   - Pilih 1 nilai nominal berbeda dari 12 nominal yang tersisa: $\\binom{12}{1} = 12$ cara.\n   - Dari 4 kartu pada nominal kedua tersebut, ambil 1 kartu: $\\binom{4}{1} = 4$ cara.\n   $$n(A) = 13 \\times 6 \\times 12 \\times 4 = 3.744$$\n\n3. **Hitung peluang:**\n   $$P = \\frac{3.744}{22.100} = \\frac{72}{425}$$",
+      "subBabIds": [
+        "mtk-b16-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B16-P4-06",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb03",
+      "subBab": "Peluang Kejadian Majemuk & Bersyarat",
+      "kesulitan": "sedang",
+      "pertanyaan": "Dari 100 orang siswa SMA di suatu sekolah, diperoleh data partisipasi ekstrakurikuler: 60 siswa mengikuti klub Robotik, 45 siswa mengikuti klub Debat Bahasa Inggris, dan 25 siswa mengikuti kedua klub tersebut. Jika seorang siswa dipilih secara acak dari kelompok siswa yang mengikuti sedikitnya satu klub ekstrakurikuler, peluang siswa terpilih tersebut hanya mengikuti klub Robotik (tidak mengikuti klub Debat) adalah...",
+      "pilihan": [
+        "$\\frac{7}{20}$",
+        "$\\frac{7}{16}$",
+        "$\\frac{9}{16}$",
+        "$\\frac{35}{60}$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Gunakan teori himpunan dan peluang bersyarat:\n\n1. Jumlah siswa yang mengikuti **sedikitnya satu** ekstrakurikuler (ruang sampel bersyarat):\n   $$n(R \\cup D) = n(R) + n(D) - n(R \\cap D) = 60 + 45 - 25 = 80$$\n\n2. Jumlah siswa yang **hanya mengikuti klub Robotik** (Robotik tetapi bukan Debat):\n   $$n(R \\setminus D) = n(R) - n(R \\cap D) = 60 - 25 = 35$$\n\n3. Peluang bersyarat terpilih siswa yang hanya mengikuti Robotik di antara siswa yang mengikuti sedikitnya satu klub:\n   $$P = \\frac{n(R \\setminus D)}{n(R \\cup D)} = \\frac{35}{80} = \\frac{7}{16}$$",
+      "subBabIds": [
+        "mtk-b16-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B15-P6-01",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb01",
+      "subBab": "Kaidah Pencacahan & Filling Slots",
+      "kesulitan": "sedang",
+      "pertanyaan": "Sebuah sistem brankas digital menggunakan kode PIN 5 digit yang disusun dari himpunan angka $\\{1, 2, 3, 4, 5, 6, 7, 8\\}$. Jika angka boleh berulang, digit pertama wajib bilangan prima, dan seluruh bilangan yang terbentuk harus merupakan bilangan genap, banyaknya variasi kode PIN yang dapat dibuat adalah...",
+      "pilihan": [
+        "$8.192$",
+        "$10.240$",
+        "$12.288$",
+        "$16.384$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Kita gunakan metode pengisian tempat (*filling slots*) untuk 5 digit $[d_1][d_2][d_3][d_4][d_5]$ dari 8 pilihan angka yang tersedia:\n\n1. **Digit pertama ($d_1$):** Harus bilangan prima dari himpunan tersebut $\\{2, 3, 5, 7\\} \\implies 4$ pilihan.\n2. **Digit terakhir ($d_5$):** Bilangan harus genap, maka digit terakhir harus genap $\\{2, 4, 6, 8\\} \\implies 4$ pilihan.\n3. **Digit kedua ($d_2$), ketiga ($d_3$), dan keempat ($d_4$):** Karena angka **boleh berulang** dan tidak ada restriksi khusus, masing-masing slot memiliki 8 pilihan angka bebas $\\implies 8 \\times 8 \\times 8$ pilihan.\n\nTotal variasi kode PIN:\n$$N = 4 \\times 8 \\times 8 \\times 8 \\times 4 = 16 \\times 512 = 8.192$$",
+      "subBabIds": [
+        "mtk-b15-sb01"
+      ]
+    },
+    {
+      "id": "MTK-B15-P6-02",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb01",
+      "subBab": "Kaidah Pencacahan & Filling Slots",
+      "kesulitan": "sulit",
+      "pertanyaan": "Sebuah robot mikroskopis bergerak dalam kisi 3 dimensi dari titik awal $(0,0,0)$ menuju target di titik $(3,2,1)$. Pada setiap langkah, robot hanya dapat bergerak 1 satuan ke arah sumbu $+x$, $+y$, atau $+z$. Banyaknya rute lintasan berbeda yang dapat dilalui robot tersebut adalah...",
+      "pilihan": [
+        "$30$",
+        "$60$",
+        "$90$",
+        "$120$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Untuk berpindah dari $(0,0,0)$ ke $(3,2,1)$, robot harus menempuh:\n- 3 langkah ke arah sumbu $x$ ($+x$)\n- 2 langkah ke arah sumbu $y$ ($+y$)\n- 1 langkah ke arah sumbu $z$ ($+z$)\n\nTotal perpindahan $= 3 + 2 + 1 = 6$ langkah.\nBanyaknya cara menyusun urutan langkah merupakan permutasi dari 6 elemen dengan elemen berulang (3 elemen $x$, 2 elemen $y$, 1 elemen $z$):\n$$N = \\frac{6!}{3! \\times 2! \\times 1!} = \\frac{720}{6 \\times 2 \\times 1} = \\frac{720}{12} = 60$$",
+      "subBabIds": [
+        "mtk-b15-sb01",
+        "mtk-b15-sb02"
+      ]
+    },
+    {
+      "id": "MTK-B15-P6-03",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb02",
+      "subBab": "Permutasi (Unsur Berbeda, Siklis, & Berulang)",
+      "kesulitan": "sulit",
+      "pertanyaan": "Sebanyak 5 orang pria dan 4 orang wanita berdiri membentuk satu barisan antrean tiket kereta api. Jika disyaratkan tidak boleh ada dua orang wanita yang berdiri berdampingan secara langsung, banyaknya variasi susunan antrean tersebut adalah...",
+      "pilihan": [
+        "$28.800$",
+        "$43.200$",
+        "$57.600$",
+        "$86.400$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Gunakan metode celah (*gap method*):\n\n1. Susun 5 orang pria terlebih dahulu dalam barisan:\n   $$N_P = 5! = 120$$\n\n2. Penataan 5 pria menghasilkan 6 posisi celah kosong di antara maupun di ujung antrean:\n   $$\\_ P_1 \\_ P_2 \\_ P_3 \\_ P_4 \\_ P_5 \\_$$\n   Agar tidak ada wanita yang berdampingan, setiap celah maksimal diisi oleh 1 orang wanita.\n\n3. Tempatkan 4 wanita ke dalam 6 pilihan celah kosong yang tersedia secara terurut:\n   $$P(6, 4) = \\frac{6!}{(6-4)!} = 6 \\times 5 \\times 4 \\times 3 = 360$$\n\n4. Total variasi susunan antrean:\n   $$N = N_P \\times P(6, 4) = 120 \\times 360 = 43.200$$",
+      "subBabIds": [
+        "mtk-b15-sb02"
+      ]
+    },
+    {
+      "id": "MTK-B15-P6-04",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb02",
+      "subBab": "Permutasi (Unsur Berbeda, Siklis, & Berulang)",
+      "kesulitan": "sedang",
+      "pertanyaan": "Seorang pengrajin aksesoris merangkai 7 butir manik-manik dengan warna yang berbeda-beda menjadi sebuah gelang melingkar. Karena gelang dapat dibolak-balik (sisi tampak depan dan belakang tidak dibedakan), banyaknya variasi pola gelang yang berbeda adalah...",
+      "pilihan": [
+        "$180$",
+        "$360$",
+        "$720$",
+        "$2.520$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Gelang merupakan bentuk permutasi siklis yang dapat dibalik di ruang 3 dimensi (*flippable circular permutation*). Jika gelang dibalik, arah putaran searah jarum jam dan berlawanan jarum jam menjadi identik secara fisik.\n\nRumus variasi gelang melingkar dari $n$ objek berbeda:\n$$N = \\frac{(n - 1)!}{2}$$\n\nUntuk $n = 7$:\n$$N = \\frac{(7 - 1)!}{2} = \\frac{6!}{2} = \\frac{720}{2} = 360$$",
+      "subBabIds": [
+        "mtk-b15-sb02"
+      ]
+    },
+    {
+      "id": "MTK-B15-P6-05",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb02",
+      "subBab": "Permutasi (Unsur Berbeda, Siklis, & Berulang)",
+      "kesulitan": "sedang",
+      "pertanyaan": "Dari huruf-huruf pada kata **\"LOGARITMA\"**, akan disusun kata-kata baru (baik bermakna maupun tidak). Banyaknya susunan kata berbeda jika keempat huruf vokal (O, A, I, A) harus selalu berdampingan sebagai satu kesatuan adalah...",
+      "pilihan": [
+        "$2.160$",
+        "$4.320$",
+        "$8.640$",
+        "$15.120$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Huruf penyusun kata **\"LOGARITMA\"** terdiri atas 9 huruf: $\\{\\text{L, O, G, A, R, I, T, M, A}\\}$.\nHuruf vokal: $\\{\\text{O, A, I, A}\\}$ (4 huruf vokal, di mana huruf A muncul 2 kali).\nHuruf konsonan: $\\{\\text{L, G, R, T, M}\\}$ (5 huruf konsonan).\n\n1. Kelompokkan seluruh vokal menjadi 1 blok elemen: $[\\text{O, A, I, A}]$.\n2. Sekarang kita memiliki $5 + 1 = 6$ elemen untuk disusun:\n   $$\\{\\text{L, G, R, T, M}, [\\text{VOKAL}]\\}$$\n   Banyak cara menyusun 6 elemen unik ini adalah:\n   $$6! = 720$$\n3. Di dalam blok vokal, terdapat 4 huruf dengan 2 huruf A yang kembar. Banyak susunan internal blok vokal:\n   $$\\frac{4!}{2!} = \\frac{24}{2} = 12$$\n\nTotal susunan kata yang memenuhi syarat:\n$$N = 720 \\times 12 = 8.640$$",
+      "subBabIds": [
+        "mtk-b15-sb02"
+      ]
+    },
+    {
+      "id": "MTK-B15-P6-06",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb02",
+      "subBab": "Permutasi (Unsur Berbeda, Siklis, & Berulang)",
+      "kesulitan": "sedang",
+      "pertanyaan": "Sebanyak 4 pria dan 4 wanita duduk mengelilingi meja bundar untuk makan malam bersama. Jika posisi duduk harus berselang-seling antara pria dan wanita (pria di antara wanita, dan wanita di antara pria), banyaknya susunan duduk yang mungkin adalah...",
+      "pilihan": [
+        "$72$",
+        "$144$",
+        "$288$",
+        "$576$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Penataan siklis berselang-seling jenis kelamin:\n\n1. Dudukkan 4 pria terlebih dahulu mengelilingi meja bundar secara permutasi siklis:\n   $$N_P = (4 - 1)! = 3! = 6$$\n2. Setelah 4 pria duduk, terdapat 4 kursi kosong di antara para pria untuk ditempati oleh para wanita.\n3. Karena posisi lingkaran sudah memiliki titik acuan tetap (oleh para pria), maka penempatan 4 wanita di 4 kursi sela tersebut dihitung dengan permutasi linier biasa:\n   $$N_W = 4! = 24$$\n\nTotal cara susunan duduk berselang-seling:\n$$N = N_P \\times N_W = 6 \\times 24 = 144$$",
+      "subBabIds": [
+        "mtk-b15-sb02"
+      ]
+    },
+    {
+      "id": "MTK-B15-P7-01",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb03",
+      "subBab": "Kombinasi & Binomial Newton",
+      "kesulitan": "sedang",
+      "pertanyaan": "Sebuah komite independen beranggotakan 6 orang akan dibentuk dari 7 pakar hukum pria dan 5 pakar hukum wanita. Jika disyaratkan anggota komite harus memiliki mayoritas wanita (jumlah wanita lebih banyak daripada jumlah pria), banyaknya susunan komite yang dapat dibentuk adalah...",
+      "pilihan": [
+        "$112$",
+        "$120$",
+        "$126$",
+        "$133$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Komite terdiri atas 6 orang dengan syarat wanita mayoritas ($W > P$):\n\nKarena wanita yang tersedia ada 5 orang, kemungkinan komposisi yang memenuhi:\n- **Kasus 1: 4 Wanita dan 2 Pria**\n  $$N_1 = \\binom{5}{4} \\times \\binom{7}{2} = 5 \\times \\frac{7 \\times 6}{2} = 5 \\times 21 = 105$$\n- **Kasus 2: 5 Wanita dan 1 Pria**\n  $$N_2 = \\binom{5}{5} \\times \\binom{7}{1} = 1 \\times 7 = 7$$\n\n*(Kasus 6 Wanita tidak mungkin karena hanya ada 5 wanita yang tersedia).*\n\nTotal susunan komite yang memenuhi syarat:\n$$N = N_1 + N_2 = 105 + 7 = 112$$",
+      "subBabIds": [
+        "mtk-b15-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B15-P7-02",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb03",
+      "subBab": "Kombinasi & Binomial Newton",
+      "kesulitan": "sedang",
+      "pertanyaan": "Sebuah bangun ruang prisma tegak memiliki bidang alas dan bidang atas berbentuk segi-8 beraturan (oktagon). Banyaknya seluruh garis diagonal ruang pada prisma segi-8 tersebut adalah...",
+      "pilihan": [
+        "$32$",
+        "$40$",
+        "$48$",
+        "$56$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Pada prisma tegak segi-$n$:\n- Memiliki $2n$ titik sudut ($n$ di bidang alas dan $n$ di bidang atas).\n- Diagonal ruang terbentuk dengan menghubungkan sebuah titik sudut di bidang alas dengan titik sudut di bidang atas yang tidak terletak pada satu sisi tegak yang sama.\n\nSetiap titik sudut di bidang alas dapat dihubungkan ke $(n - 3)$ titik sudut di bidang atas (karena tidak boleh ke titik tepat di atasnya serta dua titik di kanan-kirinya yang membentuk bidang diagonal sisi tegak).\n\nRumus banyaknya diagonal ruang prisma segi-$n$:\n$$D = n(n - 3)$$\n\nUntuk $n = 8$:\n$$D = 8 \\times (8 - 3) = 8 \\times 5 = 40$$",
+      "subBabIds": [
+        "mtk-b15-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B15-P7-03",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb03",
+      "subBab": "Kombinasi & Binomial Newton",
+      "kesulitan": "sulit",
+      "pertanyaan": "Seorang manajer proyek ingin membagikan 12 modul tugas yang identik kepada 4 staf pengembang perangkat lunak ($A, B, C, D$). Jika disyaratkan setiap staf pengembang harus menerima sedikitnya 2 modul tugas agar beban kerja proporsional, banyaknya variasi pembagian modul tugas tersebut adalah...",
+      "pilihan": [
+        "$28$",
+        "$35$",
+        "$45$",
+        "$56$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Permasalahan ini ekuivalen dengan mencari banyaknya solusi bilangan bulat dari persamaan:\n$$x_A + x_B + x_C + x_D = 12 \\quad \\text{dengan } x_i \\ge 2$$\n\nLakukan substitusi variabel $y_i = x_i - 2 \\ge 0$:\n$$(y_A + 2) + (y_B + 2) + (y_C + 2) + (y_D + 2) = 12$$\n$$y_A + y_B + y_C + y_D = 12 - 8 = 4$$\n\nBerdasarkan teorema *Stars and Bars* (kombinasi dengan pengulangan), banyaknya solusi non-negatif dari $n$ objek ke $k$ kelompok adalah:\n$$N = \\binom{n + k - 1}{n} = \\binom{4 + 4 - 1}{4} = \\binom{7}{4} = \\frac{7 \\times 6 \\times 5}{3 \\times 2 \\times 1} = 35$$",
+      "subBabIds": [
+        "mtk-b15-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B15-P7-04",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb03",
+      "subBab": "Kombinasi & Binomial Newton",
+      "kesulitan": "sulit",
+      "pertanyaan": "Pada ekspansi aljabar bentuk binomial $\\left(2x^3 - \\frac{1}{x}\\right)^8$, nilai dari suku konstan (suku yang bebas dari variabel $x$, yaitu memuat $x^0$) adalah...",
+      "pilihan": [
+        "$70$",
+        "$112$",
+        "$-112$",
+        "$224$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Berdasarkan Teorema Binomial Newton, suku umum ke-$(k+1)$ dari $(a + b)^n$ adalah:\n$$T_{k+1} = \\binom{n}{k} a^{n-k} b^k$$\n\nDi sini $n = 8$, $a = 2x^3$, dan $b = -x^{-1}$:\n$$T_{k+1} = \\binom{8}{k} (2x^3)^{8-k} (-x^{-1})^k = \\binom{8}{k} 2^{8-k} (-1)^k x^{3(8-k) - k}$$\n$$x^{24 - 3k - k} = x^{24 - 4k}$$\n\nAgar suku bebas dari $x$ ($x^0$), pangkat variabel $x$ harus bernilai nol:\n$$24 - 4k = 0 \\implies 4k = 24 \\implies k = 6$$\n\nSubstitusikan nilai $k = 6$ ke koefisien:\n$$\\text{Nilai Suku} = \\binom{8}{6} 2^{8-6} (-1)^6 = \\binom{8}{2} \\times 2^2 \\times 1 = \\frac{8 \\times 7}{2} \\times 4 = 28 \\times 4 = 112$$",
+      "subBabIds": [
+        "mtk-b15-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B15-P7-05",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb03",
+      "subBab": "Kombinasi & Binomial Newton",
+      "kesulitan": "mudah",
+      "pertanyaan": "Diberikan ekspansi polinomial $P(x, y) = (3x - 2y + 1)^5$. Jumlah seluruh koefisien suku-suku dari penjabaran polinomial tersebut adalah...",
+      "pilihan": [
+        "$16$",
+        "$32$",
+        "$64$",
+        "$243$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Jumlah seluruh koefisien dari suatu polinomial $P(x, y)$ dapat ditentukan secara langsung dengan mensubstitusikan nilai semua variabel sama dengan 1 ($x = 1, y = 1$):\n\n$$\\sum \\text{koefisien} = P(1, 1)$$\n$$P(1, 1) = (3(1) - 2(1) + 1)^5 = (3 - 2 + 1)^5 = 2^5 = 32$$",
+      "subBabIds": [
+        "mtk-b15-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B15-P7-06",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Aturan Pencacahan",
+      "subBabId": "mtk-b15-sb03",
+      "subBab": "Kombinasi & Binomial Newton",
+      "kesulitan": "sulit",
+      "pertanyaan": "Sebanyak 5 beasiswa penelitian internasional yang berbeda dialokasikan kepada 3 laboratorium kampus ternama ($A, B, C$). Jika setiap laboratorium dipastikan menerima sedikitnya satu beasiswa (tidak boleh ada laboratorium yang kosong), banyaknya cara pembagian beasiswa tersebut adalah...",
+      "pilihan": [
+        "$120$",
+        "$150$",
+        "$180$",
+        "$210$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Masalah ini ekuivalen dengan mencari banyaknya fungsi surjektif (onto) dari himpunan beranggotakan 5 elemen berbeda ke himpunan beranggotakan 3 elemen berbeda.\n\nGunakan Prinsip Inklusi-Eksklusi (*PIE*):\n- Total alokasi 5 beasiswa ke 3 lab tanpa syarat: $3^5 = 243$.\n- Alokasi di mana setidaknya 1 lab kosong: $\\binom{3}{1} \\times 2^5 = 3 \\times 32 = 96$.\n- Alokasi di mana setidaknya 2 lab kosong: $\\binom{3}{2} \\times 1^5 = 3 \\times 1 = 3$.\n\nBerdasarkan Prinsip Inklusi-Eksklusi:\n$$N = 3^5 - \\binom{3}{1} 2^5 + \\binom{3}{2} 1^5 = 243 - 96 + 3 = 150$$",
+      "subBabIds": [
+        "mtk-b15-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B16-P5-01",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb01",
+      "subBab": "Ruang Sampel & Peluang Kejadian Sederhana",
+      "kesulitan": "sedang",
+      "pertanyaan": "Tiga buah dadu setimbang bersisi enam dilempar bersamaan sebanyak satu kali. Peluang munculnya jumlah mata ketiga dadu sama dengan 10 adalah...",
+      "pilihan": [
+        "$\\frac{1}{9}$",
+        "$\\frac{1}{8}$",
+        "$\\frac{5}{36}$",
+        "$\\frac{25}{216}$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Ruang sampel pelemparan 3 buah dadu:\n$$n(S) = 6^3 = 216$$\n\nKita cari banyaknya pasangan tripel $(x_1, x_2, x_3)$ dengan $1 \\le x_i \\le 6$ yang memenuhi $x_1 + x_2 + x_3 = 10$.\nPartisi bilangan 10 ke dalam 3 angka dadu beserta banyaknya permutasi:\n- $\\{6, 3, 1\\} \\implies \\frac{3!}{1!} = 6$ cara\n- $\\{6, 2, 2\\} \\implies \\frac{3!}{2!} = 3$ cara\n- $\\{5, 4, 1\\} \\implies 3! = 6$ cara\n- $\\{5, 3, 2\\} \\implies 3! = 6$ cara\n- $\\{4, 4, 2\\} \\implies \\frac{3!}{2!} = 3$ cara\n- $\\{4, 3, 3\\} \\implies \\frac{3!}{2!} = 3$ cara\n\nTotal kejadian muncul jumlah 10:\n$$n(A) = 6 + 3 + 6 + 6 + 3 + 3 = 27$$\n\nPeluang kejadian:\n$$P(A) = \\frac{n(A)}{n(S)} = \\frac{27}{216} = \\frac{1}{8}$$",
+      "subBabIds": [
+        "mtk-b16-sb01"
+      ]
+    },
+    {
+      "id": "MTK-B16-P5-02",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb01",
+      "subBab": "Ruang Sampel & Peluang Kejadian Sederhana",
+      "kesulitan": "sedang",
+      "pertanyaan": "Sebuah papan sasaran berbentuk persegi memiliki panjang sisi $2R$. Di bagian tengah papan digambar sebuah lingkaran sasaran merah dengan jari-jari $R$ yang menyinggung keempat sisi persegi. Jika sebutir peluru senapan angin mendarat secara acak di papan tersebut, peluang peluru mengenai daerah di luar lingkaran (area sudut persegi) adalah...",
+      "pilihan": [
+        "$\\frac{4 - \\pi}{4}$",
+        "$\\frac{\\pi - 2}{4}$",
+        "$\\frac{4 - \\pi}{2}$",
+        "$\\frac{1}{\\pi}$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Gunakan konsep peluang geometris kontinu:\n\n1. Luas area seluruh papan sasaran (ruang sampel):\n   $$L_S = \\text{sisi} \\times \\text{sisi} = (2R) \\times (2R) = 4R^2$$\n\n2. Luas area lingkaran sasaran:\n   $$L_O = \\pi R^2$$\n\n3. Luas area di luar lingkaran (di dalam persegi):\n   $$L_{\\text{luar}} = L_S - L_O = 4R^2 - \\pi R^2 = R^2 (4 - \\pi)$$\n\n4. Peluang peluru mendarat di luar lingkaran:\n   $$P = \\frac{L_{\\text{luar}}}{L_S} = \\frac{R^2 (4 - \\pi)}{4R^2} = \\frac{4 - \\pi}{4}$$",
+      "subBabIds": [
+        "mtk-b16-sb01"
+      ]
+    },
+    {
+      "id": "MTK-B16-P5-03",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb01",
+      "subBab": "Ruang Sampel & Peluang Kejadian Sederhana",
+      "kesulitan": "mudah",
+      "pertanyaan": "Dari satu set lengkap kartu domino (terdiri atas 28 kartu), diambil dua kartu sekaligus secara acak. Peluang kedua kartu yang terambil merupakan kartu balak (kartu dengan kedua sisi memiliki jumlah titik kembar) adalah...",
+      "pilihan": [
+        "$\\frac{1}{18}$",
+        "$\\frac{1}{27}$",
+        "$\\frac{1}{36}$",
+        "$\\frac{5}{108}$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Dalam satu set kartu domino lengkap terdapat 28 kartu.\nKartu balak (kembar) berjumlah 7 buah, yaitu:\n$$\\{(0,0), (1,1), (2,2), (3,3), (4,4), (5,5), (6,6)\\}$$\n\n1. Banyak cara mengambil 2 kartu sembarang dari 28 kartu:\n   $$n(S) = \\binom{28}{2} = \\frac{28 \\times 27}{2} = 378$$\n\n2. Banyak cara mengambil 2 kartu balak dari 7 kartu balak:\n   $$n(A) = \\binom{7}{2} = \\frac{7 \\times 6}{2} = 21$$\n\n3. Peluang terambilnya kedua kartu balak:\n   $$P(A) = \\frac{n(A)}{n(S)} = \\frac{21}{378} = \\frac{1}{18}$$",
+      "subBabIds": [
+        "mtk-b16-sb01"
+      ]
+    },
+    {
+      "id": "MTK-B16-P5-04",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb02",
+      "subBab": "Peluang Komplemen & Frekuensi Harapan",
+      "kesulitan": "mudah",
+      "pertanyaan": "Panitia bazar sekolah menerbitkan 1.000 lembar kupon undian doorprize, di mana 5 lembar berhadiah laptop, 20 lembar berhadiah smartphone, dan sisanya tidak berhadiah. Jika sebuah lembaga sosial membeli 120 lembar kupon secara acak, frekuensi harapan lembaga tersebut memperoleh kupon yang berhadiah adalah...",
+      "pilihan": [
+        "$2$",
+        "$3$",
+        "$4$",
+        "$5$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "1. Jumlah kupon berhadiah total $= 5 + 20 = 25$ lembar.\n2. Peluang satu lembar kupon berhadiah:\n   $$P = \\frac{25}{1.000} = \\frac{1}{40}$$\n3. Frekuensi harapan memperoleh kupon berhadiah untuk $N = 120$ kupon yang dibeli:\n   $$F_h = N \\times P = 120 \\times \\frac{1}{40} = 3$$",
+      "subBabIds": [
+        "mtk-b16-sb02"
+      ]
+    },
+    {
+      "id": "MTK-B16-P5-05",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb02",
+      "subBab": "Peluang Komplemen & Frekuensi Harapan",
+      "kesulitan": "sedang",
+      "pertanyaan": "Sebuah sistem pertahanan udara dilengkapi 3 stasiun radar independen untuk mendeteksi ancaman drone. Peluang masing-masing stasiun radar gagal mendeteksi objek berturut-turut adalah $0{,}10$, $0{,}15$, dan $0{,}20$. Peluang sistem pertahanan tersebut berhasil mendeteksi drone (sedikitnya satu radar berhasil mendeteksi) adalah...",
+      "pilihan": [
+        "$0{,}997$",
+        "$0{,}995$",
+        "$0{,}980$",
+        "$0{,}950$"
+      ],
+      "kunciJawaban": 0,
+      "pembahasan": "Gunakan prinsip peluang komplemen:\nKejadian drone terdeteksi oleh sedikitnya satu radar merupakan komplemen dari kejadian di mana **ketiga radar sama-sama gagal mendeteksi**.\n\n1. Peluang ketiga radar gagal bersamaan:\n   $$P(\\text{Semua Gagal}) = 0{,}10 \\times 0{,}15 \\times 0{,}20 = 0{,}003$$\n\n2. Peluang sedikitnya satu radar berhasil mendeteksi:\n   $$P(\\text{Terdeteksi}) = 1 - P(\\text{Semua Gagal}) = 1 - 0{,}003 = 0{,}997$$",
+      "subBabIds": [
+        "mtk-b16-sb02"
+      ]
+    },
+    {
+      "id": "MTK-B16-P5-06",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb02",
+      "subBab": "Peluang Komplemen & Frekuensi Harapan",
+      "kesulitan": "sedang",
+      "pertanyaan": "Dalam permainan lempar 3 koin adil homogen, seorang peserta akan menerima hadiah uang tunai dengan ketentuan: jika muncul 3 Gambar memperoleh $\\text{Rp}24.000$, jika muncul 2 Gambar memperoleh $\\text{Rp}8.000$, jika muncul 1 Gambar memperoleh $\\text{Rp}4.000$, dan jika tidak muncul Gambar (3 Angka) tidak memperoleh hadiah. Nilai harapan matematis (*expected value*) hadiah uang yang diperoleh peserta dalam satu kali permainan adalah...",
+      "pilihan": [
+        "$\\text{Rp}6.000$",
+        "$\\text{Rp}7.500$",
+        "$\\text{Rp}9.000$",
+        "$\\text{Rp}10.500$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Ruang sampel pelemparan 3 koin homogen memiliki $2^3 = 8$ kemungkinan:\n\n1. Muncul 3 Gambar $(G,G,G)$: $1$ cara $\\implies P = \\frac{1}{8}$, Hadiah $= \\text{Rp}24.000$.\n2. Muncul 2 Gambar: $\\binom{3}{2} = 3$ cara $\\implies P = \\frac{3}{8}$, Hadiah $= \\text{Rp}8.000$.\n3. Muncul 1 Gambar: $\\binom{3}{1} = 3$ cara $\\implies P = \\frac{3}{8}$, Hadiah $= \\text{Rp}4.000$.\n4. Muncul 0 Gambar $(A,A,A)$: $1$ cara $\\implies P = \\frac{1}{8}$, Hadiah $= \\text{Rp}0$.\n\nNilai Harapan Matematis ($E(X)$):\n$$E(X) = \\sum x_i \\cdot P(x_i)$$\n$$E(X) = \\left(24.000 \\times \\frac{1}{8}\\right) + \\left(8.000 \\times \\frac{3}{8}\\right) + \\left(4.000 \\times \\frac{3}{8}\\right) + \\left(0 \\times \\frac{1}{8}\\right)$$\n$$E(X) = 3.000 + 3.000 + 1.500 + 0 = \\text{Rp}7.500$$",
+      "subBabIds": [
+        "mtk-b16-sb02"
+      ]
+    },
+    {
+      "id": "MTK-B16-P6-01",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb03",
+      "subBab": "Peluang Kejadian Majemuk & Bersyarat",
+      "kesulitan": "sedang",
+      "pertanyaan": "Dua buah dadu setimbang dilempar bersamaan sebanyak satu kali. Peluang munculnya jumlah kedua mata dadu sama dengan 6 atau kedua dadu menunjukkan angka kembar adalah...",
+      "pilihan": [
+        "$\\frac{1}{4}$",
+        "$\\frac{5}{18}$",
+        "$\\frac{11}{36}$",
+        "$\\frac{1}{3}$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Ruang sampel pelemparan 2 dadu: $n(S) = 6 \\times 6 = 36$.\n\n- Misalkan $A$ kejadian jumlah kedua mata dadu sama dengan 6:\n  $$A = \\{(1,5), (2,4), (3,3), (4,2), (5,1)\\} \\implies n(A) = 5$$\n\n- Misalkan $B$ kejadian kedua mata dadu bernilai kembar:\n  $$B = \\{(1,1), (2,2), (3,3), (4,4), (5,5), (6,6)\\} \\implies n(B) = 6$$\n\n- Irisan kejadian $A \\cap B$ (jumlah 6 sekaligus kembar):\n  $$A \\cap B = \\{(3,3)\\} \\implies n(A \\cap B) = 1$$\n\nGunakan rumus peluang gabungan kejadian tidak saling lepas:\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n$$P(A \\cup B) = \\frac{5}{36} + \\frac{6}{36} - \\frac{1}{36} = \\frac{10}{36} = \\frac{5}{18}$$",
+      "subBabIds": [
+        "mtk-b16-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B16-P6-02",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb03",
+      "subBab": "Peluang Kejadian Majemuk & Bersyarat",
+      "kesulitan": "sedang",
+      "pertanyaan": "Terdapat dua kotak berisi bola. Kotak I berisi 4 bola merah dan 3 bola putih, sedangkan Kotak II berisi 2 bola merah dan 5 bola putih. Sebuah dadu setimbang dilempar satu kali: jika muncul mata dadu kelipatan 3, diambil sebuah bola dari Kotak I; jika muncul selain itu, diambil sebuah bola dari Kotak II. Peluang bola yang terambil berwarna merah adalah...",
+      "pilihan": [
+        "$\\frac{2}{7}$",
+        "$\\frac{8}{21}$",
+        "$\\frac{10}{21}$",
+        "$\\frac{4}{7}$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Gunakan Hukum Peluang Total (*Law of Total Probability*):\n\n1. Mata dadu kelipatan 3 adalah $\\{3, 6\\} \\implies$ Peluang memilih Kotak I:\n   $$P(K_1) = \\frac{2}{6} = \\frac{1}{3}$$\n   Mata dadu bukan kelipatan 3 adalah $\\{1, 2, 4, 5\\} \\implies$ Peluang memilih Kotak II:\n   $$P(K_2) = \\frac{4}{6} = \\frac{2}{3}$$\n\n2. Peluang terambil bola merah dari masing-masing kotak:\n   - Dari Kotak I ($4$ merah dari $7$ bola): $P(M | K_1) = \\frac{4}{7}$\n   - Dari Kotak II ($2$ merah dari $7$ bola): $P(M | K_2) = \\frac{2}{7}$\n\n3. Peluang total terambil bola merah:\n   $$P(M) = P(K_1) \\cdot P(M | K_1) + P(K_2) \\cdot P(M | K_2)$$\n   $$P(M) = \\left(\\frac{1}{3} \\times \\frac{4}{7}\\right) + \\left(\\frac{2}{3} \\times \\frac{2}{7}\\right) = \\frac{4}{21} + \\frac{4}{21} = \\frac{8}{21}$$",
+      "subBabIds": [
+        "mtk-b16-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B16-P6-03",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb03",
+      "subBab": "Peluang Kejadian Majemuk & Bersyarat",
+      "kesulitan": "sulit",
+      "pertanyaan": "Di suatu pabrik perakitan lampu, Mesin A memproduksi $60\\%$ dari seluruh output lampu dengan tingkat kerusakan $2\\%$, sedangkan Mesin B memproduksi $40\\%$ sisanya dengan tingkat kerusakan $5\\%$. Jika sebuah lampu diambil secara acak dari gudang dan setelah diuji ternyata mengalami kerusakan, peluang bahwa lampu rusak tersebut diproduksi oleh Mesin B adalah...",
+      "pilihan": [
+        "$\\frac{3}{8}$",
+        "$\\frac{2}{5}$",
+        "$\\frac{5}{8}$",
+        "$\\frac{3}{5}$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Gunakan Teorema Bayes:\n\nDiketahui:\n- $P(A) = 0{,}60$ dan $P(\\text{Rusak} | A) = 0{,}02$\n- $P(B) = 0{,}40$ dan $P(\\text{Rusak} | B) = 0{,}05$\n\n1. Peluang total terambil lampu rusak:\n   $$P(\\text{Rusak}) = P(A) \\cdot P(\\text{Rusak} | A) + P(B) \\cdot P(\\text{Rusak} | B)$$\n   $$P(\\text{Rusak}) = (0{,}60 \\times 0{,}02) + (0{,}40 \\times 0{,}05) = 0{,}012 + 0{,}020 = 0{,}032$$\n\n2. Peluang lampu rusak berasal dari Mesin B ($P(B | \\text{Rusak})$):\n   $$P(B | \\text{Rusak}) = \\frac{P(B) \\cdot P(\\text{Rusak} | B)}{P(\\text{Rusak})} = \\frac{0{,}020}{0{,}032} = \\frac{20}{32} = \\frac{5}{8}$$",
+      "subBabIds": [
+        "mtk-b16-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B16-P6-04",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb03",
+      "subBab": "Peluang Kejadian Majemuk & Bersyarat",
+      "kesulitan": "sedang",
+      "pertanyaan": "Di dalam sebuah stoples terdapat 6 permen rasa cokelat dan 4 permen rasa vanila. Tiga orang anak ($X, Y, Z$) masing-masing mengambil satu butir permen secara berurutan satu per satu tanpa pengembalian. Peluang bahwa anak ketiga ($Z$) mendapatkan permen rasa cokelat adalah...",
+      "pilihan": [
+        "$\\frac{2}{5}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{3}{5}$",
+        "$\\frac{2}{3}$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Berdasarkan prinsip simetri penarikan tanpa pengembalian (*symmetry in sampling without replacement*), probabilitas elemen tertentu terambil pada penarikan ke-$k$ (di mana hasil penarikan sebelumnya tidak diketahui) adalah identik dengan probabilitas pada penarikan pertama:\n$$P(Z = \\text{Cokelat}) = P(\\text{Penarikan Ke-1} = \\text{Cokelat}) = \\frac{6}{10} = \\frac{3}{5}$$\n\n*Pembuktian via pohon kemungkinan:*\n- CC C: $\\frac{6}{10} \\times \\frac{5}{9} \\times \\frac{4}{8} = \\frac{120}{720}$\n- CV C: $\\frac{6}{10} \\times \\frac{4}{9} \\times \\frac{5}{8} = \\frac{120}{720}$\n- VC C: $\\frac{4}{10} \\times \\frac{6}{9} \\times \\frac{5}{8} = \\frac{120}{720}$\n- VV C: $\\frac{4}{10} \\times \\frac{3}{9} \\times \\frac{6}{8} = \\frac{72}{720}$\n\nJumlah total:\n$$P = \\frac{120 + 120 + 120 + 72}{720} = \\frac{432}{720} = \\frac{3}{5}$$",
+      "subBabIds": [
+        "mtk-b16-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B16-P6-05",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb03",
+      "subBab": "Peluang Kejadian Majemuk & Bersyarat",
+      "kesulitan": "sulit",
+      "pertanyaan": "Sebuah vaksin baru terbukti memiliki tingkat keberhasilan perlindungan sebesar $80\\%$ ($p = 0{,}8$). Jika vaksin tersebut disuntikkan kepada 5 pasien sukarelawan secara independen, peluang bahwa sedikitnya 4 pasien berhasil terlindungi dari infeksi adalah...",
+      "pilihan": [
+        "$\\frac{1.792}{3.125}$",
+        "$\\frac{2.304}{3.125}$",
+        "$\\frac{2.560}{3.125}$",
+        "$\\frac{2.816}{3.125}$"
+      ],
+      "kunciJawaban": 1,
+      "pembahasan": "Gunakan Distribusi Peluang Binomial dengan $n = 5$, $p = 0{,}8 = \\frac{4}{5}$, dan $q = 1 - p = 0{,}2 = \\frac{1}{5}$.\n\nKejadian sedikitnya 4 pasien terlindungi berarti $X = 4$ atau $X = 5$:\n$$P(X \\ge 4) = P(X = 4) + P(X = 5)$$\n\n1. Untuk $X = 4$:\n   $$P(X = 4) = \\binom{5}{4} p^4 q^1 = 5 \\times \\left(\\frac{4}{5}\\right)^4 \\times \\left(\\frac{1}{5}\\right)^1 = 5 \\times \\frac{256}{625} \\times \\frac{1}{5} = \\frac{256}{625} = \\frac{1.280}{3.125}$$\n\n2. Untuk $X = 5$:\n   $$P(X = 5) = \\binom{5}{5} p^5 q^0 = 1 \\times \\left(\\frac{4}{5}\\right)^5 \\times 1 = \\frac{1.024}{3.125}$$\n\n3. Total peluang kumulatif:\n   $$P(X \\ge 4) = \\frac{1.280}{3.125} + \\frac{1.024}{3.125} = \\frac{2.304}{3.125}$$",
+      "subBabIds": [
+        "mtk-b16-sb03"
+      ]
+    },
+    {
+      "id": "MTK-B16-P6-06",
+      "kategoriUtama": "tka",
+      "subtes": "Matematika Wajib",
+      "bab": "Peluang",
+      "subBabId": "mtk-b16-sb03",
+      "subBab": "Peluang Kejadian Majemuk & Bersyarat",
+      "kesulitan": "sulit",
+      "pertanyaan": "Dalam sebuah pertunjukan sulap, terdapat 3 kotak tertutup identik: satu kotak berisi kunci emas, sedangkan dua kotak lainnya kosong. Penonton memilih Kotak 1. Sebelum membuka Kotak 1, pesulap (yang mengetahui letak kunci emas) membuka Kotak 3 dan menunjukkan bahwa Kotak 3 kosong. Pesulap kemudian menawarkan penonton kesempatan beralih memilih Kotak 2. Peluang penonton mendapatkan kunci emas jika ia memutuskan beralih ke Kotak 2 adalah...",
+      "pilihan": [
+        "$\\frac{1}{3}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{2}{3}$",
+        "$\\frac{3}{4}$"
+      ],
+      "kunciJawaban": 2,
+      "pembahasan": "Permasalahan ini merupakan representasi klasik dari *Monty Hall Problem*:\n\n1. **Pilihan Awal:**\n   - Penonton memilih Kotak 1. Peluang kunci emas ada di Kotak 1 adalah:\n     $$P(K_1) = \\frac{1}{3}$$\n   - Peluang kunci emas berada di antara Kotak 2 atau Kotak 3 adalah:\n     $$P(K_2 \\cup K_3) = 1 - \\frac{1}{3} = \\frac{2}{3}$$\n\n2. **Tindakan Pesulap:**\n   Pesulap mengetahui posisi kunci dan dengan sengaja membuka kotak kosong (Kotak 3). Pembukaan kotak kosong ini tidak mengubah fakta bahwa probabilitas awal kelompok $\\{K_2, K_3\\}$ memuat kunci emas adalah $\\frac{2}{3}$.\n\n3. **Setelah Kotak 3 Dieliminasi:**\n   Seluruh probabilitas $\\frac{2}{3}$ dari kelompok tersebut sekarang terkonsentrasi sepenuhnya pada Kotak 2.\n\nDengan demikian, jika penonton beralih ke Kotak 2, peluang mendapatkan kunci emas meningkat menjadi:\n$$P(\\text{Beralih ke } K_2) = \\frac{2}{3}$$",
+      "subBabIds": [
+        "mtk-b16-sb03"
+      ]
     }
   ]
 }

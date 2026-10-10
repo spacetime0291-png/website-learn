@@ -176,19 +176,15 @@
     <!-- ===================================================================== -->
     <section id="view-latihan" class="view-section">
 
-      <!-- SUB-VIEW 2A: SETUP & KONFIGURASI DRILLING PER BAB & PAKET -->
+      <!-- SUB-VIEW 2A: SETUP & KONFIGURASI DRILLING PER BAB & SUB BAB -->
       <div id="quiz-setup-panel" class="quiz-setup-panel drilling-minimal-panel">
         
-        <!-- Header Minimalis dengan Tombol Info Fitur Paket Soal -->
+        <!-- Header Minimalis Drilling -->
         <div class="drilling-setup-header">
           <div>
-            <h2 class="drilling-title">🎯 Drilling Soal Per Bab & Paket</h2>
-            <p class="section-desc">Kuasai ragam variasi model soal tanpa membuang waktu pada latihan yang repetitif.</p>
+            <h2 class="drilling-title">🎯 Drilling Soal Per Bab & Sub Bab</h2>
+            <p class="section-desc">Pilih satu atau beberapa bab target dan tentukan sub bab spesifik untuk latihan terarah.</p>
           </div>
-          <button id="btn-info-paket-soal" class="btn-info-paket" type="button" title="Penjelasan Fitur Paket Soal Variasi">
-            <span class="info-badge-icon">ℹ️</span>
-            <span>Info Fitur Paket Soal</span>
-          </button>
         </div>
 
         <!-- Toolbar Pemilihan Kategori & Mapel Terpadu (Satu Baris Fleksibel) -->
@@ -202,10 +198,10 @@
           </div>
         </div>
 
-        <!-- Kartu Utama: Pilihan Bab & Pilihan Paket Soal Variasi -->
+        <!-- Kartu Utama: Pilihan Bab & Pilihan Sub Bab Spesifik -->
         <div class="setup-unified-box">
           
-          <!-- Pilihan Bab Target (Mendukung Pilih Banyak Bab) -->
+          <!-- Pilihan Bab Target (Format Kartu Rapi & Judul Tidak Terpotong) -->
           <div class="setup-section-row">
             <div class="section-row-header">
               <div class="section-row-label">
@@ -217,36 +213,35 @@
                 <button type="button" class="btn-text-action" id="btn-select-all-babs">Pilih Semua</button>
                 <span class="action-divider">•</span>
                 <button type="button" class="btn-text-action" id="btn-clear-babs">Reset</button>
-                <button type="button" class="btn-toggle-bab-drawer" id="btn-toggle-bab-drawer" title="Buka/Tutup Daftar Bab">
-                  <span id="bab-drawer-toggle-text">Tutup List</span>
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
-                </button>
               </div>
             </div>
 
-            <!-- Panel Checklist Multi-Bab (Kompak & Scrollable, Tidak Mengambil Banyak Space) -->
-            <div class="bab-multi-container" id="bab-multi-container">
-              <div class="bab-multi-list" id="bab-multi-checkbox-list">
-                <!-- Rendered via JS -->
-              </div>
+            <!-- Grid Kartu-Kartu Bab -->
+            <div class="bab-cards-grid" id="setup-bab-cards-container">
+              <!-- Rendered via JS -->
             </div>
           </div>
 
-          <!-- Pilihan Paket Soal (Variasi Lengkap, Minimalis & Hemat Ruang) -->
-          <div class="setup-section-row" id="setup-paket-wrapper">
+          <!-- Pilihan Sub Bab Target (Terpisah Antar Bab) -->
+          <div class="setup-section-row" id="setup-subbab-wrapper">
             <div class="section-row-header">
               <div class="section-row-label">
                 <span class="label-badge">2</span>
                 <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap;">
-                  <span>Pilih Paket Soal Variasi:</span>
-                  <span class="badge-mini-variasi">Anti-Repetitif (±5 Soal/Konsep)</span>
+                  <span>Pilih Sub Bab Target:</span>
+                  <span class="badge-mini-variasi">Fokus Topik Spesifik</span>
                 </div>
               </div>
+              <div class="bab-multi-actions">
+                <button type="button" class="btn-text-action" id="btn-select-all-subbabs">Pilih Semua Sub Bab</button>
+                <span class="action-divider">•</span>
+                <button type="button" class="btn-text-action" id="btn-clear-subbabs">Reset Sub Bab</button>
+              </div>
             </div>
-            <div id="setup-paket-container" class="paket-pill-row">
-              <!-- Rendered via JS: [🌟 Semua Paket] [📦 Paket 1] [📦 Paket 2] -->
+
+            <!-- Daftar Grup Sub Bab Terpisah Per Bab -->
+            <div id="setup-subbab-container" class="subbab-groups-list">
+              <!-- Rendered via JS: Terpisah rapi per bab -->
             </div>
           </div>
 
@@ -298,7 +293,7 @@
             <span id="setup-available-info">Tersedia: <strong>... soal</strong> variasi</span>
           </div>
           <button id="btn-start-quiz" class="btn btn-primary btn-block btn-lg">
-            🚀 Mulai Drilling Paket Ini
+            🚀 Mulai Drilling Soal Target
           </button>
           <div class="setup-secondary-actions">
             <button id="btn-setup-reset-history" class="btn btn-outline btn-sm">
@@ -423,60 +418,7 @@
     </button>
   </nav>
 
-  <!-- ======================================================================= -->
-  <!-- MODAL INFO PENJELASAN FITUR PAKET SOAL VARIASI -->
-  <!-- ======================================================================= -->
-  <div id="modal-info-paket" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-info-title">
-    <div class="modal-card">
-      <div class="modal-header">
-        <div class="modal-title-wrap">
-          <span class="modal-title-icon">📦</span>
-          <h3 id="modal-info-title">Konsep Fitur Paket Soal Variasi</h3>
-        </div>
-        <button id="btn-close-modal-info" class="modal-close-btn" type="button" aria-label="Tutup modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="info-highlight-box">
-          <strong>💡 Cakupan Lengkap Seluruh Variasi Konsep (Anti-Repetitif)</strong>
-          <p>Dalam satu bab materi terdapat banyak konsep penting. Sistem paket soal dirancang agar Anda dapat menguasai <em>seluruh variasi soal</em> tanpa terjebak pada latihan repetitif yang hanya mengulang angka.</p>
-        </div>
 
-        <div class="info-points-list">
-          <div class="info-point-item">
-            <div class="point-icon">🎯</div>
-            <div class="point-content">
-              <strong>Isi Paket: ±5 Soal per Konsep Materi</strong>
-              <p>Satu paket soal mencakup <strong>seluruh variasi soal</strong> dari bab tersebut, dengan proporsi seimbang <strong>±5 soal per konsep</strong> (meliputi konsep definisi dasar, grafik/analisis visual, penerapan rumus aljabar, hingga variasi tingkat lanjut/HOTS).</p>
-            </div>
-          </div>
-          <div class="info-point-item">
-            <div class="point-icon">🔄</div>
-            <div class="point-content">
-              <strong>Struktur Isi Antar-Paket Sama & Setara</strong>
-              <p>Kandungan spektrum konsep pada <strong>Paket 1, Paket 2, Paket 3, dst.</strong> pada dasarnya sama dan setara. Seluruh paket menyajikan cakupan variasi bab yang lengkap.</p>
-            </div>
-          </div>
-          <div class="info-point-item">
-            <div class="point-icon">📦</div>
-            <div class="point-content">
-              <strong>Fungsi Pergantian Paket: Solusi Saat Soal Habis</strong>
-              <p>Jika soal pada salah satu konsep di Paket 1 telah habis Anda kerjakan, Anda dapat langsung beralih ke <strong>Paket 2</strong> untuk mendapatkan set soal baru yang tetap lengkap seluruh variasinya, sehingga latihan Anda tidak pernah terputus.</p>
-            </div>
-          </div>
-          <div class="info-point-item">
-            <div class="point-icon">⚡</div>
-            <div class="point-content">
-              <strong>Efisiensi Belajar Maksimal</strong>
-              <p>Dengan sistem ini, Anda tidak membuang waktu mengerjakan puluhan soal yang serupa, melainkan langsung memetakan dan menguasai seluruh ragam tipe soal ujian secara terarah.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button id="btn-modal-info-ok" class="btn btn-primary btn-block" type="button">Paham, Mulai Drilling Paket</button>
-      </div>
-    </div>
-  </div>
 
   <!-- Vendor Scripts (Offline Bundled) -->
   <script src="./vendor/marked.min.js"></script>

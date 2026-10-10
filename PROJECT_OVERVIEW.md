@@ -6,34 +6,38 @@
 ## 1. Ikhtisar Proyek (Project Overview)
 * **Nama Aplikasi:** EduMandiri
 * **Fungsi Utama:** Platform belajar mandiri *mobile-first* dan *offline-ready* untuk persiapan:
-  1. **TKA Saintek:** Fisika (30 Bab), Matematika Lanjut (17 Bab), Matematika Wajib.
+  1. **TKA Saintek:** Fisika (30 Bab), Matematika Wajib (15 Bab), Matematika Tingkat Lanjut (9 Bab).
   2. **UTBK SNBT:** 7 Subtes (Penalaran Umum, PPU, PBM, PK, Literasi B. Indonesia, Literasi B. Inggris, Penalaran Matematika).
 * **Fitur Utama Terkini:**
-  * **Daftar Bab Minimalis (Accordion Clean List):** Menampilkan daftar bab bersih dengan ikon/nomor minimalis. Opsi modul (*Materi Lengkap*, *Variasi Soal*, *Rangkuman*, dan *Latihan Kuis*) tersimpan rapi dan muncul saat kartu bab diklik (accordion).
+  * **Daftar Bab Minimalis (Accordion Clean List):** Menampilkan daftar bab bersih dengan nomor/ikon minimalis. Opsi modul (*Materi Lengkap*, *Variasi Soal*, *Rangkuman*, dan *Latihan Kuis*) tersimpan rapi dan muncul saat kartu bab diklik (accordion).
   * **Minimalist Reader Bottom Dock:** Bilah navigasi melayang adaptif di bagian bawah saat membaca materi/rangkuman, menggantikan footer statis/navigasi umum. Memungkinkan pindah bab (Prev/Next) dan beralih instan antar-modul (*Materi*, *Variasi*, *Rangkuman*, *Latihan*) secara ergonomis di HP maupun laptop tanpa memakan ruang baca.
-  * **Drilling Dashboard Minimalis & Paket Soal Variasi:** Antarmuka drilling modern tanpa tumpukan halaman per mapel, dilengkapi kurasi **Paket Soal Variasi** anti-repetisi agar siswa dapat menuntaskan seluruh ragam model soal tanpa terjebak pada soal yang repetitif, disertai modal informasi edukatif.
+  * **Drilling Dashboard Berbasis Kartu Bab & Pilihan Sub Bab Spesifik:**
+    - Format pemilihan bab menggunakan **kartu-kartu responsif (`.bab-card`)** dengan penamaan simpel, jelas, dan **teks judul tidak pernah terpotong** (`white-space: normal; line-height: 1.35;`).
+    - Mendukung **multi-select bab** (bisa memilih banyak bab sekaligus atau semua bab).
+    - **Pilihan Sub Bab Terpisah Antar Bab (`.subbab-chapter-group`):** Setelah bab dipilih, muncul opsi sub bab target yang dikelompokkan secara rapi terpisah per bab dengan kontrol *Pilih Semua Sub Bab* dan toggle per modul sub-bab.
+    - Sistem *Paket Soal* terdahulu telah sepenuhnya **dihapus dan digantikan oleh hierarki Sub Bab granular** (`subBabId` dan `subBab`) untuk latihan target yang terarah dan bebas repetisi.
   * **Variasi Contoh Soal Lengkap:** Bab 1 s.d. Bab 5 Fisika aktif dengan total 73 variasi soal, serta **Bab 15 Matematika Wajib (Aturan Pencacahan & Teori Peluang)** aktif dengan **30 variasi soal lengkap**, semuanya 100% tervalidasi bebas KaTeX error.
   * **Pedagogical Fluid Typography:** Tipografi adaptif berbasis ukuran layar (`clamp()`), pembatasan kolom baca maksimal 72 karakter (`max-width: 72ch`), line-height lega (`1.72`), dan visual anchor penomoran langkah.
-  * **Database Bank Soal Klien & IndexedDB:** Bank soal tersimpan langsung di `data_soal.js` (`window.EDUMANDIRI_SOAL_BANK` = 53 soal) dan disinkronkan ke IndexedDB (`EduMandiri_DB`). Tidak memerlukan `fetch` network HTTP atau GitHub push/fetch untuk pengoperasian dan pembaruan lokal.
+  * **Database Bank Soal Klien & IndexedDB:** Bank soal tersimpan langsung di `data_soal.js` (`window.EDUMANDIRI_SOAL_BANK` = 53 soal terverifikasi) dan disinkronkan ke IndexedDB (`EduMandiri_DB`). Tidak memerlukan `fetch` network HTTP atau GitHub push/fetch untuk pengoperasian dan pembaruan lokal.
 * **Filosofi Arsitektur:** **Zero-Build Vanilla Web Application**.
   * Tidak menggunakan bundler (Webpack/Vite/Rollup) dan tidak memerlukan runtime Node.js saat produksi.
   * Murni Vanilla HTML5, CSS3 kustom, dan Vanilla JavaScript (ES6+).
-  * 100% Offline-Ready menggunakan Service Worker (`sw.js`, `edumandiri-cache-v18`) dan pustaka lokal vendor (KaTeX + Marked.js tanpa CDN). Kompatibel dibuka langsung via protokol `file:///` maupun server web.
+  * 100% Offline-Ready menggunakan Service Worker (`sw.js`, `edumandiri-cache-v19`) dan pustaka lokal vendor (KaTeX + Marked.js tanpa CDN). Kompatibel dibuka langsung via protokol `file:///` maupun server web lokal/hosting.
 
 ---
 
 ## 2. Struktur Direktori & Tanggung Jawab File
 ```text
 d:/web/learn/
-├── index.html                 # Entry-point SPA: struktur semantik, header, 3 view container, katalog bab, reader, nav
-├── style.css                  # Fluid Typography vars, tema mobile-first, dark/light vars, layout rapat, callout system
+├── index.html                 # Entry-point SPA: struktur semantik, header, setup drilling, reader, nav
+├── style.css                  # Fluid Typography vars, tema mobile-first, bab cards, subbab groups, reader dock
 ├── app.js                     # SPA engine: router, AppState, KaTeX shielding, quiz engine, IndexedDB loader, localStorage
 ├── data_materi.js             # Database materi, rangkuman & contoh soal client-side (window.EDUMANDIRI_MATERI_BAB = 137 modul)
-├── data_soal.js               # Database bank soal client-side (window.EDUMANDIRI_SOAL_BANK = 53 soal, zero-fetch)
+├── data_soal.js               # Database bank soal client-side (window.EDUMANDIRI_SOAL_BANK = 53 soal terverifikasi, per sub-bab)
 ├── data.json                  # Cadangan JSON bank soal drilling (sinkron dengan data_soal.js via sync-soal.js)
 ├── sync-soal.js               # Tool sinkronisasi database soal & validator KaTeX otomatis
 ├── sync-to-db.js              # Tool sinkronisasi berkas markdown materi & contoh soal ke data_materi.js
-├── sw.js                      # Service Worker PWA (Cache-first offline strategy, versi: edumandiri-cache-v18)
+├── sw.js                      # Service Worker PWA (Cache-first offline strategy, versi: edumandiri-cache-v19)
 ├── manifest.json              # Web App Manifest untuk instalasi PWA di Android/iOS/Desktop
 ├── icon.svg                   # Icon logo SVG EduMandiri
 ├── .nojekyll                  # Penanda bypass pemrosesan Jekyll di GitHub Pages
@@ -53,10 +57,8 @@ d:/web/learn/
 │   │   │   ├── materi/        # 30 file bab materi: bab-01-...md s.d. bab-30-...md
 │   │   │   ├── rangkuman/     # 30 file bab rangkuman formula
 │   │   │   └── contoh-soal/   # Seluruh variasi contoh soal per bab (Bab 1-5 aktif & tervalidasi 0 error)
-│   │   ├── matematika-lanjut/
-│   │   │   ├── materi/        # Materi Lengkap Bab 1-5 (bab-01-...md s.d. bab-05-...md)
-│   │   │   └── rangkuman/     # 17 file bab rangkuman: bab-01-...md s.d. bab-17-...md
-│   │   └── matematika-wajib/
+│   │   ├── matematika-lanjut/ # 9 Bab sesuai Kurikulum Merdeka & K13
+│   │   └── matematika-wajib/  # 15 Bab sesuai Kurikulum Merdeka & K13
 │   └── utbk/                  # Struktur 7 subtes UTBK (01 s.d. 07)
 └── data_soal/                 # Arsip struktur direktori soal mentah per subtes
 ```
@@ -70,22 +72,24 @@ d:/web/learn/
 const AppState = {
   currentView: 'materi',           // 'materi' | 'materi-detail' | 'latihan' | 'pembahasan'
   mainCategory: 'tka',             // 'tka' | 'utbk'
-  materiSubtesFilter: 'semua',     // 'semua' | 'Fisika' | 'Matematika Lanjut' | dll.
+  materiSubtesFilter: 'semua',     // 'semua' | 'Fisika' | 'Matematika Wajib' | 'Matematika Lanjut' | dll.
   currentReadingBabId: null,       // ID modul yang sedang dibaca di view reader
   dataset: { 
     materi: [],                    // Dimuat dari window.EDUMANDIRI_MATERI_BAB
     soal: []                       // Dimuat dari window.EDUMANDIRI_SOAL_BANK / IndexedDB
   },
   drillingSetup: {                 // Konfigurasi wizard drilling kuis
-    category: 'tka',
-    subtes: 'Fisika',
-    bab: 'semua',
-    difficulty: 'semua',
-    count: '5',
+    category: 'tka',               // 'tka' | 'utbk'
+    subtes: 'Fisika',              // 'Fisika' | 'Matematika Wajib' | 'Matematika Lanjut' | ...
+    bab: 'semua',                  // fallback single bab
+    selectedBabs: ['semua'],       // multi-select bab array atau ['semua']
+    selectedSubBabs: ['semua'],   // multi-select sub-bab IDs array atau ['semua']
+    count: '5',                    // '5' | '10' | '15' | 'semua'
+    difficulty: 'semua',           // 'mudah' | 'sedang' | 'sulit' | 'semua'
     timerEnabled: true,
-    timerDuration: 'auto'
+    timerDuration: 'auto'          // 'auto' (1m/soal) | '300' | '600'
   },
-  activeQuiz: { ... },             // State kuis aktif: timer, index soal, jawaban dipilih, score
+  activeQuiz: { ... },             // State kuis aktif: timer, queue, currentIndex, jawaban dipilih
   userAnswers: {},                 // Riwayat jawaban pengguna (tersimpan di localStorage)
   completedQuestionIds: []         // ID soal yang telah diselesaikan
 };
@@ -93,36 +97,59 @@ const AppState = {
 
 ### B. Navigasi & View Routing
 1. **View 1: `view-materi` (`#materi`)**:
-   * **Katalog Bab Terpadu (`.bab-card`)**: Mengelompokkan semua modul berdasarkan `subtes` dan `babIndex`.
-   * **4 Pilihan Aksi Per Bab**:
-     - 📖 *Materi Lengkap* (membuka pembaca materi teks)
-     - 🎯 *Variasi Soal* (membuka seluruh variasi contoh soal dan pembahasan langkah)
-     - 📑 *Rangkuman* (membuka intisari rumus dan callout penting)
+   * **Daftar Bab Minimalis (`.bab-accordion-card`)**: Tampilan daftar bersih dengan nomor indeks bab dan ikon minimalis. Saat kartu diklik, muncul dropdown pilihan modul:
+     - 📖 *Materi Lengkap* (membuka reader materi komprehensif)
+     - 🎯 *Variasi Soal* (membuka kumpulan variasi contoh soal dan pembahasan langkah)
+     - 📑 *Rangkuman* (membuka intisari rumus dan tabel cepat)
      - ⚡ *Latihan Kuis* (langsung meluncur ke wizard latihan kuis bab tersebut via `startDrillingForBab()`)
-   * Filter chip subtes dinamis (Fisika, Matematika Lanjut, dll.).
+   * Toolbar filter kategori (`TKA Saintek` vs `UTBK`) dan chips mapel/subtes.
 2. **View 1B: `view-materi-detail` (`#baca-[id]`)**:
    * Reader layar penuh (*full-page reader*, bukan popup modal melayang).
-   * **In-Reader Mode Switcher**: Tab `[📖 Materi] [🎯 Variasi Soal] [📑 Rangkuman]` di header atas reader untuk beralih mode pada bab yang sama secara instan.
-   * Header sticky dengan breadcrumbs subtes, nomor bab, judul bab, dan navigasi bab sebelumnya/berikutnya di bilah bawah.
+   * **In-Reader Mode Switcher**: Tab `[📖 Materi] [🎯 Variasi Soal] [📑 Rangkuman]` di header reader.
+   * **Minimalist Bottom Dock**: Navigasi melayang di bawah layar dengan tombol Prev Bab, Next Bab, Mode Switcher, dan tombol Langsung Latihan Kuis.
    * Render Markdown + KaTeX Shielding + Callout visual interaktif.
 3. **View 2: `view-latihan` (`#latihan`)**:
-   * Setup wizard: pilih subtes, bab spesifik, kesulitan, jumlah soal, dan timer.
-   * Interactive quiz card dengan navigasi dinamis, radio opsi pilihan, dan kunci jawaban seketika.
+   * **Kartu Bab Target (`.bab-card` in `.bab-cards-grid`)**: Judul ringkas, layout kartu elegan, wrap teks alami tanpa terpotong, badge nomor dan status centang. Tombol aksi cepat: *Pilih Semua* dan *Reset*.
+   * **Pilihan Sub Bab Terpisah Antar Bab (`.subbab-chapter-group`)**: Setiap bab yang terpilih menampilkan deretan pil sub-bab spesifik dengan badge jumlah soal tersedia. Siswa dapat mencentang topik spesifik (misal: *Angka Penting & Ketidakpastian* saja, atau *Operasi & Resultan Vektor* saja).
+   * Pengaturan parameter sesi: Jumlah Soal (5, 10, 15, Semua), Kesulitan (Semua, Mudah, Sedang, Sulit), dan Timer Sesi.
+   * Kotak ringkasan: `Tersedia: X soal target` yang merespon pemilihan sub-bab secara *real-time*.
+   * Interactive quiz card dengan topic badges (`📍 Bab` & `🎯 Sub Bab`), navigasi dinamis, opsi pilihan A-E, dan pembahasan instan.
 4. **View 3: `view-pembahasan` (`#pembahasan`)**:
-   * Daftar soal yang telah dikerjakan atau seluruh bank soal.
+   * Riwayat soal yang telah dikerjakan atau seluruh bank soal.
    * Badge status benar/salah, kunci, dan langkah pembahasan LaTeX terperinci.
 
 ---
 
 ## 4. Sistem Database Bank Soal (`data_soal.js` + IndexedDB)
 
-### A. Menghapus Ketergantungan Network Fetch
-* Sebelumnya, soal dimuat asinkron via `fetch('./data.json')`. Ini memerlukan push ke GitHub / koneksi remote, dan sering gagal saat dibuka via protokol `file:///` karena aturan CORS peramban.
-* **Solusi Terpasang:**
-  1. Data bank soal dikonversi ke file JavaScript klien: [`data_soal.js`](file:///d:/web/learn/data_soal.js) yang mendefinisikan array global `window.EDUMANDIRI_SOAL_BANK`.
-  2. Dimuat di [`index.html`](file:///d:/web/learn/index.html) tepat sebelum [`app.js`](file:///d:/web/learn/app.js) sehingga langsung berada di memori saat halaman dimuat (*zero network delay*).
-  3. Disinkronkan otomatis di latar belakang ke **IndexedDB** browser (`EduMandiri_DB`, store: `bank_soal`) dengan index `subtes`, `bab`, dan `kategoriUtama`.
-  4. Tersedia API konsol `window.EduMandiriDB` (`getSoalList()`, `addSoal()`, `saveSoalList()`, `exportJSON()`) untuk kemudahan inspeksi dan modifikasi di runtime.
+### A. Struktur Data Soal Berbasis Sub-Bab
+Setiap objek soal dalam bank soal mematuhi skema berikut:
+```javascript
+{
+  "id": "FIS-B01-P1-01",
+  "kategoriUtama": "tka",
+  "subtes": "Fisika",
+  "bab": "Pengukuran & Dimensi",
+  "subBabId": "fis-b01-sb03",
+  "subBab": "Angka Penting & Ketidakpastian",
+  "kesulitan": "mudah",
+  "pertanyaan": "Hasil pengukuran panjang dan lebar pelat seng berturut-turut adalah $12{,}5\\text{ cm}$ dan $4{,}2\\text{ cm}$. Berdasarkan aturan angka penting, luas pelat tersebut adalah...",
+  "pilihan": [
+    "$52{,}5\\text{ cm}^2$",
+    "$52{,}50\\text{ cm}^2$",
+    "$53\\text{ cm}^2$",
+    "$52\\text{ cm}^2$",
+    "$50\\text{ cm}^2$"
+  ],
+  "kunciJawaban": 0,
+  "pembahasan": "..."
+}
+```
+
+### B. Penghapusan Paket Soal & Penggantian dengan Sub-Bab
+* **Sebelumnya:** Soal dikelompokkan ke dalam paket (`paketId`, `paketNama`).
+* **Sekarang:** Sistem paket telah **sepenuhnya dihapus**. Penentuan latihan didasarkan langsung pada **Sub Bab** (`subBabId`, `subBab`), memungkinkan siswa mengisolasi dan mendrill konsep materi tertentu (misalnya *Binomial Newton*, *Persamaan Kontinuitas*, *Gerak Parabola*, dll.).
+* **Zero Network Dependency:** Seluruh bank soal disimpan di `data_soal.js` (`window.EDUMANDIRI_SOAL_BANK`) dan disinkronkan ke IndexedDB (`EduMandiri_DB`).
 
 ---
 
@@ -149,11 +176,11 @@ const AppState = {
      sehingga KaTeX tidak merender ulang formula yang sudah terformat.
 
 ### Aturan Penulisan Formula Bebas Error:
-* **Pemisahan Delimiter Display Math:** Selalu pastikan ada baris baru (`\n\n`) sebelum dan sesudah tag `$$`. Jangan pernah menempelkan inline math `$expr$` langsung dengan `$$` (seperti `$20\text{ m/s}$$$a = ...`), karena akan menghasilkan tiga tanda dollar `$$$` yang membuat parser mengira `$` berada di dalam formula.
-* **Persamaan Bertingkat:** Gunakan lingkungan `\begin{aligned} ... \end{aligned}` untuk deretan baris perhitungan agar tanda sama dengan (`=`) sejajar rapi vertikal, bukan serangkaian blok `$$...$$` beruntun.
+* **Pemisahan Delimiter Display Math:** Selalu pastikan ada baris baru (`\n\n`) sebelum dan sesudah tag `$$`. Jangan pernah menempelkan inline math `$expr$` langsung dengan `$$`.
+* **Persamaan Bertingkat:** Gunakan lingkungan `\begin{aligned} ... \end{aligned}` untuk deretan baris perhitungan agar tanda sama dengan (`=`) sejajar rapi vertikal.
 * **Simbol Derajat:** Selalu gunakan format LaTeX `^{\circ}` (contoh: `30^{\circ}` atau `53{,}1^{\circ}`), jangan menggunakan simbol derajat unicode mentah `°` di dalam formula matematika KaTeX.
 * **Notasi Isotop Inti:** Gunakan notasi isotop standar `{}_{Z}^{A}\text{X}` (Contoh: `{}_{92}^{235}\text{U}`, `{}_{2}^{4}\text{He}`, `{}_{-1}^{0}\text{e}`). JANGAN gunakan notasi usang `\,_Z^A\text{X}`.
-* **Proteksi Simbol Akar ($\sqrt{...}$):** KaTeX merender lambang akar menggunakan inline `<svg>` berdimensi dinamis dengan `height: inherit; position: absolute; width: 100%`. CSS dilarang menimpa `.katex svg` dengan `height: auto` atau `margin`, karena akan meremukkan tinggi SVG akar menjadi 0 pixel.
+* **Proteksi Simbol Akar ($\sqrt{...}$):** KaTeX merender lambang akar menggunakan inline `<svg>` berdimensi dinamis dengan `height: inherit; position: absolute; width: 100%`. CSS dilarang menimpa `.katex svg` dengan `height: auto` atau `margin`.
 
 ---
 
@@ -167,13 +194,13 @@ Antarmuka dan tampilan materi di [`style.css`](file:///d:/web/learn/style.css) m
      *(Otomatis ~15.7px di smartphone, ~17px di tablet, dan ~18.2px di monitor desktop).*
    * Heading adaptif: H1 (`clamp(1.55rem, 1.35rem + 1vw, 2.1rem)`), H2 (`clamp(1.3rem, 1.15rem + 0.7vw, 1.65rem)`), H3 (`clamp(1.1rem, 1.02rem + 0.4vw, 1.35rem)`).
 2. **Optimal Reading Measure (`max-width: 72ch`):**
-   * Panjang baris teks bacaan pada `.markdown-reader` dibatasi maksimal 72 karakter. Menghindari kelelahan mata (*eye fatigue*) dan mencegah *saccadic regression* (kehilangan baris saat berpindah ke baris berikutnya).
+   * Panjang baris teks bacaan pada `.markdown-reader` dibatasi maksimal 72 karakter untuk mencegah kelelahan mata.
 3. **Spasi Baris Nyaman (`line-height: 1.72`):**
-   * Memberikan ruang lapang vertikal untuk pecahan inline ($\frac{a}{b}$) dan subskrip/superscript ($v_{0x}^2$) agar tidak saling bertubrukan antar-baris.
+   * Memberikan ruang lapang vertikal untuk pecahan inline ($\frac{a}{b}$) dan subskrip/superscript ($v_{0x}^2$) agar tidak bertubrukan antar-baris.
 4. **Visual Anchoring Langkah Penyelesaian:**
    * **Badge Langkah:** `.langkah-badge` untuk penomoran tahap soal (`Langkah 1`, `Langkah 2`).
-   * **Display Formula Block:** Kotak rumus bersudut tumpul dengan latar kontras lembut (`background: var(--bg-card-subtle)`), padding lega, dan scrollbar horizontal halus jika formula panjang di layar sempit.
-   * **Hasil Akhir Jawaban:** Rumus yang dibungkus `\boxed{...}` otomatis di-highlight dengan border tegas untuk memudahkan pemindaian visual cepat.
+   * **Display Formula Block:** Kotak rumus bersudut tumpul dengan latar kontras lembut, padding lega, dan scrollbar horizontal halus.
+   * **Hasil Akhir Jawaban:** Rumus yang dibungkus `\boxed{...}` otomatis di-highlight dengan border tegas.
 
 ### Sistem Callout Box di Markdown & CSS:
 | Sintaks Markdown | Kelas CSS | Ikon & Warna | Fungsi Utama |
@@ -185,71 +212,74 @@ Antarmuka dan tampilan materi di [`style.css`](file:///d:/web/learn/style.css) m
 
 ---
 
-## 7. Standar Penamaan Bab Berurutan (1-to-N)
+## 7. Silabus & Standar Kurikulum Terpadu
 
-Semua komponen (kartu materi, reader breadcrumb, dropdown drilling, dan pembahasan) wajib mematuhi penomoran berurutan:
-
-### A. TKA Fisika (Bab 1 s.d. Bab 30)
-* **Bab 1:** Pengukuran, Besaran, Dimensi, dan Angka Penting *(14 Variasi Soal)*
+### A. TKA Fisika (30 Bab)
+* **Bab 1:** Pengukuran & Dimensi *(14 Variasi Soal)*
 * **Bab 2:** Vektor *(13 Variasi Soal)*
-* **Bab 3:** Kinematika Gerak Lurus (GLB dan GLBB) *(14 Variasi Soal)*
-* **Bab 4:** Kinematika Gerak Parabola dan Melingkar *(14 Variasi Soal)*
+* **Bab 3:** Kinematika Gerak Lurus *(14 Variasi Soal)*
+* **Bab 4:** Gerak Parabola & Melingkar *(14 Variasi Soal)*
 * **Bab 5:** Dinamika Gerak (Hukum Newton) *(18 Variasi Soal)*
-* Bab 6: Usaha dan Energi
-* Bab 7: Momentum, Impuls, dan Tumbukan
-* Bab 8: Dinamika Rotasi dan Kesetimbangan Benda Tegar
-* Bab 9: Gravitasi Universal Newton
-* Bab 10: Elastisitas dan Getaran Harmonik Sederhana (GHS)
-* **Bab 11: Fluida Statis** *(dipisah dari Fluida Dinamis)*
-* **Bab 12: Fluida Dinamis**
-* Bab 13: Suhu, Pemuaian, dan Kalorimetri
-* Bab 14: Teori Kinetik Gas Ideal
-* Bab 15: Hukum Termodinamika dan Siklus Mesin
-* Bab 16: Gelombang Berjalan dan Gelombang Stasioner
+* Bab 6: Usaha & Energi
+* Bab 7: Momentum & Impuls
+* Bab 8: Dinamika Rotasi & Kesetimbangan
+* Bab 9: Gravitasi Universal
+* Bab 10: Elastisitas & Getaran (GHS)
+* Bab 11: Fluida Statis
+* Bab 12: Fluida Dinamis
+* Bab 13: Suhu & Kalor
+* Bab 14: Teori Kinetik Gas
+* Bab 15: Termodinamika
+* Bab 16: Gelombang Berjalan & Stasioner
 * Bab 17: Gelombang Bunyi
-* Bab 18: Optik Geometri dan Alat-Alat Optik
-* Bab 19: Optik Fisis (Gelombang Cahaya)
-* Bab 20: Listrik Statis (Elektrostatika)
+* Bab 18: Optik Geometri
+* Bab 19: Optik Fisis
+* Bab 20: Listrik Statis
 * Bab 21: Listrik Arus Searah (DC)
-* Bab 22: Medan Magnetik dan Gaya Lorentz
+* Bab 22: Medan Magnet & Lorentz
 * Bab 23: Induksi Elektromagnetik
-* Bab 24: Rangkaian Arus Bolak-Balik (AC)
-* Bab 25: Spektrum Gelombang Elektromagnetik (GEM)
+* Bab 24: Arus Bolak-Balik (AC)
+* Bab 25: Gelombang Elektromagnetik
 * Bab 26: Teori Relativitas Khusus
-* Bab 27: Gejala Kuantum dan Dualisme Gelombang-Partikel
+* Bab 27: Gejala Kuantum & Foton
 * Bab 28: Teori Model Atom
-* Bab 29: Fisika Inti, Radioaktivitas, dan Radioisotop
-* **Bab 30: Teknologi Digital dan Sumber Energi Terbarukan** *(gabungan)*
+* Bab 29: Fisika Inti & Radioaktivitas
+* Bab 30: Energi Terbarukan
 
-### B. TKA Matematika Lanjut (Bab 1 s.d. Bab 17)
-* Bab 1: Eksponen & Bentuk Akar
-* Bab 2: Logaritma
-* Bab 3: Persamaan & Fungsi Kuadrat
-* Bab 4: Nilai Mutlak & Pertidaksamaan
-* Bab 5: Sistem Persamaan & Program Linear
-* Bab 6: Operasi & Sifat Matriks
-* Bab 7: Vektor di $\mathbb{R}^2$ & $\mathbb{R}^3$
-* Bab 8: Irisan Kerucut (Lingkaran, Parabola, Elips, Hiperbola)
-* Bab 9: Geometri Ruang (Dimensi Tiga)
-* Bab 10: Transformasi Geometri
-* Bab 11: Trigonometri Dasar & Analitis
-* Bab 12: Limit Fungsi, Asimtotik, & Kekontinuan
-* Bab 13: Turunan (Diferensial) & Aplikasi
-* Bab 14: Integral & Aplikasi
-* Bab 15: Kaidah Pencacahan & Teori Peluang
-* Bab 16: Statistika Deskriptif Data Kelompok
-* Bab 17: Statistika Inferensial & Distribusi Peluang
+### B. TKA Matematika Wajib (Umum) (15 Bab)
+1. **Bab 1:** Eksponen dan Logaritma
+2. **Bab 2:** Persamaan dan Pertidaksamaan Nilai Mutlak
+3. **Bab 3:** Sistem Persamaan dan Pertidaksamaan Linear (SPLDV & SPLTV)
+4. **Bab 4:** Program Linear
+5. **Bab 5:** Fungsi Kuadrat dan Rasional
+6. **Bab 6:** Relasi, Fungsi Komposisi, dan Fungsi Invers
+7. **Bab 7:** Trigonometri Dasar (Perbandingan, Grafik, Aturan Sinus dan Cosinus)
+8. **Bab 8:** Barisan dan Deret (Aritmetika dan Geometri)
+9. **Bab 9:** Vektor (Operasi dan Proyeksi)
+10. **Bab 10:** Matriks Dasar (Operasi, Determinan, dan Invers Ordo 2x2)
+11. **Bab 11:** Transformasi Geometri (Translasi, Refleksi, Rotasi, Dilatasi)
+12. **Bab 12:** Geometri Ruang (Dimensi Tiga: Jarak dan Sudut)
+13. **Bab 13:** Persamaan Lingkaran dan Garis Singgung
+14. **Bab 14:** Statistika (Ukuran Pemusatan dan Penyebaran Data Tunggal & Kelompok)
+15. **Bab 15:** Aturan Pencacahan (Permutasi, Kombinasi) dan Peluang *(30 Variasi Contoh Soal Lengkap)*
 
-### C. TKA Matematika Wajib (Bab 1 s.d. Bab 15)
-* Bab 1 s.d. Bab 14: Eksponen, Nilai Mutlak, SPLDV, Program Linear, Fungsi Kuadrat, Relasi/Fungsi, Trigonometri, Baris/Deret, Vektor, Matriks, Transformasi, Dimensi Tiga, Lingkaran, Statistika.
-* **Bab 15: Aturan Pencacahan (Permutasi, Kombinasi) dan Teori Peluang** *(Materi Lengkap Komprehensif, Rangkuman Formula Cepat, 30 Variasi Contoh Soal Lengkap, & 20 Soal Drilling 4 Paket)*
+### C. TKA Matematika Tingkat Lanjut (Peminatan) (9 Bab)
+1. **Bab 1:** Bilangan Kompleks (Bentuk Aljabar, Polar, Eksponen, dan Operasi)
+2. **Bab 2:** Polinomial / Suku Banyak (Operasi, Teorema Sisa, dan Teorema Faktor)
+3. **Bab 3:** Matriks Lanjut (Determinan dan Invers Ordo 3x3)
+4. **Bab 4:** Persamaan dan Identitas Trigonometri (Rumus Jumlah/Selisih Sudut dan Sudut Rangkap)
+5. **Bab 5:** Irisan Kerucut (Parabola, Elips, Hiperbola)
+6. **Bab 6:** Limit Fungsi (Aljabar, Trigonometri, dan Menuju Tak Hingga)
+7. **Bab 7:** Turunan Fungsi (Aljabar, Trigonometri, Aturan Rantai, dan Aplikasi)
+8. **Bab 8:** Integral Fungsi (Tentu, Tak Tentu, Substitusi, Parsial, Luas Daerah, Volume Benda Putar)
+9. **Bab 9:** Statistika Inferensial (Variabel Acak, Distribusi Binomial, dan Distribusi Normal)
 
 ---
 
 ## 8. Pemeliharaan & Prosedur Update (Maintenance Guide)
 
 ### A. Prosedur Update Latihan Soal:
-1. Buka dan edit/tambah soal di [`data_soal.js`](file:///d:/web/learn/data_soal.js).
+1. Buka dan edit/tambah soal di [`data_soal.js`](file:///d:/web/learn/data_soal.js) dengan menyertakan `subBabId` dan `subBab`.
 2. Jalankan perintah terminal:
    ```bash
    node sync-soal.js
@@ -269,7 +299,7 @@ Semua komponen (kartu materi, reader breadcrumb, dropdown drilling, dan pembahas
 ### C. Prosedur Update PWA Service Worker:
 Setiap kali ada pembaruan pada berkas inti (`app.js`, `style.css`, `index.html`, `data_materi.js`, `data_soal.js`), wajib menaikkan nomor versi `CACHE_NAME` di [`sw.js`](file:///d:/web/learn/sw.js):
 ```javascript
-const CACHE_NAME = 'edumandiri-cache-v15'; // Naikkan ke v16, dst.
+const CACHE_NAME = 'edumandiri-cache-v19'; // Naikkan ke v20, dst.
 ```
 
 ---
@@ -279,4 +309,4 @@ const CACHE_NAME = 'edumandiri-cache-v15'; // Naikkan ke v16, dst.
 2. **Jangan menginstal paket npm baru** untuk runtime klien; proyek ini adalah zero-dependency web app yang berjalan murni di peramban.
 3. **Selalu gunakan `data_soal.js` dan `sync-soal.js`** untuk manipulasi bank soal (jangan mengembalikan dependensi fetch HTTP langsung).
 4. **Pertahankan KaTeX Shielding di `app.js`** agar parsing formula tidak rusak oleh Markdown parser.
-5. **Jaga penomoran bab 1..30 (Fisika) dan 1..17 (MTK Lanjut)** tetap berurutan dan sinkron antara data materi, data soal, dan antarmuka pengguna.
+5. **Jaga penomoran bab dan hierarki sub-bab** tetap sinkron antara data materi, data soal, dan antarmuka pengguna drilling.

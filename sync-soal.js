@@ -45,8 +45,8 @@ soalList.forEach((soal, idx) => {
   const prefix = `[Soal #${idx + 1} | ${soal.id}]`;
 
   // Cek field wajib
-  if (!soal.id || !soal.subtes || !soal.bab || !soal.pertanyaan || !Array.isArray(soal.pilihan)) {
-    console.error(`❌ ${prefix} Struktur data tidak lengkap!`);
+  if (!soal.id || !soal.subtes || !soal.bab || !soal.subBabId || !soal.subBab || !soal.pertanyaan || !Array.isArray(soal.pilihan)) {
+    console.error(`❌ ${prefix} Struktur data tidak lengkap (wajib: id, subtes, bab, subBabId, subBab, pertanyaan, pilihan)!`);
     errors++;
     return;
   }

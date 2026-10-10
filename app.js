@@ -46,12 +46,12 @@ const AppState = {
     category: 'tka',         // 'tka' | 'utbk'
     subtes: 'Fisika',        // 'Fisika' | 'Matematika Wajib' | 'Matematika Lanjut' | ...
     bab: 'semua',            // fallback single bab
-    selectedBabs: ['semua'], // multi-select bab array
-    paket: 'semua',          // 'semua' | 'paket-1' | 'paket-2' | ...
-    count: '5',              // '5' | '10' | '15' | 'semua'
-    difficulty: 'semua',     // 'mudah' | 'sedang' | 'sulit' | 'semua'
+    selectedBabs: ['semua'],    // multi-select bab array or ['semua']
+    selectedSubBabs: ['semua'], // multi-select sub-bab IDs array or ['semua']
+    count: '5',                 // '5' | '10' | '15' | 'semua'
+    difficulty: 'semua',        // 'mudah' | 'sedang' | 'sulit' | 'semua'
     timerEnabled: true,
-    timerDuration: 'auto'    // 'auto' | '300' | '600' | '900'
+    timerDuration: 'auto'       // 'auto' | '300' | '600' | '900'
   },
 
   // Sesi Kuis Aktif
@@ -668,19 +668,97 @@ window.startDrillingForBab = function(subtes, babJudul) {
   AppState.drillingSetup.subtes = subtes;
   AppState.drillingSetup.bab = babJudul;
   AppState.drillingSetup.selectedBabs = [babJudul];
-  AppState.drillingSetup.paket = 'semua';
+  AppState.drillingSetup.selectedSubBabs = ['semua'];
 
   // Update UI Drilling
   updateDrillingSubtesPills();
-  renderDrillingBabSelector();
-  renderDrillingPaketOptions();
+  renderDrillingBabCards();
+  renderDrillingSubBabSelector();
   updateDrillingSetupSummary();
   navigateToView('latihan');
 };
 
 // ============================================================================
-// 7. VIEW 2: DRILLING SOAL PER BAB & PAKET SOAL VARIASI (SETUP WIZARD & KUIS)
+// 7. VIEW 2: DRILLING SOAL PER BAB & SUB BAB TARGET (SETUP WIZARD & KUIS)
 // ============================================================================
+
+// Daftar Judul Bab Ringkas & Rapi (Format Simpel agar tidak terpotong di UI Kartu)
+const CANONICAL_BAB_TITLES = {
+  'fisika': {
+    1: 'Pengukuran & Dimensi',
+    2: 'Vektor',
+    3: 'Kinematika Gerak Lurus',
+    4: 'Gerak Parabola & Melingkar',
+    5: 'Dinamika Gerak',
+    6: 'Usaha & Energi',
+    7: 'Momentum & Impuls',
+    8: 'Dinamika Rotasi',
+    9: 'Gravitasi Universal',
+    10: 'Elastisitas & Getaran (GHS)',
+    11: 'Fluida Statis',
+    12: 'Fluida Dinamis',
+    13: 'Suhu & Kalor',
+    14: 'Teori Kinetik Gas',
+    15: 'Termodinamika',
+    16: 'Gelombang Berjalan & Stasioner',
+    17: 'Gelombang Bunyi',
+    18: 'Optik Geometri',
+    19: 'Optik Fisis',
+    20: 'Listrik Statis',
+    21: 'Listrik Arus Searah',
+    22: 'Medan Magnet & Lorentz',
+    23: 'Induksi Elektromagnetik',
+    24: 'Arus Bolak-Balik (AC)',
+    25: 'Gelombang Elektromagnetik',
+    26: 'Teori Relativitas Khusus',
+    27: 'Gejala Kuantum & Foton',
+    28: 'Teori Model Atom',
+    29: 'Fisika Inti & Radioaktivitas',
+    30: 'Energi Terbarukan'
+  },
+  'matematika wajib': {
+    1: 'Eksponen & Logaritma',
+    2: 'Nilai Mutlak',
+    3: 'SPLDV & SPLTV',
+    4: 'Program Linear',
+    5: 'Fungsi Kuadrat & Rasional',
+    6: 'Relasi & Fungsi Invers',
+    7: 'Trigonometri Dasar',
+    8: 'Barisan & Deret',
+    9: 'Vektor (Operasi)',
+    10: 'Matriks Dasar (2x2)',
+    11: 'Transformasi Geometri',
+    12: 'Geometri Ruang (Dimensi 3)',
+    13: 'Persamaan Lingkaran',
+    14: 'Statistika Deskriptif',
+    15: 'Pencacahan & Peluang'
+  },
+  'matematika lanjut': {
+    1: 'Bilangan Kompleks',
+    2: 'Polinomial (Suku Banyak)',
+    3: 'Matriks Lanjut (3x3)',
+    4: 'Trigonometri Analitis',
+    5: 'Irisan Kerucut',
+    6: 'Limit Fungsi',
+    7: 'Turunan Fungsi',
+    8: 'Integral Fungsi',
+    9: 'Statistika Inferensial'
+  }
+};
+
+// Helper: Mendapatkan Judul Bab Ringkas
+function getSimplifiedBabTitle(subtes, babIndex, rawTitle) {
+  const subKey = (subtes || '').toLowerCase();
+  if (CANONICAL_BAB_TITLES[subKey] && CANONICAL_BAB_TITLES[subKey][babIndex]) {
+    return CANONICAL_BAB_TITLES[subKey][babIndex];
+  }
+  if (!rawTitle) return `Bab ${babIndex}`;
+  // Bersihkan format bab bawaan jika tidak ada di tabel kanonikal
+  return rawTitle
+    .replace(/^(?:bab\s*)?\d+[\.\:\s\-]+/i, '')
+    .replace(/\s*\([^)]*\)/g, '')
+    .trim();
+}
 
 // Mengisi Pilihan Subtes di Setup Drilling
 function updateDrillingSubtesPills() {
@@ -708,13 +786,14 @@ function updateDrillingSubtesPills() {
       pill.classList.add('active');
       AppState.drillingSetup.subtes = pill.dataset.subtes;
       AppState.drillingSetup.selectedBabs = ['semua'];
-      renderDrillingBabSelector();
-      renderDrillingPaketOptions();
+      AppState.drillingSetup.selectedSubBabs = ['semua'];
+      renderDrillingBabCards();
+      renderDrillingSubBabSelector();
       updateDrillingSetupSummary();
     });
   });
 
-  renderDrillingBabSelector();
+  renderDrillingBabCards();
 }
 
 // Helper: Mencocokkan Subtes
@@ -732,18 +811,25 @@ function isSubtesMatching(q, subtes) {
 function cleanBabTitle(str) {
   if (!str) return '';
   return str
+    .toLowerCase()
     .replace(/^(?:bab\s*)?\d+[\.\:\s\-]+/i, '')
-    .trim()
-    .toLowerCase();
+    .replace(/[,\(\)\&\/\-\+]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
-// Helper: Mencocokkan Dua Judul Bab
+// Helper: Mencocokkan Dua Judul Bab (Fleksibel & Presisi)
 function isBabMatching(questionBab, selectedBab) {
   if (!selectedBab || selectedBab === 'semua') return true;
   if (!questionBab) return false;
   const qClean = cleanBabTitle(questionBab);
   const selClean = cleanBabTitle(selectedBab);
-  return qClean === selClean || qClean.includes(selClean) || selClean.includes(qClean);
+  if (qClean === selClean || qClean.includes(selClean) || selClean.includes(qClean)) return true;
+
+  const qWords = qClean.split(' ').filter(w => w.length > 2);
+  const selWords = selClean.split(' ').filter(w => w.length > 2);
+  const overlap = qWords.filter(w => selWords.includes(w));
+  return overlap.length >= 2 || (qWords.length === 1 && selWords.includes(qWords[0])) || (selWords.length === 1 && qWords.includes(selWords[0]));
 }
 
 // Helper: Memeriksa apakah Soal termasuk dalam Daftar Bab yang Dipilih
@@ -753,13 +839,21 @@ function isBabSelected(questionBab, selectedBabs) {
   return selectedBabs.some((b) => isBabMatching(questionBab, b));
 }
 
-// Mengisi & Mengelola Pilihan Multi-Bab (Bisa Pilih Banyak Bab Sekaligus)
-function renderDrillingBabSelector() {
-  const container = document.getElementById('bab-multi-checkbox-list');
+// Helper: Memeriksa apakah Soal termasuk dalam Daftar Sub Bab yang Dipilih
+function isSubBabSelected(q, selectedSubBabs) {
+  if (!selectedSubBabs || selectedSubBabs.length === 0 || selectedSubBabs.includes('semua')) return true;
+  if (!q || !q.subBabId) return true;
+  return selectedSubBabs.includes(q.subBabId);
+}
+
+// Mengisi & Mengelola Kartu-Kartu Bab Target (Judul Rapi & Tidak Terpotong)
+function renderDrillingBabCards() {
+  const container = document.getElementById('setup-bab-cards-container');
   const badge = document.getElementById('bab-selected-count-badge');
   if (!container) return;
 
   const allBabModules = window.EDUMANDIRI_MATERI_BAB || [];
+  const allQuestions = AppState.dataset.soal || [];
   const { category, subtes } = AppState.drillingSetup;
 
   // Ambil daftar bab unik dari data materi untuk subtes ini
@@ -799,29 +893,48 @@ function renderDrillingBabSelector() {
     }
   }
 
-  // Render Item Checklist Bab
+  // Hitung jumlah soal per bab untuk tampilan meta di kartu
+  const questionsInSubtes = allQuestions.filter(q => {
+    const matchCat = !q.kategoriUtama || q.kategoriUtama.toLowerCase() === category.toLowerCase();
+    const matchSubtes = isSubtesMatching(q, subtes);
+    return matchCat && matchSubtes;
+  });
+
+  // Render Grid Kartu Bab (Judul Tidak Terpotong & Penamaan Simpel)
   container.innerHTML = uniqueBabs.map((b) => {
     const isChecked = isAll || AppState.drillingSetup.selectedBabs.some(sel => isBabMatching(b.judul, sel));
     const padded = String(b.index).padStart(2, '0');
+    const simpleTitle = getSimplifiedBabTitle(subtes, b.index, b.judul);
+
+    // Hitung soal di bab ini
+    const qCountInBab = questionsInSubtes.filter(q => isBabMatching(q.bab, b.judul)).length;
+
     return `
-      <label class="bab-check-item ${isChecked ? 'selected' : ''}" data-bab-title="${escapeHtml(b.judul)}">
-        <input type="checkbox" class="bab-check-input" value="${escapeHtml(b.judul)}" ${isChecked ? 'checked' : ''}>
-        <span class="bab-custom-checkbox"></span>
-        <span class="bab-check-title">Bab ${padded}: ${escapeHtml(b.judul)}</span>
-      </label>
+      <div class="bab-card ${isChecked ? 'selected' : ''}" data-bab-title="${escapeHtml(b.judul)}">
+        <div class="bab-card-top">
+          <span class="bab-card-index">Bab ${padded}</span>
+          <span class="bab-card-check">${isChecked ? '✓' : ''}</span>
+        </div>
+        <h4 class="bab-card-title">${escapeHtml(simpleTitle)}</h4>
+        <div class="bab-card-meta">
+          <span class="bab-card-count-badge ${qCountInBab > 0 ? 'has-questions' : ''}">
+            ${qCountInBab > 0 ? `🎯 ${qCountInBab} Soal` : 'Belum Ada Soal'}
+          </span>
+        </div>
+      </div>
     `;
   }).join('');
 
-  // Event listener klik pada tiap bab
-  container.querySelectorAll('.bab-check-item').forEach((item) => {
-    item.addEventListener('click', (e) => {
-      e.preventDefault();
-      const clickedTitle = item.dataset.babTitle;
+  // Event listener klik pada tiap kartu bab
+  container.querySelectorAll('.bab-card').forEach((card) => {
+    card.addEventListener('click', () => {
+      const clickedTitle = card.dataset.babTitle;
       if (!clickedTitle) return;
 
       if (AppState.drillingSetup.selectedBabs.includes('semua')) {
         // Jika sebelumnya 'semua', klik beralih fokus ke bab spesifik ini
         AppState.drillingSetup.selectedBabs = [clickedTitle];
+        AppState.drillingSetup.selectedSubBabs = ['semua'];
       } else {
         const idx = AppState.drillingSetup.selectedBabs.findIndex(sel => isBabMatching(clickedTitle, sel));
         if (idx >= 0) {
@@ -832,139 +945,268 @@ function renderDrillingBabSelector() {
 
         if (AppState.drillingSetup.selectedBabs.length === uniqueBabs.length || AppState.drillingSetup.selectedBabs.length === 0) {
           AppState.drillingSetup.selectedBabs = ['semua'];
+          AppState.drillingSetup.selectedSubBabs = ['semua'];
         }
       }
 
-      renderDrillingBabSelector();
-      renderDrillingPaketOptions();
+      renderDrillingBabCards();
+      renderDrillingSubBabSelector();
       updateDrillingSetupSummary();
     });
   });
 
-  // Tombol Pilih Semua
+  // Tombol Pilih Semua Bab
   const btnSelectAll = document.getElementById('btn-select-all-babs');
   if (btnSelectAll) {
     btnSelectAll.onclick = () => {
       AppState.drillingSetup.selectedBabs = ['semua'];
-      renderDrillingBabSelector();
-      renderDrillingPaketOptions();
+      AppState.drillingSetup.selectedSubBabs = ['semua'];
+      renderDrillingBabCards();
+      renderDrillingSubBabSelector();
       updateDrillingSetupSummary();
     };
   }
 
-  // Tombol Reset / Clear
+  // Tombol Reset / Clear Bab
   const btnClear = document.getElementById('btn-clear-babs');
   if (btnClear) {
     btnClear.onclick = () => {
       AppState.drillingSetup.selectedBabs = [];
-      renderDrillingBabSelector();
-      renderDrillingPaketOptions();
+      AppState.drillingSetup.selectedSubBabs = [];
+      renderDrillingBabCards();
+      renderDrillingSubBabSelector();
       updateDrillingSetupSummary();
     };
   }
 
-  // Tombol Toggle Drawer Bab
-  const btnToggleDrawer = document.getElementById('btn-toggle-bab-drawer');
-  const drawerContainer = document.getElementById('bab-multi-container');
-  const drawerToggleText = document.getElementById('bab-drawer-toggle-text');
-  if (btnToggleDrawer && drawerContainer) {
-    btnToggleDrawer.onclick = () => {
-      const isCollapsed = drawerContainer.classList.toggle('collapsed');
-      btnToggleDrawer.classList.toggle('closed', isCollapsed);
-      if (drawerToggleText) {
-        drawerToggleText.textContent = isCollapsed ? 'Buka List' : 'Tutup List';
-      }
-    };
-  }
+  // Render juga daftar sub bab yang sesuai
+  renderDrillingSubBabSelector();
 }
 
-// Render Pilihan Paket Soal Variasi (Minimalis, Satu Baris Hemat Ruang)
-function renderDrillingPaketOptions() {
-  const container = document.getElementById('setup-paket-container');
+// Render Pilihan Sub Bab Target (Terpisah Antar Bab Secara Rapi & Terstruktur)
+function renderDrillingSubBabSelector() {
+  const container = document.getElementById('setup-subbab-container');
   if (!container) return;
 
+  const allBabModules = window.EDUMANDIRI_MATERI_BAB || [];
   const allQuestions = AppState.dataset.soal || [];
   const { category, subtes, selectedBabs } = AppState.drillingSetup;
 
-  // Filter soal untuk subtes dan bab yang terpilih
-  const questionsInBab = allQuestions.filter((q) => {
-    const matchCat = !q.kategoriUtama || q.kategoriUtama.toLowerCase() === category.toLowerCase();
-    const matchSubtes = isSubtesMatching(q, subtes);
-    const matchBab = isBabSelected(q.bab, selectedBabs);
-    return matchCat && matchSubtes && matchBab;
-  });
-
-  if (questionsInBab.length === 0) {
+  // Jika tidak ada bab yang dipilih
+  if (!selectedBabs || selectedBabs.length === 0) {
     container.innerHTML = `
-      <div style="font-size:0.78rem; color:var(--text-muted); padding:0.4rem 0.2rem;">
-        Belum ada paket soal variasi yang terdaftar untuk kombinasi bab ini.
+      <div class="subbab-empty-note">
+        <span>⚠️ Silakan pilih minimal 1 bab target di atas untuk menampilkan pilihan sub bab.</span>
       </div>
     `;
     return;
   }
 
-  // Kelompokkan berdasarkan paketId
-  const paketMap = new Map();
-  questionsInBab.forEach((q) => {
-    const pId = q.paketId || 'paket-1';
-    let pNama = q.paketNama ? q.paketNama.replace(/:.*$/, '') : 'Paket 1';
-    if (!paketMap.has(pId)) {
-      paketMap.set(pId, { id: pId, nama: pNama, count: 0 });
-    }
-    paketMap.get(pId).count++;
-  });
+  // Dapatkan daftar bab unik yang sedang aktif (terpilih)
+  const babList = allBabModules
+    .filter((m) => m.kategoriUtama === category && m.subtes.toLowerCase() === subtes.toLowerCase() && m.tipe === 'materi')
+    .map((m) => ({ judul: m.babJudul, index: m.babIndex }));
 
-  let pillsHtml = '';
-  const totalCount = questionsInBab.length;
-  const isAllActive = !AppState.drillingSetup.paket || AppState.drillingSetup.paket === 'semua';
+  const fallbackBabList = babList.length > 0 ? babList : allBabModules
+    .filter((m) => m.kategoriUtama === category && m.subtes.toLowerCase() === subtes.toLowerCase())
+    .map((m) => ({ judul: m.babJudul, index: m.babIndex }));
 
-  pillsHtml += `
-    <button class="paket-pill-btn ${isAllActive ? 'active' : ''}" type="button" onclick="selectDrillingPaket('semua')">
-      <span>🌟 Semua Paket</span>
-      <span class="pill-badge">${totalCount} Soal</span>
-    </button>
-  `;
+  const seen = new Set();
+  const uniqueBabs = fallbackBabList.filter((b) => {
+    if (seen.has(b.judul)) return false;
+    seen.add(b.judul);
+    return true;
+  }).sort((a, b) => a.index - b.index);
 
-  // Render tombol pill tiap paket
-  paketMap.forEach((entry, pId) => {
-    const isActive = AppState.drillingSetup.paket === pId;
-    pillsHtml += `
-      <button class="paket-pill-btn ${isActive ? 'active' : ''}" type="button" onclick="selectDrillingPaket('${pId}')">
-        <span>📦 ${escapeHtml(entry.nama)}</span>
-        <span class="pill-badge">${entry.count} Soal</span>
-      </button>
+  const activeBabs = selectedBabs.includes('semua')
+    ? uniqueBabs
+    : uniqueBabs.filter(b => selectedBabs.some(sel => isBabMatching(b.judul, sel)));
+
+  if (activeBabs.length === 0) {
+    container.innerHTML = `
+      <div class="subbab-empty-note">
+        <span>⚠️ Tidak ada bab yang cocok dengan kriteria saat ini.</span>
+      </div>
     `;
+    return;
+  }
+
+  const isAllSubBabs = !AppState.drillingSetup.selectedSubBabs || 
+    AppState.drillingSetup.selectedSubBabs.includes('semua');
+
+  // Render blok terpisah per bab
+  let html = '';
+
+  activeBabs.forEach((b) => {
+    const padded = String(b.index).padStart(2, '0');
+    const simpleTitle = getSimplifiedBabTitle(subtes, b.index, b.judul);
+
+    // Ambil semua soal untuk bab ini
+    const babQuestions = allQuestions.filter(q => {
+      const matchCat = !q.kategoriUtama || q.kategoriUtama.toLowerCase() === category.toLowerCase();
+      const matchSubtes = isSubtesMatching(q, subtes);
+      const matchBab = isBabMatching(q.bab, b.judul);
+      return matchCat && matchSubtes && matchBab;
+    });
+
+    // Kelompokkan berdasarkan subBabId
+    const subBabMap = new Map();
+    babQuestions.forEach((q) => {
+      const sbId = q.subBabId || `sb-${b.index}-default`;
+      const sbNama = q.subBab || simpleTitle;
+      if (!subBabMap.has(sbId)) {
+        subBabMap.set(sbId, { id: sbId, nama: sbNama, count: 0 });
+      }
+      subBabMap.get(sbId).count++;
+    });
+
+    const subBabList = Array.from(subBabMap.values());
+    const totalCount = babQuestions.length;
+
+    html += `
+      <div class="subbab-chapter-group" data-chapter-bab="${escapeHtml(b.judul)}">
+        <div class="subbab-chapter-header">
+          <div class="subbab-chapter-title-wrap">
+            <span class="subbab-chapter-tag">Bab ${padded}</span>
+            <span class="subbab-chapter-title">${escapeHtml(simpleTitle)}</span>
+            <span style="font-size:0.7rem; color:var(--text-muted); font-weight:600;">(${totalCount} Soal)</span>
+          </div>
+          ${subBabList.length > 0 ? `
+            <div class="subbab-chapter-actions">
+              <button type="button" class="btn-subbab-action" onclick="toggleChapterAllSubBabs('${escapeHtml(b.judul)}', true)">Pilih Semua</button>
+              <span class="action-divider">•</span>
+              <button type="button" class="btn-subbab-action" onclick="toggleChapterAllSubBabs('${escapeHtml(b.judul)}', false)">Batal</button>
+            </div>
+          ` : ''}
+        </div>
+    `;
+
+    if (subBabList.length === 0) {
+      html += `
+        <div class="subbab-empty-note">
+          <span>💡 Bank soal latihan untuk bab ini sedang disiapkan di pembaruan berikutnya.</span>
+        </div>
+      `;
+    } else {
+      html += `<div class="subbab-pills-container">`;
+      subBabList.forEach((sb) => {
+        const isChecked = isAllSubBabs || AppState.drillingSetup.selectedSubBabs.includes(sb.id);
+        html += `
+          <button type="button" 
+                  class="subbab-pill ${isChecked ? 'active' : ''}" 
+                  data-subbab-id="${escapeHtml(sb.id)}"
+                  onclick="toggleSingleSubBab('${escapeHtml(sb.id)}')">
+            <span class="subbab-pill-check">${isChecked ? '✓' : ''}</span>
+            <span>${escapeHtml(sb.nama)}</span>
+            <span class="subbab-pill-badge">${sb.count} Soal</span>
+          </button>
+        `;
+      });
+      html += `</div>`;
+    }
+
+    html += `</div>`;
   });
 
-  container.innerHTML = pillsHtml;
+  container.innerHTML = html;
+
+  // Tombol Global: Pilih Semua Sub Bab
+  const btnSelectAllSubBabs = document.getElementById('btn-select-all-subbabs');
+  if (btnSelectAllSubBabs) {
+    btnSelectAllSubBabs.onclick = () => {
+      AppState.drillingSetup.selectedSubBabs = ['semua'];
+      renderDrillingSubBabSelector();
+      updateDrillingSetupSummary();
+    };
+  }
+
+  // Tombol Global: Reset Sub Bab
+  const btnClearSubBabs = document.getElementById('btn-clear-subbabs');
+  if (btnClearSubBabs) {
+    btnClearSubBabs.onclick = () => {
+      AppState.drillingSetup.selectedSubBabs = [];
+      renderDrillingSubBabSelector();
+      updateDrillingSetupSummary();
+    };
+  }
 }
 
-window.selectDrillingPaket = function(paketId) {
-  AppState.drillingSetup.paket = paketId;
-  renderDrillingPaketOptions();
+// Handler Toggle Sub Bab Tunggal
+window.toggleSingleSubBab = function(subBabId) {
+  if (!subBabId) return;
+
+  if (!Array.isArray(AppState.drillingSetup.selectedSubBabs) || AppState.drillingSetup.selectedSubBabs.includes('semua')) {
+    const allQuestions = AppState.dataset.soal || [];
+    const allAvailableSbIds = [...new Set(allQuestions.map(q => q.subBabId).filter(Boolean))];
+    AppState.drillingSetup.selectedSubBabs = allAvailableSbIds.filter(id => id !== subBabId);
+  } else {
+    const idx = AppState.drillingSetup.selectedSubBabs.indexOf(subBabId);
+    if (idx >= 0) {
+      AppState.drillingSetup.selectedSubBabs.splice(idx, 1);
+    } else {
+      AppState.drillingSetup.selectedSubBabs.push(subBabId);
+    }
+  }
+
+  renderDrillingSubBabSelector();
+  updateDrillingSetupSummary();
+};
+
+// Handler Toggle Semua Sub Bab untuk Bab Tertentu
+window.toggleChapterAllSubBabs = function(babJudul, selectAll) {
+  const allQuestions = AppState.dataset.soal || [];
+  const chapterSbIds = [...new Set(
+    allQuestions
+      .filter(q => isBabMatching(q.bab, babJudul))
+      .map(q => q.subBabId)
+      .filter(Boolean)
+  )];
+
+  if (chapterSbIds.length === 0) return;
+
+  if (selectAll) {
+    if (!Array.isArray(AppState.drillingSetup.selectedSubBabs) || AppState.drillingSetup.selectedSubBabs.includes('semua')) {
+      return;
+    }
+    chapterSbIds.forEach(id => {
+      if (!AppState.drillingSetup.selectedSubBabs.includes(id)) {
+        AppState.drillingSetup.selectedSubBabs.push(id);
+      }
+    });
+  } else {
+    if (!Array.isArray(AppState.drillingSetup.selectedSubBabs) || AppState.drillingSetup.selectedSubBabs.includes('semua')) {
+      const allAvailableSbIds = [...new Set(allQuestions.map(q => q.subBabId).filter(Boolean))];
+      AppState.drillingSetup.selectedSubBabs = allAvailableSbIds.filter(id => !chapterSbIds.includes(id));
+    } else {
+      AppState.drillingSetup.selectedSubBabs = AppState.drillingSetup.selectedSubBabs.filter(id => !chapterSbIds.includes(id));
+    }
+  }
+
+  renderDrillingSubBabSelector();
   updateDrillingSetupSummary();
 };
 
 // Memperbarui hitungan soal yang cocok di Setup Drilling
 function updateDrillingSetupSummary() {
   const allQuestions = AppState.dataset.soal || [];
-  const { category, subtes, selectedBabs, paket, difficulty } = AppState.drillingSetup;
+  const { category, subtes, selectedBabs, selectedSubBabs, difficulty } = AppState.drillingSetup;
 
   const matchingQuestions = allQuestions.filter((q) => {
     const matchCat = !q.kategoriUtama || q.kategoriUtama.toLowerCase() === category.toLowerCase();
     const matchSubtes = isSubtesMatching(q, subtes);
     const matchBab = isBabSelected(q.bab, selectedBabs);
-    const matchPaket = !paket || paket === 'semua' || q.paketId === paket;
+    const matchSubBab = isSubBabSelected(q, selectedSubBabs);
     const matchDiff = difficulty === 'semua' || q.kesulitan.toLowerCase() === difficulty.toLowerCase();
-    return matchCat && matchSubtes && matchBab && matchPaket && matchDiff;
+    return matchCat && matchSubtes && matchBab && matchSubBab && matchDiff;
   });
 
   const infoElem = document.getElementById('setup-available-info');
   const startBtn = document.getElementById('btn-start-quiz');
 
   if (infoElem) {
-    const paketText = paket && paket !== 'semua' ? ' (Paket Terpilih)' : '';
-    infoElem.innerHTML = `Tersedia: <strong>${matchingQuestions.length} soal</strong> variasi${paketText}`;
+    const isFilteredSub = selectedSubBabs && !selectedSubBabs.includes('semua');
+    const subText = isFilteredSub ? ' (Sub Bab Target)' : '';
+    infoElem.innerHTML = `Tersedia: <strong>${matchingQuestions.length} soal</strong> target${subText}`;
   }
 
   if (startBtn) {
@@ -975,19 +1217,19 @@ function updateDrillingSetupSummary() {
 // Memulai Sesi Drilling Soal
 function startDrillingQuizSession() {
   const allQuestions = AppState.dataset.soal || [];
-  const { category, subtes, selectedBabs, paket, count, difficulty, timerEnabled, timerDuration } = AppState.drillingSetup;
+  const { category, subtes, selectedBabs, selectedSubBabs, count, difficulty, timerEnabled, timerDuration } = AppState.drillingSetup;
 
   let pool = allQuestions.filter((q) => {
     const matchCat = !q.kategoriUtama || q.kategoriUtama.toLowerCase() === category.toLowerCase();
     const matchSubtes = isSubtesMatching(q, subtes);
     const matchBab = isBabSelected(q.bab, selectedBabs);
-    const matchPaket = !paket || paket === 'semua' || q.paketId === paket;
+    const matchSubBab = isSubBabSelected(q, selectedSubBabs);
     const matchDiff = difficulty === 'semua' || q.kesulitan.toLowerCase() === difficulty.toLowerCase();
-    return matchCat && matchSubtes && matchBab && matchPaket && matchDiff;
+    return matchCat && matchSubtes && matchBab && matchSubBab && matchDiff;
   });
 
   if (pool.length === 0) {
-    alert('Tidak ada soal yang tersedia untuk kriteria bab/paket yang dipilih.');
+    alert('Tidak ada soal yang tersedia untuk kriteria bab/sub bab yang dipilih.');
     return;
   }
 
@@ -1158,14 +1400,10 @@ function renderActiveQuizCard() {
         <span style="font-size:0.72rem; color:var(--text-muted); font-weight:600;">#${currentQ.id}</span>
       </div>
 
-      ${currentQ.paketNama || currentQ.variasiTipe ? `
-        <div class="quiz-variation-pill">
-          <span>📦 ${escapeHtml(currentQ.paketNama || 'Paket Variasi')}</span>
-          ${currentQ.variasiTipe ? ` &bull; <span>${escapeHtml(currentQ.variasiTipe)}</span>` : ''}
-        </div>
-      ` : ''}
-
-      ${currentQ.bab ? `<div style="font-size:0.78rem; color:var(--primary); font-weight:700; margin-bottom:0.5rem;">📍 Bab: ${escapeHtml(currentQ.bab)}</div>` : ''}
+      <div class="quiz-subbab-badge-wrap">
+        ${currentQ.bab ? `<span class="quiz-topic-pill bab-topic">📍 Bab: ${escapeHtml(currentQ.bab)}</span>` : ''}
+        ${currentQ.subBab ? `<span class="quiz-topic-pill subbab-topic">🎯 Sub Bab: ${escapeHtml(currentQ.subBab)}</span>` : ''}
+      </div>
 
       <div class="question-text">${escapeHtml(currentQ.pertanyaan)}</div>
 
@@ -1723,15 +1961,15 @@ function attachEventListeners() {
         AppState.drillingSetup.subtes = currentBab.subtes;
         AppState.drillingSetup.bab = currentBab.babJudul;
         AppState.drillingSetup.selectedBabs = [currentBab.babJudul];
-        AppState.drillingSetup.paket = 'semua';
+        AppState.drillingSetup.selectedSubBabs = ['semua'];
 
         // Update UI Drilling
-        document.querySelectorAll('#setup-category-group .pill-option').forEach((p) => {
+        document.querySelectorAll('#setup-category-group .pill-option, #setup-category-group .cat-pill-sm').forEach((p) => {
           p.classList.toggle('active', p.dataset.cat === currentBab.kategoriUtama);
         });
         updateDrillingSubtesPills();
-        renderDrillingBabSelector();
-        renderDrillingPaketOptions();
+        renderDrillingBabCards();
+        renderDrillingSubBabSelector();
         updateDrillingSetupSummary();
       }
       navigateToView('latihan');
@@ -1748,38 +1986,6 @@ function attachEventListeners() {
       updateDrillingSetupSummary();
     });
   });
-
-  // Modal Info Penjelasan Fitur Paket Soal Variasi
-  const btnInfoPaket = document.getElementById('btn-info-paket-soal');
-  const modalInfoPaket = document.getElementById('modal-info-paket');
-  const btnCloseModal = document.getElementById('btn-close-modal-info');
-  const btnModalOk = document.getElementById('btn-modal-info-ok');
-
-  if (btnInfoPaket && modalInfoPaket) {
-    btnInfoPaket.addEventListener('click', () => {
-      modalInfoPaket.classList.remove('hidden');
-    });
-  }
-
-  if (btnCloseModal && modalInfoPaket) {
-    btnCloseModal.addEventListener('click', () => {
-      modalInfoPaket.classList.add('hidden');
-    });
-  }
-
-  if (btnModalOk && modalInfoPaket) {
-    btnModalOk.addEventListener('click', () => {
-      modalInfoPaket.classList.add('hidden');
-    });
-  }
-
-  if (modalInfoPaket) {
-    modalInfoPaket.addEventListener('click', (e) => {
-      if (e.target === modalInfoPaket) {
-        modalInfoPaket.classList.add('hidden');
-      }
-    });
-  }
 
   // Step: Jumlah Soal
   document.querySelectorAll('#setup-count-group .pill-option').forEach((pill) => {

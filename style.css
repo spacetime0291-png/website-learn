@@ -672,6 +672,7 @@ body.in-reader-mode .mobile-bottom-nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.45rem;
+  align-items: start;
 }
 
 @media (min-width: 640px) {
@@ -695,7 +696,6 @@ body.in-reader-mode .mobile-bottom-nav {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .bab-item:hover {
@@ -712,9 +712,9 @@ body.in-reader-mode .mobile-bottom-nav {
 .bab-item-header {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.35rem;
-  padding: 0.55rem 0.65rem;
+  align-items: stretch;
+  gap: 0.3rem;
+  padding: 0.5rem 0.55rem;
   cursor: pointer;
   user-select: none;
   transition: background-color 0.15s ease;
@@ -725,23 +725,22 @@ body.in-reader-mode .mobile-bottom-nav {
   background-color: #fafbfc;
 }
 
-.bab-item-left {
+.bab-item-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  gap: 0.35rem;
 }
 
 .bab-icon-minimal {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  border-radius: 5px;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 4px;
   background-color: var(--primary-light);
   color: var(--primary);
   font-weight: 800;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -757,12 +756,12 @@ body.in-reader-mode .mobile-bottom-nav {
 .bab-item-title-group {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 2px;
   width: 100%;
 }
 
 .bab-item-title {
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 700;
   color: var(--text-main);
   line-height: 1.25;
@@ -775,7 +774,7 @@ body.in-reader-mode .mobile-bottom-nav {
 }
 
 .bab-item-meta {
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   color: var(--text-muted);
   display: block;
   white-space: nowrap;
@@ -787,16 +786,16 @@ body.in-reader-mode .mobile-bottom-nav {
 .bab-item-right {
   display: flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.25rem;
   flex-shrink: 0;
 }
 
 .bab-modul-counter {
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   font-weight: 700;
   color: var(--text-muted);
   background-color: var(--bg-muted);
-  padding: 0.08rem 0.35rem;
+  padding: 0.06rem 0.3rem;
   border-radius: var(--radius-full);
   line-height: 1.2;
 }
@@ -805,8 +804,8 @@ body.in-reader-mode .mobile-bottom-nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   color: var(--text-subtle);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s ease;
 }
@@ -820,17 +819,17 @@ body.in-reader-mode .mobile-bottom-nav {
 .bab-item-options {
   display: none;
   grid-template-columns: 1fr;
-  gap: 0.25rem;
-  padding: 0.35rem 0.45rem 0.55rem;
+  gap: 0.2rem;
+  padding: 0.3rem 0.38rem 0.45rem;
   border-top: 1px solid var(--border-light);
   background-color: #fafbfc;
 }
 
 @media (min-width: 768px) {
   .bab-item-options {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.35rem;
-    padding: 0.45rem 0.6rem 0.65rem;
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    padding: 0.35rem 0.45rem 0.55rem;
   }
 }
 
@@ -843,19 +842,22 @@ body.in-reader-mode .mobile-bottom-nav {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.3rem;
-  padding: 0.32rem 0.4rem;
+  gap: 0.25rem;
+  padding: 0.3rem 0.35rem;
   border-radius: var(--radius-xs);
   border: 1px solid var(--border-subtle);
   background-color: var(--bg-surface);
   color: var(--text-secondary);
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
   text-decoration: none;
-  min-height: 28px;
+  min-height: 26px;
   width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .btn-bab-opt:hover:not(:disabled) {

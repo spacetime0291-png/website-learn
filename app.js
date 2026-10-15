@@ -374,6 +374,11 @@ function renderMateriSubtesFilters() {
 
   const subtests = getSubtestsForCategory(AppState.mainCategory);
 
+  // Jika filter aktif tidak valid untuk kategori saat ini, reset ke 'semua'
+  if (AppState.materiSubtesFilter !== 'semua' && !subtests.some(s => s.toLowerCase() === AppState.materiSubtesFilter.toLowerCase())) {
+    AppState.materiSubtesFilter = 'semua';
+  }
+
   let html = `<button class="chip-filter ${AppState.materiSubtesFilter === 'semua' ? 'active' : ''}" data-subtes="semua">Semua</button>`;
   
   subtests.forEach((sub) => {
@@ -395,7 +400,7 @@ function renderMateriSubtesFilters() {
   });
 }
 
-// Render Daftar Bab Materi (Katalog Bab Minimalis Sederhana)
+// Render Daftar Bab Materi (Katalog Bab Minimalis Sederhana 3-Kolom)
 function renderMateriView() {
   const container = document.getElementById('materi-list');
   const bannerDesc = document.getElementById('materi-mode-desc');
@@ -404,7 +409,7 @@ function renderMateriView() {
   const allBabModules = window.EDUMANDIRI_MATERI_BAB || [];
 
   if (bannerDesc) {
-    bannerDesc.innerHTML = 'Klik salah satu bab untuk menampilkan opsi <strong>Materi Lengkap</strong>, <strong>Variasi Contoh Soal</strong>, <strong>Rangkuman</strong>, atau <strong>Latihan Kuis</strong>.';
+    bannerDesc.innerHTML = 'Klik salah satu bab untuk menampilkan opsi <strong>Materi</strong>, <strong>Contoh Soal</strong>, <strong>Rangkuman</strong>, atau <strong>Latihan Kuis</strong>.';
   }
 
   // Filter berdasarkan Kategori Utama (TKA vs UTBK vs SMA) dan Subtes
@@ -436,7 +441,7 @@ function renderMateriView() {
   // Kelompokkan Modul-modul Berdasarkan Bab Unik (Subtes + babIndex)
   const babMap = new Map();
   filtered.forEach((m) => {
-    const key = `${m.subtes}__${m.babIndex}`;
+    const key = `${m.kategoriUtama}__${m.subtes}__${m.babIndex}`;
     if (!babMap.has(key)) {
       babMap.set(key, {
         subtes: m.subtes,
@@ -455,12 +460,19 @@ function renderMateriView() {
     else if (m.tipe === 'rangkuman') group.rangkuman = m;
   });
 
-  // Urutkan Bab berdasarkan babIndex
-  const sortedBabs = Array.from(babMap.values()).sort((a, b) => a.babIndex - b.babIndex);
+  // Urutkan Bab berdasarkan urutan subtes resmi kategori, kemudian babIndex
+  const subtestOrder = getSubtestsForCategory(AppState.mainCategory);
+  const sortedBabs = Array.from(babMap.values()).sort((a, b) => {
+    const subA = subtestOrder.findIndex(s => s.toLowerCase() === a.subtes.toLowerCase());
+    const subB = subtestOrder.findIndex(s => s.toLowerCase() === b.subtes.toLowerCase());
+    if (subA !== subB) return (subA === -1 ? 99 : subA) - (subB === -1 ? 99 : subB);
+    return a.babIndex - b.babIndex;
+  });
 
-  container.innerHTML = sortedBabs.map((bab, idx) => {
+  container.innerHTML = sortedBabs.map((bab) => {
     const babIndexPadded = String(bab.babIndex).padStart(2, '0');
-    const babKey = `${bab.subtes.replace(/[^a-zA-Z0-9]/g, '_')}_${bab.babIndex}`;
+    const babKey = `${bab.kategoriUtama}_${bab.subtes.replace(/[^a-zA-Z0-9]/g, '_')}_${bab.babIndex}`;
+    const cleanTitle = getSimplifiedBabTitle(bab.subtes, bab.babIndex, bab.babJudul, bab.kategoriUtama);
 
     let availableCount = 0;
     if (bab.materi) availableCount++;
@@ -468,28 +480,25 @@ function renderMateriView() {
     if (bab.rangkuman) availableCount++;
     availableCount++; // Kuis drilling selalu tersedia
 
-    // Default bab pertama sedikit diperluas
-    const isExpanded = idx === 0 ? 'expanded' : '';
-
     return `
-      <div class="bab-item ${isExpanded}" id="bab-item-${babKey}" data-bab-key="${babKey}">
+      <div class="bab-item" id="bab-item-${babKey}" data-bab-key="${babKey}">
         <div class="bab-item-header" onclick="toggleBabItem('${babKey}')">
-          <div class="bab-item-left">
+          <div class="bab-item-top">
             <div class="bab-icon-minimal">
               <span>${babIndexPadded}</span>
             </div>
-            <div class="bab-item-title-group">
-              <h3 class="bab-item-title">${escapeHtml(bab.babJudul)}</h3>
-              <span class="bab-item-meta">${escapeHtml(bab.subtes)} &bull; ${escapeHtml(bab.blok)}</span>
+            <div class="bab-item-right">
+              <span class="bab-modul-counter">${availableCount}</span>
+              <span class="bab-toggle-arrow">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
             </div>
           </div>
-          <div class="bab-item-right">
-            <span class="bab-modul-counter">${availableCount} Opsi</span>
-            <span class="bab-toggle-arrow">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </span>
+          <div class="bab-item-title-group">
+            <h3 class="bab-item-title">${escapeHtml(cleanTitle)}</h3>
+            <span class="bab-item-meta">${escapeHtml(bab.subtes)}</span>
           </div>
         </div>
 
@@ -497,20 +506,19 @@ function renderMateriView() {
           <button class="btn-bab-opt opt-materi ${bab.materi ? '' : 'disabled'}" 
             ${bab.materi ? `onclick="openMateriPage('${bab.materi.id}')"` : 'disabled title="Materi belum tersedia"'}>
             <span class="opt-icon">📖</span>
-            <span class="opt-text">Materi Lengkap</span>
+            <span class="opt-text">Materi</span>
           </button>
 
           <button class="btn-bab-opt opt-cs ${bab.contohSoal ? '' : 'disabled'}" 
             ${bab.contohSoal ? `onclick="openMateriPage('${bab.contohSoal.id}')"` : 'disabled title="Variasi contoh soal segera hadir"'}>
             <span class="opt-icon">🎯</span>
-            <span class="opt-text">Variasi Soal</span>
-            ${bab.contohSoal ? `<span class="opt-badge">Tersedia</span>` : `<span class="opt-badge muted">Segera</span>`}
+            <span class="opt-text">Contoh Soal</span>
           </button>
 
           <button class="btn-bab-opt opt-rangkuman ${bab.rangkuman ? '' : 'disabled'}" 
             ${bab.rangkuman ? `onclick="openMateriPage('${bab.rangkuman.id}')"` : 'disabled title="Rangkuman belum tersedia"'}>
             <span class="opt-icon">📑</span>
-            <span class="opt-text">Rangkuman Rumus</span>
+            <span class="opt-text">Rangkuman</span>
           </button>
 
           <button class="btn-bab-opt opt-quiz" onclick="startDrillingForBab('${escapeHtml(bab.subtes)}', '${escapeHtml(bab.babJudul)}')">
@@ -546,10 +554,25 @@ window.openMateriPage = function(babId) {
 
   AppState.currentReadingBabId = babId;
 
-  // Cari Modul Saudara (Sibling Modules) untuk Bab yang Sama
-  const materiMod = allBabModules.find((m) => m.subtes === babData.subtes && m.babIndex === babData.babIndex && m.tipe === 'materi');
-  const csMod = allBabModules.find((m) => m.subtes === babData.subtes && m.babIndex === babData.babIndex && m.tipe === 'contoh-soal');
-  const rangkumanMod = allBabModules.find((m) => m.subtes === babData.subtes && m.babIndex === babData.babIndex && m.tipe === 'rangkuman');
+  // Cari Modul Saudara (Sibling Modules) untuk Bab yang Sama dalam Kategori yang Sama
+  const materiMod = allBabModules.find((m) => 
+    m.kategoriUtama === babData.kategoriUtama && 
+    m.subtes.toLowerCase() === babData.subtes.toLowerCase() && 
+    m.babIndex === babData.babIndex && 
+    m.tipe === 'materi'
+  );
+  const csMod = allBabModules.find((m) => 
+    m.kategoriUtama === babData.kategoriUtama && 
+    m.subtes.toLowerCase() === babData.subtes.toLowerCase() && 
+    m.babIndex === babData.babIndex && 
+    m.tipe === 'contoh-soal'
+  );
+  const rangkumanMod = allBabModules.find((m) => 
+    m.kategoriUtama === babData.kategoriUtama && 
+    m.subtes.toLowerCase() === babData.subtes.toLowerCase() && 
+    m.babIndex === babData.babIndex && 
+    m.tipe === 'rangkuman'
+  );
 
   // Sinkronisasi Tab Switcher di Top Bar Reader
   const tabMateri = document.getElementById('btn-reader-tab-materi');
@@ -610,11 +633,29 @@ window.openMateriPage = function(babId) {
   const dockRangkuman = document.getElementById('dock-tab-rangkuman');
   const dockQuiz = document.getElementById('dock-tab-quiz');
 
-  const prevBab = allBabModules.find((m) => m.subtes === babData.subtes && m.babIndex === (babData.babIndex - 1) && m.tipe === babData.tipe)
-    || allBabModules.find((m) => m.subtes === babData.subtes && m.babIndex === (babData.babIndex - 1) && m.tipe === 'materi');
+  const prevBab = allBabModules.find((m) => 
+    m.kategoriUtama === babData.kategoriUtama && 
+    m.subtes.toLowerCase() === babData.subtes.toLowerCase() && 
+    m.babIndex === (babData.babIndex - 1) && 
+    m.tipe === babData.tipe
+  ) || allBabModules.find((m) => 
+    m.kategoriUtama === babData.kategoriUtama && 
+    m.subtes.toLowerCase() === babData.subtes.toLowerCase() && 
+    m.babIndex === (babData.babIndex - 1) && 
+    m.tipe === 'materi'
+  );
 
-  const nextBab = allBabModules.find((m) => m.subtes === babData.subtes && m.babIndex === (babData.babIndex + 1) && m.tipe === babData.tipe)
-    || allBabModules.find((m) => m.subtes === babData.subtes && m.babIndex === (babData.babIndex + 1) && m.tipe === 'materi');
+  const nextBab = allBabModules.find((m) => 
+    m.kategoriUtama === babData.kategoriUtama && 
+    m.subtes.toLowerCase() === babData.subtes.toLowerCase() && 
+    m.babIndex === (babData.babIndex + 1) && 
+    m.tipe === babData.tipe
+  ) || allBabModules.find((m) => 
+    m.kategoriUtama === babData.kategoriUtama && 
+    m.subtes.toLowerCase() === babData.subtes.toLowerCase() && 
+    m.babIndex === (babData.babIndex + 1) && 
+    m.tipe === 'materi'
+  );
 
   if (dockPrev) {
     dockPrev.disabled = !prevBab;
@@ -672,16 +713,31 @@ window.openMateriPage = function(babId) {
 
 // Helper: Langsung Meluncur ke Drilling Soal untuk Bab Tertentu
 window.startDrillingForBab = function(subtes, babJudul) {
+  const allBabModules = window.EDUMANDIRI_MATERI_BAB || [];
+  const foundMod = allBabModules.find((m) => 
+    m.subtes.toLowerCase() === (subtes || '').toLowerCase() && 
+    (m.babJudul === babJudul || m.id === babJudul)
+  );
+
+  // Set kategori utama drilling jika modul ditemukan
+  if (foundMod && foundMod.kategoriUtama) {
+    AppState.drillingSetup.category = foundMod.kategoriUtama;
+  } else if (!AppState.drillingSetup.category) {
+    AppState.drillingSetup.category = AppState.mainCategory || 'tka';
+  }
+
   AppState.drillingSetup.subtes = subtes;
   AppState.drillingSetup.bab = babJudul;
 
   // Tentukan indeks bab integer agar presisi & bebas bug duplikasi seleksi
-  const allBabModules = window.EDUMANDIRI_MATERI_BAB || [];
-  const foundMod = allBabModules.find((m) => m.subtes.toLowerCase() === (subtes || '').toLowerCase() && m.babJudul === babJudul);
   const babIndex = foundMod ? foundMod.babIndex : 1;
-
   AppState.drillingSetup.selectedBabs = [babIndex];
   AppState.drillingSetup.selectedSubBabs = ['semua'];
+
+  // Update toggle kategori di drilling bar
+  document.querySelectorAll('#setup-category-group button').forEach((p) => {
+    p.classList.toggle('active', p.dataset.cat === AppState.drillingSetup.category);
+  });
 
   // Update UI Drilling
   updateDrillingSubtesPills();
@@ -1610,17 +1666,20 @@ window.toggleSingleSubBab = function(subBabId) {
 // Handler Toggle Semua Sub Bab untuk Bab Tertentu (Berdasarkan chapterIndex)
 window.toggleChapterAllSubBabs = function(chapterIndex, selectAll) {
   chapterIndex = parseInt(chapterIndex, 10);
-  const { subtes } = AppState.drillingSetup;
+  const { category, subtes } = AppState.drillingSetup;
   const subKey = (subtes || '').toLowerCase();
+  const catKey = (category || 'tka').toLowerCase();
+  const canonKey = `${catKey}-${subKey}`;
 
   let chapterSbIds = [];
-  if (CANONICAL_CHAPTER_SUBBABS[subKey] && CANONICAL_CHAPTER_SUBBABS[subKey][chapterIndex]) {
-    chapterSbIds = CANONICAL_CHAPTER_SUBBABS[subKey][chapterIndex].map((sb) => sb.id);
+  const canonSubBabs = CANONICAL_CHAPTER_SUBBABS[canonKey] || CANONICAL_CHAPTER_SUBBABS[subKey];
+  if (canonSubBabs && canonSubBabs[chapterIndex]) {
+    chapterSbIds = canonSubBabs[chapterIndex].map((sb) => sb.id);
   }
 
   const allQuestions = AppState.dataset.soal || [];
   const qSbIds = allQuestions
-    .filter((q) => isSubtesMatching(q, subtes) && getQuestionBabIndex(q, subtes) === chapterIndex)
+    .filter((q) => isSubtesMatching(q, subtes) && getQuestionBabIndex(q, subtes, category) === chapterIndex)
     .flatMap((q) => getQuestionSubBabIds(q));
 
   chapterSbIds = [...new Set([...chapterSbIds, ...qSbIds])];
@@ -2048,10 +2107,7 @@ function renderPembahasanView() {
   let questions = AppState.dataset.soal || [];
 
   if (AppState.pembahasanSubtesFilter !== 'semua') {
-    questions = questions.filter((q) => {
-      const sub = q.subtes || q.mataPelajaran || '';
-      return sub.toLowerCase() === AppState.pembahasanSubtesFilter.toLowerCase();
-    });
+    questions = questions.filter((q) => isSubtesMatching(q, AppState.pembahasanSubtesFilter));
   }
 
   if (AppState.onlyCompletedInPembahasan) {
@@ -2432,22 +2488,10 @@ function attachEventListeners() {
       const allBabModules = window.EDUMANDIRI_MATERI_BAB || [];
       const currentBab = allBabModules.find((m) => m.id === AppState.currentReadingBabId);
       if (currentBab) {
-        AppState.drillingSetup.category = currentBab.kategoriUtama;
-        AppState.drillingSetup.subtes = currentBab.subtes;
-        AppState.drillingSetup.bab = currentBab.babJudul;
-        AppState.drillingSetup.selectedBabs = [currentBab.babJudul];
-        AppState.drillingSetup.selectedSubBabs = ['semua'];
-
-        // Update UI Drilling
-        document.querySelectorAll('#setup-category-group .pill-option, #setup-category-group .cat-pill-sm').forEach((p) => {
-          p.classList.toggle('active', p.dataset.cat === currentBab.kategoriUtama);
-        });
-        updateDrillingSubtesPills();
-        renderDrillingBabCards();
-        renderDrillingSubBabSelector();
-        updateDrillingSetupSummary();
+        startDrillingForBab(currentBab.subtes, currentBab.babJudul);
+      } else {
+        navigateToView('latihan');
       }
-      navigateToView('latihan');
     });
   }
 

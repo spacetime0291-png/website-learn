@@ -1,4 +1,4 @@
-const CACHE_NAME = 'edumandiri-cache-v26';
+const CACHE_NAME = 'edumandiri-cache-v27';
 
 const STATIC_ASSETS = [
   './',

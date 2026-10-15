@@ -469,7 +469,8 @@ function renderMateriView() {
     return a.babIndex - b.babIndex;
   });
 
-  container.innerHTML = sortedBabs.map((bab) => {
+  // Helper render kartu bab individual (desain elegan, judul utuh tanpa terpotong)
+  function renderSingleBabCard(bab) {
     const babIndexPadded = String(bab.babIndex).padStart(2, '0');
     const babKey = `${bab.kategoriUtama}_${bab.subtes.replace(/[^a-zA-Z0-9]/g, '_')}_${bab.babIndex}`;
     const cleanTitle = getSimplifiedBabTitle(bab.subtes, bab.babIndex, bab.babJudul, bab.kategoriUtama);
@@ -488,7 +489,7 @@ function renderMateriView() {
               <span>${babIndexPadded}</span>
             </div>
             <div class="bab-item-right">
-              <span class="bab-modul-counter">${availableCount}</span>
+              <span class="bab-modul-counter">${availableCount} Modul</span>
               <span class="bab-toggle-arrow">
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
                   <polyline points="6 9 12 15 18 9"></polyline>
@@ -497,8 +498,8 @@ function renderMateriView() {
             </div>
           </div>
           <div class="bab-item-title-group">
-            <h3 class="bab-item-title">${escapeHtml(cleanTitle)}</h3>
-            <span class="bab-item-meta">${escapeHtml(bab.subtes)}</span>
+            <h4 class="bab-item-title">${escapeHtml(cleanTitle)}</h4>
+            <span class="bab-item-meta">${escapeHtml(bab.blok || bab.subtes)}</span>
           </div>
         </div>
 
@@ -528,7 +529,95 @@ function renderMateriView() {
         </div>
       </div>
     `;
-  }).join('');
+  }
+
+  // Metadata Pembungkus Bab Besar
+  const WRAPPER_METAS = {
+    'Kinematika': { icon: '🚀', desc: 'Gerak Lurus, Gerak Lengkung, & Pengukuran Presisi' },
+    'Dinamika': { icon: '⚖️', desc: 'Hukum Newton, Momentum, Impuls, & Dinamika Rotasi' },
+    'Fluida': { icon: '💧', desc: 'Tekanan Hidrostatis, Hukum Pascal, Archimedes, & Bernoulli' },
+    'Gelombang': { icon: '🌊', desc: 'Gelombang Mekanik Bunyi, Cahaya, & Karakteristik Optik' },
+    'Kalor dan Termodinamika': { icon: '🔥', desc: 'Suhu, Kalor, Gas Ideal, & Siklus Termodinamika' },
+    'Kelistrikan': { icon: '⚡', desc: 'Elektrostatika, Hukum Coulomb, & Rangkaian Arus Searah' },
+    'Aljabar': { icon: '🔢', desc: 'Matriks Ordo 2x2/3x3, Polinomial Horner, & Pemodelan Fungsi' },
+    'Geometri dan Pengukuran': { icon: '📐', desc: 'Vektor R2/R3, Persamaan Lingkaran, & Transformasi Geometri' },
+    'Trigonometri': { icon: '📈', desc: 'Limit Fungsi Aljabar & Teorema Limit Trigonometri' },
+    'Fundamental Matematika Lanjut': { icon: '🏛️', desc: 'Materi Prasyarat Esensial Matematika Tingkat Lanjut' }
+  };
+
+  // Cek apakah kategori saat ini memiliki pembungkus blok (seperti TKA)
+  const hasBlokGrouping = sortedBabs.some(b => b.blok);
+
+  if (hasBlokGrouping) {
+    // Kelompokkan Bab berdasarkan blok
+    const groups = new Map();
+    sortedBabs.forEach(b => {
+      const groupName = b.blok || b.subtes;
+      if (!groups.has(groupName)) {
+        groups.set(groupName, {
+          subtes: b.subtes,
+          babs: []
+        });
+      }
+      groups.get(groupName).babs.push(b);
+    });
+
+    let html = '';
+    for (const [groupName, groupData] of groups.entries()) {
+      const meta = WRAPPER_METAS[groupName] || { icon: '📦', desc: `Kumpulan Materi ${groupName}` };
+      html += `
+        <section class="materi-group-section">
+          <div class="materi-group-header">
+            <div class="materi-group-title-wrap">
+              <span class="materi-group-icon">${meta.icon}</span>
+              <div class="materi-group-text">
+                <h3 class="materi-group-title">${escapeHtml(groupName)}</h3>
+                <p class="materi-group-desc">${escapeHtml(meta.desc)}</p>
+              </div>
+            </div>
+            <div class="materi-group-meta-pill">
+              <span class="materi-group-subtes-tag">${escapeHtml(groupData.subtes)}</span>
+              <span class="materi-group-count">${groupData.babs.length} Bab</span>
+            </div>
+          </div>
+          <div class="bab-list-minimal">
+            ${groupData.babs.map(renderSingleBabCard).join('')}
+          </div>
+        </section>
+      `;
+    }
+    container.innerHTML = html;
+  } else {
+    // Kategori tanpa blok khusus (misal SMA): render dalam pembungkus subtes
+    const subtesGroups = new Map();
+    sortedBabs.forEach(b => {
+      if (!subtesGroups.has(b.subtes)) subtesGroups.set(b.subtes, []);
+      subtesGroups.get(b.subtes).push(b);
+    });
+
+    let html = '';
+    for (const [subtesName, babs] of subtesGroups.entries()) {
+      const icon = subtesName.includes('Fisika') ? '⚛️' : (subtesName.includes('Matematika') ? '📐' : '📚');
+      html += `
+        <section class="materi-group-section">
+          <div class="materi-group-header">
+            <div class="materi-group-title-wrap">
+              <span class="materi-group-icon">${icon}</span>
+              <div class="materi-group-text">
+                <h3 class="materi-group-title">${escapeHtml(subtesName)}</h3>
+                <p class="materi-group-desc">${babs.length} Bab Materi Terstruktur</p>
+              </div>
+            </div>
+            <span class="materi-group-count">${babs.length} Bab</span>
+          </div>
+          <div class="bab-list-minimal">
+            ${babs.map(renderSingleBabCard).join('')}
+          </div>
+        </section>
+      `;
+    }
+    container.innerHTML = html;
+  }
 }
 
 // Helper: Toggle expand/collapse pada list bab
@@ -755,17 +844,31 @@ window.startDrillingForBab = function(subtes, babJudul) {
 const CANONICAL_BAB_TITLES = {
   // === TKA Canonical Bab Titles ===
   'tka-fisika': {
-    1: 'Kinematika',
-    2: 'Dinamika',
-    3: 'Fluida',
-    4: 'Gelombang',
-    5: 'Kalor & Termodinamika',
-    6: 'Kelistrikan'
+    1: 'Pengukuran',
+    2: 'Gerak Lurus',
+    3: 'Gerak Lengkung',
+    4: 'Hubungan Gaya dan Gerak',
+    5: 'Momentum dan Impuls',
+    6: 'Dinamika Rotasi',
+    7: 'Fluida Statis',
+    8: 'Fluida Dinamis',
+    9: 'Gelombang Bunyi',
+    10: 'Gelombang Cahaya & Alat Optik',
+    11: 'Kalor dan Perpindahannya',
+    12: 'Pemanasan Global',
+    13: 'Gas Ideal',
+    14: 'Termodinamika',
+    15: 'Listrik Statis',
+    16: 'Rangkaian Arus Searah'
   },
   'tka-matematika lanjut': {
-    1: 'Aljabar',
-    2: 'Geometri & Pengukuran',
-    3: 'Trigonometri'
+    1: 'Matriks',
+    2: 'Polinomial',
+    3: 'Fungsi dan Pemodelan',
+    4: 'Vektor',
+    5: 'Lingkaran',
+    6: 'Transformasi Geometri',
+    7: 'Limit Fungsi'
   },
   'tka-fundamental matematika': {
     1: 'Trigonometri Analitik Dasar',
@@ -850,49 +953,98 @@ const CANONICAL_CHAPTER_SUBBABS = {
   // === TKA Sub Babs ===
   'tka-fisika': {
     1: [
-      { id: 'tka-fis-b01-sb01', nama: 'Pengukuran & Ketelitian Alat Ukur' },
-      { id: 'tka-fis-b01-sb02', nama: 'Kaidah Angka Penting' },
-      { id: 'tka-fis-b01-sb03', nama: 'Gerak Lurus (GLB & GLBB)' },
-      { id: 'tka-fis-b01-sb04', nama: 'Gerak Lengkung (Parabola & GMB)' }
+      { id: 'tka-fis-b01-sb01', nama: 'Prinsip Kerja & Pembacaan Jangka Sorong, Mikrometer, Neraca' },
+      { id: 'tka-fis-b01-sb02', nama: 'Kaidah Pelaporan & Angka Penting' }
     ],
     2: [
-      { id: 'tka-fis-b02-sb01', nama: 'Hukum Newton & Diagram Gaya' },
-      { id: 'tka-fis-b02-sb02', nama: 'Momentum, Impuls, & Tumbukan' },
-      { id: 'tka-fis-b02-sb03', nama: 'Dinamika Rotasi & Momen Gaya/Inersia' }
+      { id: 'tka-fis-b02-sb01', nama: 'Konsep Jarak, Perpindahan, Kelajuan, & Kecepatan' },
+      { id: 'tka-fis-b02-sb02', nama: 'Karakteristik & Grafik GLB dan GLBB' }
     ],
     3: [
-      { id: 'tka-fis-b03-sb01', nama: 'Fluida Statis (Tekanan, Pascal, Archimedes)' },
-      { id: 'tka-fis-b03-sb02', nama: 'Fluida Dinamis (Kontinuitas & Bernoulli)' }
+      { id: 'tka-fis-b03-sb01', nama: 'Gerak Parabola (Titik Tertinggi & Jarak Maksimum)' },
+      { id: 'tka-fis-b03-sb02', nama: 'Gerak Melingkar Beraturan (GMB) & Sentripetal' }
     ],
     4: [
-      { id: 'tka-fis-b04-sb01', nama: 'Gelombang Bunyi (Dawai, Pipa Organa, Taraf Intensitas)' },
-      { id: 'tka-fis-b04-sb02', nama: 'Gelombang Cahaya & Alat Optik' }
+      { id: 'tka-fis-b04-sb01', nama: 'Hukum I, II, dan III Newton' },
+      { id: 'tka-fis-b04-sb02', nama: 'Diagram Gaya (Berat, Normal, Gesek, Tegangan Tali)' }
     ],
     5: [
-      { id: 'tka-fis-b05-sb01', nama: 'Kalor, Pemuaian, & Asas Black' },
-      { id: 'tka-fis-b05-sb02', nama: 'Pemanasan Global & Efek Rumah Kaca' },
-      { id: 'tka-fis-b05-sb03', nama: 'Gas Ideal (PV = nRT)' },
-      { id: 'tka-fis-b05-sb04', nama: 'Termodinamika & Siklus Carnot' }
+      { id: 'tka-fis-b05-sb01', nama: 'Momentum Linier & Teorema Impuls-Momentum' },
+      { id: 'tka-fis-b05-sb02', nama: 'Hukum Kekekalan Momentum & Tumbukan' }
     ],
     6: [
-      { id: 'tka-fis-b06-sb01', nama: 'Listrik Statis (Coulomb, Medan & Potensial)' },
-      { id: 'tka-fis-b06-sb02', nama: 'Rangkaian Arus Searah DC & Hukum Kirchhoff' }
+      { id: 'tka-fis-b06-sb01', nama: 'Momen Gaya (Torsi) & Momen Inersia Benda Tegar' },
+      { id: 'tka-fis-b06-sb02', nama: 'Hukum Newton pada Dinamika Gerak Rotasi' }
+    ],
+    7: [
+      { id: 'tka-fis-b07-sb01', nama: 'Tekanan Hidrostatis & Hukum Pascal (Hidrolik)' },
+      { id: 'tka-fis-b07-sb02', nama: 'Hukum Archimedes (Terapung, Melayang, Tenggelam)' }
+    ],
+    8: [
+      { id: 'tka-fis-b08-sb01', nama: 'Persamaan Kontinuitas & Debit Aliran' },
+      { id: 'tka-fis-b08-sb02', nama: 'Persamaan & Penerapan Asas Bernoulli' }
+    ],
+    9: [
+      { id: 'tka-fis-b09-sb01', nama: 'Gelombang Mekanik Bunyi, Dawai, & Pipa Organa' },
+      { id: 'tka-fis-b09-sb02', nama: 'Intensitas & Taraf Intensitas Bunyi' }
+    ],
+    10: [
+      { id: 'tka-fis-b10-sb01', nama: 'Spektrum Gelombang EM & Sifat Pemantulan/Pembiasan' },
+      { id: 'tka-fis-b10-sb02', nama: 'Bayangan Cermin, Lensa, & Alat Optik' }
+    ],
+    11: [
+      { id: 'tka-fis-b11-sb01', nama: 'Perubahan Suhu, Kalor Laten, & Pemuaian Zat' },
+      { id: 'tka-fis-b11-sb02', nama: 'Perpindahan Kalor & Asas Black' }
+    ],
+    12: [
+      { id: 'tka-fis-b12-sb01', nama: 'Fisika Mekanisme Efek Rumah Kaca' },
+      { id: 'tka-fis-b12-sb02', nama: 'Penyebab & Solusi Penanggulangan Pemanasan Global' }
+    ],
+    13: [
+      { id: 'tka-fis-b13-sb01', nama: 'Hukum Boyle & Boyle-Gay Lussac' },
+      { id: 'tka-fis-b13-sb02', nama: 'Persamaan Umum Gas Ideal (PV = nRT)' }
+    ],
+    14: [
+      { id: 'tka-fis-b14-sb01', nama: 'Proses Isobarik, Isokhorik, Isotermal, & Adiabatik' },
+      { id: 'tka-fis-b14-sb02', nama: 'Hukum I & II Termodinamika serta Mesin Carnot' }
+    ],
+    15: [
+      { id: 'tka-fis-b15-sb01', nama: 'Hukum Coulomb & Muatan Elektrostatik' },
+      { id: 'tka-fis-b15-sb02', nama: 'Kuat Medan Listrik & Potensial Elektrostatik' }
+    ],
+    16: [
+      { id: 'tka-fis-b16-sb01', nama: 'Hukum Ohm & Hambatan Rangkaian Pengganti' },
+      { id: 'tka-fis-b16-sb02', nama: 'Hukum I & II Kirchhoff (Analisis Loop) serta Daya Listrik' }
     ]
   },
   'tka-matematika lanjut': {
     1: [
-      { id: 'tka-mtk-b01-sb01', nama: 'Matriks (Operasi, Determinan, & Invers)' },
-      { id: 'tka-mtk-b01-sb02', nama: 'Polinomial & Teorema Sisa/Faktor' },
-      { id: 'tka-mtk-b01-sb03', nama: 'Fungsi (Domain, Kodomain, Range, & Ragam Fungsi)' }
+      { id: 'tka-mtk-b01-sb01', nama: 'Operasi & Perkalian Matriks' },
+      { id: 'tka-mtk-b01-sb02', nama: 'Determinan, Invers (2x2 & 3x3), & Sistem Persamaan' }
     ],
     2: [
-      { id: 'tka-mtk-b02-sb01', nama: 'Vektor Dimensi 2 & 3' },
-      { id: 'tka-mtk-b02-sb02', nama: 'Persamaan & Garis Singgung Lingkaran' },
-      { id: 'tka-mtk-b02-sb03', nama: 'Transformasi Geometri & Komposisinya' }
+      { id: 'tka-mtk-b02-sb01', nama: 'Operasi & Pembagian Polinomial (Horner)' },
+      { id: 'tka-mtk-b02-sb02', nama: 'Teorema Sisa & Teorema Faktor Linear' }
     ],
     3: [
-      { id: 'tka-mtk-b03-sb01', nama: 'Limit Fungsi Aljabar (Tanpa L\'Hopital)' },
-      { id: 'tka-mtk-b03-sb02', nama: 'Limit Fungsi Trigonometri Dasar' }
+      { id: 'tka-mtk-b03-sb01', nama: 'Domain, Kodomain, Range Fungsi Polinom, Rasional, Akar' },
+      { id: 'tka-mtk-b03-sb02', nama: 'Fungsi Eksponensial, Logaritma, Mutlak, & Trigonometri' }
+    ],
+    4: [
+      { id: 'tka-mtk-b04-sb01', nama: 'Komponen Vektor di R2 dan R3' },
+      { id: 'tka-mtk-b04-sb02', nama: 'Panjang Vektor, Operasi Aljabar, & Perkalian Dot' }
+    ],
+    5: [
+      { id: 'tka-mtk-b05-sb01', nama: 'Persamaan Lingkaran Pusat (0,0) & (a,b)' },
+      { id: 'tka-mtk-b05-sb02', nama: 'Garis Singgung Lingkaran, Panjang Busur, & Luas Juring' }
+    ],
+    6: [
+      { id: 'tka-mtk-b06-sb01', nama: 'Translasi, Refleksi, Rotasi, & Dilatasi' },
+      { id: 'tka-mtk-b06-sb02', nama: 'Komposisi Transformasi & Representasi Matriks' }
+    ],
+    7: [
+      { id: 'tka-mtk-b07-sb01', nama: 'Limit Fungsi Aljabar (Substitusi, Faktorisasi, Sekawan)' },
+      { id: 'tka-mtk-b07-sb02', nama: 'Limit Fungsi Trigonometri Tanpa L\'Hopital' }
     ]
   },
   'tka-fundamental matematika': {
@@ -1071,31 +1223,58 @@ function getQuestionBabIndex(q, subtes, category) {
   const cat = (category || q.kategoriUtama || AppState.drillingSetup.category || 'tka').toLowerCase();
   const subStr = (subtes || q.subtes || q.mataPelajaran || '').toLowerCase();
 
-  // Mode TKA: Petakan pertanyaan ke 6 Bab Fisika TKA, 3 Bab MTK Lanjut TKA, 5 Bab Fundamental
+  // Mode TKA: Petakan pertanyaan ke 16 Bab Fisika TKA, 7 Bab MTK Lanjut TKA, 5 Bab Fundamental
   if (cat === 'tka') {
     if (typeof q.tkaBabIndex === 'number') return q.tkaBabIndex;
     if (subStr.includes('fisika')) {
       const smaIndex = getQuestionBabIndex(q, subtes, 'sma');
-      if ([1, 2, 3, 4].includes(smaIndex)) return 1; // Kinematika
-      if ([5, 6, 7, 8, 9, 10].includes(smaIndex)) return 2; // Dinamika
-      if ([11, 12].includes(smaIndex)) return 3; // Fluida
-      if ([16, 17, 18, 19, 25].includes(smaIndex)) return 4; // Gelombang
-      if ([13, 14, 15].includes(smaIndex)) return 5; // Kalor & Termodinamika
-      if ([20, 21, 22, 23, 24].includes(smaIndex)) return 6; // Kelistrikan
+      if (smaIndex === 1) return 1; // Pengukuran
+      if (smaIndex === 3) return 2; // Gerak Lurus
+      if (smaIndex === 4) return 3; // Gerak Lengkung
+      if (smaIndex === 5) return 4; // Hubungan Gaya dan Gerak
+      if (smaIndex === 7) return 5; // Momentum dan Impuls
+      if (smaIndex === 8) return 6; // Dinamika Rotasi
+      if (smaIndex === 11) return 7; // Fluida Statis
+      if (smaIndex === 12) return 8; // Fluida Dinamis
+      if (smaIndex === 17) return 9; // Gelombang Bunyi
+      if (smaIndex === 18 || smaIndex === 19) return 10; // Gelombang Cahaya & Alat Optik
+      if (smaIndex === 13) return 11; // Kalor dan Perpindahannya
+      if (smaIndex === 30) return 12; // Pemanasan Global
+      if (smaIndex === 14) return 13; // Gas Ideal
+      if (smaIndex === 15) return 14; // Termodinamika
+      if (smaIndex === 20) return 15; // Listrik Statis
+      if (smaIndex === 21) return 16; // Rangkaian Arus Searah
+      // Fallback untuk materi terkait lainnya
+      if (smaIndex === 2) return 1;
+      if (smaIndex === 6) return 4;
+      if (smaIndex >= 22 && smaIndex <= 24) return 16;
+      if (smaIndex === 16 || smaIndex === 25) return 10;
+      return 1;
     }
     if (subStr.includes('lanjut')) {
       const smaIndex = getQuestionBabIndex(q, subtes, 'sma');
-      if (smaIndex === 1 || smaIndex === 2 || smaIndex === 3) return 1; // Aljabar
-      if (smaIndex === 4 || smaIndex === 5) return 2; // Geometri & Pengukuran
-      if (smaIndex === 6) return 3; // Trigonometri / Limit
+      if (smaIndex === 3) return 1; // Matriks
+      if (smaIndex === 2) return 2; // Polinomial
+      if (smaIndex === 7) return 3; // Fungsi
+      if (smaIndex === 4) return 7; // Limit
+      if (smaIndex === 5) return 5; // Lingkaran
+      if (smaIndex === 6) return 7; // Limit
+      const wajibIndex = getQuestionBabIndex(q, 'matematika wajib', 'sma');
+      if (wajibIndex === 10) return 1; // Matriks
+      if (wajibIndex === 5 || wajibIndex === 6) return 3; // Fungsi
+      if (wajibIndex === 9) return 4; // Vektor
+      if (wajibIndex === 13) return 5; // Lingkaran
+      if (wajibIndex === 11) return 6; // Transformasi Geometri
+      return 1;
     }
     if (subStr.includes('fundamental')) {
       const smaIndex = getQuestionBabIndex(q, 'matematika wajib', 'sma');
-      if (smaIndex === 7) return 1; // Trigonometri Analitik Dasar
-      if (smaIndex === 3) return 2; // Aljabar Elementer
-      if (smaIndex === 12) return 3; // Geometri Analitik Bidang
+      if (smaIndex === 7 || smaIndex === 8) return 1; // Trigonometri Analitik Dasar
+      if (smaIndex === 3 || smaIndex === 4) return 2; // Aljabar Elementer
+      if (smaIndex === 12 || smaIndex === 13) return 3; // Geometri Analitik Bidang
       if (smaIndex === 2) return 4; // Pertidaksamaan & Nilai Mutlak
       if (smaIndex === 1) return 5; // Eksponen & Logaritma
+      return 1;
     }
   }
 

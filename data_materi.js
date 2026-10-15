@@ -1,7 +1,7 @@
 // ============================================================================
 // EDUMANDIRI: DATABASE MATERI & RANGKUMAN PER BAB (TKA, UTBK, SMA)
-// Disusun berurutan 1-to-N dengan format KaTeX LaTeX murni & bebas error escape
-// Total: 179 Modul
+// Disusun berurutan dengan format KaTeX LaTeX murni & bebas error escape
+// Total: 221 Modul (84 TKA + 137 SMA)
 // ============================================================================
 
 window.EDUMANDIRI_MATERI_BAB = [
@@ -9,421 +9,841 @@ window.EDUMANDIRI_MATERI_BAB = [
     "id": "tka-fis-mat-01",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 1: Kinematika",
+    "blok": "Kinematika",
     "tipe": "materi",
     "babIndex": 1,
-    "babJudul": "1. Kinematika",
-    "content": "# Bab 1: Kinematika\n**Kategori:** TKA Fisika | **Blok:** Blok 1: Kinematika\n\n## Pendahuluan Kinematika\nKinematika adalah cabang mekanika klasik yang mempelajari gerak benda tanpa mempersoalkan penyebab timbulnya gerak tersebut. Analisis kinematika berpusat pada penentuan posisi, jarak, perpindahan, kelajuan, kecepatan, dan percepatan benda sebagai fungsi waktu.\n\n---\n\n### A. Pengukuran dan Ketelitian Alat Ukur\nPengukuran adalah kegiatan membandingkan suatu besaran fisis dengan satuan standar yang telah disepakati secara internasional.\n\n#### 1. Jangka Sorong (Vernier Caliper)\n* **Fungsi:** Mengukur diameter luar koin/pipa, diameter dalam tabung rongga, serta kedalaman tabung sempit.\n* **Prinsip Kerja:** Terdiri atas rahang tetap (skala utama) dan rahang geser (skala nonius/vernier).\n* **Nilai Skala Terkecil (NST):** \n  Umumnya $0{,}1\\text{ mm}$ (skala 10 nonius) atau $0{,}05\\text{ mm}$ (skala 20 nonius).\n* **Formula Pembacaan:**\n  $$\\text{Hasil} = \\text{Skala Utama (SU)} + (\\text{Garis Nonius yang Berimpit} \\times \\text{NST})$$\n\n#### 2. Mikrometer Sekrup (Micrometer Screw Gauge)\n* **Fungsi:** Mengukur ketebalan pelat tipis, diameter kawat halus, atau kertas dengan presisi tinggi.\n* **Prinsip Kerja:** Menggunakan ulir presisi dengan silinder tetap (*sleeve*) dan silinder putar (*thimble*).\n* **Nilai Skala Terkecil (NST):** \n  Satu putaran penuh memajukan poros geser sebesar $0{,}5\\text{ mm}$ yang dibagi menjadi 50 skala putar, sehingga $\\text{NST} = \\frac{0{,}5\\text{ mm}}{50} = 0{,}01\\text{ mm}$.\n* **Formula Pembacaan:**\n  $$\\text{Hasil} = \\text{Skala Utama} + (\\text{Skala Putar} \\times 0{,}01\\text{ mm})$$\n\n#### 3. Neraca Tiga Lengan (Ohaus Balance)\n* **Fungsi:** Mengukur massa benda padat dengan menggeser anting pemberat pada tiga lengan skala.\n* **Karakteristik Lengan:**\n  * Lengan belakang: kelipatan ratusan gram ($0 - 500\\text{ g}$).\n  * Lengan tengah: kelipatan puluhan gram ($0 - 100\\text{ g}$).\n  * Lengan depan: satuan gram hingga persepuluhan gram ($0 - 10\\text{ g}$, ketelitian $0{,}1\\text{ g}$ atau $0{,}05\\text{ g}$).\n* **Formula Pembacaan:**\n  $$\\text{Massa Total} = \\text{Skala Lengan Belakang} + \\text{Skala Lengan Tengah} + \\text{Skala Lengan Depan}$$\n\n#### 4. Kaidah Pelaporan dan Perhitungan Angka Penting\n* **Aturan Angka Penting (AP):**\n  1. Semua angka bukan nol adalah AP (contoh: $43{,}25$ memiliki 4 AP).\n  2. Angka nol di antara angka bukan nol adalah AP (contoh: $2005$ memiliki 4 AP).\n  3. Angka nol di sebelah kiri angka bukan nol pertama bukan AP (contoh: $0{,}0045$ memiliki 2 AP).\n  4. Angka nol di belakang koma desimal setelah angka bukan nol adalah AP (contoh: $3{,}500$ memiliki 4 AP).\n* **Kaidah Operasi Hitung:**\n  * **Penjumlahan/Pengurangan:** Mengikuti jumlah desimal paling sedikit.\n  * **Perkalian/Pembagian:** Mengikuti jumlah angka penting paling sedikit dari faktor yang dioperasikan.\n  * **Ketidakpastian Relatif (KR):** $\\text{KR} = \\frac{\\Delta x}{\\bar{x}} \\times 100\\%$. Jika $\\text{KR} \\approx 10\\%$, laporkan dengan 2 AP; jika $\\text{KR} \\approx 1\\%$, laporkan dengan 3 AP; jika $\\text{KR} \\approx 0{,}1\\%$, laporkan dengan 4 AP.\n\n---\n\n### B. Gerak Lurus\nGerak lurus meninjau partikel yang lintasannya berupa garis lurus satu dimensi (sumbu-$x$).\n\n#### 1. Jarak vs Perpindahan\n* **Jarak ($s$):** Panjang seluruh lintasan riil yang ditempuh benda. Merupakan besaran **skalar** ($s \\ge 0$).\n* **Perpindahan ($\\Delta \\vec{x}$):** Perubahan kedudukan posisi dari titik awal ke titik akhir. Merupakan besaran **vektor**:\n  $$\\Delta \\vec{x} = \\vec{x}_{\\text{akhir}} - \\vec{x}_{\\text{awal}}$$\n\n#### 2. Kelajuan vs Kecepatan\n* **Kelajuan ($v$):** Perbandingan jarak total terhadap selang waktu (besaran **skalar**):\n  $$v = \\frac{s_{\\text{total}}}{\\Delta t}$$\n* **Kecepatan ($\\vec{v}$):** Perbandingan perpindahan terhadap selang waktu (besaran **vektor**):\n  $$\\vec{v} = \\frac{\\Delta \\vec{x}}{\\Delta t}$$\n* **Kecepatan Sesaat:** Turunan pertama fungsi posisi terhadap waktu:\n  $$\\vec{v}(t) = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{x}}{\\Delta t} = \\frac{d\\vec{x}}{dt}$$\n\n#### 3. Gerak Lurus Beraturan (GLB)\nBenda bergerak pada lintasan lurus dengan **kecepatan konstan** (percepatan $a = 0$):\n$$x(t) = x_0 + v \\cdot t$$\n* **Grafik $v-t$:** Berupa garis lurus horizontal. Luas di bawah kurva $v-t$ sama dengan jarak tempuh.\n* **Grafik $x-t$:** Berupa garis lurus miring dengan kemiringan (gradien) sama dengan kecepatan $v$.\n\n#### 4. Gerak Lurus Berubah Beraturan (GLBB)\nBenda bergerak dengan **percepatan tetap** ($a = \\text{konstan}$):\n$$v_t = v_0 + a t$$\n$$s = v_0 t + \\frac{1}{2} a t^2$$\n$$v_t^2 = v_0^2 + 2 a s$$\n* Jika percepatan $a > 0$, benda mengalami percepatan (kelajuan meningkat).\n* Jika percepatan $a < 0$, benda mengalami perlambatan (kelajuan menurun hingga berhenti $v_t = 0$).\n* **Gerak Jatuh Bebas (GJB):** $v_0 = 0$, $a = g$, $h = \\frac{1}{2}gt^2$, $v_t = \\sqrt{2gh}$.\n* **Gerak Vertikal ke Atas (GVA):** $a = -g$, tinggi maksimum $h_{\\max} = \\frac{v_0^2}{2g}$, waktu mencapai puncak $t_{\\text{puncak}} = \\frac{v_0}{g}$.\n\n---\n\n### C. Gerak Lengkung (Parabola & Melingkar)\n\n#### 1. Gerak Parabola (Proyektil)\nGerak dua dimensi perpaduan antara GLB pada sumbu horizontal ($x$) dan GLBB diperlambat/dipercepat gravitasi pada sumbu vertikal ($y$).\n* **Kecepatan Awal Komponen:**\n  $$v_{0x} = v_0 \\cos\\theta, \\quad v_{0y} = v_0 \\sin\\theta$$\n* **Posisi dan Kecepatan pada Saat $t$:**\n  $$x(t) = (v_0 \\cos\\theta) t$$\n  $$y(t) = (v_0 \\sin\\theta) t - \\frac{1}{2} g t^2$$\n  $$v_x(t) = v_0 \\cos\\theta, \\quad v_y(t) = v_0 \\sin\\theta - g t$$\n  $$v(t) = \\sqrt{v_x^2 + v_y^2}$$\n* **Titik Tertinggi (Puncak, $v_y = 0$):**\n  $$t_{\\text{puncak}} = \\frac{v_0 \\sin\\theta}{g}$$\n  $$h_{\\max} = \\frac{v_0^2 \\sin^2\\theta}{2g}$$\n* **Jarak Tempuh Maksimum (Titik Terjauh di Tanah):**\n  $$t_{\\text{total}} = 2 t_{\\text{puncak}} = \\frac{2 v_0 \\sin\\theta}{g}$$\n  $$X_{\\max} = \\frac{v_0^2 \\sin 2\\theta}{g}$$\n  > Jangkauan terjauh tercapai pada sudut elevasi optimum $\\theta = 45^\\circ$ di mana $\\sin 2(45^\\circ) = 1$.\n\n#### 2. Gerak Melingkar Beraturan (GMB)\nGerak benda melintasi lintasan berbentuk lingkaran dengan kelajuan linier dan kecepatan sudut konstan.\n* **Periode ($T$) dan Frekuensi ($f$):**\n  $$T = \\frac{t}{n}, \\quad f = \\frac{n}{t} = \\frac{1}{T}$$\n* **Kecepatan Sudut ($\\omega$):**\n  $$\\omega = \\frac{2\\pi}{T} = 2\\pi f$$\n* **Hubungan Kecepatan Linier ($v$) dan Sudut ($\\omega$):**\n  $$v = \\omega \\cdot r$$\n* **Percepatan Sentripetal ($a_s$):**\n  Percepatan yang selalu mengarah ke pusat lingkaran dan berfungsi mengubah arah vektor kecepatan linier:\n  $$a_s = \\frac{v^2}{r} = \\omega^2 r$$\n"
+    "babJudul": "Pengukuran dan Ketelitian Alat Ukur",
+    "content": "# Pengukuran dan Ketelitian Alat Ukur\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n## A. Prinsip Pengukuran dan Satuan\nPengukuran merupakan proses membandingkan suatu besaran fisis objek dengan besaran standar satuan yang telah disepakati (Sistem Internasional/SI). Dalam eksperimen fisika presisi, penguasaan prinsip kerja alat ukur panjang dan massa sangat krusial.\n\n---\n\n### 1. Jangka Sorong (Vernier Caliper)\n* **Fungsi Utama:** Mengukur diameter luar, diameter dalam tabung/lubang silinder, serta kedalaman tabung sempit.\n* **Komponen:** Rahang tetap (skala utama/SU dalam $\\text{cm}$ atau $\\text{mm}$) dan rahang geser (skala nonius/SN).\n* **Nilai Skala Terkecil (NST):**\n  $$\\text{NST} = \\frac{1\\text{ mm}}{n}$$\n  Untuk nonius 10 skala, $\\text{NST} = 0{,}1\\text{ mm} = 0{,}01\\text{ cm}$. Untuk nonius 20 skala, $\\text{NST} = 0{,}05\\text{ mm} = 0{,}005\\text{ cm}$.\n* **Formula Pembacaan:**\n  $$\\text{Hasil} = \\text{Skala Utama (SU)} + (\\text{Garis Nonius Berimpit} \\times \\text{NST})$$\n\n### 2. Mikrometer Sekrup (Micrometer Screw Gauge)\n* **Fungsi Utama:** Mengukur ketebalan pelat tipis, diameter kawat halus, atau kertas dengan presisi tinggi.\n* **Komponen:** Poros tetap (*anvil*), poros geser (*spindle*), silinder tetap berskala utama (*sleeve*), dan silinder putar berulir nonius (*thimble*).\n* **Nilai Skala Terkecil (NST):**\n  Satu putaran penuh memajukan poros geser sebesar $0{,}5\\text{ mm}$ yang terbagi atas 50 skala putar:\n  $$\\text{NST} = \\frac{0{,}5\\text{ mm}}{50} = 0{,}01\\text{ mm} = 0{,}001\\text{ cm}$$\n* **Formula Pembacaan:**\n  $$\\text{Hasil} = \\text{Skala Utama} + (\\text{Skala Nonius Putar} \\times 0{,}01\\text{ mm})$$\n\n### 3. Neraca Tiga Lengan (Ohaus Balance)\n* **Fungsi Utama:** Mengukur massa benda padat melalui prinsip kesetimbangan momen gaya tiga anting pemberat.\n* **Karakteristik Skala Lengan:**\n  * Lengan belakang: ratusan gram ($0 - 500\\text{ g}$, skala $100\\text{ g}$).\n  * Lengan tengah: puluhan gram ($0 - 100\\text{ g}$, skala $10\\text{ g}$).\n  * Lengan depan: satuan gram hingga desimal ($0 - 10\\text{ g}$, ketelitian $0{,}1\\text{ g}$ atau $0{,}05\\text{ g}$).\n* **Formula Pembacaan:**\n  $$\\text{Massa Total} = \\text{Skala Belakang} + \\text{Skala Tengah} + \\text{Skala Depan}$$\n\n---\n\n## B. Aturan Angka Penting dan Pelaporan Pengukuran\n1. Semua angka bukan nol adalah Angka Penting (AP).\n2. Angka nol di antara angka bukan nol adalah AP (contoh: $4005$ memiliki 4 AP).\n3. Angka nol di sebelah kiri angka bukan nol pertama **bukan** AP (contoh: $0{,}0072$ memiliki 2 AP).\n4. Angka nol di belakang tanda desimal setelah angka bukan nol adalah AP (contoh: $5{,}300$ memiliki 4 AP).\n5. **Kaidah Operasi Hitung:**\n   * Penjumlahan/Pengurangan: Mengikuti jumlah desimal (angka taksiran) paling sedikit.\n   * Perkalian/Pembagian: Mengikuti jumlah angka penting paling sedikit dari faktor yang dioperasikan.\n6. **Pelaporan Hasil Pengukuran Tunggal:**\n   $$x = \\bar{x} \\pm \\Delta x, \\quad \\Delta x = \\frac{1}{2} \\times \\text{NST}$$\n"
   },
   {
     "id": "tka-fis-cs-01",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 1: Kinematika",
+    "blok": "Kinematika",
     "tipe": "contoh-soal",
     "babIndex": 1,
-    "babJudul": "1. Variasi Contoh Soal — Kinematika",
-    "content": "# Variasi Contoh Soal — Kinematika\n**Kategori:** TKA Fisika | **Blok:** Blok 1: Kinematika\n\n---\n\n### Soal 1: Pembacaan Mikrometer Sekrup & Angka Penting\n> [!EXAMPLE]\n> Sebuah pelat seng diukur ketebalannya menggunakan mikrometer sekrup. Skala tetap menunjukkan $4{,}5\\text{ mm}$ dan garis ke-34 pada skala putar berimpit lurus dengan garis horizontal skala utama. Jika lebar pelat diukur dengan mistar adalah $2{,}4\\text{ cm}$, hitunglah luas penampang samping pelat tersebut menurut aturan angka penting!\n\n#### Pembahasan:\n1. **Pembacaan Mikrometer Sekrup:**\n   $$\\text{Tebal } (t) = 4{,}5\\text{ mm} + (34 \\times 0{,}01\\text{ mm}) = 4{,}5 + 0{,}34 = 4{,}84\\text{ mm} = 0{,}484\\text{ cm}$$\n   Ketebalan memiliki **3 angka penting**.\n2. **Lebar Pelat:**\n   $$l = 2{,}4\\text{ cm} \\quad (\\text{2 angka penting})$$\n3. **Perkalian Luas:**\n   $$A = t \\times l = 0{,}484 \\times 2{,}4 = 1{,}1616\\text{ cm}^2$$\n   Menurut kaidah perkalian angka penting, hasil dibulatkan mengikuti faktor dengan AP paling sedikit (2 AP):\n   $$A = 1{,}2\\text{ cm}^2$$\n\n---\n\n### Soal 2: Susul-Menyusul GLB & GLBB\n> [!EXAMPLE]\n> Mobil $A$ bergerak lurus beraturan dengan kecepatan konstan $20\\text{ m/s}$. Tepat ketika mobil $A$ melewati mobil $B$ yang sedang diam di lampu merah, mobil $B$ mulai bergerak dengan percepatan tetap $4\\text{ m/s}^2$ searah mobil $A$. Kapan dan pada jarak berapa mobil $B$ berhasil menyusul mobil $A$?\n\n#### Pembahasan:\n1. **Kondisi Menyusul:** Posisi kedua mobil sama ($s_A = s_B$).\n2. **Persamaan Gerak:**\n   * Mobil $A$ (GLB): $s_A = v_A \\cdot t = 20 t$\n   * Mobil $B$ (GLBB dari diam): $s_B = \\frac{1}{2} a_B t^2 = \\frac{1}{2} (4) t^2 = 2 t^2$\n3. **Penyelesaian Aljabar:**\n   $$2 t^2 = 20 t \\implies 2 t (t - 10) = 0$$\n   Karena $t > 0$, maka $t = 10\\text{ s}$.\n4. **Jarak Tempuh:**\n   $$s = 20(10) = 200\\text{ m}$$\n   Mobil $B$ menyusul mobil $A$ setelah **$10\\text{ detik}$** pada jarak **$200\\text{ meter}$**.\n\n---\n\n### Soal 3: Gerak Parabola — Jarak dan Ketinggian\n> [!EXAMPLE]\n> Sebuah peluru ditembakkan dengan kecepatan awal $v_0 = 50\\text{ m/s}$ dan sudut elevasi $\\theta = 37^\\circ$ ($\\sin 37^\\circ = 0{,}6$; $\\cos 37^\\circ = 0{,}8$; $g = 10\\text{ m/s}^2$). Tentukan:\n> 1. Tinggi maksimum peluru ($h_{\\max}$)\n> 2. Jarak jangkauan horizontal terjauh ($X_{\\max}$)\n\n#### Pembahasan:\n1. **Tinggi Maksimum:**\n   $$h_{\\max} = \\frac{v_0^2 \\sin^2\\theta}{2g} = \\frac{(50)^2 (0{,}6)^2}{2(10)} = \\frac{2500 \\times 0{,}36}{20} = \\frac{900}{20} = 45\\text{ m}$$\n2. **Jarak Terjauh:**\n   $$X_{\\max} = \\frac{v_0^2 \\sin 2\\theta}{g} = \\frac{v_0^2 (2 \\sin\\theta \\cos\\theta)}{g} = \\frac{2500 \\times 2 \\times 0{,}6 \\times 0{,}8}{10} = 250 \\times 0{,}96 = 240\\text{ m}$$\n"
+    "babJudul": "Variasi Contoh Soal — Pengukuran dan Ketelitian Alat Ukur",
+    "content": "# Variasi Contoh Soal — Pengukuran dan Ketelitian Alat Ukur\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n### Contoh Soal 1: Pembacaan Jangka Sorong\nPengukuran diameter kelereng dengan jangka sorong menunjukkan skala utama $2{,}4\\text{ cm}$ dan garis nonius ke-7 berimpit tepat dengan garis skala utama. Jika jangka sorong memiliki ketelitian $0{,}05\\text{ mm}$, berapakah diameter kelereng tersebut?\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Identifikasi data:\n> * Skala Utama (SU) $= 2{,}4\\text{ cm} = 24{,}0\\text{ mm}$\n> * Skala Nonius $(\\text{SN}) = 7$\n> * $\\text{NST} = 0{,}05\\text{ mm}$\n>\n> **Langkah 2:** Hitung nilai nonius:\n> $$\\text{Nilai Nonius} = 7 \\times 0{,}05\\text{ mm} = 0{,}35\\text{ mm}$$\n>\n> **Langkah 3:** Jumlahkan SU dan nilai nonius:\n> $$\\text{Hasil} = 24{,}0\\text{ mm} + 0{,}35\\text{ mm} = 24{,}35\\text{ mm} = 2{,}435\\text{ cm}$$\n>\n> **Jawaban:** $24{,}35\\text{ mm}$ atau $2{,}435\\text{ cm}$.\n\n---\n\n### Contoh Soal 2: Operasi Hitung Angka Penting\nPanjang dan lebar pelat seng berturut-turut diukur sebesar $15{,}35\\text{ cm}$ dan $2{,}4\\text{ cm}$. Berdasarkan aturan angka penting, luas pelat tersebut adalah...\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung perkalian matematis murni:\n> $$\\text{Luas} = 15{,}35 \\times 2{,}4 = 36{,}84\\text{ cm}^2$$\n>\n> **Langkah 2:** Analisis jumlah angka penting:\n> * $15{,}35$ memiliki 4 AP\n> * $2{,}4$ memiliki 2 AP\n> Hasil perkalian harus dibulatkan hingga memiliki 2 angka penting.\n>\n> **Langkah 3:** Pembulatan ke 2 AP:\n> Angka $36{,}84$ dibulatkan menjadi $37\\text{ cm}^2$.\n>\n> **Jawaban:** $37\\text{ cm}^2$.\n"
   },
   {
     "id": "tka-fis-rg-01",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 1: Kinematika",
+    "blok": "Kinematika",
     "tipe": "rangkuman",
     "babIndex": 1,
-    "babJudul": "1. Rangkuman Rumus & Konsep — Kinematika",
-    "content": "# Rangkuman Rumus & Konsep — Kinematika\n**Kategori:** TKA Fisika | **Blok:** Blok 1: Kinematika\n\n| Besaran / Konsep | Rumus Utama | Keterangan & Catatan |\n| :--- | :--- | :--- |\n| **Jangka Sorong** | $\\text{Hasil} = \\text{SU} + (\\text{SN} \\times \\text{NST})$ | $\\text{NST} = 0{,}1\\text{ mm}$ atau $0{,}05\\text{ mm}$ |\n| **Mikrometer Sekrup**| $\\text{Hasil} = \\text{SU} + (\\text{SP} \\times 0{,}01\\text{ mm})$| $\\text{NST} = 0{,}01\\text{ mm}$ |\n| **Neraca Tiga Lengan**| $m_{\\text{tot}} = m_1 + m_2 + m_3$ | Jumlahkan skala dari ketiga lengan |\n| **GLB** | $s = v \\cdot t$ | Kecepatan konstan ($a = 0$) |\n| **GLBB Kecepatan** | $v_t = v_0 + at$ | $a > 0$ dipercepat, $a < 0$ diperlambat |\n| **GLBB Posisi** | $s = v_0 t + \\frac{1}{2}at^2$ | $s$ = jarak tempuh |\n| **GLBB Tanpa Waktu**| $v_t^2 = v_0^2 + 2as$ | Eliminasi variabel waktu $t$ |\n| **Parabola Tinggi Maks** | $h_{\\max} = \\frac{v_0^2 \\sin^2\\theta}{2g}$ | Tercapai saat $v_y = 0$ |\n| **Parabola Jangkauan** | $X_{\\max} = \\frac{v_0^2 \\sin 2\\theta}{g}$ | Maksimum mutlak pada $\\theta = 45^\\circ$ |\n| **GMB Hubungan Linier**| $v = \\omega \\cdot r$ | $\\omega = 2\\pi f = \\frac{2\\pi}{T}$ |\n| **Percepatan Sentripetal**| $a_s = \\frac{v^2}{r} = \\omega^2 r$ | Selalu tegak lurus kecepatan linier ke pusat |\n"
+    "babJudul": "Rangkuman Rumus Cepat — Pengukuran dan Ketelitian Alat Ukur",
+    "content": "# Rangkuman Rumus Cepat — Pengukuran\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n| Alat Ukur | Skala Utama (SU) | Nilai Skala Terkecil (NST) | Formula Pembacaan |\n| :--- | :--- | :--- | :--- |\n| **Jangka Sorong** | $\\text{cm}$ / $\\text{mm}$ | $0{,}1\\text{ mm}$ / $0{,}05\\text{ mm}$ | $\\text{SU} + (\\text{garis nonius} \\times \\text{NST})$ |\n| **Mikrometer Sekrup** | $\\text{mm}$ (sleeve) | $0{,}01\\text{ mm}$ (thimble) | $\\text{SU} + (\\text{skala putar} \\times 0{,}01\\text{ mm})$ |\n| **Neraca Tiga Lengan** | Gram (g) | $0{,}1\\text{ g}$ | Lengan Belakang + Tengah + Depan |\n\n> [!TIP] Ringkasan Cepat Angka Penting:\n> * **Perkalian/Pembagian:** Ikuti jumlah AP tersedikit dari komponen.\n> * **Penjumlahan/Pengurangan:** Ikuti jumlah desimal (angka di belakang koma) tersedikit.\n> * **Ketidakpastian Tunggal:** $\\Delta x = \\frac{1}{2} \\times \\text{NST}$.\n"
   },
   {
     "id": "tka-fis-mat-02",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 2: Dinamika",
+    "blok": "Kinematika",
     "tipe": "materi",
     "babIndex": 2,
-    "babJudul": "2. Dinamika",
-    "content": "# Bab 2: Dinamika\n**Kategori:** TKA Fisika | **Blok:** Blok 2: Dinamika\n\n## Pendahuluan Dinamika\nDinamika adalah cabang mekanika yang mempelajari hubungan timbal-balik antara gaya yang bekerja pada suatu benda dengan gerak yang dihasilkannya, meliputi gerak translasi partikel maupun rotasi benda tegar.\n\n---\n\n### A. Hubungan Gaya dan Gerak (Hukum Newton)\n\n#### 1. Tiga Hukum Fundamental Newton\n* **Hukum I Newton (Kelembaman/Inersia):**\n  Jika resultan gaya yang bekerja pada benda sama dengan nol, benda yang diam akan tetap diam, dan benda yang bergerak lurus beraturan akan tetap bergerak dengan kecepatan konstan:\n  $$\\Sigma \\vec{F} = 0 \\iff \\vec{a} = 0$$\n* **Hukum II Newton:**\n  Percepatan yang dialami suatu benda berbanding lurus dengan resultan gaya total yang bekerja padanya dan berbanding terbalik dengan massa kelembamannya:\n  $$\\Sigma \\vec{F} = m \\vec{a}$$\n* **Hukum III Newton (Aksi - Reaksi):**\n  Jika benda $A$ mengerjakan gaya $\\vec{F}_{AB}$ pada benda $B$, maka benda $B$ akan mengerjakan gaya $\\vec{F}_{BA}$ pada benda $A$ yang sama besar tetapi berlawanan arah:\n  $$\\vec{F}_{\\text{aksi}} = -\\vec{F}_{\\text{reaksi}}$$\n  > Pasangan aksi-reaksi bekerja pada **dua benda yang berbeda**, segaris kerja, serentak, dan tidak saling meniadakan.\n\n#### 2. Penguraian Diagram Gaya Bebas (Free Body Diagram)\n* **Gaya Berat ($w$):** Selalu berarah tegak lurus ke bawah menuju pusat bumi: $w = m \\cdot g$.\n* **Gaya Normal ($N$):** Gaya kontak permukaan yang tegak lurus bidang sentuh:\n  * Pada bidang datar horizontal: $N = w = mg$.\n  * Pada bidang miring bersudut $\\theta$: $N = mg \\cos\\theta$.\n* **Gaya Gesek:**\n  * **Gaya Gesek Statis ($f_s$):** Menahan benda agar tetap diam: $f_{s,\\max} = \\mu_s N$. Benda mulai tepat akan bergerak jika $F_{\\text{tarik}} = f_{s,\\max}$.\n  * **Gaya Gesek Kinetis ($f_k$):** Bekerja saat benda sudah bergerak meluncur: $f_k = \\mu_k N$ (berlaku $\\mu_k < \\mu_s$).\n* **Gaya Tegangan Tali ($T$):** Gaya tarikan sepanjang tali lentur yang massanya diabaikan.\n\n---\n\n### B. Momentum dan Impuls\n\n#### 1. Konsep Momentum dan Impuls\n* **Momentum Linier ($\\vec{p}$):** Ukuran kesukaran untuk menghentikan benda yang sedang bergerak (vektor):\n  $$\\vec{p} = m \\vec{v}$$\n* **Impuls ($\\vec{I}$):** Hasil kali gaya rata-rata dengan selang waktu sentuhan:\n  $$\\vec{I} = \\vec{F} \\Delta t = \\int_{t_1}^{t_2} \\vec{F}(t) dt$$\n* **Teorema Impuls-Momentum:**\n  Impuls yang dikerjakan pada benda sama dengan perubahan momentum benda tersebut:\n  $$\\vec{I} = \\Delta \\vec{p} = m \\vec{v}' - m \\vec{v}$$\n\n#### 2. Hukum Kekekalan Momentum Linier\nJika tidak ada gaya luar netto yang bekerja pada sistem ($\\Sigma \\vec{F}_{\\text{luar}} = 0$):\n$$m_1 \\vec{v}_1 + m_2 \\vec{v}_2 = m_1 \\vec{v}_1' + m_2 \\vec{v}_2'$$\n\n#### 3. Klasifikasi Peristiwa Tumbukan\nKoefisien restitusi ($e$):\n$$e = -\\frac{v_1' - v_2'}{v_1 - v_2}$$\n* **Tumbukan Lenting Sempurna ($e = 1$):** Berlaku hukum kekekalan momentum dan kekekalan energi kinetik ($EK_{\\text{awal}} = EK_{\\text{akhir}}$).\n* **Tumbukan Lenting Sebagian ($0 < e < 1$):** Berlaku hukum kekekalan momentum, tetapi terjadi pengurangan energi kinetik menjadi energi kalor/bunyi.\n* **Tumbukan Tidak Lenting Sama Sekali ($e = 0$):** Kedua benda menyatu dan bergerak dengan kecepatan bersama ($v_1' = v_2' = v'$).\n\n---\n\n### C. Dinamika Rotasi Benda Tegar\n\n#### 1. Momen Gaya / Torsi ($\\vec{\\tau}$)\nUkuran keefektifan gaya dalam memutar benda terhadap poros putar tertentu:\n$$\\tau = r \\cdot F \\sin\\theta$$\n* $r$ = lengan gaya (jarak poros ke garis kerja gaya).\n* Satuan torsi adalah $\\text{N}\\cdot\\text{m}$.\n\n#### 2. Momen Inersia ($I$)\nUkuran kelembaman benda untuk mempertahankan keadaan rotasinya terhadap poros tertentu:\n$$I = \\sum m_i r_i^2 = \\int r^2 dm$$\n* **Benda Tegar Homogen Standar:**\n  * Silinder pejal (poros sumbu): $I = \\frac{1}{2} M R^2$\n  * Silinder tipis berongga: $I = M R^2$\n  * Bola pejal (poros diameter): $I = \\frac{2}{5} M R^2$\n  * Bola berongga tipis: $I = \\frac{2}{3} M R^2$\n  * Batang silinder homogen (poros di pusat massa): $I = \\frac{1}{12} M L^2$\n  * Batang silinder homogen (poros di salah satu ujung): $I = \\frac{1}{3} M L^2$\n* **Teorema Sumbu Sejajar:**\n  $$I = I_{\\text{pm}} + M d^2$$\n\n#### 3. Hukum II Newton untuk Gerak Rotasi\nAnalog dengan gerak translasi:\n$$\\Sigma \\tau = I \\alpha$$\n* $\\alpha$ = percepatan sudut ($\\text{rad/s}^2$).\n\n#### 4. Momentum Sudut dan Energi Kinetik Menggelinding\n* **Momentum Sudut ($L$):**\n  $$L = I \\omega$$\n  * **Hukum Kekekalan Momentum Sudut:** Jika torsi luar netto nol ($\\Sigma \\tau = 0$), maka $I_1 \\omega_1 = I_2 \\omega_2$.\n* **Energi Kinetik Total Benda Menggelinding Murni:**\n  $$EK_{\\text{total}} = EK_{\\text{translasi}} + EK_{\\text{rotasi}} = \\frac{1}{2} M v^2 + \\frac{1}{2} I \\omega^2$$\n"
+    "babJudul": "Gerak Lurus (GLB dan GLBB)",
+    "content": "# Gerak Lurus (GLB dan GLBB)\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n## A. Besaran Kinematika Gerak Lurus\n1. **Posisi & Perpindahan:** Perpindahan ($\\Delta \\vec{x} = \\vec{x}_2 - \\vec{x}_1$) adalah besaran vektor yang merepresentasikan perubahan kedudukan, sedangkan jarak ($s$) adalah panjang total lintasan fisik riil (skalar).\n2. **Kelajuan vs Kecepatan:**\n   * Kelajuan rata-rata (skalar): $v = \\frac{s_{\\text{total}}}{\\Delta t}$\n   * Kecepatan rata-rata (vektor): $\\vec{v} = \\frac{\\Delta \\vec{x}}{\\Delta t}$\n   * Kecepatan sesaat: $\\vec{v}(t) = \\frac{d\\vec{x}}{dt}$\n3. **Percepatan:** Perubahan kecepatan tiap satuan waktu: $\\vec{a}(t) = \\frac{d\\vec{v}}{dt} = \\frac{d^2\\vec{x}}{dt^2}$.\n\n---\n\n## B. Gerak Lurus Beraturan (GLB)\nBenda bergerak lurus dengan **kecepatan konstan** (percepatan $a = 0$):\n$$x(t) = x_0 + v \\cdot t$$\n* **Grafik $v-t$:** Garis horizontal mendatar. Luas daerah di bawah kurva $v-t$ sama dengan jarak perpindahan.\n* **Grafik $x-t$:** Garis lurus linier dengan gradien kemiringan $\\tan\\alpha = v$.\n\n---\n\n## C. Gerak Lurus Berubah Beraturan (GLBB)\nBenda bergerak lurus dengan **percepatan tetap** ($a = \\text{konstan}$):\n$$v_t = v_0 + a t$$\n$$s = v_0 t + \\frac{1}{2} a t^2$$\n$$v_t^2 = v_0^2 + 2 a s$$\n* Jika percepatan searah kecepatan ($a > 0$), gerak dipercepat beraturan.\n* Jika percepatan berlawanan arah kecepatan ($a < 0$), gerak diperlambat hingga berhenti ($v_t = 0$).\n\n### Kasus Khusus Gerak Vertikal (Pengaruh Gravitasi $g$):\n1. **Gerak Jatuh Bebas (GJB):** $v_0 = 0, a = +g$\n   $$v_t = gt, \\quad h = \\frac{1}{2}gt^2, \\quad v_t = \\sqrt{2gh}$$\n2. **Gerak Vertikal ke Atas (GVA):** $a = -g$\n   $$h_{\\max} = \\frac{v_0^2}{2g}, \\quad t_{\\text{puncak}} = \\frac{v_0}{g}, \\quad t_{\\text{total}} = \\frac{2v_0}{g}$$\n"
   },
   {
     "id": "tka-fis-cs-02",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 2: Dinamika",
+    "blok": "Kinematika",
     "tipe": "contoh-soal",
     "babIndex": 2,
-    "babJudul": "2. Variasi Contoh Soal — Dinamika",
-    "content": "# Variasi Contoh Soal — Dinamika\n**Kategori:** TKA Fisika | **Blok:** Blok 2: Dinamika\n\n---\n\n### Soal 1: Balok pada Bidang Miring Kasar\n> [!EXAMPLE]\n> Sebuah balok bermassa $m = 4\\text{ kg}$ diletakkan pada bidang miring dengan kemiringan $\\theta = 30^\\circ$ terhadap horizontal. Koefisien gesekan kinetik antara balok dan bidang adalah $\\mu_k = 0{,}2$. Jika percepatan gravitasi $g = 10\\text{ m/s}^2$, tentukan percepatan balok saat meluncur ke bawah!\n\n#### Pembahasan:\n1. **Analisis Komponen Gaya:**\n   * Gaya sejajar bidang: $F_{\\parallel} = mg \\sin 30^\\circ = 4(10)(0{,}5) = 20\\text{ N}$\n   * Gaya normal: $N = mg \\cos 30^\\circ = 4(10)\\left(\\frac{1}{2}\\sqrt{3}\\right) = 20\\sqrt{3}\\text{ N} \\approx 34{,}64\\text{ N}$\n2. **Gaya Gesek Kinetis:**\n   $$f_k = \\mu_k N = 0{,}2 \\times 20\\sqrt{3} = 4\\sqrt{3}\\text{ N} \\approx 6{,}93\\text{ N}$$\n3. **Hukum II Newton:**\n   $$\\Sigma F = ma \\implies mg \\sin 30^\\circ - f_k = m a$$\n   $$20 - 4\\sqrt{3} = 4 a \\implies a = 5 - \\sqrt{3} \\approx 3{,}27\\text{ m/s}^2$$\n\n---\n\n### Soal 2: Tumbukan Lenting Sempurna 1 Dimensi\n> [!EXAMPLE]\n> Benda $A$ bermassa $2\\text{ kg}$ bergerak dengan kecepatan $6\\text{ m/s}$ ke kanan menabrak benda $B$ bermassa $3\\text{ kg}$ yang sedang diam. Jika tumbukan bersifat lenting sempurna ($e = 1$), hitunglah kecepatan masing-masing benda setelah tumbukan!\n\n#### Pembahasan:\n1. **Hukum Kekekalan Momentum:**\n   $$m_A v_A + m_B v_B = m_A v_A' + m_B v_B'$$\n   $$2(6) + 3(0) = 2 v_A' + 3 v_B' \\implies 2 v_A' + 3 v_B' = 12 \\quad \\text{--- (1)}$$\n2. **Koefisien Restitusi ($e = 1$):**\n   $$e = -\\frac{v_A' - v_B'}{v_A - v_B} = 1 \\implies -(v_A' - v_B') = 6 - 0 \\implies v_B' - v_A' = 6 \\implies v_B' = v_A' + 6 \\quad \\text{--- (2)}$$\n3. **Substitusi (2) ke (1):**\n   $$2 v_A' + 3(v_A' + 6) = 12 \\implies 5 v_A' + 18 = 12 \\implies 5 v_A' = -6 \\implies v_A' = -1{,}2\\text{ m/s}$$\n   $$v_B' = -1{,}2 + 6 = 4{,}8\\text{ m/s}$$\n   Benda $A$ memantul ke kiri dengan kelajuan **$1{,}2\\text{ m/s}$**, dan benda $B$ bergerak ke kanan dengan kelajuan **$4{,}8\\text{ m/s}$**.\n\n---\n\n### Soal 3: Silinder Pejal Menggelinding Menuruni Bidang Miring\n> [!EXAMPLE]\n> Sebuah silinder pejal homogen ($I = \\frac{1}{2} M R^2$) dilepaskan dari puncak bidang miring setinggi $h = 3\\text{ meter}$ tanpa kecepatan awal dan menggelinding murni tanpa slip. Tentukan kelajuan silinder di dasar bidang miring ($g = 10\\text{ m/s}^2$)!\n\n#### Pembahasan:\n1. **Hukum Kekekalan Energi Mekanik:**\n   $$E_{\\text{puncak}} = E_{\\text{dasar}} \\implies M g h = \\frac{1}{2} M v^2 + \\frac{1}{2} I \\omega^2$$\n2. **Kondisi Tanpa Slip:** $\\omega = \\frac{v}{R}$ dan $I = \\frac{1}{2}MR^2$:\n   $$M g h = \\frac{1}{2} M v^2 + \\frac{1}{2}\\left(\\frac{1}{2} M R^2\\right)\\left(\\frac{v}{R}\\right)^2 = \\frac{1}{2} M v^2 + \\frac{1}{4} M v^2 = \\frac{3}{4} M v^2$$\n3. **Penyelesaian Kecepatan:**\n   $$g h = \\frac{3}{4} v^2 \\implies v = \\sqrt{\\frac{4}{3} g h} = \\sqrt{\\frac{4}{3} (10)(3)} = \\sqrt{40} = 2\\sqrt{10}\\text{ m/s} \\approx 6{,}32\\text{ m/s}$$\n"
+    "babJudul": "Variasi Contoh Soal — Gerak Lurus (GLB dan GLBB)",
+    "content": "# Variasi Contoh Soal — Gerak Lurus (GLB dan GLBB)\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n### Contoh Soal 1: Pengejaran Dua Mobil (GLB & GLBB)\nMobil A bergerak dengan kecepatan tetap $20\\text{ m/s}$. Dari titik yang sama, mobil B mulai bergerak dari keadaan diam dengan percepatan tetap $4\\text{ m/s}^2$ ke arah yang sama. Kapan dan pada jarak berapa mobil B menyusul mobil A?\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Persamaan posisi kedua mobil:\n> * Mobil A (GLB): $x_A = v_A \\cdot t = 20t$\n> * Mobil B (GLBB): $x_B = v_{0B}t + \\frac{1}{2}a_B t^2 = 0 + \\frac{1}{2}(4)t^2 = 2t^2$\n>\n> **Langkah 2:** Kondisi menyusul ($x_A = x_B$):\n> $$20t = 2t^2 \\implies 2t^2 - 20t = 0 \\implies 2t(t - 10) = 0$$\n> Diperoleh $t = 10\\text{ detik}$ (saat $t=0$ posisi awal bersamaan).\n>\n> **Langkah 3:** Hitung jarak tempuh saat menyusul:\n> $$x = 20 \\times 10 = 200\\text{ meter}$$\n>\n> **Jawaban:** Mobil B menyusul setelah $10\\text{ detik}$ pada jarak $200\\text{ meter}$.\n\n---\n\n### Contoh Soal 2: Gerak Vertikal ke Atas\nSebuah bola dilempar vertikal ke atas dengan kelajuan awal $30\\text{ m/s}$. Jika $g = 10\\text{ m/s}^2$, tentukan tinggi maksimum dan kelajuan bola saat berada di ketinggian $25\\text{ meter}$ di atas tanah!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung tinggi maksimum:\n> $$h_{\\max} = \\frac{v_0^2}{2g} = \\frac{30^2}{2(10)} = \\frac{900}{20} = 45\\text{ meter}$$\n>\n> **Langkah 2:** Hitung kelajuan pada ketinggian $h = 25\\text{ m}$:\n> $$v_t^2 = v_0^2 - 2gh = 30^2 - 2(10)(25) = 900 - 500 = 400$$\n> $$v_t = \\sqrt{400} = 20\\text{ m/s}$$\n>\n> **Jawaban:** Tinggi maksimum $45\\text{ meter}$ dan kelajuan pada $25\\text{ m}$ adalah $20\\text{ m/s}$.\n"
   },
   {
     "id": "tka-fis-rg-02",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 2: Dinamika",
+    "blok": "Kinematika",
     "tipe": "rangkuman",
     "babIndex": 2,
-    "babJudul": "2. Rangkuman Rumus & Konsep — Dinamika",
-    "content": "# Rangkuman Rumus & Konsep — Dinamika\n**Kategori:** TKA Fisika | **Blok:** Blok 2: Dinamika\n\n| Konsep | Rumus Utama | Syarat & Catatan |\n| :--- | :--- | :--- |\n| **Hukum I Newton** | $\\Sigma F = 0 \\iff a = 0$ | Sistem seimbang / GLB |\n| **Hukum II Newton** | $\\Sigma F = m a$ | Arah $a$ searah $\\Sigma F$ |\n| **Hukum III Newton** | $F_{\\text{aksi}} = -F_{\\text{reaksi}}$ | 2 benda berbeda, sama besar, berlawanan arah |\n| **Gaya Gesek Statis** | $f_s \\le \\mu_s N$ | Maksimum tercapai saat tepat akan bergerak |\n| **Gaya Gesek Kinetis**| $f_k = \\mu_k N$ | Berlaku saat benda meluncur |\n| **Impuls & Momentum** | $I = F\\Delta t = \\Delta p$ | $\\Delta p = m v' - m v$ |\n| **Kekekalan Momentum**| $m_1 v_1 + m_2 v_2 = m_1 v_1' + m_2 v_2'$ | Berlaku jika $\\Sigma F_{\\text{luar}} = 0$ |\n| **Koefisien Restitusi**| $e = -\\frac{v_1' - v_2'}{v_1 - v_2}$ | $e=1$ (lenting sempurna), $e=0$ (tidak lenting) |\n| **Momen Gaya (Torsi)**| $\\tau = r F \\sin\\theta$ | Lengan momen $r$, tegak lurus |\n| **Hukum Newton Rotasi**| $\\Sigma \\tau = I \\alpha$ | $\\alpha$ percepatan sudut |\n| **Silinder Pejal** | $I = \\frac{1}{2} M R^2$ | Poros sumbu utama |\n| **Bola Pejal** | $I = \\frac{2}{5} M R^2$ | Poros pusat bola |\n| **Kekekalan Momentum Sudut**| $I_1 \\omega_1 = I_2 \\omega_2$ | Jika $\\Sigma \\tau = 0$ |\n"
+    "babJudul": "Rangkuman Rumus Cepat — Gerak Lurus (GLB dan GLBB)",
+    "content": "# Rangkuman Rumus Cepat — Gerak Lurus\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n| Jenis Gerak | Syarat / Ciri | Rumus Utama |\n| :--- | :--- | :--- |\n| **GLB** | $a = 0, v = \\text{tetap}$ | $s = v \\cdot t$ |\n| **GLBB** | $a = \\text{konstan}$ | $v_t = v_0 + at$ <br> $s = v_0 t + \\frac{1}{2}at^2$ <br> $v_t^2 = v_0^2 + 2as$ |\n| **Jatuh Bebas** | $v_0 = 0, a = g$ | $v = \\sqrt{2gh}, \\quad t = \\sqrt{\\frac{2h}{g}}$ |\n| **Vertikal ke Atas** | $a = -g, v_{\\text{puncak}} = 0$ | $h_{\\max} = \\frac{v_0^2}{2g}, \\quad t_{\\text{naik}} = \\frac{v_0}{g}$ |\n\n> [!TIP] Trik Cepat Grafik:\n> * Luas di bawah kurva grafik $v-t$ = Perpindahan / Jarak Tempuh ($s$).\n> * Kemiringan kurva grafik $v-t$ (gradien) = Percepatan ($a = \\Delta v / \\Delta t$).\n"
   },
   {
     "id": "tka-fis-mat-03",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 3: Fluida",
+    "blok": "Kinematika",
     "tipe": "materi",
     "babIndex": 3,
-    "babJudul": "3. Fluida",
-    "content": "# Bab 3: Fluida\n**Kategori:** TKA Fisika | **Blok:** Blok 3: Fluida\n\n## Pendahuluan Fluida\nFluida adalah zat alir yang tidak mampu menahan tegangan geser ketika diam, mencakup cairan (*liquid*) dan gas. Studi fluida dibagi menjadi fluida statis (kondisi diam) dan fluida dinamis (kondisi mengalir).\n\n---\n\n### A. Fluida Statis\n\n#### 1. Tekanan Hidrostatis dan Tekanan Mutlak\nTekanan adalah gaya per satuan luas ($P = \\frac{F}{A}$).\n* **Tekanan Hidrostatis ($P_h$):** Tekanan yang dihasilkan oleh berat kolom zat cair diam di atas kedalaman $h$:\n  $$P_h = \\rho \\cdot g \\cdot h$$\n  * $\\rho$ = massa jenis fluida ($\\text{kg/m}^3$)\n  * $h$ = kedalaman titik diukur dari permukaan zat cair ($\\text{m}$)\n* **Hukum Utama Hidrostatis:** Semua titik yang berada pada bidang datar horizontal yang sama di dalam zat cair sejenis yang diam memiliki tekanan hidrostatis yang identik.\n* **Tekanan Mutlak / Total ($P$):** Menghitung tekanan udara atmosfer luar ($P_0 \\approx 1{,}013 \\times 10^5\\text{ Pa} = 1\\text{ atm}$):\n  $$P = P_0 + \\rho g h$$\n\n#### 2. Hukum Pascal\n* **Bunyi:** Tekanan yang diberikan pada zat cair dalam ruang tertutup akan diteruskan ke segala arah dengan sama besar.\n  $$P_1 = P_2 \\implies \\frac{F_1}{A_1} = \\frac{F_2}{A_2}$$\n* **Aplikasi:** Dongkrak hidrolik, rem hidrolik mobil, alat pres hidrolik.\n\n#### 3. Hukum Archimedes dan Keadaan Benda\n* **Bunyi:** Suatu benda yang dicelupkan sebagian atau seluruhnya ke dalam fluida akan mengalami gaya ke atas (gaya apung, $F_a$) yang besarnya sama dengan berat fluida yang dipindahkan oleh benda tersebut:\n  $$F_a = \\rho_f \\cdot V_{bf} \\cdot g$$\n  * $\\rho_f$ = massa jenis fluida\n  * $V_{bf}$ = volume bagian benda yang tercelup ke dalam fluida\n* **Keadaan Benda di Dalam Fluida:**\n  1. **Terapung:** $F_a = W_b \\iff \\rho_b < \\rho_f$. Volume tercelup: $\\frac{V_{bf}}{V_b} = \\frac{\\rho_b}{\\rho_f}$.\n  2. **Melayang:** $F_a = W_b \\iff \\rho_b = \\rho_f$. Benda berada sembarang di dalam zat cair.\n  3. **Tenggelam:** $F_a < W_b \\iff \\rho_b > \\rho_f$. Benda jatuh hingga menyentuh dasar wadah, berlaku gaya normal dasar: $N = W_b - F_a$.\n\n---\n\n### B. Fluida Dinamis\n\n#### 1. Karakteristik Fluida Ideal\nFluida ideal adalah penyederhanaan model teoritis dengan sifat:\n1. **Inkompresibel (tak termampatkan):** Massa jenis fluida konstan sepanjang aliran.\n2. **Non-viskos (tanpa gesekan internal):** Tidak mengalami viskositas.\n3. **Aliran Stasioner (Steady Streamline):** Kecepatan partikel pada setiap titik tetap terhadap waktu.\n4. **Aliran Non-rotasional:** Partikel fluida tidak mengalami pusaran putaran di sekitar porosnya.\n\n#### 2. Persamaan Kontinuitas dan Debit\n* **Debit Aliran ($Q$):** Volume fluida yang mengalir melintasi suatu penampang tiap satuan waktu:\n  $$Q = \\frac{V}{t} = A \\cdot v$$\n* **Persamaan Kontinuitas:** Pada aliran fluida tak termampatkan, debit di penampang manapun selalu konstan:\n  $$A_1 v_1 = A_2 v_2 = \\text{konstan}$$\n  > Jika luas penampang mengecil, kelajuan fluida bertambah sebanding ($v \\propto \\frac{1}{A}$).\n\n#### 3. Persamaan Bernoulli\nMerupakan perwujudan hukum kekekalan energi mekanik pada fluida yang mengalir:\n$$P_1 + \\frac{1}{2} \\rho v_1^2 + \\rho g h_1 = P_2 + \\frac{1}{2} \\rho v_2^2 + \\rho g h_2 = \\text{konstan}$$\n\n#### 4. Penerapan Prinsip Bernoulli\n* **Teorema Torricelli (Tangki Bocor):**\n  Kelajuan pancaran fluida dari lubang kebocoran pada kedalaman $h$ dari permukaan bebas:\n  $$v = \\sqrt{2gh}$$\n  Waktu jatuh air ke tanah dari ketinggian lubang $H$: $t = \\sqrt{\\frac{2H}{g}}$, jarak pancaran mendatar: $x = 2\\sqrt{h H}$.\n* **Venturimeter Tanpa Manometer:**\n  $$v_1 = \\sqrt{\\frac{2gh}{\\left(\\frac{A_1}{A_2}\\right)^2 - 1}}$$\n* **Gaya Angkat Sayap Pesawat Terbang:**\n  Penampang sayap pesawat aerofoil dirancang agar udara di bagian atas mengalir lebih cepat dibanding bagian bawah ($v_{\\text{atas}} > v_{\\text{bawah}}$), menghasilkan tekanan di bawah lebih besar ($P_{\\text{bawah}} > P_{\\text{atas}}$):\n  $$F_{\\text{angkat}} = (P_{\\text{bawah}} - P_{\\text{atas}}) A = \\frac{1}{2} \\rho_{\\text{udara}} (v_{\\text{atas}}^2 - v_{\\text{bawah}}^2) A$$\n"
+    "babJudul": "Gerak Lengkung (Parabola dan Melingkar)",
+    "content": "# Gerak Lengkung (Parabola dan Melingkar)\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n## A. Gerak Parabola (Proyektil)\nGerak parabola merupakan perpaduan dua gerak independen:\n1. **Sumbu Horizontal ($x$):** Gerak Lurus Beraturan (GLB) tanpa hambatan udara ($a_x = 0$):\n   $$v_x = v_0 \\cos\\theta$$\n   $$x(t) = (v_0 \\cos\\theta) t$$\n2. **Sumbu Vertikal ($y$):** Gerak Lurus Berubah Beraturan (GLBB) dipengaruhi gravitasi bumi ($a_y = -g$):\n   $$v_y(t) = v_0 \\sin\\theta - gt$$\n   $$y(t) = (v_0 \\sin\\theta) t - \\frac{1}{2}gt^2$$\n3. **Kecepatan Total pada Saat $t$:**\n   $$v(t) = \\sqrt{v_x^2 + v_y^2(t)}, \\quad \\tan\\alpha = \\frac{v_y}{v_x}$$\n4. **Karakteristik Titik Puncak ($v_y = 0$):**\n   $$t_{\\text{puncak}} = \\frac{v_0 \\sin\\theta}{g}, \\quad h_{\\max} = \\frac{v_0^2 \\sin^2\\theta}{2g}$$\n5. **Titik Terjauh di Bidang Datar ($y = 0$):**\n   $$t_{\\text{total}} = \\frac{2 v_0 \\sin\\theta}{g}, \\quad X_{\\max} = \\frac{v_0^2 \\sin 2\\theta}{g}$$\n   > Sudut elevasi $\\theta = 45^\\circ$ menghasilkan jangkauan terjauh maksimum karena $\\sin 2(45^\\circ) = 1$.\n\n---\n\n## B. Gerak Melingkar Beraturan (GMB)\nGerak benda menempuh lintasan lingkaran dengan kelajuan linier dan kelajuan sudut konstan.\n1. **Periode ($T$) dan Frekuensi ($f$):**\n   $$T = \\frac{t}{n}, \\quad f = \\frac{1}{T}, \\quad \\omega = 2\\pi f = \\frac{2\\pi}{T}$$\n2. **Hubungan Besaran Sudut dan Linier:**\n   $$s = \\theta \\cdot R, \\quad v = \\omega \\cdot R, \\quad a_t = \\alpha \\cdot R$$\n3. **Percepatan Sentripetal ($a_s$):**\n   Percepatan yang selalu mengarah tegak lurus ke pusat lingkaran untuk mengubah arah gerak:\n   $$a_s = \\frac{v^2}{R} = \\omega^2 R$$\n4. **Hubungan Roda-Roda:**\n   * **Seporos / Seakar:** $\\omega_A = \\omega_B \\implies \\frac{v_A}{R_A} = \\frac{v_B}{R_B}$\n   * **Bersinggungan / Dihubungkan Rantai:** $v_A = v_B \\implies \\omega_A R_A = \\omega_B R_B$\n"
   },
   {
     "id": "tka-fis-cs-03",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 3: Fluida",
+    "blok": "Kinematika",
     "tipe": "contoh-soal",
     "babIndex": 3,
-    "babJudul": "3. Variasi Contoh Soal — Fluida",
-    "content": "# Variasi Contoh Soal — Fluida\n**Kategori:** TKA Fisika | **Blok:** Blok 3: Fluida\n\n---\n\n### Soal 1: Benda Terapung pada Dua Lapisan Zat Cair\n> [!EXAMPLE]\n> Sebuah balok kayu dengan massa jenis $\\rho_b = 800\\text{ kg/m}^3$ dan volume total $V = 1000\\text{ cm}^3$ dimasukkan ke dalam bejana yang berisi minyak ($\\rho_m = 700\\text{ kg/m}^3$) dan air ($\\rho_a = 1000\\text{ kg/m}^3$). Jika minyak dan air tidak bercampur, dan balok berada pada perbatasan cairan, tentukan volume balok yang tercelup di dalam air!\n\n#### Pembahasan:\n1. **Kondisi Keseimbangan Apung:**\n   Gaya apung total dari air dan minyak menahan berat balok:\n   $$F_{a,\\text{total}} = W_b \\implies \\rho_a V_a g + \\rho_m V_m g = \\rho_b V_b g$$\n   $$\\rho_a V_a + \\rho_m V_m = \\rho_b V_b$$\n2. **Hubungan Volume:** Karena balok seluruhnya terendam dalam minyak dan air: $V_m = V_b - V_a$.\n3. **Substitusi Angka:**\n   $$1000 V_a + 700 (1000 - V_a) = 800 (1000)$$\n   $$1000 V_a + 700000 - 700 V_a = 800000$$\n   $$300 V_a = 100000 \\implies V_a = \\frac{1000}{3} \\approx 333{,}33\\text{ cm}^3$$\n   Volume balok yang berada di dalam air adalah **$333{,}33\\text{ cm}^3$**.\n\n---\n\n### Soal 2: Sayap Pesawat Terbang (Gaya Angkat)\n> [!EXAMPLE]\n> Sebuah pesawat komersial memiliki total luas sayap $A = 80\\text{ m}^2$. Pada saat mengudara pada ketinggian jelajah, kelajuan aliran udara di atas sayap adalah $250\\text{ m/s}$ dan di bawah sayap adalah $200\\text{ m/s}$. Jika massa jenis udara di ketinggian tersebut adalah $1{,}2\\text{ kg/m}^3$, berapakah gaya angkat yang dihasilkan oleh sayap pesawat?\n\n#### Pembahasan:\n1. **Rumus Gaya Angkat Bernoulli:**\n   $$F_{\\text{angkat}} = \\frac{1}{2} \\rho (v_{\\text{atas}}^2 - v_{\\text{bawah}}^2) A$$\n2. **Substitusi Nilai:**\n   $$F_{\\text{angkat}} = \\frac{1}{2} (1{,}2) \\left(250^2 - 200^2\\right) (80)$$\n   $$F_{\\text{angkat}} = 0{,}6 \\times (62500 - 40000) \\times 80 = 0{,}6 \\times 22500 \\times 80 = 13500 \\times 80 = 1{.}080{.}000\\text{ N} = 1{,}08\\text{ MN}$$\n   Gaya angkat sayap pesawat adalah **$1{.}080{.}000\\text{ N}$** (atau $1{,}08\\text{ MN}$).\n"
+    "babJudul": "Variasi Contoh Soal — Gerak Lengkung (Parabola dan Melingkar)",
+    "content": "# Variasi Contoh Soal — Gerak Lengkung\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n### Contoh Soal 1: Gerak Parabola\nPeluru ditembakkan dari tanah dengan kelajuan awal $40\\text{ m/s}$ pada sudut elevasi $30^\\circ$. Tentukan titik tertinggi peluru dan jarak horizontal terjauhnya ($g = 10\\text{ m/s}^2$)!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Identifikasi komponen kecepatan awal:\n> * $v_{0x} = v_0 \\cos 30^\\circ = 40 \\times \\frac{1}{2}\\sqrt{3} = 20\\sqrt{3}\\text{ m/s}$\n> * $v_{0y} = v_0 \\sin 30^\\circ = 40 \\times \\frac{1}{2} = 20\\text{ m/s}$\n>\n> **Langkah 2:** Hitung titik tertinggi:\n> $$h_{\\max} = \\frac{v_{0y}^2}{2g} = \\frac{20^2}{2(10)} = \\frac{400}{20} = 20\\text{ meter}$$\n>\n> **Langkah 3:** Hitung jarak terjauh:\n> $$X_{\\max} = \\frac{v_0^2 \\sin(2 \\times 30^\\circ)}{g} = \\frac{1600 \\sin 60^\\circ}{10} = 160 \\times \\frac{1}{2}\\sqrt{3} = 80\\sqrt{3}\\text{ meter}$$\n>\n> **Jawaban:** Tinggi maksimum $= 20\\text{ m}$ dan jarak terjauh $= 80\\sqrt{3}\\text{ m}$.\n"
   },
   {
     "id": "tka-fis-rg-03",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 3: Fluida",
+    "blok": "Kinematika",
     "tipe": "rangkuman",
     "babIndex": 3,
-    "babJudul": "3. Rangkuman Rumus & Konsep — Fluida",
-    "content": "# Rangkuman Rumus & Konsep — Fluida\n**Kategori:** TKA Fisika | **Blok:** Blok 3: Fluida\n\n| Konsep | Rumus Utama | Keterangan |\n| :--- | :--- | :--- |\n| **Tekanan Hidrostatis** | $P_h = \\rho g h$ | Kedalaman $h$ dari permukaan zat cair |\n| **Tekanan Mutlak** | $P = P_0 + \\rho g h$ | $P_0 \\approx 1{,}013 \\times 10^5\\text{ Pa}$ |\n| **Hukum Pascal** | $\\frac{F_1}{A_1} = \\frac{F_2}{A_2}$ | Sistem hidrolik tertutup |\n| **Gaya Archimedes** | $F_a = \\rho_f V_{bf} g$ | $V_{bf}$ volume tercelup |\n| **Benda Terapung** | $\\frac{V_{bf}}{V_b} = \\frac{\\rho_b}{\\rho_f}$ | $\\rho_b < \\rho_f$ |\n| **Debit Aliran** | $Q = \\frac{V}{t} = A \\cdot v$ | Satuan $\\text{m}^3\\text{/s}$ |\n| **Kontinuitas** | $A_1 v_1 = A_2 v_2$ | Fluida inkompresibel |\n| **Persamaan Bernoulli**| $P + \\frac{1}{2}\\rho v^2 + \\rho g h = \\text{C}$| Konservasi energi fluida ideal |\n| **Torricelli** | $v = \\sqrt{2gh}$ | Laju pancaran lubang bocor |\n| **Gaya Angkat Sayap** | $F = \\frac{1}{2}\\rho(v_{\\text{atas}}^2 - v_{\\text{bawah}}^2)A$ | $v_{\\text{atas}} > v_{\\text{bawah}}$ |\n"
+    "babJudul": "Rangkuman Rumus Cepat — Gerak Lengkung (Parabola dan Melingkar)",
+    "content": "# Rangkuman Rumus Cepat — Gerak Lengkung\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n| Besaran Parabola | Formula Cepat |\n| :--- | :--- |\n| **Waktu Puncak** | $t_{\\text{puncak}} = \\frac{v_0 \\sin\\theta}{g}$ |\n| **Tinggi Maksimum** | $h_{\\max} = \\frac{v_0^2 \\sin^2\\theta}{2g}$ |\n| **Jarak Terjauh** | $X_{\\max} = \\frac{v_0^2 \\sin 2\\theta}{g}$ |\n| **Percepatan Sentripetal** | $a_s = \\frac{v^2}{R} = \\omega^2 R$ |\n| **Hubungan Rantai / Singgung** | $v_A = v_B \\implies \\omega_A R_A = \\omega_B R_B$ |\n| **Hubungan Seporos** | $\\omega_A = \\omega_B \\implies \\frac{v_A}{R_A} = \\frac{v_B}{R_B}$ |\n"
   },
   {
     "id": "tka-fis-mat-04",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 4: Gelombang",
+    "blok": "Dinamika",
     "tipe": "materi",
     "babIndex": 4,
-    "babJudul": "4. Gelombang",
-    "content": "# Bab 4: Gelombang\n**Kategori:** TKA Fisika | **Blok:** Blok 4: Gelombang\n\n## Pendahuluan Gelombang\nGelombang adalah getaran atau usikan yang merambat melalui medium (gelombang mekanik) atau melalui ruang hampa (gelombang elektromagnetik) dengan memindahkan energi tanpa memindahkan materi perantaranya secara permanen.\n\n---\n\n### A. Gelombang Bunyi\n\n#### 1. Karakteristik Rambatan Bunyi\n* Bunyi merupakan gelombang mekanik **longitudinal** (arah getar sejajar dengan arah rambat) yang membutuhkan medium (padat, cair, gas). Bunyi tidak dapat merambat di ruang hampa udara.\n* **Cepat Rambat Bunyi pada Dawai (Hukum Melde):**\n  $$v = \\sqrt{\\frac{F}{\\mu}} = \\sqrt{\\frac{F \\cdot L}{m}} = \\sqrt{\\frac{F}{\\rho \\cdot A}}$$\n  * $F$ = tegangan dawai ($\\text{N}$)\n  * $\\mu = \\frac{m}{L}$ = massa per satuan panjang dawai ($\\text{kg/m}$)\n\n#### 2. Sumber Bunyi (Dawai & Pipa Organa)\n* **Dawai dan Pipa Organa Terbuka (POB):**\n  Kedua ujung membentuk simpul untuk dawai atau perut untuk POB.\n  $$f_n = (n + 1) \\frac{v}{2L} \\quad (n = 0, 1, 2, \\dots)$$\n  * $n = 0$: Nada dasar ($f_0 = \\frac{v}{2L}$)\n  * $n = 1$: Nada atas 1 ($f_1 = \\frac{2v}{2L}$)\n  * Perbandingan frekuensi harmonik: $f_0 : f_1 : f_2 : \\dots = 1 : 2 : 3 : 4 : \\dots$\n* **Pipa Organa Tertutup (POT):**\n  Satu ujung tertutup (simpul) dan satu ujung terbuka (perut).\n  $$f_n = (2n + 1) \\frac{v}{4L} \\quad (n = 0, 1, 2, \\dots)$$\n  * $n = 0$: Nada dasar ($f_0 = \\frac{v}{4L}$)\n  * $n = 1$: Nada atas 1 ($f_1 = \\frac{3v}{4L}$)\n  * Perbandingan frekuensi harmonik ganjil: $f_0 : f_1 : f_2 : \\dots = 1 : 3 : 5 : 7 : \\dots$\n\n#### 3. Intensitas dan Taraf Intensitas Bunyi\n* **Intensitas Bunyi ($I$):** Daya gelombang bunyi per satuan luas bidang bola:\n  $$I = \\frac{P}{A} = \\frac{P}{4\\pi r^2} \\implies I \\propto \\frac{1}{r^2}$$\n* **Taraf Intensitas Bunyi ($TI$):** Skala logaritmik kenyaringan bunyi relatif terhadap intensitas ambang pendengaran ($I_0 = 10^{-12}\\text{ W/m}^2$):\n  $$TI = 10 \\log\\left(\\frac{I}{I_0}\\right) \\quad (\\text{dB})$$\n* **Kelipatan Sumber Bunyi Identik ($n$ Buah):**\n  $$TI_n = TI_1 + 10 \\log n$$\n* **Perubahan Jarak Pendengar ($r_1 \\to r_2$):**\n  $$TI_2 = TI_1 - 20 \\log\\left(\\frac{r_2}{r_1}\\right)$$\n\n---\n\n### B. Gelombang Cahaya & Optik\n\n#### 1. Spektrum Gelombang Elektromagnetik (GEM)\nGEM merambat tanpa medium dengan kelajuan cahaya $c = 3 \\times 10^8\\text{ m/s}$ di ruang hampa.\nUrutan dari frekuensi tertinggi (energi terbesar, panjang gelombang terpendek) ke terendah:\n$$\\text{Sinar Gamma} \\to \\text{Sinar-X} \\to \\text{Ultraviolet} \\to \\text{Cahaya Tampak (Me-Ji-Ku-Hi-Bi-Ni-U)} \\to \\text{Inframerah} \\to \\text{Gelombang Mikro (Radar)} \\to \\text{Gelombang Radio}$$\n\n#### 2. Pemantulan dan Pembiasan Cahaya\n* **Hukum Pemantulan Snellius:** Sudut datang sama dengan sudut pantul ($\\theta_i = \\theta_r$).\n* **Hukum Pembiasan Snellius:**\n  $$n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2$$\n  * Indeks bias: $n = \\frac{c}{v}$.\n\n#### 3. Cermin dan Lensa\n* **Rumus Gauss Cermin & Lensa Tipis:**\n  $$\\frac{1}{f} = \\frac{1}{s} + \\frac{1}{s'}$$\n  $$M = \\left|\\frac{s'}{s}\\right| = \\left|\\frac{h'}{h}\\right|$$\n* **Aturan Tanda Konvensi:**\n  * Cermin Cekung & Lensa Cembung (Konvergen): $f > 0$ (positif).\n  * Cermin Cembung & Lensa Cekung (Divergen): $f < 0$ (negatif).\n  * Bayangan nyata di depan cermin / belakang lensa: $s' > 0$.\n  * Bayangan maya di belakang cermin / depan lensa: $s' < 0$.\n\n#### 4. Prinsip Kerja Alat Optik\n* **Lup (Kaca Pembesar):**\n  * Mata berakomodasi maksimum: $M = \\frac{S_n}{f} + 1$ ($S_n \\approx 25\\text{ cm}$).\n  * Mata tak berakomodasi (relaks): $M = \\frac{S_n}{f}$.\n* **Mikroskop:** Terdiri dari lensa objektif ($f_{\\text{ob}}$) dan okuler ($f_{\\text{ok}}$) di mana $f_{\\text{ob}} < f_{\\text{ok}}$:\n  $$M_{\\text{total}} = M_{\\text{ob}} \\times M_{\\text{ok}} = \\left(\\frac{s'_{\\text{ob}}}{s_{\\text{ob}}}\\right) \\left(\\frac{S_n}{f_{\\text{ok}}}\\right)$$\n* **Teropong Bintang (Astronomis):**\n  Untuk mata tidak berakomodasi:\n  $$M = \\frac{f_{\\text{ob}}}{f_{\\text{ok}}}, \\quad d = f_{\\text{ob}} + f_{\\text{ok}}$$\n"
+    "babJudul": "Hubungan Gaya dan Gerak (Hukum Newton)",
+    "content": "# Hubungan Gaya dan Gerak (Hukum Newton)\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n## A. Tiga Hukum Newton tentang Gerak\n1. **Hukum I Newton (Kelembaman/Inersia):**\n   Setiap benda mempertahankan keadaan diam atau bergerak lurus beraturan jika tidak ada gaya luar total yang mempengaruhinya:\n   $$\\Sigma \\vec{F} = 0$$\n2. **Hukum II Newton:**\n   Percepatan yang dihasilkan resultan gaya berbanding lurus dengan gaya dan berbanding terbalik dengan massa benda:\n   $$\\Sigma \\vec{F} = m \\vec{a}$$\n3. **Hukum III Newton (Aksi-Reaksi):**\n   Gaya aksi dan reaksi selalu sama besar, berlawanan arah, bekerja pada **dua benda yang berbeda**, dan segaris kerja:\n   $$\\vec{F}_{\\text{aksi}} = -\\vec{F}_{\\text{reaksi}}$$\n\n---\n\n## B. Diagram Gaya Bebas (Free Body Diagram)\n1. **Gaya Berat ($w$):** Gaya gravitasi yang bekerja pada massa benda, selalu berarah tegak lurus ke pusat bumi:\n   $$w = m \\cdot g$$\n2. **Gaya Normal ($N$):** Gaya kontak tegak lurus dari permukaan bidang sentuh:\n   * Pada bidang datar horizontal: $N = w = mg$\n   * Pada bidang miring bersudut $\\theta$: $N = mg \\cos\\theta$\n   * Di dalam lift bergerak ke atas dipercepat $a$: $N = m(g + a)$ (berat semu terasa lebih berat)\n   * Di dalam lift bergerak ke bawah dipercepat $a$: $N = m(g - a)$\n3. **Gaya Gesek ($f$):**\n   * Gaya gesek statis: $f_s \\le \\mu_s N$ (menahan benda tetap diam). Benda tepat akan bergerak saat $f_{s,\\max} = \\mu_s N$.\n   * Gaya gesek kinetis: $f_k = \\mu_k N$ (bekerja saat benda sedang bergerak meluncur, $\\mu_k < \\mu_s$).\n4. **Gerak pada Bidang Miring:**\n   Komponen gaya berat sejajar bidang: $w_x = mg \\sin\\theta$.\n   Komponen gaya berat tegak lurus bidang: $w_y = mg \\cos\\theta$.\n   Jika licin: $a = g \\sin\\theta$.\n   Jika kasar: $a = g(\\sin\\theta - \\mu_k \\cos\\theta)$.\n"
   },
   {
     "id": "tka-fis-cs-04",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 4: Gelombang",
+    "blok": "Dinamika",
     "tipe": "contoh-soal",
     "babIndex": 4,
-    "babJudul": "4. Variasi Contoh Soal — Gelombang",
-    "content": "# Variasi Contoh Soal — Gelombang\n**Kategori:** TKA Fisika | **Blok:** Blok 4: Gelombang\n\n---\n\n### Soal 1: Taraf Intensitas Banyak Sumber dan Perubahan Jarak\n> [!EXAMPLE]\n> Taraf intensitas bunyi sebuah mesin jahit pada jarak $2\\text{ meter}$ adalah $60\\text{ dB}$. Jika terdapat $100$ mesin jahit identik yang dinyalakan serentak, tentukan taraf intensitas yang didengar oleh pekerja yang berjarak $20\\text{ meter}$ dari kumpulan mesin jahit tersebut!\n\n#### Pembahasan:\n1. **Langkah 1: Efek Penambahan Jumlah Mesin ($n = 100$):**\n   $$TI_{100} = TI_1 + 10 \\log 100 = 60 + 10(2) = 80\\text{ dB} \\quad (\\text{pada jarak } 2\\text{ m})$$\n2. **Langkah 2: Efek Perubahan Jarak dari $r_1 = 2\\text{ m}$ ke $r_2 = 20\\text{ m}$:**\n   $$TI' = TI_{100} - 20 \\log\\left(\\frac{r_2}{r_1}\\right) = 80 - 20 \\log\\left(\\frac{20}{2}\\right) = 80 - 20 \\log 10 = 80 - 20(1) = 60\\text{ dB}$$\n   Taraf intensitas total yang didengar adalah **$60\\text{ dB}$**.\n\n---\n\n### Soal 2: Lensa Cembung dan Perbesaran\n> [!EXAMPLE]\n> Sebuah benda diletakkan di depan lensa cembung yang memiliki jarak fokus $10\\text{ cm}$. Diperoleh bayangan nyata yang berukuran 3 kali lebih besar dari bendanya. Tentukan jarak benda dan jarak bayangan ke lensa!\n\n#### Pembahasan:\n1. **Analisis Tanda:**\n   Karena bayangan nyata, maka $s' > 0$ dan perbesaran $M = \\frac{s'}{s} = 3 \\implies s' = 3s$.\n2. **Rumus Lensa:**\n   $$\\frac{1}{f} = \\frac{1}{s} + \\frac{1}{s'} \\implies \\frac{1}{10} = \\frac{1}{s} + \\frac{1}{3s} = \\frac{4}{3s}$$\n3. **Penyelesaian Jarak:**\n   $$3s = 40 \\implies s = \\frac{40}{3} \\approx 13{,}33\\text{ cm}$$\n   $$s' = 3\\left(\\frac{40}{3}\\right) = 40\\text{ cm}$$\n   Jarak benda adalah **$13{,}33\\text{ cm}$** dan jarak bayangan adalah **$40\\text{ cm}$**.\n"
+    "babJudul": "Variasi Contoh Soal — Hubungan Gaya dan Gerak (Hukum Newton)",
+    "content": "# Variasi Contoh Soal — Hubungan Gaya dan Gerak\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n### Contoh Soal 1: Benda di Bidang Miring Kasar\nBalok bermassa $4\\text{ kg}$ diletakkan pada bidang miring dengan sudut $\\theta = 37^\\circ$ ($\to \\sin 37^\\circ = 0{,}6, \\cos 37^\\circ = 0{,}8$). Koefisien gesek kinetis bidang $\\mu_k = 0{,}25$ dan $g = 10\\text{ m/s}^2$. Tentukan percepatan balok meluncur turun!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Uraikan gaya-gaya yang bekerja:\n> * Gaya pendorong ke bawah: $w_x = mg \\sin 37^\\circ = 4(10)(0{,}6) = 24\\text{ N}$\n> * Gaya normal: $N = mg \\cos 37^\\circ = 4(10)(0{,}8) = 32\\text{ N}$\n> * Gaya gesek kinetis: $f_k = \\mu_k N = 0{,}25 \\times 32 = 8\\text{ N}$\n>\n> **Langkah 2:** Terapkan Hukum II Newton pada sumbu bidang:\n> $$\\Sigma F = m a \\implies w_x - f_k = m a$$\n> $$24 - 8 = 4a \\implies 16 = 4a \\implies a = 4\\text{ m/s}^2$$\n>\n> **Jawaban:** Percepatan balok meluncur adalah $4\\text{ m/s}^2$.\n"
   },
   {
     "id": "tka-fis-rg-04",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 4: Gelombang",
+    "blok": "Dinamika",
     "tipe": "rangkuman",
     "babIndex": 4,
-    "babJudul": "4. Rangkuman Rumus & Konsep — Gelombang",
-    "content": "# Rangkuman Rumus & Konsep — Gelombang\n**Kategori:** TKA Fisika | **Blok:** Blok 4: Gelombang\n\n| Konsep | Rumus Utama | Keterangan |\n| :--- | :--- | :--- |\n| **Hukum Melde (Dawai)**| $v = \\sqrt{\\frac{F}{\\mu}}$ | $\\mu = \\frac{m}{L}$ massa persatuan panjang |\n| **POB & Dawai** | $f_n = (n+1)\\frac{v}{2L}$ | Harmonik genap & ganjil ($1:2:3:4$) |\n| **POT** | $f_n = (2n+1)\\frac{v}{4L}$ | Hanya harmonik ganjil ($1:3:5:7$) |\n| **Intensitas Bunyi** | $I = \\frac{P}{4\\pi r^2}$ | Berbanding terbalik dengan kuadrat jarak |\n| **Taraf Intensitas** | $TI = 10\\log\\left(\\frac{I}{I_0}\\right)$ | $I_0 = 10^{-12}\\text{ W/m}^2$ |\n| **$TI$ Banyak Sumber**| $TI_n = TI_1 + 10\\log n$ | $n$ buah sumber identik |\n| **$TI$ Jarak Berubah** | $TI_2 = TI_1 - 20\\log\\left(\\frac{r_2}{r_1}\\right)$ | Menjauh $\\implies$ berkurang |\n| **Hukum Snellius** | $n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2$ | Pembiasan cahaya |\n| **Rumus Gauss Lensa** | $\\frac{1}{f} = \\frac{1}{s} + \\frac{1}{s'}$ | $M = |\\frac{s'}{s}|$ |\n| **Teropong Bintang** | $M = \\frac{f_{\\text{ob}}}{f_{\\text{ok}}}, \\quad d = f_{\\text{ob}} + f_{\\text{ok}}$ | Mata tidak berakomodasi |\n"
+    "babJudul": "Rangkuman Rumus Cepat — Hubungan Gaya dan Gerak (Hukum Newton)",
+    "content": "# Rangkuman Rumus Cepat — Hukum Newton\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n| Kasus Gerak | Formula Percepatan ($a$) | Gaya Normal ($N$) |\n| :--- | :--- | :--- |\n| **Bidang Datar Kasar** | $a = \\frac{F - \\mu_k mg}{m}$ | $N = mg$ |\n| **Bidang Miring Licin** | $a = g \\sin\\theta$ | $N = mg \\cos\\theta$ |\n| **Bidang Miring Kasar** | $a = g(\\sin\\theta - \\mu_k \\cos\\theta)$ | $N = mg \\cos\\theta$ |\n| **Lift Dipercepat ke Atas** | $a$ | $N = m(g + a)$ |\n| **Lift Dipercepat ke Bawah** | $a$ | $N = m(g - a)$ |\n| **Sistem Katrol Atwood** | $a = \\frac{m_2 - m_1}{m_1 + m_2} g$ | $T = \\frac{2 m_1 m_2}{m_1 + m_2} g$ |\n"
   },
   {
     "id": "tka-fis-mat-05",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 5: Kalor dan Termodinamika",
+    "blok": "Dinamika",
     "tipe": "materi",
     "babIndex": 5,
-    "babJudul": "5. Kalor dan Termodinamika",
-    "content": "# Bab 5: Kalor dan Termodinamika\n**Kategori:** TKA Fisika | **Blok:** Blok 5: Kalor dan Termodinamika\n\n## Pendahuluan\nTermodinamika adalah cabang fisika yang mempelajari energi kalor, temperatur, serta transformasinya menjadi kerja mekanik pada skala makroskopik.\n\n---\n\n### A. Kalor dan Perpindahannya\n\n#### 1. Perubahan Suhu dan Wujud Zat\n* **Kalor untuk Mengubah Suhu:**\n  $$Q = m \\cdot c \\cdot \\Delta T = C \\cdot \\Delta T$$\n  * $c$ = kalor jenis zat ($\\text{J/(kg}\\cdot\\text{K)}$)\n  * $C = mc$ = kapasitas kalor ($\\text{J/K}$)\n* **Kalor Laten (Perubahan Wujud Zat pada Suhu Konstan):**\n  $$Q = m \\cdot L$$\n  * $L$ = kalor lebur / beku atau kalor penguapan / pengembunan ($\\text{J/kg}$).\n\n#### 2. Pemuaian Zat\n* **Pemuaian Panjang:** $\\Delta L = L_0 \\alpha \\Delta T \\implies L_t = L_0(1 + \\alpha \\Delta T)$\n* **Pemuaian Luas:** $\\Delta A = A_0 \\beta \\Delta T \\implies A_t = A_0(1 + \\beta \\Delta T)$ dengan $\\beta \\approx 2\\alpha$\n* **Pemuaian Volume:** $\\Delta V = V_0 \\gamma \\Delta T \\implies V_t = V_0(1 + \\gamma \\Delta T)$ dengan $\\gamma \\approx 3\\alpha$\n\n#### 3. Perpindahan Kalor\n1. **Konduksi:** Hantaran kalor melalui zat padat tanpa disertai perpindahan partikel perantaranya:\n   $$H = \\frac{Q}{t} = \\frac{k \\cdot A \\cdot \\Delta T}{L}$$\n2. **Konveksi:** Aliran kalor yang disertai perpindahan partikel fluida (cair/gas):\n   $$H = \\frac{Q}{t} = h \\cdot A \\cdot \\Delta T$$\n3. **Radiasi (Hukum Stefan-Boltzmann):** Pancaran kalor dalam bentuk gelombang elektromagnetik:\n   $$H = \\frac{Q}{t} = e \\cdot \\sigma \\cdot A \\cdot T^4$$\n   * $\\sigma = 5{,}67 \\times 10^{-8}\\text{ W/(m}^2\\cdot\\text{K}^4)$\n   * $e$ = emisivitas permukaan ($0 \\le e \\le 1$; benda hitam sempurna $e = 1$)\n   * $T$ = suhu mutlak dalam **Kelvin ($\\text{K}$)**\n\n#### 4. Asas Black (Kekekalan Kalor)\nJika dua zat dengan suhu berbeda dicampurkan dalam sistem terisolasi:\n$$Q_{\\text{lepas}} = Q_{\\text{terima}}$$\n\n---\n\n### B. Pemanasan Global (Global Warming)\n* **Efek Rumah Kaca (*Greenhouse Effect*):** Sinar matahari gelombang pendek menembus atmosfer dan memanaskan permukaan bumi. Permukaan bumi meradiasikan kembali energi ini sebagai gelombang inframerah panjang. Gas-gas rumah kaca ($CO_2, CH_4, N_2O, H_2O, CFC$) menyerap radiasi inframerah ini dan memancarkannya kembali ke bumi, menaikkan suhu rata-rata global.\n* **Faktor Penyebab:** Pembakaran bahan bakar fosil, deforestasi, emisi peternakan (gas metana), dan refrigeran industri.\n* **Solusi:** Transisi ke energi baru terbarukan (EBT), reboisasi hutan, efisiensi energi, dan teknologi penangkapan karbon.\n\n---\n\n### C. Gas Ideal dan Termodinamika\n\n#### 1. Persamaan Keadaan Gas Ideal\n$$P V = n R T = N k T$$\n* $R = 8{,}314\\text{ J/(mol}\\cdot\\text{K)}$\n* $k = 1{,}38 \\times 10^{-23}\\text{ J/K}$ (konstanta Boltzmann)\n* **Hukum Boyle ($T = \\text{konstan}$):** $P_1 V_1 = P_2 V_2$\n* **Hukum Gay-Lussac ($V = \\text{konstan}$):** $\\frac{P_1}{T_1} = \\frac{P_2}{T_2}$\n* **Hukum Charles ($P = \\text{konstan}$):** $\\frac{V_1}{T_1} = \\frac{V_2}{T_2}$\n\n#### 2. Empat Proses Termodinamika\n1. **Isobarik (Tekanan Tetap, $P = \\text{konstan}$):**\n   $$W = P (V_2 - V_1) = P \\Delta V$$\n2. **Isotermal (Suhu Tetap, $T = \\text{konstan}$, $\\Delta U = 0$):**\n   $$W = n R T \\ln\\left(\\frac{V_2}{V_1}\\right) \\implies Q = W$$\n3. **Isokhorik (Volume Tetap, $V = \\text{konstan}$, $\\Delta V = 0$):**\n   $$W = 0 \\implies Q = \\Delta U = n C_v \\Delta T$$\n4. **Adiabatik (Tidak Ada Kalor yang Masuk/Keluar, $Q = 0$):**\n   $$P_1 V_1^\\gamma = P_2 V_2^\\gamma, \\quad W = -\\Delta U$$\n\n#### 3. Hukum I dan II Termodinamika\n* **Hukum I Termodinamika:** Kekekalan energi termal:\n  $$\\Delta U = Q - W$$\n  * Energi dalam gas monoatomik: $U = \\frac{3}{2} n R T$, sehingga $\\Delta U = \\frac{3}{2} n R \\Delta T$.\n* **Hukum II Termodinamika & Siklus Carnot:**\n  Kalor tidak dapat mengalir spontan dari benda dingin ke panas tanpa kerja luar. Tidak ada mesin kalor yang efisiensinya $100\\%$.\n  * **Efisiensi Mesin Carnot:**\n    $$\\eta = 1 - \\frac{T_C}{T_H} = \\frac{W}{Q_H} = \\frac{Q_H - Q_C}{Q_H}$$\n    > $T_C$ dan $T_H$ wajib dinyatakan dalam satuan **Kelvin**.\n"
+    "babJudul": "Momentum dan Impuls",
+    "content": "# Momentum dan Impuls\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n## A. Konsep Dasar Momentum dan Impuls\n1. **Momentum Linier ($\\vec{p}$):**\n   Ukuran tingkat kesukaran menghentikan benda yang sedang bergerak, merupakan besaran vektor:\n   $$\\vec{p} = m \\cdot \\vec{v} \\quad (\\text{satuan: } \\text{kg}\\cdot\\text{m/s})$$\n2. **Impuls ($\\vec{I}$):**\n   Gaya impulsif yang bekerja dalam selang waktu sangat singkat:\n   $$\\vec{I} = \\vec{F} \\cdot \\Delta t = \\int_{t_1}^{t_2} \\vec{F}\\,dt \\quad (\\text{satuan: } \\text{N}\\cdot\\text{s})$$\n   * Pada grafik $F-t$, Impuls sama dengan luas daerah di bawah kurva $F-t$.\n3. **Teorema Impuls-Momentum:**\n   Impuls gaya sama dengan perubahan momentum yang dialami benda:\n   $$\\vec{I} = \\Delta \\vec{p} = m(\\vec{v}_2 - \\vec{v}_1)$$\n\n---\n\n## B. Hukum Kekekalan Momentum & Tumbukan\nJika resultan gaya luar pada sistem sama dengan nol ($\\Sigma \\vec{F}_{\\text{ext}} = 0$):\n$$m_1 v_1 + m_2 v_2 = m_1 v_1' + m_2 v_2'$$\n\n### Koefisien Restitusi ($e$):\nDerajat elastisitas tumbukan:\n$$e = -\\frac{v_1' - v_2'}{v_1 - v_2} = \\frac{v_2' - v_1'}{v_1 - v_2}$$\n1. **Tumbukan Lenting Sempurna ($e = 1$):**\n   Berlaku Hukum Kekekalan Momentum dan Kekekalan Energi Kinetik ($EK_{\\text{awal}} = EK_{\\text{akhir}}$).\n2. **Tumbukan Lenting Sebagian ($0 < e < 1$):**\n   Berlaku Hukum Kekekalan Momentum, sebagian energi kinetik berubah menjadi kalor/bunyi.\n   * Pantulan bola dari lantai: $e = \\sqrt{\\frac{h_2}{h_1}} = \\sqrt{\\frac{h_3}{h_2}}$\n3. **Tumbukan Tidak Lenting Sama Sekali ($e = 0$):**\n   Kedua benda bersatu setelah tumbukan ($v_1' = v_2' = v'$):\n   $$v' = \\frac{m_1 v_1 + m_2 v_2}{m_1 + m_2}$$\n"
   },
   {
     "id": "tka-fis-cs-05",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 5: Kalor dan Termodinamika",
+    "blok": "Dinamika",
     "tipe": "contoh-soal",
     "babIndex": 5,
-    "babJudul": "5. Variasi Contoh Soal — Kalor dan Termodinamika",
-    "content": "# Variasi Contoh Soal — Kalor dan Termodinamika\n**Kategori:** TKA Fisika | **Blok:** Blok 5: Kalor dan Termodinamika\n\n---\n\n### Soal 1: Asas Black (Pencampuran Es dan Air)\n> [!EXAMPLE]\n> Sebanyak $100\\text{ gram}$ es bersuhu $-10^\\circ\\text{C}$ dicampurkan dengan $200\\text{ gram}$ air bersuhu $50^\\circ\\text{C}$ dalam wadah terisolasi kalorimeter. Diketahui kalor jenis es $c_{\\text{es}} = 0{,}5\\text{ kal/(g}^\\circ\\text{C)}$, kalor lebur es $L = 80\\text{ kal/g}$, dan kalor jenis air $c_{\\text{air}} = 1\\text{ kal/(g}^\\circ\\text{C)}$. Tentukan suhu akhir kesetimbangan termal campuran!\n\n#### Pembahasan:\n1. **Kalor Maksimum yang Dilepas Air ($50^\\circ\\text{C} \\to 0^\\circ\\text{C}$):**\n   $$Q_{\\text{lepas},\\max} = m_{\\text{air}} c_{\\text{air}} (50 - 0) = 200 \\times 1 \\times 50 = 10000\\text{ kal}$$\n2. **Kalor untuk Menaikkan Suhu Es ke $0^\\circ\\text{C}$:**\n   $$Q_1 = m_{\\text{es}} c_{\\text{es}} (0 - (-10)) = 100 \\times 0{,}5 \\times 10 = 500\\text{ kal}$$\n3. **Kalor untuk Meleburkan Seluruh Es:**\n   $$Q_2 = m_{\\text{es}} L = 100 \\times 80 = 8000\\text{ kal}$$\n   Kalor total yang dibutuhkan es sampai mencair seluruhnya pada $0^\\circ\\text{C}$:\n   $$Q_{\\text{butuh}} = Q_1 + Q_2 = 500 + 8000 = 8500\\text{ kal}$$\n   Karena $Q_{\\text{lepas},\\max} = 10000\\text{ kal} > 8500\\text{ kal}$, seluruh es mencair dan suhu akhir $T_a > 0^\\circ\\text{C}$.\n4. **Persamaan Asas Black Keseluruhan:**\n   $$Q_{\\text{lepas}} = Q_{\\text{terima}}$$\n   $$m_{\\text{air}} c_{\\text{air}} (50 - T_a) = 8500 + m_{\\text{es}} c_{\\text{air}} (T_a - 0)$$\n   $$200 (1) (50 - T_a) = 8500 + 100 (1) T_a$$\n   $$10000 - 200 T_a = 8500 + 100 T_a$$\n   $$300 T_a = 1500 \\implies T_a = 5^\\circ\\text{C}$$\n   Suhu akhir campuran adalah **$5^\\circ\\text{C}$**.\n\n---\n\n### Soal 2: Efisiensi dan Usaha Mesin Carnot\n> [!EXAMPLE]\n> Sebuah mesin Carnot beroperasi antara reservoir panas bersuhu $500\\text{ K}$ dan reservoir dingin bersuhu $350\\text{ K}$. Jika mesin tersebut menyerap kalor sebesar $2000\\text{ Joule}$ dari reservoir panas setiap siklusnya, hitunglah:\n> 1. Efisiensi termal mesin Carnot\n> 2. Usaha mekanik yang dihasilkan mesin tiap siklus\n\n#### Pembahasan:\n1. **Efisiensi Mesin Carnot:**\n   $$\\eta = 1 - \\frac{T_C}{T_H} = 1 - \\frac{350}{500} = 1 - 0{,}70 = 0{,}30 = 30\\%$$\n2. **Usaha Mekanik Tiap Siklus ($W$):**\n   $$W = \\eta \\cdot Q_H = 0{,}30 \\times 2000\\text{ J} = 600\\text{ Joule}$$\n"
+    "babJudul": "Variasi Contoh Soal — Momentum dan Impuls",
+    "content": "# Variasi Contoh Soal — Momentum dan Impuls\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n### Contoh Soal 1: Ayunan Balistik (Tumbukan Tidak Lenting)\nPeluru bermassa $20\\text{ g}$ ditembakkan horizontal dengan kecepatan $v$ menembus balok diam bermassa $1{,}98\\text{ kg}$ yang digantung tali. Peluru bersarang di balok dan berayun mencapai tinggi maksimum $20\\text{ cm}$. Tentukan kecepatan awal peluru ($g = 10\\text{ m/s}^2$)!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Kecepatan balok+peluru setelah tumbukan dari kekekalan energi mekanik ayunan:\n> $$v' = \\sqrt{2gh} = \\sqrt{2(10)(0{,}2)} = \\sqrt{4} = 2\\text{ m/s}$$\n>\n> **Langkah 2:** Terapkan kekekalan momentum sebelum & sesudah tumbukan:\n> $$m_p v_p + m_b v_b = (m_p + m_b) v'$$\n> $$(0{,}02) v + 0 = (0{,}02 + 1{,}98)(2) = (2)(2) = 4$$\n> $$0{,}02 v = 4 \\implies v = \\frac{4}{0{,}02} = 200\\text{ m/s}$$\n>\n> **Jawaban:** Kelajuan awal peluru adalah $200\\text{ m/s}$.\n"
   },
   {
     "id": "tka-fis-rg-05",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 5: Kalor dan Termodinamika",
+    "blok": "Dinamika",
     "tipe": "rangkuman",
     "babIndex": 5,
-    "babJudul": "5. Rangkuman Rumus & Konsep — Kalor dan Termodinamika",
-    "content": "# Rangkuman Rumus & Konsep — Kalor dan Termodinamika\n**Kategori:** TKA Fisika | **Blok:** Blok 5: Kalor dan Termodinamika\n\n| Konsep | Rumus Utama | Keterangan & Catatan |\n| :--- | :--- | :--- |\n| **Kalor Sensibel** | $Q = mc\\Delta T$ | Perubahan suhu tanpa perubahan fase |\n| **Kalor Laten** | $Q = mL$ | Perubahan fase pada suhu konstan |\n| **Pemuaian Volume** | $\\Delta V = V_0 \\gamma \\Delta T$ | $\\gamma \\approx 3\\alpha$ |\n| **Hantaran Konduksi** | $H = \\frac{kA\\Delta T}{L}$ | Melalui zat padat |\n| **Radiasi Termal** | $H = e\\sigma A T^4$ | $T$ wajib Kelvin |\n| **Gas Ideal** | $PV = nRT = NkT$ | $R = 8{,}314\\text{ J/(mol K)}$ |\n| **Usaha Isobarik** | $W = P\\Delta V$ | Tekanan tetap |\n| **Hukum I Termo** | $\\Delta U = Q - W$ | $\\Delta U = \\frac{3}{2}nR\\Delta T$ (monoatomik) |\n| **Proses Isotermal** | $\\Delta U = 0 \\implies Q = W$ | Suhu konstan |\n| **Proses Adiabatik** | $Q = 0 \\implies W = -\\Delta U$ | Ekspansi/kompresi cepat |\n| **Efisiensi Carnot** | $\\eta = 1 - \\frac{T_C}{T_H} = \\frac{W}{Q_H}$ | Efisiensi maksimum teoritis |\n"
+    "babJudul": "Rangkuman Rumus Cepat — Momentum dan Impuls",
+    "content": "# Rangkuman Rumus Cepat — Momentum & Impuls\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n| Konsep | Persamaan Kunci | Catatan Penting |\n| :--- | :--- | :--- |\n| **Momentum** | $p = mv$ | Vektor, perhatikan tanda arah ($pm$) |\n| **Impuls** | $I = F \\Delta t = \\Delta p$ | Luas grafik $F-t$ |\n| **Kekekalan Momentum** | $m_1 v_1 + m_2 v_2 = m_1 v_1' + m_2 v_2'$ | $\\Sigma F_{\\text{luar}} = 0$ |\n| **Lenting Sempurna** | $e = 1$ | $EK$ kekal |\n| **Sama Sekali Tak Lenting** | $e = 0, v_1' = v_2' = v'$ | $v' = \\frac{m_1 v_1 + m_2 v_2}{m_1 + m_2}$ |\n| **Pantulan Lantai** | $e = \\sqrt{\\frac{h'}{h}}$ | $h' = e^2 h$ |\n"
   },
   {
     "id": "tka-fis-mat-06",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 6: Kelistrikan",
+    "blok": "Dinamika",
     "tipe": "materi",
     "babIndex": 6,
-    "babJudul": "6. Kelistrikan",
-    "content": "# Bab 6: Kelistrikan\n**Kategori:** TKA Fisika | **Blok:** Blok 6: Kelistrikan\n\n## Pendahuluan\nKelistrikan mengkaji fenomena fisis muatan listrik diam (elektrostatika) serta muatan listrik yang mengalir dinamis dalam lintasan tertutup (rangkaian arus searah DC).\n\n---\n\n### A. Listrik Statis (Elektrostatika)\n\n#### 1. Muatan Listrik & Hukum Coulomb\n* Muatan sejenis tolak-menolak, muatan berlainan jenis tarik-menarik.\n* **Hukum Coulomb:** Gaya elektrostatik antara dua muatan titik berbanding lurus dengan hasil kali kedua muatan dan berbanding terbalik dengan kuadrat jarak pisahnya:\n  $$F = k \\frac{|q_1 q_2|}{r^2}$$\n  * $k = \\frac{1}{4\\pi\\varepsilon_0} \\approx 9 \\times 10^9\\text{ N}\\cdot\\text{m}^2\\text{/C}^2$.\n\n#### 2. Kuat Medan Listrik ($\\vec{E}$)\nGaya elektrostatik per satuan muatan uji positif yang diletakkan pada titik tersebut (vektor):\n$$\\vec{E} = \\frac{\\vec{F}}{q_0} = k \\frac{q}{r^2} \\hat{r}$$\n* Garis gaya medan listrik keluar dari muatan positif dan masuk ke muatan negatif.\n\n#### 3. Potensial Listrik ($V$) dan Energi Potensial ($EP$)\n* **Potensial Listrik (Besaran Skalar):**\n  $$V = k \\frac{q}{r}$$\n* **Energi Potensial Elektrostatik:**\n  $$EP = k \\frac{q_1 q_2}{r} = q V$$\n* **Hubungan Usaha dan Potensial:**\n  $$W_{A \\to B} = q (V_B - V_A) = q \\Delta V$$\n\n---\n\n### B. Rangkaian Arus Searah (DC)\n\n#### 1. Hukum Ohm dan Hambatan Kawat\n* **Hukum Ohm:** Kuat arus yang mengalir melalui konduktor berbanding lurus dengan beda potensial dan berbanding terbalik dengan hambatannya:\n  $$I = \\frac{V}{R} \\iff V = I \\cdot R$$\n* **Hambatan Kawat Penghantar:**\n  $$R = \\rho \\frac{L}{A}$$\n  * $\\rho$ = hambatan jenis bahan ($\\Omega\\cdot\\text{m}$)\n  * $L$ = panjang kawat ($\\text{m}$)\n  * $A$ = luas penampang kawat ($\\text{m}^2$)\n\n#### 2. Susunan Hambatan Seri dan Paralel\n* **Rangkaian Seri:** Kuat arus sama di setiap resistor:\n  $$R_{\\text{seri}} = R_1 + R_2 + R_3 + \\dots$$\n* **Rangkaian Paralel:** Beda potensial (tegangan) sama di setiap cabang resistor:\n  $$\\frac{1}{R_{\\text{paralel}}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3} + \\dots$$\n\n#### 3. Hukum-Hukum Kirchhoff\n* **Hukum I Kirchhoff (Percabangan Arus):**\n  Jumlah kuat arus listrik yang masuk ke suatu titik percabangan sama dengan jumlah kuat arus yang keluar dari titik tersebut:\n  $$\\Sigma I_{\\text{masuk}} = \\Sigma I_{\\text{keluar}}$$\n* **Hukum II Kirchhoff (Loop Tegangan):**\n  Jumlah aljabar gaya gerak listrik (GGL, $\\mathcal{E}$) dan penurunan tegangan ($I R$) dalam suatu rangkaian tertutup (loop) adalah sama dengan nol:\n  $$\\Sigma \\mathcal{E} + \\Sigma (I \\cdot R) = 0$$\n\n#### 4. Energi dan Daya Listrik\n* **Energi Listrik ($W$):**\n  $$W = V \\cdot I \\cdot t = I^2 R t = \\frac{V^2}{R} t$$\n* **Daya Listrik ($P$):**\n  $$P = \\frac{W}{t} = V \\cdot I = I^2 R = \\frac{V^2}{R}$$\n"
+    "babJudul": "Dinamika Rotasi dan Kesetimbangan Benda Tegar",
+    "content": "# Dinamika Rotasi dan Kesetimbangan Benda Tegar\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n## A. Besaran Dinamika Rotasi\n1. **Momen Gaya / Torsi ($\\tau$):**\n   Kecenderungan gaya memutar benda terhadap poros acuan:\n   $$\\tau = r F \\sin\\theta$$\n   * Torsi positif: berlawanan arah putaran jarum jam.\n   * Torsi negatif: searah jarum jam.\n2. **Momen Inersia ($I$):**\n   Ukuran kelembaman benda berputar pada porosnya:\n   $$I = \\Sigma m_i r_i^2$$\n   * Batang silinder poros pusat: $I = \\frac{1}{12} M L^2$\n   * Batang silinder poros ujung: $I = \\frac{1}{3} M L^2$\n   * Silinder pejal / cakram: $I = \\frac{1}{2} M R^2$\n   * Bola pejal: $I = \\frac{2}{5} M R^2$\n   * Bola berongga / kulit bola: $I = \\frac{2}{3} M R^2$\n3. **Hukum II Newton untuk Rotasi:**\n   $$\\Sigma \\tau = I \\alpha$$\n\n---\n\n## B. Menggelinding Murni & Kesetimbangan\n1. **Energi Kinetik Total Benda Menggelinding (Translasi + Rotasi):**\n   $$EK_{\\text{total}} = EK_{\\text{trans}} + EK_{\\text{rot}} = \\frac{1}{2}mv^2 + \\frac{1}{2}I\\omega^2 = \\frac{1}{2}(1 + k) m v^2$$\n   * Di mana $k$ adalah koefisien inersia ($I = k m R^2$).\n   * Menggelinding turun pada bidang miring tinggi $h$:\n     $$v = \\sqrt{\\frac{2gh}{1+k}}, \\quad a = \\frac{g \\sin\\theta}{1+k}$$\n2. **Syarat Kesetimbangan Benda Tegar:**\n   Benda tidak bertranslasi dan tidak berotasi:\n   $$\\Sigma F_x = 0, \\quad \\Sigma F_y = 0, \\quad \\Sigma \\tau = 0$$\n"
   },
   {
     "id": "tka-fis-cs-06",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 6: Kelistrikan",
+    "blok": "Dinamika",
     "tipe": "contoh-soal",
     "babIndex": 6,
-    "babJudul": "6. Variasi Contoh Soal — Kelistrikan",
-    "content": "# Variasi Contoh Soal — Kelistrikan\n**Kategori:** TKA Fisika | **Blok:** Blok 6: Kelistrikan\n\n---\n\n### Soal 1: Analisis Dua Loop Kirchhoff\n> [!EXAMPLE]\n> Perhatikan rangkaian satu loop berikut. Baterai $\\mathcal{E}_1 = 12\\text{ V}$ memiliki hambatan dalam $r_1 = 1\\ \\Omega$, baterai $\\mathcal{E}_2 = 6\\text{ V}$ memiliki hambatan dalam $r_2 = 1\\ \\Omega$, serta terhubung dengan resistor luar $R_1 = 4\\ \\Omega$ dan $R_2 = 6\\ \\Omega$ secara seri berlawanan kutub. Tentukan kuat arus yang mengalir pada rangkaian!\n\n#### Pembahasan:\n1. **Penerapan Hukum II Kirchhoff:**\n   $$\\Sigma \\mathcal{E} + \\Sigma I R = 0$$\n   Jika kita melangkah searah jarum jam dari kutub positif $\\mathcal{E}_1$:\n   $$-\\mathcal{E}_1 + \\mathcal{E}_2 + I (R_1 + R_2 + r_1 + r_2) = 0$$\n   $$-12 + 6 + I (4 + 6 + 1 + 1) = 0$$\n   $$-6 + 12 I = 0 \\implies 12 I = 6 \\implies I = 0{,}5\\text{ A}$$\n   Kuat arus yang mengalir adalah **$0{,}5\\text{ Ampere}$**.\n\n---\n\n### Soal 2: Medan Listrik Nol di Antara Dua Muatan\n> [!EXAMPLE]\n> Dua buah muatan titik $q_A = +4\\ \\mu\\text{C}$ dan $q_B = +9\\ \\mu\\text{C}$ terpisah sejauh $20\\text{ cm}$. Tentukan letak titik di antara kedua muatan tersebut yang memiliki kuat medan listrik sama dengan nol!\n\n#### Pembahasan:\n1. **Konsep Keseimbangan Medan:**\n   Medan dari $q_A$ mengarah menjauh ke kanan, medan dari $q_B$ mengarah menjauh ke kiri:\n   $$E_A = E_B \\implies k \\frac{q_A}{x^2} = k \\frac{q_B}{(d - x)^2}$$\n2. **Penyederhanaan dan Penarikan Akar:**\n   $$\\frac{q_A}{x^2} = \\frac{q_B}{(20 - x)^2} \\implies \\frac{\\sqrt{q_A}}{x} = \\frac{\\sqrt{q_B}}{20 - x}$$\n   $$\\frac{\\sqrt{4}}{x} = \\frac{\\sqrt{9}}{20 - x} \\implies \\frac{2}{x} = \\frac{3}{20 - x}$$\n   $$2(20 - x) = 3x \\implies 40 - 2x = 3x \\implies 5x = 40 \\implies x = 8\\text{ cm}$$\n   Kuat medan listrik bernilai nol pada jarak **$8\\text{ cm}$ dari muatan $q_A$** (atau $12\\text{ cm}$ dari muatan $q_B$).\n"
+    "babJudul": "Variasi Contoh Soal — Dinamika Rotasi dan Kesetimbangan Benda Tegar",
+    "content": "# Variasi Contoh Soal — Dinamika Rotasi\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n### Contoh Soal 1: Balapan Menggelinding di Bidang Miring\nSebuah silinder pejal ($k = 0{,}5$) dan sebuah bola pejal ($k = 0{,}4$) dilepaskan bersamaan dari puncak bidang miring yang sama. Benda manakah yang mencapai dasar terlebih dahulu dan memiliki kelajuan lebih besar?\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hubungan kelajuan menggelinding:\n> $$v = \\sqrt{\\frac{2gh}{1 + k}}$$\n> Nilai $k$ bola pejal ($0{,}4$) lebih kecil daripada $k$ silinder pejal ($0{,}5$).\n>\n> **Langkah 2:** Perbandingan:\n> * Bola pejal: $v = \\sqrt{\\frac{2gh}{1{,}4}} \\approx \\sqrt{1{,}43 gh}$\n> * Silinder pejal: $v = \\sqrt{\\frac{2gh}{1{,}5}} \\approx \\sqrt{1{,}33 gh}$\n>\n> **Jawaban:** Bola pejal memiliki percepatan dan kelajuan lebih besar, sehingga mencapai dasar terlebih dahulu.\n"
   },
   {
     "id": "tka-fis-rg-06",
     "kategoriUtama": "tka",
     "subtes": "Fisika",
-    "blok": "Blok 6: Kelistrikan",
+    "blok": "Dinamika",
     "tipe": "rangkuman",
     "babIndex": 6,
-    "babJudul": "6. Rangkuman Rumus & Konsep — Kelistrikan",
-    "content": "# Rangkuman Rumus & Konsep — Kelistrikan\n**Kategori:** TKA Fisika | **Blok:** Blok 6: Kelistrikan\n\n| Konsep | Rumus Utama | Keterangan |\n| :--- | :--- | :--- |\n| **Gaya Coulomb** | $F = k \\frac{q_1 q_2}{r^2}$ | $k \\approx 9 \\times 10^9\\text{ N m}^2/\\text{C}^2$ |\n| **Medan Listrik** | $E = k \\frac{q}{r^2}$ | Vektor gaya per satuan muatan |\n| **Potensial Listrik** | $V = k \\frac{q}{r}$ | Besaran skalar |\n| **Usaha Elektrostatik**| $W = q \\Delta V$ | Energi memindahkan muatan |\n| **Hukum Ohm** | $V = I \\cdot R$ | Beda potensial |\n| **Hambatan Kawat** | $R = \\rho \\frac{L}{A}$ | $\\rho$ hambatan jenis material |\n| **Rangkaian Seri** | $R_s = R_1 + R_2 + \\dots$ | Arus sama di setiap hambatan |\n| **Rangkaian Paralel**| $\\frac{1}{R_p} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\dots$ | Tegangan sama di setiap cabang |\n| **Hukum I Kirchhoff**| $\\Sigma I_{\\text{masuk}} = \\Sigma I_{\\text{keluar}}$ | Konservasi muatan |\n| **Hukum II Kirchhoff**| $\\Sigma \\mathcal{E} + \\Sigma IR = 0$ | Konservasi energi pada loop |\n| **Daya Listrik** | $P = VI = I^2 R = \\frac{V^2}{R}$ | Satuan Watt (W) |\n"
+    "babJudul": "Rangkuman Rumus Cepat — Dinamika Rotasi dan Kesetimbangan Benda Tegar",
+    "content": "# Rangkuman Rumus Cepat — Dinamika Rotasi\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n| Besaran | Rumus Translasi | Rumus Rotasi | Hubungan |\n| :--- | :--- | :--- | :--- |\n| **Posisi** | $s$ | $\\theta$ | $s = \\theta R$ |\n| **Kecepatan** | $v$ | $\\omega$ | $v = \\omega R$ |\n| **Percepatan** | $a$ | $\\alpha$ | $a = \\alpha R$ |\n| **Inersia** | $m$ | $I$ | $I = k m R^2$ |\n| **Gaya / Torsi** | $F = ma$ | $\\tau = I\\alpha$ | $\\tau = r F \\sin\\theta$ |\n| **Momentum** | $p = mv$ | $L = I\\omega$ | Kekal bila $\\Sigma \\tau = 0$ |\n"
   },
   {
-    "id": "tka-mtk-mat-01",
+    "id": "tka-fis-mat-07",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Fluida",
+    "tipe": "materi",
+    "babIndex": 7,
+    "babJudul": "Fluida Statis",
+    "content": "# Fluida Statis\n**Kategori:** TKA Fisika | **Pembungkus:** Fluida\n\n## A. Tekanan pada Fluida Statis\n1. **Tekanan Hidrostatis ($P_h$):**\n   Tekanan yang dihasilkan oleh fluida tak bergerak akibat gaya gravitasi bobot zat cair di atasnya:\n   $$P_h = \\rho \\cdot g \\cdot h$$\n   * $\\rho$ = massa jenis fluida ($\\text{kg/m}^3$)\n   * $h$ = kedalaman titik diukur dari permukaan zat cair ($\\text{m}$)\n2. **Tekanan Mutlak / Total ($P$):**\n   $$P = P_0 + P_h = P_0 + \\rho g h$$\n   ($P_0$ adalah tekanan atmosfer permukaan $\\approx 1\\text{ atm} = 1{,}013 \\times 10^5\\text{ Pa}$)\n3. **Hukum Pokok Hidrostatika:**\n   Semua titik yang terletak pada bidang mendatar di dalam zat cair yang sejenis memiliki tekanan yang sama ($P_A = P_B$).\n   * Tabung U beda zat cair: $\\rho_1 h_1 = \\rho_2 h_2$\n\n---\n\n## B. Hukum Pascal dan Hukum Archimedes\n1. **Hukum Pascal:**\n   Tekanan yang diberikan pada fluida di dalam ruang tertutup akan diteruskan sama besar ke segala arah:\n   $$P_1 = P_2 \\implies \\frac{F_1}{A_1} = \\frac{F_2}{A_2} \\implies F_2 = F_1 \\left(\\frac{D_2}{D_1}\\right)^2$$\n2. **Hukum Archimedes:**\n   Benda yang tercelup sebagian atau seluruhnya ke dalam zat cair mengalami gaya angkat ke atas ($F_a$) sebesar berat zat cair yang dipindahkan:\n   $$F_a = \\rho_f \\cdot V_{bf} \\cdot g$$\n   * **Terapung:** $w = F_a \\implies \\rho_b < \\rho_f \\implies \\frac{V_{bf}}{V_b} = \\frac{\\rho_b}{\\rho_f}$\n   * **Melayang:** $w = F_a \\implies \\rho_b = \\rho_f \\implies V_{bf} = V_b$\n   * **Tenggelam:** $w > F_a \\implies \\rho_b > \\rho_f \\implies w_{\\text{semu}} = w - F_a$\n"
+  },
+  {
+    "id": "tka-fis-cs-07",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Fluida",
+    "tipe": "contoh-soal",
+    "babIndex": 7,
+    "babJudul": "Variasi Contoh Soal — Fluida Statis",
+    "content": "# Variasi Contoh Soal — Fluida Statis\n**Kategori:** TKA Fisika | **Pembungkus:** Fluida\n\n### Contoh Soal 1: Benda Terapung\nSebongkah es terapung di atas air laut (massa jenis air laut $1030\\text{ kg/m}^3$). Jika massa jenis es $920\\text{ kg/m}^3$, berapa persen volume es yang muncul di atas permukaan air laut?\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung fraksi volume yang tercelup:\n> $$\\frac{V_{\\text{tercelup}}}{V_{\\text{total}}} = \\frac{\\rho_{\\text{es}}}{\\rho_{\\text{air}}} = \\frac{920}{1030} \\approx 0{,}893 = 89{,}3\\%$$\n>\n> **Langkah 2:** Hitung volume es yang muncul di atas permukaan:\n> $$V_{\\text{muncul}} = 100\\% - 89{,}3\\% = 10{,}7\\%$$\n>\n> **Jawaban:** $10{,}7\\%$ bagian es berada di atas permukaan air.\n"
+  },
+  {
+    "id": "tka-fis-rg-07",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Fluida",
+    "tipe": "rangkuman",
+    "babIndex": 7,
+    "babJudul": "Rangkuman Rumus Cepat — Fluida Statis",
+    "content": "# Rangkuman Rumus Cepat — Fluida Statis\n**Kategori:** TKA Fisika | **Pembungkus:** Fluida\n\n* **Tekanan Hidrostatis:** $P_h = \\rho g h$\n* **Tekanan Total:** $P = P_0 + \\rho g h$\n* **Hukum Pascal:** $\\frac{F_1}{A_1} = \\frac{F_2}{A_2} \\implies F_2 = F_1 \\left(\\frac{D_2}{D_1}\\right)^2$\n* **Gaya Apung Archimedes:** $F_a = \\rho_f V_{bf} g$\n* **Fraksi Benda Terapung:** $\\frac{V_{\\text{tercelup}}}{V_{\\text{benda}}} = \\frac{\\rho_{\\text{benda}}}{\\rho_{\\text{fluida}}}$\n"
+  },
+  {
+    "id": "tka-fis-mat-08",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Fluida",
+    "tipe": "materi",
+    "babIndex": 8,
+    "babJudul": "Fluida Dinamis",
+    "content": "# Fluida Dinamis\n**Kategori:** TKA Fisika | **Pembungkus:** Fluida\n\n## A. Karakteristik Fluida Ideal & Persamaan Kontinuitas\nFluida ideal bersifat: inkompresibel (massa jenis konstan), non-viskos (tidak ada gesekan internal), aliran tunak/laminer (*steady*), dan tidak berotasi (*irrotational*).\n1. **Debit Aliran ($Q$):**\n   Banyaknya volume fluida yang mengalir tiap satuan waktu:\n   $$Q = \\frac{V}{t} = A \\cdot v \\quad (\\text{m}^3/\\text{s})$$\n2. **Persamaan Kontinuitas:**\n   Debit fluida pada pipa dengan penampang berbeda adalah konstan:\n   $$A_1 v_1 = A_2 v_2 \\implies v_2 = v_1 \\left(\\frac{D_1}{D_2}\\right)^2$$\n\n---\n\n## B. Asas Bernoulli dan Aplikasinya\nDi dalam pipa mendatar, tekanan fluida paling besar berada pada bagian yang kelajuannya paling kecil:\n$$P_1 + \\frac{1}{2}\\rho v_1^2 + \\rho g h_1 = P_2 + \\frac{1}{2}\\rho v_2^2 + \\rho g h_2 = \\text{konstan}$$\n\n### Aplikasi Utama Bernoulli:\n1. **Teorema Torricelli (Kebocoran Tangki):**\n   * Kelajuan pancaran air bocor pada kedalaman $h$:\n     $$v = \\sqrt{2gh}$$\n   * Jarak pancaran terjauh dari dasar lantai (ketinggian lubang $y$):\n     $$x = 2\\sqrt{h \\cdot y}$$\n2. **Venturimeter Tanpa Manometer:**\n   $$v_1 = \\sqrt{\\frac{2gh}{\\left(\\frac{A_1}{A_2}\\right)^2 - 1}}$$\n3. **Gaya Angkat Sayap Pesawat Terbang:**\n   Profil sayap menyebabkan kelajuan udara di atas ($v_a$) lebih cepat daripada di bawah ($v_b$), sehingga tekanan di bawah lebih besar ($P_b > P_a$):\n   $$F_{\\text{angkat}} = \\frac{1}{2} \\rho A (v_a^2 - v_b^2)$$\n"
+  },
+  {
+    "id": "tka-fis-cs-08",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Fluida",
+    "tipe": "contoh-soal",
+    "babIndex": 8,
+    "babJudul": "Variasi Contoh Soal — Fluida Dinamis",
+    "content": "# Variasi Contoh Soal — Fluida Dinamis\n**Kategori:** TKA Fisika | **Pembungkus:** Fluida\n\n### Contoh Soal 1: Teorema Torricelli\nSebuah tangki air memiliki lubang kebocoran kecil pada kedalaman $h = 3{,}2\\text{ m}$ dari permukaan air. Jika lubang tersebut berada pada ketinggian $y = 5\\text{ m}$ dari lantai tanah, tentukan kelajuan semburan air dan jarak horizontal jatuhnya air di tanah ($g = 10\\text{ m/s}^2$)!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung kecepatan semburan:\n> $$v = \\sqrt{2gh} = \\sqrt{2(10)(3{,}2)} = \\sqrt{64} = 8\\text{ m/s}$$\n>\n> **Langkah 2:** Hitung jarak jangkauan horizontal $x$:\n> $$x = 2\\sqrt{h \\cdot y} = 2\\sqrt{3{,}2 \\times 5} = 2\\sqrt{16} = 2 \\times 4 = 8\\text{ meter}$$\n>\n> **Jawaban:** Kelajuan semburan air $8\\text{ m/s}$ dan jarak jatuh di tanah $8\\text{ meter}$.\n"
+  },
+  {
+    "id": "tka-fis-rg-08",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Fluida",
+    "tipe": "rangkuman",
+    "babIndex": 8,
+    "babJudul": "Rangkuman Rumus Cepat — Fluida Dinamis",
+    "content": "# Rangkuman Rumus Cepat — Fluida Dinamis\n**Kategori:** TKA Fisika | **Pembungkus:** Fluida\n\n* **Debit:** $Q = A v = \\frac{V}{t}$\n* **Kontinuitas:** $A_1 v_1 = A_2 v_2 \\implies v_2 = v_1 \\left(\\frac{D_1}{D_2}\\right)^2$\n* **Persamaan Bernoulli:** $P + \\frac{1}{2}\\rho v^2 + \\rho g h = \\text{konstan}$\n* **Torricelli:** $v = \\sqrt{2gh}, \\quad x = 2\\sqrt{h y}$\n* **Gaya Angkat Sayap:** $F = \\frac{1}{2}\\rho A (v_{\\text{atas}}^2 - v_{\\text{bawah}}^2)$\n"
+  },
+  {
+    "id": "tka-fis-mat-09",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Gelombang",
+    "tipe": "materi",
+    "babIndex": 9,
+    "babJudul": "Gelombang Bunyi",
+    "content": "# Gelombang Bunyi\n**Kategori:** TKA Fisika | **Pembungkus:** Gelombang\n\n## A. Karakteristik Gelombang Bunyi\nGelombang bunyi merupakan gelombang mekanik longitudinal yang merambat melalui rapatan dan renggangan medium.\n1. **Cepat Rambat Bunyi:**\n   * Pada gas: $v = \\sqrt{\\frac{\\gamma R T}{M}}$\n   * Pada zat cair: $v = \\sqrt{\\frac{B}{\\rho}}$ (B = modulus bulk)\n   * Pada zat padat: $v = \\sqrt{\\frac{E}{\\rho}}$ (E = modulus Young)\n\n---\n\n## B. Sumber-Sumber Bunyi (Dawai & Pipa Organa)\n1. **Dawai / Senar (Hukum Mersenne):**\n   $$v = \\sqrt{\\frac{F}{\\mu}} = \\sqrt{\\frac{F \\cdot L}{m}}$$\n   Frekuensi nada harmonik ke-$n$ ($n = 0, 1, 2, \\dots$):\n   $$f_n = (n+1) \\frac{v}{2L} \\implies f_0 : f_1 : f_2 = 1 : 2 : 3$$\n2. **Pipa Organa Terbuka (POB):**\n   $$f_n = (n+1) \\frac{v}{2L} \\implies f_0 : f_1 : f_2 = 1 : 2 : 3$$\n3. **Pipa Organa Tertutup (POT):**\n   $$f_n = (2n+1) \\frac{v}{4L} \\implies f_0 : f_1 : f_2 = 1 : 3 : 5$$\n\n---\n\n## C. Intensitas, Taraf Intensitas, & Efek Doppler\n1. **Intensitas Bunyi ($I$):** Daya per satuan luas permukaan bola:\n   $$I = \\frac{P}{4\\pi r^2} \\implies \\frac{I_1}{I_2} = \\left(\\frac{r_2}{r_1}\\right)^2$$\n2. **Taraf Intensitas Bunyi ($TI$ dalam dB):**\n   $$TI = 10 \\log\\left(\\frac{I}{I_0}\\right) \\quad (I_0 = 10^{-12}\\text{ W/m}^2)$$\n   * Untuk $n$ sumber bunyi identik: $TI_n = TI_1 + 10 \\log n$\n   * Untuk jarak yang berbeda: $TI_2 = TI_1 - 20 \\log\\left(\\frac{r_2}{r_1}\\right)$\n3. **Efek Doppler:**\n   $$f_p = \\left(\\frac{v \\pm v_p}{v \\mp v_s}\\right) f_s$$\n   * $v_p$ bernilai $(+)$ jika pendengar mendekati sumber; $(-)$ jika menjauhi.\n   * $v_s$ bernilai $(-)$ jika sumber mendekati pendengar; $(+)$ jika menjauhi.\n"
+  },
+  {
+    "id": "tka-fis-cs-09",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Gelombang",
+    "tipe": "contoh-soal",
+    "babIndex": 9,
+    "babJudul": "Variasi Contoh Soal — Gelombang Bunyi",
+    "content": "# Variasi Contoh Soal — Gelombang Bunyi\n**Kategori:** TKA Fisika | **Pembungkus:** Gelombang\n\n### Contoh Soal 1: Taraf Intensitas Banyak Sumber\nTaraf intensitas sebuah mesin bubut pada jarak $2\\text{ m}$ adalah $70\\text{ dB}$. Jika terdapat 100 buah mesin bubut identik dibunyikan bersamaan, berapakah taraf intensitasnya pada jarak $20\\text{ meter}$?\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Tambah pengaruh 100 mesin pada jarak tetap $2\\text{ m}$:\n> $$TI_{100} = TI_1 + 10 \\log(100) = 70 + 10(2) = 90\\text{ dB}$$\n>\n> **Langkah 2:** Hitung perubahan akibat pertambahan jarak dari $r_1 = 2\\text{ m}$ ke $r_2 = 20\\text{ m}$:\n> $$TI_2 = TI_{100} - 20 \\log\\left(\\frac{20}{2}\\right) = 90 - 20 \\log(10) = 90 - 20 = 70\\text{ dB}$$\n>\n> **Jawaban:** Taraf intensitas gabungan pada jarak $20\\text{ m}$ adalah $70\\text{ dB}$.\n"
+  },
+  {
+    "id": "tka-fis-rg-09",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Gelombang",
+    "tipe": "rangkuman",
+    "babIndex": 9,
+    "babJudul": "Rangkuman Rumus Cepat — Gelombang Bunyi",
+    "content": "# Rangkuman Rumus Cepat — Gelombang Bunyi\n**Kategori:** TKA Fisika | **Pembungkus:** Gelombang\n\n* **Dawai & POB:** $f_n = (n+1)\\frac{v}{2L}$ (rasio harmonik $1 : 2 : 3$)\n* **POT:** $f_n = (2n+1)\\frac{v}{4L}$ (rasio harmonik ganjil $1 : 3 : 5$)\n* **Taraf Intensitas $N$ Sumber:** $TI_n = TI_1 + 10\\log N$\n* **Taraf Intensitas Beda Jarak:** $TI_2 = TI_1 - 20\\log(r_2/r_1)$\n* **Efek Doppler:** $f_p = \\left(\\frac{v \\pm v_p}{v \\mp v_s}\\right) f_s$\n"
+  },
+  {
+    "id": "tka-fis-mat-10",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Gelombang",
+    "tipe": "materi",
+    "babIndex": 10,
+    "babJudul": "Gelombang Cahaya dan Alat Optik",
+    "content": "# Gelombang Cahaya dan Alat Optik\n**Kategori:** TKA Fisika | **Pembungkus:** Gelombang\n\n## A. Sifat Gelombang Cahaya & Pembiasan\n1. **Hukum Pembiasan Snellius:**\n   $$n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2$$\n   * Indeks bias: $n = \\frac{c}{v} = \\frac{\\lambda_0}{\\lambda_n}$\n   * Sudut kritis & pemantulan sempurna (dari rapat ke renggang, $n_1 > n_2$):\n     $$\\sin\\theta_k = \\frac{n_2}{n_1}$$\n2. **Interferensi Celah Ganda Young:**\n   * Garis terang (maksimum): $d \\sin\\theta = \\frac{d \\cdot p}{L} = m \\lambda$ ($m = 0, 1, 2, \\dots$)\n   * Garis gelap (minimum): $d \\sin\\theta = \\frac{d \\cdot p}{L} = \\left(m - \\frac{1}{2}\\right) \\lambda$\n3. **Difraksi Kisi:** $d \\sin\\theta = n \\lambda$, di mana tetapan kisi $d = \\frac{1}{N}$.\n\n---\n\n## B. Pembentukan Bayangan Cermin dan Lensa\n$$\\frac{1}{f} = \\frac{1}{s} + \\frac{1}{s'}, \\quad M = \\left|\\frac{s'}{s}\\right| = \\left|\\frac{h'}{h}\\right|$$\n* Cermin cekung & lensa cembung: $f > 0$ (konvergen).\n* Cermin cembung & lensa cekung: $f < 0$ (divergen).\n* Kekuatan lensa: $P = \\frac{1}{f\\text{ (meter)}} = \\frac{100}{f\\text{ (cm)}}$ dioptri.\n\n---\n\n## C. Prinsip Alat Optik\n1. **Mata Normal & Cacat Mata:**\n   * Miopi (rabun jauh): $P = -\\frac{100}{PR\\text{ (cm)}}$\n   * Hipermetropi (rabun dekat): $P = 4 - \\frac{100}{PP\\text{ (cm)}}$\n2. **Lup (Kaca Pembesar):**\n   * Mata berakomodasi maksimum: $M = \\frac{S_n}{f} + 1$\n   * Mata tidak berakomodasi: $M = \\frac{S_n}{f}$ ($S_n = 25\\text{ cm}$)\n3. **Mikroskop:**\n   $$M_{\\text{total}} = M_{\\text{ob}} \\times M_{\\text{ok}} = \\left|\\frac{s_{\\text{ob}}'}{s_{\\text{ob}}}\\right| \\times M_{\\text{ok}}$$\n   Panjang tubus mikroskop: $d = s_{\\text{ob}}' + s_{\\text{ok}}$.\n"
+  },
+  {
+    "id": "tka-fis-cs-10",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Gelombang",
+    "tipe": "contoh-soal",
+    "babIndex": 10,
+    "babJudul": "Variasi Contoh Soal — Gelombang Cahaya dan Alat Optik",
+    "content": "# Variasi Contoh Soal — Gelombang Cahaya dan Alat Optik\n**Kategori:** TKA Fisika | **Pembungkus:** Gelombang\n\n### Contoh Soal 1: Mikroskop\nSebuah mikroskop memiliki lensa objektif berfokus $1\\text{ cm}$ dan lensa okuler berfokus $5\\text{ cm}$. Benda diletakkan pada jarak $1{,}1\\text{ cm}$ di depan objektif. Pengamatan dilakukan dengan mata berakomodasi maksimum ($S_n = 25\\text{ cm}$). Tentukan perbesaran total bayangan!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung jarak bayangan objektif ($s_{\\text{ob}}'$):\n> $$\\frac{1}{s_{\\text{ob}}'} = \\frac{1}{f_{\\text{ob}}} - \\frac{1}{s_{\\text{ob}}} = \\frac{1}{1} - \\frac{1}{1{,}1} = 1 - \\frac{10}{11} = \\frac{1}{11} \\implies s_{\\text{ob}}' = 11\\text{ cm}$$\n>\n> **Langkah 2:** Perbesaran objektif:\n> $$M_{\\text{ob}} = \\left|\\frac{s_{\\text{ob}}'}{s_{\\text{ob}}}\\right| = \\frac{11}{1{,}1} = 10\\text{ kali}$$\n>\n> **Langkah 3:** Perbesaran okuler (akomodasi maksimum):\n> $$M_{\\text{ok}} = \\frac{S_n}{f_{\\text{ok}}} + 1 = \\frac{25}{5} + 1 = 5 + 1 = 6\\text{ kali}$$\n>\n> **Langkah 4:** Perbesaran total:\n> $$M_{\\text{total}} = M_{\\text{ob}} \\times M_{\\text{ok}} = 10 \\times 6 = 60\\text{ kali}$$\n>\n> **Jawaban:** Perbesaran total mikroskop adalah $60\\text{ kali}$.\n"
+  },
+  {
+    "id": "tka-fis-rg-10",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Gelombang",
+    "tipe": "rangkuman",
+    "babIndex": 10,
+    "babJudul": "Rangkuman Rumus Cepat — Gelombang Cahaya dan Alat Optik",
+    "content": "# Rangkuman Rumus Cepat — Cahaya & Alat Optik\n**Kategori:** TKA Fisika | **Pembungkus:** Gelombang\n\n* **Snellius:** $n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2$\n* **Lensa & Cermin:** $\\frac{1}{f} = \\frac{1}{s} + \\frac{1}{s'}, \\quad M = \\left|\\frac{s'}{s}\\right|$\n* **Cacat Mata Miopi:** $P = -\\frac{100}{PR}$\n* **Cacat Mata Hipermetropi:** $P = 4 - \\frac{100}{PP}$\n* **Lup Akomodasi Maks:** $M = \\frac{25}{f} + 1$\n* **Perbesaran Mikroskop:** $M = M_{\\text{ob}} \\times M_{\\text{ok}}$\n"
+  },
+  {
+    "id": "tka-fis-mat-11",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kalor dan Termodinamika",
+    "tipe": "materi",
+    "babIndex": 11,
+    "babJudul": "Kalor dan Perpindahannya",
+    "content": "# Kalor dan Perpindahannya\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n## A. Kalor, Suhu, dan Perubahan Wujud\n1. **Kalor Perubahan Suhu:**\n   $$Q = m \\cdot c \\cdot \\Delta T = C \\cdot \\Delta T$$\n   * $c$ = kalor jenis zat ($\\text{J}/(\\text{kg}\\cdot\\text{K})$), $C = mc$ = kapasitas kalor.\n2. **Kalor Laten Perubahan Wujud:**\n   Terjadi pada suhu konstan (titik lebur/didih):\n   $$Q = m \\cdot L \\quad (\\text{lebur/beku}), \\quad Q = m \\cdot U \\quad (\\text{uap/embun})$$\n3. **Pemuaian Zat:**\n   * Pemuaian Panjang: $\\Delta L = L_0 \\alpha \\Delta T \\implies L_t = L_0(1 + \\alpha \\Delta T)$\n   * Pemuaian Luas: $\\Delta A = A_0 \\beta \\Delta T \\implies \\beta = 2\\alpha$\n   * Pemuaian Volume: $\\Delta V = V_0 \\gamma \\Delta T \\implies \\gamma = 3\\alpha$\n4. **Asas Black (Kekekalan Kalor):**\n   $$Q_{\\text{lepas}} = Q_{\\text{terima}}$$\n\n---\n\n## B. Mekanisme Perpindahan Kalor\n1. **Konduksi (Tanpa perpindahan massa medium):**\n   $$H = \\frac{Q}{t} = \\frac{k \\cdot A \\cdot \\Delta T}{L}$$\n2. **Konveksi (Disertai aliran massa medium):**\n   $$H = \\frac{Q}{t} = h \\cdot A \\cdot \\Delta T$$\n3. **Radiasi (Gelombang elektromagnetik tanpa medium):**\n   Hukum Stefan-Boltzmann:\n   $$P = \\frac{Q}{t} = e \\cdot \\sigma \\cdot A \\cdot T^4 \\quad (\\sigma = 5{,}67 \\times 10^{-8}\\text{ W/m}^2\\text{K}^4)$$\n"
+  },
+  {
+    "id": "tka-fis-cs-11",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kalor dan Termodinamika",
+    "tipe": "contoh-soal",
+    "babIndex": 11,
+    "babJudul": "Variasi Contoh Soal — Kalor dan Perpindahannya",
+    "content": "# Variasi Contoh Soal — Kalor dan Perpindahannya\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n### Contoh Soal 1: Asas Black (Campuran Air dan Es)\nSebanyak $100\\text{ g}$ es bersuhu $0^\\circ\\text{C}$ dicampurkan dengan $200\\text{ g}$ air bersuhu $50^\\circ\\text{C}$. Kalor jenis air $= 1\\text{ kal/g}^circ\\text{C}$ dan kalor lebur es $= 80\\text{ kal/g}$. Tentukan suhu akhir kesetimbangan termal!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Kalor yang dibutuhkan untuk meleburkan seluruh es:\n> $$Q_{\\text{lebur}} = m_{\\text{es}} \\cdot L = 100 \\times 80 = 8000\\text{ kal}$$\n>\n> **Langkah 2:** Kalor maksimal yang dapat dilepas air saat turun ke $0^\\circ\\text{C}$:\n> $$Q_{\\text{lepas,max}} = m_{\\text{air}} \\cdot c \\cdot (50 - 0) = 200 \\times 1 \\times 50 = 10000\\text{ kal}$$\n>\n> **Langkah 3:** Karena $Q_{\\text{lepas,max}} > Q_{\\text{lebur}}$, seluruh es mencair dan suhu akhir $T_c > 0^\\circ\\text{C}$:\n> $$Q_{\\text{lepas}} = Q_{\\text{terima}}$$\n> $$200 \\times 1 \\times (50 - T_c) = 8000 + 100 \\times 1 \\times (T_c - 0)$$\n> $$10000 - 200 T_c = 8000 + 100 T_c \\implies 300 T_c = 2000 \\implies T_c = \\frac{20}{3} \\approx 6{,}67^\\circ\\text{C}$$\n>\n> **Jawaban:** Suhu akhir campuran adalah $6{,}67^\\circ\\text{C}$.\n"
+  },
+  {
+    "id": "tka-fis-rg-11",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kalor dan Termodinamika",
+    "tipe": "rangkuman",
+    "babIndex": 11,
+    "babJudul": "Rangkuman Rumus Cepat — Kalor dan Perpindahannya",
+    "content": "# Rangkuman Rumus Cepat — Kalor\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n* **Kalor Suhu:** $Q = mc\\Delta T$\n* **Kalor Wujud:** $Q = mL$\n* **Asas Black:** $Q_{\\text{lepas}} = Q_{\\text{terima}}$\n* **Pemuaian Panjang:** $\\Delta L = L_0 \\alpha \\Delta T$\n* **Konduksi:** $H = \\frac{k A \\Delta T}{L}$\n* **Radiasi:** $P = e \\sigma A T^4$ ($T$ wajib Kelvin)\n"
+  },
+  {
+    "id": "tka-fis-mat-12",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kalor dan Termodinamika",
+    "tipe": "materi",
+    "babIndex": 12,
+    "babJudul": "Pemanasan Global dan Efek Rumah Kaca",
+    "content": "# Pemanasan Global dan Efek Rumah Kaca\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n## A. Mekanisme Fisika Efek Rumah Kaca\n1. Matahari memancarkan radiasi gelombang pendek (spektrum tampak dan UV) menembus atmosfer bumi.\n2. Permukaan bumi menyerap energi radiasi ini dan suhunya meningkat, lalu memancarkannya kembali ke atmosfer sebagai radiasi termal inframerah gelombang panjang ($T_{\\text{bumi}} \\ll T_{\\text{matahari}}$).\n3. Molekul gas rumah kaca di troposfer menyerap radiasi inframerah tersebut melalui resonansi vibrasi ikatan molekuler dan memancarkannya kembali ke segala arah (sebagian besar kembali ke permukaan bumi), menahan panas di atmosfer.\n\n---\n\n## B. Gas Rumah Kaca (GRK) dan Aktivitas Pemicu\n1. **Karbondioksida ($\\text{CO}_2$):** Pembakaran bahan bakar fosil (batubara, minyak bumi) dan deforestasi.\n2. **Metana ($\\text{CH}_4$):** Peternakan ruminansia, persawahan padi anaerobik, dan kebocoran gas alam (potensi pemanasan 25x lebih kuat dari $\\text{CO}_2$).\n3. **Dinitrogen Oksida ($\\text{N}_2\\text{O}$):** Penggunaan pupuk kimia nitrogen berlebih pada pertanian.\n4. **CFC / HFC:** Gas pendingin AC dan refrigerasi (juga merusak lapisan ozon stratosfer).\n\n---\n\n## C. Solusi dan Mitigasi\n* Transisi energi menuju Energi Baru Terbarukan (EBT: solar PV, angin, hidro, panas bumi).\n* Konservasi energi dan penerapan efisiensi daya pada bangunan dan industri.\n* Reboisasi dan penangkapan karbon (*Carbon Capture, Utilization, and Storage / CCUS*).\n"
+  },
+  {
+    "id": "tka-fis-cs-12",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kalor dan Termodinamika",
+    "tipe": "contoh-soal",
+    "babIndex": 12,
+    "babJudul": "Variasi Contoh Soal — Pemanasan Global dan Efek Rumah Kaca",
+    "content": "# Variasi Contoh Soal — Pemanasan Global\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n### Contoh Soal 1: Mekanisme Efek Rumah Kaca\nMengapa gas rumah kaca seperti $\\text{CO}_2$ dan $\\text{CH}_4$ dapat meloloskan cahaya matahari tetapi menahan radiasi kalor yang dipancarkan permukaan bumi?\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> Berdasarkan Hukum Pergeseran Wien ($lambda_{\\max} T = C$), radiasi matahari dari fotosfer bersuhu $\\approx 6000\\text{ K}$ didominasi panjang gelombang pendek (cahaya tampak $\\approx 0{,}5\\,\\mu\\text{m}$), yang tidak diserap oleh ikatan molekul $\\text{CO}_2$.\n> Sebaliknya, permukaan bumi yang bersuhu $\\approx 300\\text{ K}$ memancarkan radiasi inframerah gelombang panjang ($approx 10\\,\\mu\\text{m}$). Panjang gelombang ini tepat cocok dengan frekuensi resonansi vibrasi lentur dan regang molekul $\\text{CO}_2$, sehingga radiasi diserap kuat dan dipantulkan kembali.\n"
+  },
+  {
+    "id": "tka-fis-rg-12",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kalor dan Termodinamika",
+    "tipe": "rangkuman",
+    "babIndex": 12,
+    "babJudul": "Rangkuman Rumus Cepat — Pemanasan Global dan Efek Rumah Kaca",
+    "content": "# Rangkuman Rumus Cepat — Pemanasan Global\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n* **Radiasi Masuk:** Gelombang pendek (cahaya tampak), lolos atmosfer.\n* **Radiasi Keluar:** Gelombang panjang (inframerah), diserap gas rumah kaca.\n* **Gas Utama:** $\\text{CO}_2, \\text{CH}_4, \\text{N}_2\\text{O}, \\text{H}_2\\text{O}$, fluorinated gases.\n* **Mitigasi:** Dekarbonisasi, transisi EBT, efisiensi energi.\n"
+  },
+  {
+    "id": "tka-fis-mat-13",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kalor dan Termodinamika",
+    "tipe": "materi",
+    "babIndex": 13,
+    "babJudul": "Teori Kinetik Gas Ideal",
+    "content": "# Teori Kinetik Gas Ideal\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n## A. Hukum-Hukum Gas & Persamaan Keadaan\n1. **Hukum Boyle ($T = \\text{konstan}$):** $P_1 V_1 = P_2 V_2$\n2. **Hukum Charles ($P = \\text{konstan}$):** $\\frac{V_1}{T_1} = \\frac{V_2}{T_2}$\n3. **Hukum Gay-Lussac ($V = \\text{konstan}$):** $\\frac{P_1}{T_1} = \\frac{P_2}{T_2}$\n4. **Persamaan Umum Gas Ideal:**\n   $$P V = n R T = N k T$$\n   * $R = 8{,}314\\text{ J/mol}\\cdot\\text{K}$\n   * $k = \\frac{R}{N_A} = 1{,}38 \\times 10^{-23}\\text{ J/K}$\n\n---\n\n## B. Tekanan Kinetik dan Energi Kinetik Partikel\n1. **Tekanan Gas Ideal:**\n   $$P = \\frac{1}{3} \\frac{N m}{V} \\overline{v^2} = \\frac{2}{3} \\frac{N}{V} \\overline{EK}$$\n2. **Energi Kinetik Rata-Rata per Molekul:**\n   Berbanding lurus hanya terhadap suhu mutlak gas ($T$ dalam Kelvin):\n   $$\\overline{EK} = \\frac{f}{2} k T$$\n   (Untuk gas monoatomik, derajat kebebasan $f = 3 \\implies \\overline{EK} = \\frac{3}{2} k T$)\n3. **Kelajuan Efektif ($v_{\\text{rms}}$):**\n   $$v_{\\text{rms}} = \\sqrt{\\frac{3RT}{M}} = \\sqrt{\\frac{3kT}{m}} = \\sqrt{\\frac{3P}{\\rho}}$$\n4. **Energi Dalam Gas Ideal ($U$):**\n   $$U = N \\cdot \\overline{EK} = \\frac{f}{2} n R T$$\n"
+  },
+  {
+    "id": "tka-fis-cs-13",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kalor dan Termodinamika",
+    "tipe": "contoh-soal",
+    "babIndex": 13,
+    "babJudul": "Variasi Contoh Soal — Teori Kinetik Gas Ideal",
+    "content": "# Variasi Contoh Soal — Teori Kinetik Gas Ideal\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n### Contoh Soal 1: Perubahan Suhu dan Kelajuan rms\nSebuah bejana berisi gas helium pada suhu $27^\\circ\\text{C}$. Jika suhu gas dinaikkan menjadi $327^\\circ\\text{C}$, berapakah perbandingan kelajuan efektif ($v_{\\text{rms}}$) molekul gas sebelum dan sesudah dipanaskan?\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Konversikan suhu ke Kelvin:\n> * $T_1 = 27 + 273 = 300\\text{ K}$\n> * $T_2 = 327 + 273 = 600\\text{ K}$\n>\n> **Langkah 2:** Rumus kelajuan $v_{\\text{rms}} \\propto \\sqrt{T}$:\n> $$\\frac{v_1}{v_2} = \\sqrt{\\frac{T_1}{T_2}} = \\sqrt{\\frac{300}{600}} = \\sqrt{\\frac{1}{2}} = \\frac{1}{\\sqrt{2}} = 1 : \\sqrt{2}$$\n>\n> **Jawaban:** Perbandingannya adalah $1 : \\sqrt{2}$.\n"
+  },
+  {
+    "id": "tka-fis-rg-13",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kalor dan Termodinamika",
+    "tipe": "rangkuman",
+    "babIndex": 13,
+    "babJudul": "Rangkuman Rumus Cepat — Teori Kinetik Gas Ideal",
+    "content": "# Rangkuman Rumus Cepat — Gas Ideal\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n* **Persamaan Gas:** $PV = nRT = NkT$\n* **Energi Kinetik (Monoatomik):** $\\overline{EK} = \\frac{3}{2}kT$\n* **Kelajuan rms:** $v_{\\text{rms}} = \\sqrt{\\frac{3RT}{M}} = \\sqrt{\\frac{3P}{\\rho}}$\n* **Energi Dalam:** $U = \\frac{3}{2}nRT$\n"
+  },
+  {
+    "id": "tka-fis-mat-14",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kalor dan Termodinamika",
+    "tipe": "materi",
+    "babIndex": 14,
+    "babJudul": "Termodinamika",
+    "content": "# Termodinamika\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n## A. Usaha Luar & Empat Proses Termodinamika\nUsaha yang dilakukan gas pada ekspansi/kompresi:\n$$W = \\int_{V_1}^{V_2} P \\, dV$$\n1. **Isobarik ($P = \\text{konstan}$):**\n   $$W = P(V_2 - V_1) = n R \\Delta T$$\n2. **Isokhorik ($V = \\text{konstan}$):**\n   $$W = 0$$\n3. **Isotermal ($T = \\text{konstan}, \\Delta U = 0$):**\n   $$W = n R T \\ln\\left(\\frac{V_2}{V_1}\\right) = Q$$\n4. **Adiabatik ($Q = 0$):**\n   $$P_1 V_1^\\gamma = P_2 V_2^\\gamma, \\quad W = -\\Delta U = \\frac{1}{\\gamma - 1}(P_1 V_1 - P_2 V_2)$$\n\n---\n\n## B. Hukum I & II Termodinamika (Mesin Carnot)\n1. **Hukum I Termodinamika:**\n   Kekekalan energi sistem gas:\n   $$Q = \\Delta U + W$$\n   * $Q (+)$: menyerap kalor; $Q (-)$: melepas kalor\n   * $W (+)$: gas melakukan usaha (ekspansi); $W (-)$: gas menerima usaha\n   * $\\Delta U (+)$: suhu naik; $\\Delta U (-)$: suhu turun\n2. **Hukum II Termodinamika & Siklus Carnot:**\n   Mesin kalor ideal yang beroperasi di antara reservoir suhu tinggi ($T_h$) dan suhu rendah ($T_c$):\n   * Usaha bersih mesin: $W = Q_h - Q_c$\n   * Efisiensi mesin Carnot:\n     $$\\eta = \\left(1 - \\frac{T_c}{T_h}\\right) \\times 100\\% = \\left(\\frac{W}{Q_h}\\right) \\times 100\\%$$\n"
+  },
+  {
+    "id": "tka-fis-cs-14",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kalor dan Termodinamika",
+    "tipe": "contoh-soal",
+    "babIndex": 14,
+    "babJudul": "Variasi Contoh Soal — Termodinamika",
+    "content": "# Variasi Contoh Soal — Termodinamika\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n### Contoh Soal 1: Efisiensi Mesin Carnot\nSebuah mesin kalor Carnot beroperasi antara suhu $800\\text{ K}$ dan $400\\text{ K}$. Jika mesin menyerap kalor sebesar $1200\\text{ Joule}$ dari reservoir panas tiap siklus, berapakah usaha yang dihasilkan dan efisiensi mesin tersebut?\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung efisiensi mesin Carnot:\n> $$\\eta = 1 - \\frac{T_c}{T_h} = 1 - \\frac{400}{800} = 1 - 0{,}5 = 0{,}5 = 50\\%$$\n>\n> **Langkah 2:** Hitung usaha yang dihasilkan:\n> $$W = \\eta \\cdot Q_h = 0{,}5 \\times 1200\\text{ J} = 600\\text{ Joule}$$\n>\n> **Jawaban:** Efisiensi mesin $50\\%$ dan usaha yang dihasilkan $600\\text{ J}$.\n"
+  },
+  {
+    "id": "tka-fis-rg-14",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kalor dan Termodinamika",
+    "tipe": "rangkuman",
+    "babIndex": 14,
+    "babJudul": "Rangkuman Rumus Cepat — Termodinamika",
+    "content": "# Rangkuman Rumus Cepat — Termodinamika\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n* **Hukum I Termodinamika:** $Q = \\Delta U + W$\n* **Isobarik:** $W = P \\Delta V$\n* **Isokhorik:** $W = 0 \\implies Q = \\Delta U$\n* **Isotermal:** $\\Delta U = 0 \\implies Q = W$\n* **Adiabatik:** $Q = 0 \\implies W = -\\Delta U$\n* **Efisiensi Carnot:** $\\eta = 1 - \\frac{T_c}{T_h} = \\frac{W}{Q_h}$\n"
+  },
+  {
+    "id": "tka-fis-mat-15",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kelistrikan",
+    "tipe": "materi",
+    "babIndex": 15,
+    "babJudul": "Listrik Statis (Elektrostatika)",
+    "content": "# Listrik Statis (Elektrostatika)\n**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan\n\n## A. Hukum Coulomb dan Medan Listrik\n1. **Gaya Elektrostatik (Hukum Coulomb):**\n   $$F = k \\frac{|q_1 q_2|}{r^2} \\quad (k = 9 \\times 10^9\\text{ N}\\cdot\\text{m}^2/\\text{C}^2)$$\n   * Gaya tarik-menarik untuk muatan berlawanan jenis; tolak-menolak untuk muatan sejenis.\n2. **Kuat Medan Listrik ($\\vec{E}$):**\n   Gaya per satuan muatan uji positif (vektor):\n   $$\\vec{E} = \\frac{\\vec{F}}{q} = k \\frac{q}{r^2} \\hat{r}$$\n   * Garis medan listrik memancar keluar dari muatan positif dan masuk menuju muatan negatif.\n\n---\n\n## B. Potensial Listrik, Energi Potensial, dan Kapasitor\n1. **Potensial Listrik ($V$):** Besaran skalar:\n   $$V = k \\frac{q}{r}$$\n2. **Energi Potensial Listrik ($EP$) & Usaha ($W$):**\n   $$EP = k \\frac{q_1 q_2}{r}, \\quad W_{A \\to B} = q(V_B - V_A)$$\n3. **Kapasitor Keping Sejajar:**\n   $$C = \\frac{\\varepsilon_0 \\varepsilon_r A}{d}, \\quad Q = C \\cdot V$$\n   * Energi tersimpan: $W = \\frac{1}{2} C V^2 = \\frac{1}{2} \\frac{Q^2}{C} = \\frac{1}{2} Q V$\n   * Susunan seri: $\\frac{1}{C_s} = \\frac{1}{C_1} + \\frac{1}{C_2}$; Susunan paralel: $C_p = C_1 + C_2$.\n"
+  },
+  {
+    "id": "tka-fis-cs-15",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kelistrikan",
+    "tipe": "contoh-soal",
+    "babIndex": 15,
+    "babJudul": "Variasi Contoh Soal — Listrik Statis (Elektrostatika)",
+    "content": "# Variasi Contoh Soal — Listrik Statis\n**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan\n\n### Contoh Soal 1: Gaya Coulomb Segaris\nDua muatan listrik $q_1 = +4\\,\\mu\\text{C}$ dan $q_2 = +9\\,\\mu\\text{C}$ terpisah sejauh $20\\text{ cm}$. Di manakah muatan uji $q_3$ harus diletakkan agar kuat medan listrik di titik tersebut sama dengan nol?\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Karena kedua muatan sama-sama positif, titik medan nol berada di antara kedua muatan.\n> Misalkan jarak dari $q_1$ adalah $x$, maka jarak dari $q_2$ adalah $(20 - x)$.\n>\n> **Langkah 2:** Syarat medan nol: $E_1 = E_2$:\n> $$k \\frac{q_1}{x^2} = k \\frac{q_2}{(20 - x)^2} \\implies \\frac{4}{x^2} = \\frac{9}{(20 - x)^2}$$\n>\n> **Langkah 3:** Tarik akar kedua ruas:\n> $$\\frac{2}{x} = \\frac{3}{20 - x} \\implies 2(20 - x) = 3x \\implies 40 - 2x = 3x \\implies 5x = 40 \\implies x = 8\\text{ cm}$$\n>\n> **Jawaban:** Titik berada $8\\text{ cm}$ dari muatan $q_1$.\n"
+  },
+  {
+    "id": "tka-fis-rg-15",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kelistrikan",
+    "tipe": "rangkuman",
+    "babIndex": 15,
+    "babJudul": "Rangkuman Rumus Cepat — Listrik Statis (Elektrostatika)",
+    "content": "# Rangkuman Rumus Cepat — Listrik Statis\n**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan\n\n* **Gaya Coulomb:** $F = k \\frac{q_1 q_2}{r^2}$ (vektor)\n* **Kuat Medan:** $E = k \\frac{q}{r^2}$ (vektor)\n* **Potensial:** $V = k \\frac{q}{r}$ (skalar, sertakan tanda $\\pm$)\n* **Energi Potensial:** $EP = qV$\n* **Kapasitas Keping:** $C = \\frac{\\varepsilon A}{d}, \\quad Q = CV, \\quad W = \\frac{1}{2}CV^2$\n"
+  },
+  {
+    "id": "tka-fis-mat-16",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kelistrikan",
+    "tipe": "materi",
+    "babIndex": 16,
+    "babJudul": "Rangkaian Arus Searah (DC)",
+    "content": "# Rangkaian Arus Searah (DC)\n**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan\n\n## A. Hukum Ohm dan Hambatan Listrik\n1. **Hukum Ohm:**\n   Kuat arus berbanding lurus dengan tegangan dan berbanding terbalik dengan hambatan:\n   $$V = I \\cdot R$$\n2. **Resistansi Kawat Penghantar:**\n   $$R = \\rho \\frac{L}{A}$$\n   ($\\rho$ = hambatan jenis, $L$ = panjang kawat, $A$ = luas penampang)\n3. **Kombinasi Hambatan:**\n   * **Seri:** Arus sama ($I_1 = I_2$), $R_s = R_1 + R_2$\n   * **Paralel:** Tegangan sama ($V_1 = V_2$), $\\frac{1}{R_p} = \\frac{1}{R_1} + \\frac{1}{R_2}$\n\n---\n\n## B. Hukum Kirchhoff dan Analisis Loop\n1. **Hukum I Kirchhoff (Percabangan Arus):**\n   $$\\Sigma I_{\\text{masuk}} = \\Sigma I_{\\text{keluar}}$$\n2. **Hukum II Kirchhoff (Loop Tegangan):**\n   Di dalam sebuah rangkaian tertutup, jumlah aljabar gaya gerak listrik (GGL) dan penurunan tegangan sama dengan nol:\n   $$\\Sigma \\mathcal{E} + \\Sigma I R = 0$$\n   * Aturan Tanda: Jika saat mengitari loop menjumpai kutub positif baterai lebih dulu, $\\mathcal{E}$ bertanda $(+)$; jika kutub negatif lebih dulu, bertanda $(-)$.\n3. **Energi dan Daya Listrik:**\n   $$W = V I t = I^2 R t = \\frac{V^2}{R} t$$\n   $$P = \\frac{W}{t} = V I = I^2 R = \\frac{V^2}{R}$$\n"
+  },
+  {
+    "id": "tka-fis-cs-16",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kelistrikan",
+    "tipe": "contoh-soal",
+    "babIndex": 16,
+    "babJudul": "Variasi Contoh Soal — Rangkaian Arus Searah (DC)",
+    "content": "# Variasi Contoh Soal — Rangkaian Arus Searah (DC)\n**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan\n\n### Contoh Soal 1: Rangkaian 1 Loop\nSebuah rangkaian tertutup terdiri atas sumber tegangan $\\mathcal{E}_1 = 12\\text{ V}$ (hambatan dalam $r_1 = 1\\,\\Omega$) dan $\\mathcal{E}_2 = 4\\text{ V}$ ($r_2 = 1\\,\\Omega$) yang berlawanan arah, serta resistor luar $R = 6\\,\\Omega$. Tentukan kuat arus yang mengalir dalam rangkaian!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Terapkan Hukum II Kirchhoff:\n> $$\\Sigma \\mathcal{E} + \\Sigma I(R + r) = 0$$\n> Misalkan loop searah $\\mathcal{E}_1$:\n> $$-\\mathcal{E}_1 + \\mathcal{E}_2 + I(R + r_1 + r_2) = 0$$\n> $$-12 + 4 + I(6 + 1 + 1) = 0 \\implies -8 + 8I = 0 \\implies 8I = 8 \\implies I = 1\\text{ Ampere}$$\n>\n> **Jawaban:** Kuat arus yang mengalir adalah $1\\text{ A}$.\n"
+  },
+  {
+    "id": "tka-fis-rg-16",
+    "kategoriUtama": "tka",
+    "subtes": "Fisika",
+    "blok": "Kelistrikan",
+    "tipe": "rangkuman",
+    "babIndex": 16,
+    "babJudul": "Rangkuman Rumus Cepat — Rangkaian Arus Searah (DC)",
+    "content": "# Rangkuman Rumus Cepat — Arus Searah\n**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan\n\n* **Hukum Ohm:** $V = IR$\n* **Hambatan Kawat:** $R = \\rho \\frac{L}{A}$\n* **Hukum I Kirchhoff:** $\\Sigma I_{\\text{masuk}} = \\Sigma I_{\\text{keluar}}$\n* **Hukum II Kirchhoff:** $\\Sigma \\mathcal{E} + \\Sigma IR = 0$\n* **Daya Listrik:** $P = VI = I^2 R = \\frac{V^2}{R}$\n"
+  },
+  {
+    "id": "tka-mat-mat-01",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Blok 1: Aljabar",
+    "blok": "Aljabar",
     "tipe": "materi",
     "babIndex": 1,
-    "babJudul": "1. Aljabar",
-    "content": "# Bab 1: Aljabar (Matematika Lanjut)\n**Kategori:** TKA Matematika Lanjut | **Blok:** Blok 1: Aljabar\n\n## Pendahuluan\nAljabar tingkat lanjut mencakup struktur matriks, aljabar polinomial (suku banyak), serta eksplorasi domain, kodomain, range, dan karakteristik grafik dari berbagai kelas fungsi matematika.\n\n---\n\n### A. Matriks\n\n#### 1. Operasi Aljabar Matriks\n* **Penjumlahan & Pengurangan:** Hanya dapat dilakukan pada dua matriks berordo sama ($A_{m \\times n} \\pm B_{m \\times n}$). Operasi dilakukan elemen seletak (*entry-wise*).\n* **Perkalian dengan Skalar ($k \\in \\mathbb{R}$):** Setiap elemen dikalikan dengan skalar:\n  $$(k A)_{ij} = k \\cdot a_{ij}$$\n* **Perkalian Antarmatriks ($A_{m \\times p} \\times B_{p \\times n} = C_{m \\times n}$):**\n  Hanya dapat didefinisikan jika jumlah kolom matriks pertama sama dengan jumlah baris matriks kedua:\n  $$c_{ij} = \\sum_{k=1}^p a_{ik} b_{kj}$$\n  > Perkalian matriks pada umumnya **tidak komutatif** ($A B \\ne B A$).\n\n#### 2. Determinan Matriks\n* **Ordo $2 \\times 2$:**\n  $$A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\implies \\det(A) = |A| = a d - b c$$\n* **Ordo $3 \\times 3$ (Metode Sarrus & Ekspansi Kofaktor):**\n  $$A = \\begin{pmatrix} a & b & c \\\\ d & e & f \\\\ g & h & i \\end{pmatrix}$$\n  $$\\det(A) = a(e i - f h) - b(d i - f g) + c(d h - e g)$$\n* **Sifat-Sifat Determinan Penting:**\n  * $\\det(A B) = \\det(A) \\cdot \\det(B)$\n  * $\\det(A^T) = \\det(A)$\n  * $\\det(A^{-1}) = \\frac{1}{\\det(A)}$\n  * $\\det(k A_{n \\times n}) = k^n \\det(A)$\n\n#### 3. Invers Matriks\nMatriks memiliki invers jika dan hanya jika matriks tersebut non-singular ($\\det(A) \\ne 0$).\n* **Invers Ordo $2 \\times 2$:**\n  $$A^{-1} = \\frac{1}{a d - b c} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$$\n* **Invers Ordo $3 \\times 3$:**\n  $$A^{-1} = \\frac{1}{\\det(A)} \\text{Adj}(A) = \\frac{1}{\\det(A)} [C_{ij}]^T$$\n* **Penyelesaian Sistem Persamaan Linear (SPL):**\n  $$A \\vec{x} = \\vec{b} \\implies \\vec{x} = A^{-1} \\vec{b}$$\n  Atau menggunakan **Aturan Cramer**:\n  $$x_i = \\frac{\\det(A_i)}{\\det(A)}$$\n\n---\n\n### B. Polinomial (Suku Banyak)\nBentuk umum polinomial derajat $n$:\n$$P(x) = a_n x^n + a_{n-1} x^{n-1} + \\dots + a_1 x + a_0 \\quad (a_n \\ne 0)$$\n\n#### 1. Operasi Polinomial\nPenjumlahan, pengurangan, dan perkalian polinomial berorde $\\le 4$ dilakukan dengan mengelompokkan suku-suku berderajat sama.\n\n#### 2. Pembagian Polinomial\nBentuk algoritma pembagian:\n$$P(x) = Q(x) \\cdot H(x) + S(x)$$\n* $P(x)$ = polinomial yang dibagi\n* $Q(x)$ = pembagi\n* $H(x)$ = hasil bagi\n* $S(x)$ = sisa pembagian (derajat $S(x) <$ derajat $Q(x)$)\n* **Metode Pembagian:**\n  1. Pembagian bersusun panjang (*porogapit*).\n  2. Skema Horner / sintetik (khusus pembagi linear $(x - c)$ atau $(a x - b)$).\n\n#### 3. Teorema Sisa dan Teorema Faktor\n* **Teorema Sisa:**\n  * Jika $P(x)$ dibagi oleh $(x - c)$, maka sisa pembagiannya adalah $S = P(c)$.\n  * Jika $P(x)$ dibagi oleh $(a x - b)$, maka sisa pembagiannya adalah $S = P\\left(\\frac{b}{a}\\right)$.\n  * Jika $P(x)$ dibagi oleh kuadrat $(x - a)(x - b)$, maka sisa pembagiannya berbentuk linear $S(x) = p x + q$.\n* **Teorema Faktor:**\n  $(x - c)$ merupakan faktor dari $P(x)$ jika dan hanya jika sisa pembagiannya nol:\n  $$P(c) = 0$$\n\n---\n\n### C. Analisis Fungsi Matematika\n\n#### 1. Domain ($D_f$), Kodomain, dan Range ($R_f$)\n* **Domain Alami:** Himpunan semua nilai $x$ real sehingga fungsi $f(x)$ terdefinisi.\n  1. Fungsi pecahan $f(x) = \\frac{P(x)}{Q(x)}$: syarat penyebut $Q(x) \\ne 0$.\n  2. Fungsi bentuk akar genap $f(x) = \\sqrt{g(x)}$: syarat bilangan di bawah akar $g(x) \\ge 0$.\n  3. Fungsi logaritma $f(x) = \\log_a g(x)$: syarat numerus $g(x) > 0$.\n* **Range:** Himpunan seluruh nilai keluaran $y = f(x)$ untuk setiap $x \\in D_f$.\n\n#### 2. Kelas Fungsi dan Karakteristik Grafiknya\n* **Fungsi Polinomial:** Kontinu di seluruh $\\mathbb{R}$ tanpa asimtot. Derajat genap memiliki ujung grafik searah, derajat ganjil memiliki ujung berlawanan.\n* **Fungsi Rasional:** Memiliki kemungkinan asimtot tegak ($Q(x) = 0$) dan asimtot datar ($y = \\lim_{x \\to \\pm\\infty} f(x)$).\n* **Fungsi Eksponensial ($f(x) = e^x$ atau $a^x$):** Selalu positif ($R_f = (0, \\infty)$), memiliki asimtot datar sumbu-$x$ ($y = 0$).\n* **Fungsi Logaritma ($f(x) = \\ln x$):** Domain $x > 0$, asimtot tegak pada sumbu-$y$ ($x = 0$).\n* **Fungsi Nilai Mutlak ($f(x) = |x|$):** Grafik berbentuk huruf \"V\" dengan simetri terhadap titik puncak.\n* **Fungsi Trigonometri ($sin x, \\cos x$):** Gelombang periodik dengan periode $2\\pi$ dan range $[-1, 1]$. Fungsi $\\tan x$ memiliki asimtot tegak pada $x = \\frac{\\pi}{2} + k\\pi$.\n"
+    "babJudul": "Matriks",
+    "content": "# Matriks\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n## A. Operasi Matriks dan Sifat-sifatnya\n1. **Penjumlahan & Pengurangan:**\n   Hanya dapat dilakukan pada matriks berordo sama dengan menjumlahkan/mengurangkan elemen yang seletak:\n   $$\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\pm \\begin{pmatrix} e & f \\\\ g & h \\end{pmatrix} = \\begin{pmatrix} a \\pm e & b \\pm f \\\\ c \\pm g & d \\pm h \\end{pmatrix}$$\n2. **Perkalian Matriks dengan Skalar:**\n   $$k \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = \\begin{pmatrix} ka & kb \\\\ kc & kd \\end{pmatrix}$$\n3. **Perkalian Antarmatriks:**\n   Dua matriks dapat dikalikan jika banyak kolom matriks pertama sama dengan banyak baris matriks kedua ($A_{m \\times p} \\times B_{p \\times n} = C_{m \\times n}$):\n   $$\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\begin{pmatrix} e & f \\\\ g & h \\end{pmatrix} = \\begin{pmatrix} ae + bg & af + bh \\\\ ce + dg & cf + dh \\end{pmatrix}$$\n   > Perkalian matriks **tidak komutatif** ($AB \\ne BA$). Berlaku sifat asosiatif $A(BC) = (AB)C$ dan distributif $A(B + C) = AB + AC$.\n\n---\n\n## B. Determinan dan Invers Matriks\n1. **Determinan Matriks Ordo $2\\times2$:**\n   $$\\det(A) = |A| = ad - bc$$\n2. **Determinan Matriks Ordo $3\\times3$ (Metode Sarrus):**\n   $$|A| = a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32} - a_{13}a_{22}a_{31} - a_{11}a_{23}a_{32} - a_{12}a_{21}a_{33}$$\n   * Sifat: $\\det(AB) = \\det(A) \\cdot \\det(B)$, $\\det(A^T) = \\det(A)$, $\\det(A^{-1}) = \\frac{1}{\\det(A)}$, $\\det(kA_{n\\times n}) = k^n \\det(A)$.\n3. **Invers Matriks Ordo $2\\times2$:**\n   $$A^{-1} = \\frac{1}{ad - bc} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} \\quad (ad - bc \\ne 0)$$\n   * Jika $\\det(A) = 0$, matriks disebut **matriks singular** dan tidak memiliki invers.\n4. **Penyelesaian Persamaan Matriks:**\n   * $A \\cdot X = B \\implies X = A^{-1} \\cdot B$\n   * $X \\cdot A = B \\implies X = B \\cdot A^{-1}$\n"
   },
   {
-    "id": "tka-mtk-cs-01",
+    "id": "tka-mat-cs-01",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Blok 1: Aljabar",
+    "blok": "Aljabar",
     "tipe": "contoh-soal",
     "babIndex": 1,
-    "babJudul": "1. Variasi Contoh Soal — Aljabar",
-    "content": "# Variasi Contoh Soal — Aljabar\n**Kategori:** TKA Matematika Lanjut | **Blok:** Blok 1: Aljabar\n\n---\n\n### Soal 1: Determinan dan Invers Matriks Persamaan\n> [!EXAMPLE]\n> Diberikan matriks $A = \\begin{pmatrix} 2 & 3 \\\\ 1 & 4 \\end{pmatrix}$ dan matriks $B = \\begin{pmatrix} 7 \\\\ 6 \\end{pmatrix}$. Tentukan vektor kolom $X = \\begin{pmatrix} x \\\\ y \\end{pmatrix}$ yang memenuhi persamaan matriks $A X = B$!\n\n#### Pembahasan:\n1. **Hitung Determinan $A$:**\n   $$\\det(A) = (2)(4) - (3)(1) = 8 - 3 = 5$$\n2. **Hitung Invers $A^{-1}$:**\n   $$A^{-1} = \\frac{1}{5} \\begin{pmatrix} 4 & -3 \\\\ -1 & 2 \\end{pmatrix}$$\n3. **Kalikan dengan $B$:**\n   $$X = A^{-1} B = \\frac{1}{5} \\begin{pmatrix} 4 & -3 \\\\ -1 & 2 \\end{pmatrix} \\begin{pmatrix} 7 \\\\ 6 \\end{pmatrix} = \\frac{1}{5} \\begin{pmatrix} 4(7) + (-3)(6) \\\\ (-1)(7) + 2(6) \\end{pmatrix} = \\frac{1}{5} \\begin{pmatrix} 28 - 18 \\\\ -7 + 12 \\end{pmatrix} = \\frac{1}{5} \\begin{pmatrix} 10 \\\\ 5 \\end{pmatrix} = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$$\n   Nilai $x = 2$ dan $y = 1$.\n\n---\n\n### Soal 2: Teorema Sisa Pembagi Derajat Dua\n> [!EXAMPLE]\n> Polinomial $P(x)$ jika dibagi oleh $(x - 1)$ bersisa 4, dan jika dibagi oleh $(x + 2)$ bersisa $-5$. Tentukan sisa pembagian jika $P(x)$ dibagi oleh $(x^2 + x - 2)$!\n\n#### Pembahasan:\n1. **Faktorisasi Pembagi:**\n   $$x^2 + x - 2 = (x - 1)(x + 2)$$\n2. **Bentuk Sisa Pembagian:**\n   Karena pembagi berderajat 2, sisa pembagian berbentuk linear: $S(x) = a x + b$.\n   $$P(x) = (x - 1)(x + 2) H(x) + (a x + b)$$\n3. **Penerapan Teorema Sisa:**\n   * Dibagi $(x - 1)$: $P(1) = 4 \\implies a(1) + b = 4 \\implies a + b = 4$\n   * Dibagi $(x + 2)$: $P(-2) = -5 \\implies a(-2) + b = -5 \\implies -2a + b = -5$\n4. **Eliminasi Sistem Persamaan:**\n   $$(a + b) - (-2a + b) = 4 - (-5) \\implies 3a = 9 \\implies a = 3$$\n   $$3 + b = 4 \\implies b = 1$$\n   Sisa pembagian polinomial tersebut adalah **$S(x) = 3x + 1$**.\n"
+    "babJudul": "Variasi Contoh Soal — Matriks",
+    "content": "# Variasi Contoh Soal — Matriks\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n### Contoh Soal 1: Invers dan Persamaan Matriks\nDiketahui matriks $A = \\begin{pmatrix} 3 & 1 \\\\ 5 & 2 \\end{pmatrix}$ dan $B = \\begin{pmatrix} 7 & 4 \\\\ 11 & 6 \\end{pmatrix}$. Tentukan matriks $X$ yang memenuhi $A \\cdot X = B$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung determinan matriks $A$:\n> $$\\det(A) = (3)(2) - (1)(5) = 6 - 5 = 1$$\n>\n> **Langkah 2:** Tentukan invers matriks $A$:\n> $$A^{-1} = \\frac{1}{1} \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} = \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix}$$\n>\n> **Langkah 3:** Hitung $X = A^{-1} \\cdot B$:\n> $$X = \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} \\begin{pmatrix} 7 & 4 \\\\ 11 & 6 \\end{pmatrix}$$\n> $$X = \\begin{pmatrix} 2(7) + (-1)(11) & 2(4) + (-1)(6) \\\\ (-5)(7) + 3(11) & (-5)(4) + 3(6) \\end{pmatrix} = \\begin{pmatrix} 14 - 11 & 8 - 6 \\\\ -35 + 33 & -20 + 18 \\end{pmatrix} = \\begin{pmatrix} 3 & 2 \\\\ -2 & -2 \\end{pmatrix}$$\n>\n> **Jawaban:** $X = \\begin{pmatrix} 3 & 2 \\\\ -2 & -2 \\end{pmatrix}$.\n"
   },
   {
-    "id": "tka-mtk-rg-01",
+    "id": "tka-mat-rg-01",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Blok 1: Aljabar",
+    "blok": "Aljabar",
     "tipe": "rangkuman",
     "babIndex": 1,
-    "babJudul": "1. Rangkuman Rumus & Konsep — Aljabar",
-    "content": "# Rangkuman Rumus & Konsep — Aljabar\n**Kategori:** TKA Matematika Lanjut | **Blok:** Blok 1: Aljabar\n\n| Topik | Formula Utama | Keterangan |\n| :--- | :--- | :--- |\n| **Invers Matriks $2\\times2$**| $A^{-1} = \\frac{1}{ad-bc}\\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$ | Syarat $\\det(A) \\ne 0$ |\n| **Sifat Determinan**| $\\det(AB) = \\det(A)\\det(B)$ | $\\det(A^{-1}) = \\frac{1}{\\det(A)}$ |\n| **Teorema Sisa** | $S = P(c)$ | Jika $P(x)$ dibagi $(x-c)$ |\n| **Teorema Faktor** | $(x-c)$ faktor $\\iff P(c) = 0$ | Akar persamaan $P(x) = 0$ |\n| **Domain Pecahan** | Penyebut $\\ne 0$ | $Q(x) \\ne 0$ |\n| **Domain Bentuk Akar**| Radikan $\\ge 0$ | $g(x) \\ge 0$ |\n| **Domain Logaritma** | Numerus $> 0$ | $g(x) > 0$ |\n"
+    "babJudul": "Rangkuman Rumus Cepat — Matriks",
+    "content": "# Rangkuman Rumus Cepat — Matriks\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n* **Perkalian:** $AB \\ne BA$ (Tidak komutatif)\n* **Determinan 2x2:** $|A| = ad - bc$\n* **Invers 2x2:** $A^{-1} = \\frac{1}{|A|} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$\n* **Sifat Determinan:** $|AB| = |A| |B|, \\quad |A^{-1}| = \\frac{1}{|A|}, \\quad |kA_{n\\times n}| = k^n |A|$\n* **Solusi Persamaan:** $AX = B \\implies X = A^{-1}B$; $XA = B \\implies X = BA^{-1}$\n"
   },
   {
-    "id": "tka-mtk-mat-02",
+    "id": "tka-mat-mat-02",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Blok 2: Geometri dan Pengukuran",
+    "blok": "Aljabar",
     "tipe": "materi",
     "babIndex": 2,
-    "babJudul": "2. Geometri dan Pengukuran",
-    "content": "# Bab 2: Geometri dan Pengukuran (Matematika Lanjut)\n**Kategori:** TKA Matematika Lanjut | **Blok:** Blok 2: Geometri dan Pengukuran\n\n## Pendahuluan\nGeometri analitik menggabungkan aljabar dan konsep keruangan untuk menelaah vektor dimensi dua dan tiga, geometri lingkaran, serta transformasi geometri dan matriks transformasinya.\n\n---\n\n### A. Vektor pada $\\mathbb{R}^2$ dan $\\mathbb{R}^3$\n\n#### 1. Komponen dan Panjang Vektor\n* Vektor pada $\\mathbb{R}^2$: $\\vec{u} = \\begin{pmatrix} u_1 \\\\ u_2 \\end{pmatrix} = u_1 \\hat{i} + u_2 \\hat{j}$.\n* Vektor pada $\\mathbb{R}^3$: $\\vec{u} = \\begin{pmatrix} u_1 \\\\ u_2 \\\\ u_3 \\end{pmatrix} = u_1 \\hat{i} + u_2 \\hat{j} + u_3 \\hat{k}$.\n* **Besar (Panjang) Vektor:**\n  $$|\\vec{u}| = \\sqrt{u_1^2 + u_2^2 + u_3^2}$$\n* **Vektor Satuan:**\n  $$\\hat{u} = \\frac{\\vec{u}}{|\\vec{u}|} \\quad (|\\hat{u}| = 1)$$\n\n#### 2. Perkalian Skalar Dua Vektor (Dot Product)\n$$\\vec{u} \\cdot \\vec{v} = u_1 v_1 + u_2 v_2 + u_3 v_3 = |\\vec{u}| |\\vec{v}| \\cos\\theta$$\n* **Kondisi Saling Tegak Lurus (Ortogonal):**\n  $$\\vec{u} \\perp \\vec{v} \\iff \\vec{u} \\cdot \\vec{v} = 0$$\n* **Proyeksi Skalar Ortogonal $\\vec{u}$ pada $\\vec{v}$:**\n  $$|\\vec{c}| = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|}$$\n* **Vektor Proyeksi Ortogonal $\\vec{u}$ pada $\\vec{v}$:**\n  $$\\vec{c} = \\left(\\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\right) \\vec{v}$$\n\n---\n\n### B. Lingkaran\n\n#### 1. Persamaan Lingkaran\n* **Pusat di $(0,0)$ dan Jari-Jari $r$:**\n  $$x^2 + y^2 = r^2$$\n* **Pusat di $(a,b)$ dan Jari-Jari $r$:**\n  $$(x - a)^2 + (y - b)^2 = r^2$$\n* **Bentuk Umum Lingkaran:**\n  $$x^2 + y^2 + A x + B y + C = 0$$\n  * Titik Pusat: $P\\left(-\\frac{A}{2}, -\\frac{B}{2}\\right)$\n  * Jari-jari: $r = \\sqrt{\\left(\\frac{A}{2}\\right)^2 + \\left(\\frac{B}{2}\\right)^2 - C}$\n\n#### 2. Persamaan Garis Singgung Lingkaran (PGSL)\n* **Melalui Titik $(x_1, y_1)$ pada Lingkaran $(x-a)^2 + (y-b)^2 = r^2$:**\n  $$(x_1 - a)(x - a) + (y_1 - b)(y - b) = r^2$$\n* **Dengan Gradien Tertentu $m$:**\n  $$y - b = m(x - a) \\pm r \\sqrt{1 + m^2}$$\n* **Melalui Titik di Luar Lingkaran:** Menggunakan persamaan garis kutub (polar) lalu disubstitusikan ke persamaan lingkaran untuk memperoleh titik singgungnya.\n\n#### 3. Pengukuran Lingkaran\n* Keliling: $K = 2\\pi r$\n* Luas: $L = \\pi r^2$\n* Panjang Busur (sudut pusat $\\theta$): $s = \\frac{\\theta}{360^\\circ} \\times 2\\pi r$\n* Luas Juring: $L_{\\text{juring}} = \\frac{\\theta}{360^\\circ} \\times \\pi r^2$\n* Luas Tembereng: $L_{\\text{tembereng}} = L_{\\text{juring}} - L_{\\Delta}$\n\n---\n\n### C. Transformasi Geometri\n\n#### 1. Ragam Transformasi Dasar\n1. **Translasi $T\\begin{pmatrix} a \\\\ b \\end{pmatrix}$:**\n   $$\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} x \\\\ y \\end{pmatrix} + \\begin{pmatrix} a \\\\ b \\end{pmatrix}$$\n2. **Refleksi (Pencerminan):**\n   * Terhadap sumbu-$x$: $\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$\n   * Terhadap sumbu-$y$: $\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} -1 & 0 \\\\ 0 & 1 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$\n   * Terhadap garis $y = x$: $\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$\n   * Terhadap garis $y = -x$: $\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 0 & -1 \\\\ -1 & 0 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$\n3. **Rotasi $[O, \\theta]$ terhadap Pusat $(0,0)$:**\n   $$\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$$\n4. **Dilatasi $[O, k]$:**\n   $$\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} k & 0 \\\\ 0 & k \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$$\n\n#### 2. Komposisi Transformasi\nJika transformasi $T_1$ diwakili matriks $M_1$ dan dilanjutkan transformasi $T_2$ dengan matriks $M_2$, maka matriks komposisinya adalah:\n$$M = M_2 \\times M_1$$\n"
+    "babJudul": "Polinomial (Suku Banyak)",
+    "content": "# Polinomial (Suku Banyak)\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n## A. Konsep Dasar & Operasi Polinomial\nBentuk umum polinomial derajat $n$ satu variabel $x$:\n$$P(x) = a_n x^n + a_{n-1} x^{n-1} + \\dots + a_1 x + a_0 \\quad (a_n \\ne 0)$$\n1. **Derajat Polinomial:** Pangkat tertinggi dari variabel $x$.\n2. **Operasi Aljabar:** Penjumlahan, pengurangan, dan perkalian suku sejenis (orde $\\le 4$).\n3. **Algoritma Pembagian Polinomial:**\n   $$\\text{Yang Dibagi} = (\\text{Pembagi} \\times \\text{Hasil Bagi}) + \\text{Sisa}$$\n   $$P(x) = Q(x) \\cdot H(x) + S(x)$$\n   * Jika pembagi berderajat $k$, derajat sisa maksimum adalah $(k - 1)$.\n   * Pembagian dapat diselesaikan dengan **cara bersusun panjang** atau **skema Horner**.\n\n---\n\n## B. Teorema Sisa dan Teorema Faktor\n1. **Teorema Sisa:**\n   * Jika $P(x)$ dibagi $(x - k)$, sisanya adalah $S = P(k)$.\n   * Jika $P(x)$ dibagi $(ax + b)$, sisanya adalah $S = P\\left(-\\frac{b}{a}\\right)$.\n   * Jika $P(x)$ dibagi $(x - a)(x - b)$, sisanya berbentuk linear $S(x) = px + q$, dengan:\n     $$P(a) = pa + q, \\quad P(b) = pb + q$$\n2. **Teorema Faktor:**\n   Bentuk $(x - k)$ merupakan faktor dari $P(x)$ jika dan hanya jika $P(k) = 0$ (sisa pembagian nol).\n3. **Hubungan Akar-Akar Polinomial (Teorema Vieta untuk Kubik $ax^3 + bx^2 + cx + d = 0$):**\n   * $x_1 + x_2 + x_3 = -\\frac{b}{a}$\n   * $x_1 x_2 + x_1 x_3 + x_2 x_3 = \\frac{c}{a}$\n   * $x_1 x_2 x_3 = -\\frac{d}{a}$\n"
   },
   {
-    "id": "tka-mtk-cs-02",
+    "id": "tka-mat-cs-02",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Blok 2: Geometri dan Pengukuran",
+    "blok": "Aljabar",
     "tipe": "contoh-soal",
     "babIndex": 2,
-    "babJudul": "2. Variasi Contoh Soal — Geometri dan Pengukuran",
-    "content": "# Variasi Contoh Soal — Geometri dan Pengukuran\n**Kategori:** TKA Matematika Lanjut | **Blok:** Blok 2: Geometri dan Pengukuran\n\n---\n\n### Soal 1: Garis Singgung Lingkaran dengan Gradien Tertentu\n> [!EXAMPLE]\n> Tentukan persamaan garis singgung pada lingkaran $x^2 + y^2 - 4x + 6y - 12 = 0$ yang sejajar dengan garis $4x - 3y + 5 = 0$!\n\n#### Pembahasan:\n1. **Tentukan Pusat dan Jari-Jari Lingkaran:**\n   * Bentuk umum: $A = -4, B = 6, C = -12$.\n   * Pusat: $P\\left(-\\frac{-4}{2}, -\\frac{6}{2}\\right) = (2, -3)$, sehingga $a = 2, b = -3$.\n   * Jari-jari:\n     $$r = \\sqrt{2^2 + (-3)^2 - (-12)} = \\sqrt{4 + 9 + 12} = \\sqrt{25} = 5$$\n2. **Tentukan Gradien Garis Singgung ($m$):**\n   Garis acuan $4x - 3y + 5 = 0 \\implies 3y = 4x + 5 \\implies y = \\frac{4}{3}x + \\frac{5}{3}$.\n   Karena sejajar, maka $m = \\frac{4}{3}$.\n3. **Rumus PGSL Bergradien $m$:**\n   $$y - b = m(x - a) \\pm r \\sqrt{1 + m^2}$$\n   $$y - (-3) = \\frac{4}{3}(x - 2) \\pm 5 \\sqrt{1 + \\left(\\frac{4}{3}\\right)^2}$$\n   $$y + 3 = \\frac{4}{3}(x - 2) \\pm 5 \\sqrt{\\frac{25}{9}} = \\frac{4}{3}(x - 2) \\pm 5 \\left(\\frac{5}{3}\\right) = \\frac{4}{3}(x - 2) \\pm \\frac{25}{3}$$\n4. **Kalikan Kedua Ruas dengan 3:**\n   $$3(y + 3) = 4(x - 2) \\pm 25 \\implies 3y + 9 = 4x - 8 \\pm 25$$\n   * Kasus $+25$: $4x - 3y - 17 + 25 = 0 \\implies 4x - 3y + 8 = 0$\n   * Kasus $-25$: $4x - 3y - 17 - 25 = 0 \\implies 4x - 3y - 42 = 0$\n   Persamaan garis singgungnya adalah **$4x - 3y + 8 = 0$** dan **$4x - 3y - 42 = 0$**.\n"
+    "babJudul": "Variasi Contoh Soal — Polinomial (Suku Banyak)",
+    "content": "# Variasi Contoh Soal — Polinomial\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n### Contoh Soal 1: Teorema Sisa Pembagi Derajat Dua\nSuku banyak $P(x)$ jika dibagi $(x - 1)$ bersisa $5$, dan jika dibagi $(x + 2)$ bersisa $-4$. Tentukan sisa pembagian $P(x)$ oleh $(x^2 + x - 2)$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Faktorkan pembagi:\n> $$x^2 + x - 2 = (x - 1)(x + 2)$$\n> Karena pembagi berderajat 2, sisa pembagian berbentuk $S(x) = ax + b$.\n>\n> **Langkah 2:** Terapkan Teorema Sisa:\n> * Dibagi $(x - 1)$ bersisa $5 \\implies P(1) = 5 \\implies a(1) + b = 5 \\implies a + b = 5$\n> * Dibagi $(x + 2)$ bersisa $-4 \\implies P(-2) = -4 \\implies a(-2) + b = -4 \\implies -2a + b = -4$\n>\n> **Langkah 3:** Eliminasi sistem persamaan:\n> $$(a + b) - (-2a + b) = 5 - (-4) \\implies 3a = 9 \\implies a = 3$$\n> $$3 + b = 5 \\implies b = 2$$\n>\n> **Jawaban:** Sisa pembagiannya adalah $S(x) = 3x + 2$.\n"
   },
   {
-    "id": "tka-mtk-rg-02",
+    "id": "tka-mat-rg-02",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Blok 2: Geometri dan Pengukuran",
+    "blok": "Aljabar",
     "tipe": "rangkuman",
     "babIndex": 2,
-    "babJudul": "2. Rangkuman Rumus & Konsep — Geometri dan Pengukuran",
-    "content": "# Rangkuman Rumus & Konsep — Geometri dan Pengukuran\n**Kategori:** TKA Matematika Lanjut | **Blok:** Blok 2: Geometri dan Pengukuran\n\n| Konsep | Rumus Utama | Keterangan |\n| :--- | :--- | :--- |\n| **Dot Product Vektor**| $\\vec{u} \\cdot \\vec{v} = u_1 v_1 + u_2 v_2 + u_3 v_3 = |\\vec{u}||\\vec{v}|\\cos\\theta$ | Saling tegak lurus jika hasil kali $= 0$ |\n| **Panjang Vektor** | $|\\vec{u}| = \\sqrt{u_1^2 + u_2^2 + u_3^2}$ | Nilai skalar non-negatif |\n| **Proyeksi Skalar** | $|\\vec{c}| = \\frac{\\vec{u}\\cdot\\vec{v}}{|\\vec{v}|}$ | Proyeksi $\\vec{u}$ pada $\\vec{v}$ |\n| **Persamaan Lingkaran**| $(x-a)^2 + (y-b)^2 = r^2$ | Pusat $(a,b)$, jari-jari $r$ |\n| **PGSL Titik $(x_1, y_1)$**| $(x_1-a)(x-a) + (y_1-b)(y-b) = r^2$ | Titik tepat pada lingkaran |\n| **PGSL Gradien $m$** | $y - b = m(x - a) \\pm r\\sqrt{1 + m^2}$ | Dua garis singgung sejajar |\n| **Rotasi $[O, \\theta]$** | $\\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix}$ | Pusat $(0,0)$ |\n| **Komposisi Matriks**| $M = M_2 \\times M_1$ | Transformasi 1 lalu 2 |\n"
+    "babJudul": "Rangkuman Rumus Cepat — Polinomial (Suku Banyak)",
+    "content": "# Rangkuman Rumus Cepat — Polinomial\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n* **Pembagian:** $P(x) = Q(x) H(x) + S(x)$\n* **Teorema Sisa:** Sisa bagi $(x - k)$ adalah $P(k)$\n* **Teorema Faktor:** $(x - k)$ faktor $\\iff P(k) = 0$\n* **Sisa Derajat 2:** $S(x) = px + q$\n* **Teorema Vieta (Derajat 3):**\n  $$\\Sigma x_i = -\\frac{b}{a}, \\quad \\Sigma x_i x_j = \\frac{c}{a}, \\quad x_1 x_2 x_3 = -\\frac{d}{a}$$\n"
   },
   {
-    "id": "tka-mtk-mat-03",
+    "id": "tka-mat-mat-03",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Blok 3: Trigonometri",
+    "blok": "Aljabar",
     "tipe": "materi",
     "babIndex": 3,
-    "babJudul": "3. Trigonometri",
-    "content": "# Bab 3: Trigonometri & Limit Fungsi (Matematika Lanjut)\n**Kategori:** TKA Matematika Lanjut | **Blok:** Blok 3: Trigonometri\n\n## Pendahuluan\nBab ini berfokus pada analisis limit fungsi aljabar dan limit fungsi trigonometri dengan metode analitik murni (faktorisasi, rasionalisasi bentuk akar, dan manipulasi identitas trigonometri) tanpa menggunakan aturan L'Hôpital.\n\n---\n\n### A. Limit Fungsi Aljabar\n\n#### 1. Bentuk Tak Tentu $\\left[\\frac{0}{0}\\right]$\nJika substitusi langsung $x = c$ menghasilkan $\\frac{0}{0}$, lakukan penyederhanaan aljabar:\n1. **Metode Pemfaktoran:**\n   Faktorkan pembuat nol $(x - c)$ dari pembilang dan penyebut lalu sederhanakan:\n   $$\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2} = \\lim_{x \\to 2} \\frac{(x - 2)(x + 2)}{x - 2} = \\lim_{x \\to 2} (x + 2) = 4$$\n2. **Metode Merasionalkan Bentuk Akar (Mengalikan Sekawan):**\n   $$\\lim_{x \\to c} \\frac{f(x) - g(x)}{\\sqrt{A(x)} - \\sqrt{B(x)}} \\times \\frac{\\sqrt{A(x)} + \\sqrt{B(x)}}{\\sqrt{A(x)} + \\sqrt{B(x)}}$$\n\n#### 2. Limit Tak Hingga Aljabar $\\left[\\frac{\\infty}{\\infty}\\right]$\n* **Fungsi Rasional:**\n  $$\\lim_{x \\to \\infty} \\frac{a_n x^n + \\dots + a_0}{b_m x^m + \\dots + b_0} = \\begin{cases} \\frac{a_n}{b_m}, & n = m \\\\ 0, & n < m \\\\ \\infty, & n > m \\end{cases}$$\n* **Selisih Bentuk Akar Kuadrat:**\n  $$\\lim_{x \\to \\infty} \\left(\\sqrt{a x^2 + b x + c} - \\sqrt{a x^2 + p x + q}\\right) = \\frac{b - p}{2\\sqrt{a}}$$\n\n---\n\n### B. Limit Fungsi Trigonometri\n\n#### 1. Teorema Limit Dasar Trigonometri\nUntuk sudut kecil mendekati nol ($x \\to 0$):\n$$\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1, \\quad \\lim_{x \\to 0} \\frac{\\tan x}{x} = 1$$\n$$\\lim_{x \\to 0} \\frac{\\sin(a x)}{b x} = \\frac{a}{b}, \\quad \\lim_{x \\to 0} \\frac{\\tan(a x)}{b x} = \\frac{a}{b}, \\quad \\lim_{x \\to 0} \\frac{\\sin(a x)}{\\tan(b x)} = \\frac{a}{b}$$\n\n#### 2. Manipulasi Identitas Trigonometri (Tanpa L'Hôpital)\nGunakan rumus sudut rangkap untuk mengubah bentuk kosinus menjadi sinus:\n$$1 - \\cos(k x) = 2 \\sin^2\\left(\\frac{k x}{2}\\right)$$\n* **Contoh Kasus Klasik:**\n  $$\\lim_{x \\to 0} \\frac{1 - \\cos(4x)}{x^2} = \\lim_{x \\to 0} \\frac{2 \\sin^2(2x)}{x^2} = 2 \\lim_{x \\to 0} \\left(\\frac{\\sin(2x)}{x}\\right)^2 = 2 (2)^2 = 8$$\n* **Rumus Selisih Kosinus:**\n  $$\\cos A - \\cos B = -2 \\sin\\left(\\frac{A + B}{2}\\right) \\sin\\left(\\frac{A - B}{2}\\right)$$\n"
+    "babJudul": "Fungsi dan Pemodelan",
+    "content": "# Fungsi dan Pemodelan\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n## A. Domain, Kodomain, dan Range\nFungsi $f: A \\to B$ memetakan setiap elemen himpunan domain $A$ ke tepat satu elemen himpunan kodomain $B$.\n1. **Domain Alami ($D_f$):**\n   * Fungsi Pecahan $f(x) = \\frac{P(x)}{Q(x)}$: Syarat $Q(x) \\ne 0$.\n   * Fungsi Bentuk Akar $f(x) = \\sqrt{g(x)}$: Syarat $g(x) \\ge 0$.\n   * Fungsi Logaritma $f(x) = \\log_a g(x)$: Syarat numerus $g(x) > 0$ dan basis $a > 0, a \\ne 1$.\n\n---\n\n## B. Karakteristik Ragam Fungsi\n1. **Fungsi Polinomial:** Kontinu di seluruh $\\mathbb{R}$. Derajat 1 berupa garis lurus, derajat 2 berupa parabola ($x_p = -\\frac{b}{2a}, y_p = -\\frac{D}{4a}$), derajat 3 memiliki maksimal 2 titik stasioner.\n2. **Fungsi Rasional:**\n   $$f(x) = \\frac{ax + b}{cx + d}$$\n   * Asimtot tegak: $x = -\\frac{d}{c}$\n   * Asimtot datar: $y = \\frac{a}{c}$\n   * Invers fungsi rasional: $f^{-1}(x) = \\frac{-dx + b}{cx - a}$\n3. **Fungsi Eksponensial & Logaritma:**\n   * $f(x) = a^x$ (selalu positif $> 0$, memotong sumbu-y di $(0,1)$).\n   * $f(x) = \\log_a x$ merupakan invers dari fungsi eksponensial (memotong sumbu-x di $(1,0)$).\n4. **Fungsi Nilai Mutlak:** $f(x) = |x| = \\begin{cases} x, & x \\ge 0 \\\\ -x, & x < 0 \\end{cases}$, grafiknya berbentuk huruf \"V\".\n5. **Fungsi Trigonometri:** Periodik, misal $f(x) = A \\sin(Bx + C) + D$ memiliki amplitudo $|A|$ dan periode $T = \\frac{2\\pi}{|B|}$.\n"
   },
   {
-    "id": "tka-mtk-cs-03",
+    "id": "tka-mat-cs-03",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Blok 3: Trigonometri",
+    "blok": "Aljabar",
     "tipe": "contoh-soal",
     "babIndex": 3,
-    "babJudul": "3. Variasi Contoh Soal — Trigonometri",
-    "content": "# Variasi Contoh Soal — Trigonometri\n**Kategori:** TKA Matematika Lanjut | **Blok:** Blok 3: Trigonometri\n\n---\n\n### Soal 1: Limit Trigonometri dengan Identitas Kosinus\n> [!EXAMPLE]\n> Hitunglah nilai limit berikut tanpa menggunakan aturan L'Hôpital:\n> $$\\lim_{x \\to 0} \\frac{x \\tan(3x)}{1 - \\cos(6x)}$$\n\n#### Pembahasan:\n1. **Ubah Bentuk $1 - \\cos(6x)$ Menggunakan Sudut Rangkap:**\n   $$1 - \\cos(6x) = 2 \\sin^2(3x)$$\n2. **Substitusi ke Limit:**\n   $$\\lim_{x \\to 0} \\frac{x \\tan(3x)}{2 \\sin^2(3x)} = \\frac{1}{2} \\lim_{x \\to 0} \\left(\\frac{x}{\\sin(3x)} \\cdot \\frac{\\tan(3x)}{\\sin(3x)}\\right)$$\n3. **Pecah Sesuai Teorema Limit Dasar:**\n   $$\\frac{1}{2} \\left(\\lim_{x \\to 0} \\frac{x}{\\sin(3x)}\\right) \\left(\\lim_{x \\to 0} \\frac{\\tan(3x)}{\\sin(3x)}\\right) = \\frac{1}{2} \\left(\\frac{1}{3}\\right) \\left(\\frac{3}{3}\\right) = \\frac{1}{6} \\times 1 = \\frac{1}{6}$$\n   Nilai limit tersebut adalah **$\\frac{1}{6}$**.\n"
+    "babJudul": "Variasi Contoh Soal — Fungsi dan Pemodelan",
+    "content": "# Variasi Contoh Soal — Fungsi dan Pemodelan\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n### Contoh Soal 1: Menentukan Domain Fungsi Campuran\nTentukan domain alami dari fungsi $f(x) = \\frac{\\sqrt{2x + 6}}{x^2 - 4x + 3}$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Syarat bentuk akar pembilang:\n> $$2x + 6 \\ge 0 \\implies 2x \\ge -6 \\implies x \\ge -3$$\n>\n> **Langkah 2:** Syarat penyebut tidak sama dengan nol:\n> $$x^2 - 4x + 3 \\ne 0 \\implies (x - 1)(x - 3) \\ne 0 \\implies x \\ne 1 \\text{ dan } x \\ne 3$$\n>\n> **Langkah 3:** Gabungkan kedua syarat:\n> $$D_f = \\{x \\in \\mathbb{R} \\mid x \\ge -3, x \\ne 1, x \\ne 3\\}$$\n>\n> **Jawaban:** $D_f = [-3, 1) \\cup (1, 3) \\cup (3, \\infty)$.\n"
   },
   {
-    "id": "tka-mtk-rg-03",
+    "id": "tka-mat-rg-03",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Blok 3: Trigonometri",
+    "blok": "Aljabar",
     "tipe": "rangkuman",
     "babIndex": 3,
-    "babJudul": "3. Rangkuman Rumus & Konsep — Trigonometri",
-    "content": "# Rangkuman Rumus & Konsep — Trigonometri\n**Kategori:** TKA Matematika Lanjut | **Blok:** Blok 3: Trigonometri\n\n| Teorema / Bentuk | Rumus Utama | Syarat |\n| :--- | :--- | :--- |\n| **Limit Dasar Sinus** | $\\lim_{x \\to 0}\\frac{\\sin ax}{bx} = \\frac{a}{b}$ | $x \\to 0$ |\n| **Limit Dasar Tangen** | $\\lim_{x \\to 0}\\frac{\\tan ax}{bx} = \\frac{a}{b}$ | $x \\to 0$ |\n| **Identitas $1-\\cos kx$**| $1 - \\cos(kx) = 2\\sin^2\\left(\\frac{kx}{2}\\right)$| Manipulasi tanpa L'Hopital |\n| **Selisih Akar Kuadrat**| $\\lim_{x\\to\\infty}(\\sqrt{ax^2+bx+c}-\\sqrt{ax^2+px+q}) = \\frac{b-p}{2\\sqrt{a}}$ | Koefisien $a$ harus sama |\n"
+    "babJudul": "Rangkuman Rumus Cepat — Fungsi dan Pemodelan",
+    "content": "# Rangkuman Rumus Cepat — Ragam Fungsi\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n* **Syarat Pecahan:** Penyebut $\\ne 0$\n* **Syarat Akar Genap:** Di bawah tanda akar $\\ge 0$\n* **Syarat Logaritma:** Numerus $> 0$\n* **Invers Rasional:** $f(x) = \\frac{ax+b}{cx+d} \\implies f^{-1}(x) = \\frac{-dx+b}{cx-a}$\n* **Periode Sinus/Kosinus:** $T = \\frac{2\\pi}{|B|}$\n"
   },
   {
-    "id": "tka-fnd-mat-01",
+    "id": "tka-mat-mat-04",
     "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Materi Prasyarat",
-    "tipe": "materi",
-    "babIndex": 1,
-    "babJudul": "1. Trigonometri Analitik Dasar",
-    "content": "# Bab 1: Trigonometri Analitik Dasar\n**Kategori:** Bab Fundamental Matematika Lanjut (Materi Prasyarat) | **Blok:** Materi Prasyarat\n\n## Pendahuluan\nTrigonometri analitik dasar meletakkan fondasi geometris dan aljabar perbandingan sisi segitiga siku-siku, sudut berelasi di empat kuadran, identitas Pythagoras, serta formula sudut rangkap dan jumlah/selisih sudut.\n\n---\n\n### A. Perbandingan Trigonometri pada Segitiga Siku-Siku\nPada segitiga siku-siku dengan sudut lancip $\\theta$:\n$$\\sin\\theta = \\frac{\\text{sisi depan}}{\\text{sisi miring}} = \\frac{\\text{de}}{\\text{mi}}$$\n$$\\cos\\theta = \\frac{\\text{sisi samping}}{\\text{sisi miring}} = \\frac{\\text{sa}}{\\text{mi}}$$\n$$\\tan\\theta = \\frac{\\text{sisi depan}}{\\text{sisi samping}} = \\frac{\\text{de}}{\\text{sa}} = \\frac{\\sin\\theta}{\\cos\\theta}$$\n* **Perbandingan Kebalikan:**\n  $$\\csc\\theta = \\frac{1}{\\sin\\theta}, \\quad \\sec\\theta = \\frac{1}{\\cos\\theta}, \\quad \\cot\\theta = \\frac{1}{\\tan\\theta}$$\n\n---\n\n### B. Nilai Sudut Istimewa di Kuadran I\n\n| Sudut ($\\theta$) | $0^\\circ$ ($0$) | $30^\\circ$ ($\\frac{\\pi}{6}$) | $45^\\circ$ ($\\frac{\\pi}{4}$) | $60^\\circ$ ($\\frac{\\pi}{3}$) | $90^\\circ$ ($\\frac{\\pi}{2}$) |\n| :---: | :---: | :---: | :---: | :---: | :---: |\n| $\\sin\\theta$ | $0$ | $\\frac{1}{2}$ | $\\frac{1}{2}\\sqrt{2}$ | $\\frac{1}{2}\\sqrt{3}$ | $1$ |\n| $\\cos\\theta$ | $1$ | $\\frac{1}{2}\\sqrt{3}$ | $\\frac{1}{2}\\sqrt{2}$ | $\\frac{1}{2}$ | $0$ |\n| $\\tan\\theta$ | $0$ | $\\frac{1}{3}\\sqrt{3}$ | $1$ | $\\sqrt{3}$ | Tak Terdefinisi |\n\n---\n\n### C. Relasi Sudut di Berbagai Kuadran\n* **Kuadran I ($0^\\circ < \\theta < 90^\\circ$):** Semua fungsi bertanda **positif (+)**.\n* **Kuadran II ($90^\\circ < \\theta < 180^\\circ$):** Hanya **$\\sin$** dan $\\csc$ yang positif (+).\n  $$\\sin(180^\\circ - \\theta) = \\sin\\theta, \\quad \\cos(180^\\circ - \\theta) = -\\cos\\theta, \\quad \\tan(180^\\circ - \\theta) = -\\tan\\theta$$\n* **Kuadran III ($180^\\circ < \\theta < 270^\\circ$):** Hanya **$\\tan$** dan $\\cot$ yang positif (+).\n  $$\\sin(180^\\circ + \\theta) = -\\sin\\theta, \\quad \\cos(180^\\circ + \\theta) = -\\cos\\theta, \\quad \\tan(180^\\circ + \\theta) = \\tan\\theta$$\n* **Kuadran IV ($270^\\circ < \\theta < 360^\\circ$):** Hanya **$\\cos$** dan $\\sec$ yang positif (+).\n  $$\\sin(360^\\circ - \\theta) = -\\sin\\theta, \\quad \\cos(360^\\circ - \\theta) = \\cos\\theta, \\quad \\tan(360^\\circ - \\theta) = -\\tan\\theta$$\n  > Relasi sudut negatif: $\\sin(-\\theta) = -\\sin\\theta$ (ganjil), $\\cos(-\\theta) = \\cos\\theta$ (genap), $\\tan(-\\theta) = -\\tan\\theta$.\n\n---\n\n### D. Identitas Pythagoras Fundamental\n$$\\sin^2 x + \\cos^2 x = 1$$\n$$1 + \\tan^2 x = \\sec^2 x$$\n$$1 + \\cot^2 x = \\csc^2 x$$\n\n---\n\n### E. Rumus Sudut Rangkap dan Jumlah/Selisih Sudut\n\n#### 1. Rumus Sudut Rangkap\n$$\\sin(2x) = 2 \\sin x \\cos x$$\n$$\\cos(2x) = \\cos^2 x - \\sin^2 x = 2 \\cos^2 x - 1 = 1 - 2 \\sin^2 x$$\n$$\\tan(2x) = \\frac{2 \\tan x}{1 - \\tan^2 x}$$\n\n#### 2. Rumus Jumlah dan Selisih Dua Sudut\n$$\\sin(\\alpha \\pm \\beta) = \\sin\\alpha \\cos\\beta \\pm \\cos\\alpha \\sin\\beta$$\n$$\\cos(\\alpha \\pm \\beta) = \\cos\\alpha \\cos\\beta \\mp \\sin\\alpha \\sin\\beta$$\n$$\\tan(\\alpha \\pm \\beta) = \\frac{\\tan\\alpha \\pm \\tan\\beta}{1 \\mp \\tan\\alpha \\tan\\beta}$$\n"
-  },
-  {
-    "id": "tka-fnd-cs-01",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Materi Prasyarat",
-    "tipe": "contoh-soal",
-    "babIndex": 1,
-    "babJudul": "1. Variasi Contoh Soal — Trigonometri Analitik Dasar",
-    "content": "# Variasi Contoh Soal — Trigonometri Analitik Dasar\n**Kategori:** Bab Fundamental Matematika Lanjut | **Blok:** Materi Prasyarat\n\n---\n\n### Soal 1: Sudut Rangkap dan Kuadran\n> [!EXAMPLE]\n> Diketahui $\\sin x = \\frac{3}{5}$ dengan $x$ merupakan sudut tumpul ($90^\\circ < x < 180^\\circ$). Hitunglah nilai dari:\n> 1. $\\cos x$ dan $\\tan x$\n> 2. $\\sin(2x)$\n> 3. $\\cos(2x)$\n\n#### Pembahasan:\n1. **Nilai $\\cos x$ dan $\\tan x$ di Kuadran II:**\n   Karena $x$ di kuadran II, kosinus dan tangen bernilai negatif:\n   $$\\cos x = -\\sqrt{1 - \\sin^2 x} = -\\sqrt{1 - \\left(\\frac{3}{5}\\right)^2} = -\\sqrt{\\frac{16}{25}} = -\\frac{4}{5}$$\n   $$\\tan x = \\frac{\\sin x}{\\cos x} = \\frac{3/5}{-4/5} = -\\frac{3}{4}$$\n2. **Hitung $\\sin(2x)$:**\n   $$\\sin(2x) = 2 \\sin x \\cos x = 2 \\left(\\frac{3}{5}\\right) \\left(-\\frac{4}{5}\\right) = -\\frac{24}{25}$$\n3. **Hitung $\\cos(2x)$:**\n   $$\\cos(2x) = 1 - 2 \\sin^2 x = 1 - 2\\left(\\frac{3}{5}\\right)^2 = 1 - 2\\left(\\frac{9}{25}\\right) = 1 - \\frac{18}{25} = \\frac{7}{25}$$\n"
-  },
-  {
-    "id": "tka-fnd-rg-01",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Materi Prasyarat",
-    "tipe": "rangkuman",
-    "babIndex": 1,
-    "babJudul": "1. Rangkuman Rumus — Trigonometri Analitik Dasar",
-    "content": "# Rangkuman Rumus — Trigonometri Analitik Dasar\n**Kategori:** Bab Fundamental Matematika Lanjut | **Blok:** Materi Prasyarat\n\n| Identitas / Formula | Rumus Matematika | Catatan |\n| :--- | :--- | :--- |\n| **Identitas Pythagoras** | $\\sin^2 x + \\cos^2 x = 1$ | Berlaku untuk semua $x \\in \\mathbb{R}$ |\n| **Turunan Pythagoras** | $1 + \\tan^2 x = \\sec^2 x$ | Bagi dengan $\\cos^2 x$ |\n| **Sudut Rangkap Sinus** | $\\sin(2x) = 2\\sin x \\cos x$ | Sering digunakan di limit & kalkulus |\n| **Sudut Rangkap Kosinus**| $\\cos(2x) = 1 - 2\\sin^2 x$ | Mengubah $1 - \\cos(2x) = 2\\sin^2 x$ |\n| **Jumlah Sudut Sinus** | $\\sin(\\alpha + \\beta) = \\sin\\alpha\\cos\\beta + \\cos\\alpha\\sin\\beta$ | Tanda sama |\n| **Jumlah Sudut Kosinus**| $\\cos(\\alpha + \\beta) = \\cos\\alpha\\cos\\beta - \\sin\\alpha\\sin\\beta$ | Tanda berlawanan |\n"
-  },
-  {
-    "id": "tka-fnd-mat-02",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Materi Prasyarat",
-    "tipe": "materi",
-    "babIndex": 2,
-    "babJudul": "2. Aljabar Elementer",
-    "content": "# Bab 2: Aljabar Elementer\n**Kategori:** Bab Fundamental Matematika Lanjut (Materi Prasyarat) | **Blok:** Materi Prasyarat\n\n## Pendahuluan\nAljabar elementer membekali kemampuan memanipulasi bentuk aljabar, faktorisasi kuadratik, penyederhanaan pecahan rasional, serta penyelesaian sistem persamaan linear dua dan tiga variabel (SPLDV & SPLTV).\n\n---\n\n### A. Bentuk Aljabar dan Pemfaktoran\n\n#### 1. Suku Sejenis & Operasi Aljabar\nDua suku disebut sejenis apabila memiliki variabel yang sama dengan pangkat yang sama (contoh: $3x^2 y$ dan $-5x^2 y$). Hanya suku sejenis yang dapat dijumlahkan atau dikurangkan.\n\n#### 2. Rumus Pemfaktoran Aljabar Klasik\n* **Selisih Dua Kuadrat:**\n  $$a^2 - b^2 = (a - b)(a + b)$$\n* **Bentuk Kuadrat Sempurna:**\n  $$(a + b)^2 = a^2 + 2ab + b^2$$\n  $$(a - b)^2 = a^2 - 2ab + b^2$$\n* **Selisih dan Jumlah Dua Kubik:**\n  $$a^3 - b^3 = (a - b)(a^2 + ab + b^2)$$\n  $$a^3 + b^3 = (a + b)(a^2 - ab + b^2)$$\n* **Pemfaktoran Bentuk Kuadrat $a x^2 + b x + c$:**\n  Cari dua bilangan $p$ dan $q$ sedemikian sehingga $p + q = b$ dan $p \\cdot q = a \\cdot c$:\n  $$a x^2 + b x + c = \\frac{(a x + p)(a x + q)}{a}$$\n\n---\n\n### B. Penyederhanaan Pecahan Bentuk Aljabar\n1. **Faktorkan pembilang dan penyebut:**\n   $$\\frac{x^2 - 9}{x^2 + 5x + 6} = \\frac{(x - 3)(x + 3)}{(x + 2)(x + 3)} = \\frac{x - 3}{x + 2} \\quad (x \\ne -3, x \\ne -2)$$\n2. **Penjumlahan & Pengurangan Pecahan:** Menyamakan penyebut melalui Kelipatan Persekutuan Terkecil (KPK).\n\n---\n\n### C. Sistem Persamaan Linear Dua Variabel (SPLDV)\nBentuk umum:\n$$\\begin{cases} a_1 x + b_1 y = c_1 \\\\ a_2 x + b_2 y = c_2 \\end{cases}$$\n* **Metode Eliminasi:** Menyamakan koefisien salah satu variabel dengan pengali konstanta lalu menjumlahkan/mengurangkan kedua persamaan.\n* **Metode Substitusi:** Menyatakan satu variabel dalam variabel lain ($y = \\frac{c_1 - a_1 x}{b_1}$) lalu menggantikannya ke persamaan kedua.\n* **Metode Campuran:** Mengeliminasi satu variabel untuk menemukan nilai variabel pertama, lalu mensubstitusikannya kembali.\n\n---\n\n### D. Sistem Persamaan Linear Tiga Variabel (SPLTV)\nBentuk umum:\n$$\\begin{cases} a_1 x + b_1 y + c_1 z = d_1 \\\\ a_2 x + b_2 y + c_2 z = d_2 \\\\ a_3 x + b_3 y + c_3 z = d_3 \\end{cases}$$\n* **Strategi Bertahap:**\n  1. Pilih sepasang persamaan (1 & 2) lalu eliminasi salah satu variabel (misal variabel $z$) untuk memperoleh Persamaan (4) dalam $x$ dan $y$.\n  2. Pilih pasangan lain (1 & 3 atau 2 & 3) dan eliminasi variabel yang sama ($z$) untuk memperoleh Persamaan (5) dalam $x$ dan $y$.\n  3. Selesaikan Persamaan (4) dan (5) sebagai SPLDV standar untuk memperoleh nilai $x$ dan $y$.\n  4. Substitusikan nilai $x$ dan $y$ ke salah satu persamaan awal untuk memperoleh nilai $z$.\n"
-  },
-  {
-    "id": "tka-fnd-cs-02",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Materi Prasyarat",
-    "tipe": "contoh-soal",
-    "babIndex": 2,
-    "babJudul": "2. Variasi Contoh Soal — Aljabar Elementer",
-    "content": "# Variasi Contoh Soal — Aljabar Elementer\n**Kategori:** Bab Fundamental Matematika Lanjut | **Blok:** Materi Prasyarat\n\n---\n\n### Soal 1: Penyelesaian SPLTV Bertahap\n> [!EXAMPLE]\n> Tentukan himpunan penyelesaian $(x, y, z)$ dari sistem persamaan linear berikut:\n> $$\\begin{cases} x + y + z = 6 & \\text{--- (1)} \\\\ 2x - y + z = 3 & \\text{--- (2)} \\\\ x + 2y - z = 2 & \\text{--- (3)} \\end{cases}$$\n\n#### Pembahasan:\n1. **Eliminasi $y$ dari Persamaan (1) dan (2):**\n   $$(x + y + z) + (2x - y + z) = 6 + 3 \\implies 3x + 2z = 9 \\quad \\text{--- (4)}$$\n2. **Eliminasi $y$ dari Persamaan (1) dan (3):**\n   Kalikan persamaan (1) dengan 2:\n   $$2x + 2y + 2z = 12$$\n   Kurangkan dengan persamaan (3):\n   $$(2x + 2y + 2z) - (x + 2y - z) = 12 - 2 \\implies x + 3z = 10 \\implies x = 10 - 3z \\quad \\text{--- (5)}$$\n3. **Substitusi (5) ke (4):**\n   $$3(10 - 3z) + 2z = 9 \\implies 30 - 9z + 2z = 9 \\implies -7z = -21 \\implies z = 3$$\n4. **Cari Nilai $x$ dan $y$:**\n   $$x = 10 - 3(3) = 10 - 9 = 1$$\n   Substitusikan $x = 1$ dan $z = 3$ ke Persamaan (1):\n   $$1 + y + 3 = 6 \\implies y + 4 = 6 \\implies y = 2$$\n   Himpunan penyelesaiannya adalah **$(x, y, z) = (1, 2, 3)$**.\n"
-  },
-  {
-    "id": "tka-fnd-rg-02",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Materi Prasyarat",
-    "tipe": "rangkuman",
-    "babIndex": 2,
-    "babJudul": "2. Rangkuman Rumus — Aljabar Elementer",
-    "content": "# Rangkuman Rumus — Aljabar Elementer\n**Kategori:** Bab Fundamental Matematika Lanjut | **Blok:** Materi Prasyarat\n\n| Identitas Aljabar | Rumus / Formula |\n| :--- | :--- |\n| **Selisih Kuadrat** | $a^2 - b^2 = (a - b)(a + b)$ |\n| **Kuadrat Sempurna (+)** | $(a + b)^2 = a^2 + 2ab + b^2$ |\n| **Kuadrat Sempurna (-)** | $(a - b)^2 = a^2 - 2ab + b^2$ |\n| **Selisih Kubik** | $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$ |\n| **Jumlah Kubik** | $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$ |\n| **Penyelesaian SPLDV** | Eliminasi, substitusi, matriks determinan |\n| **Penyelesaian SPLTV** | Reduksi variabel bertahap $3 \\to 2 \\to 1$ |\n"
-  },
-  {
-    "id": "tka-fnd-mat-03",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Materi Prasyarat",
-    "tipe": "materi",
-    "babIndex": 3,
-    "babJudul": "3. Geometri Analitik Bidang",
-    "content": "# Bab 3: Geometri Analitik Bidang\n**Kategori:** Bab Fundamental Matematika Lanjut (Materi Prasyarat) | **Blok:** Materi Prasyarat\n\n## Pendahuluan\nGeometri analitik bidang menelaah sifat-sifat garis dan titik pada koordinat Kartesius dua dimensi, mencakup jarak antartitik, persamaan garis lurus, hubungan gradien garis saling sejajar atau tegak lurus, serta jarak titik ke garis.\n\n---\n\n### A. Titik Koordinat Kartesius dan Jarak Antartitik\n\n#### 1. Jarak Antara Dua Titik\nDiberikan titik $A(x_1, y_1)$ dan $B(x_2, y_2)$ pada bidang Kartesius. Jarak Euclidean $d(A, B)$ diturunkan dari teorema Pythagoras:\n$$d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$\n\n#### 2. Titik Tengah Segmen Garis\nKoordinat titik tengah $M(x_m, y_m)$ antara titik $A$ dan $B$:\n$$x_m = \\frac{x_1 + x_2}{2}, \\quad y_m = \\frac{y_1 + y_2}{2}$$\n\n---\n\n### B. Persamaan Garis Lurus dan Gradien\n\n#### 1. Gradien (Kemiringan Garis, $m$)\nUkuran kecuraman garis yang didefinisikan sebagai perbandingan perubahan ordinat terhadap absis:\n$$m = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1} = \\tan\\theta$$\n* $\\theta$ adalah sudut yang dibentuk garis terhadap sumbu-$x$ positif.\n\n#### 2. Bentuk-Bentuk Persamaan Garis Lurus\n* **Bentuk Kemiringan - Titik:** Garis melalui $(x_1, y_1)$ dengan gradien $m$:\n  $$y - y_1 = m(x - x_1)$$\n* **Bentuk Melalui Dua Titik:** Garis melalui $(x_1, y_1)$ dan $(x_2, y_2)$:\n  $$\\frac{y - y_1}{y_2 - y_1} = \\frac{x - x_1}{x_2 - x_1}$$\n* **Bentuk Eksplisit (Kemiringan - Titik Potong Sumbu):**\n  $$y = m x + c$$\n* **Bentuk Implisit (Bentuk Umum):**\n  $$a x + b y + c = 0 \\implies m = -\\frac{a}{b}$$\n\n---\n\n### C. Hubungan Gradien Dua Garis\n\n#### 1. Dua Garis Sejajar\nDua garis $g_1$ dan $g_2$ dikatakan saling sejajar ($g_1 \\parallel g_2$) jika dan hanya jika keduanya memiliki kemiringan yang identik:\n$$m_1 = m_2$$\n\n#### 2. Dua Garis Saling Tegak Lurus\nDua garis $g_1$ dan $g_2$ dikatakan saling tegak lurus ($g_1 \\perp g_2$) jika dan hanya jika hasil kali kedua gradiennya sama dengan $-1$:\n$$m_1 \\cdot m_2 = -1 \\iff m_2 = -\\frac{1}{m_1}$$\n\n---\n\n### D. Jarak Titik ke Suatu Garis Lurus\nJarak terpendek (tegak lurus) dari titik $P(x_0, y_0)$ ke garis lurus berpersamaan $a x + b y + c = 0$:\n$$d = \\frac{|a x_0 + b y_0 + c|}{\\sqrt{a^2 + b^2}}$$\n"
-  },
-  {
-    "id": "tka-fnd-cs-03",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Materi Prasyarat",
-    "tipe": "contoh-soal",
-    "babIndex": 3,
-    "babJudul": "3. Variasi Contoh Soal — Geometri Analitik Bidang",
-    "content": "# Variasi Contoh Soal — Geometri Analitik Bidang\n**Kategori:** Bab Fundamental Matematika Lanjut | **Blok:** Materi Prasyarat\n\n---\n\n### Soal 1: Garis Tegak Lurus dan Titik Potong\n> [!EXAMPLE]\n> Tentukan persamaan garis yang melalui titik $P(2, -3)$ dan tegak lurus terhadap garis $3x - 4y + 8 = 0$!\n\n#### Pembahasan:\n1. **Tentukan Gradien Garis Acuan ($m_1$):**\n   $$3x - 4y + 8 = 0 \\implies 4y = 3x + 8 \\implies y = \\frac{3}{4}x + 2$$\n   Maka gradien $m_1 = \\frac{3}{4}$.\n2. **Tentukan Gradien Garis Tegak Lurus ($m_2$):**\n   $$m_1 \\cdot m_2 = -1 \\implies \\frac{3}{4} \\cdot m_2 = -1 \\implies m_2 = -\\frac{4}{3}$$\n3. **Persamaan Garis Melalui $P(2, -3)$:**\n   $$y - y_1 = m_2 (x - x_1) \\implies y - (-3) = -\\frac{4}{3}(x - 2)$$\n   $$y + 3 = -\\frac{4}{3}x + \\frac{8}{3}$$\n   Kalikan kedua ruas dengan 3:\n   $$3y + 9 = -4x + 8 \\implies 4x + 3y + 1 = 0$$\n   Persamaan garis yang dicari adalah **$4x + 3y + 1 = 0$**.\n\n---\n\n### Soal 2: Jarak Titik ke Garis\n> [!EXAMPLE]\n> Hitunglah jarak dari titik $A(1, 2)$ ke garis lurus $5x + 12y - 4 = 0$!\n\n#### Pembahasan:\n1. **Rumus Jarak Titik ke Garis:**\n   $$d = \\frac{|a x_0 + b y_0 + c|}{\\sqrt{a^2 + b^2}}$$\n2. **Substitusi Titik $(1, 2)$ ke $5x + 12y - 4 = 0$:**\n   $$d = \\frac{|5(1) + 12(2) - 4|}{\\sqrt{5^2 + 12^2}} = \\frac{|5 + 24 - 4|}{\\sqrt{25 + 144}} = \\frac{|25|}{\\sqrt{169}} = \\frac{25}{13} \\approx 1{,}92$$\n   Jarak titik tersebut ke garis adalah **$\\frac{25}{13}$ satuan**.\n"
-  },
-  {
-    "id": "tka-fnd-rg-03",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Materi Prasyarat",
-    "tipe": "rangkuman",
-    "babIndex": 3,
-    "babJudul": "3. Rangkuman Rumus — Geometri Analitik Bidang",
-    "content": "# Rangkuman Rumus — Geometri Analitik Bidang\n**Kategori:** Bab Fundamental Matematika Lanjut | **Blok:** Materi Prasyarat\n\n| Konsep | Rumus Matematika | Keterangan |\n| :--- | :--- | :--- |\n| **Jarak Antartitik** | $d = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$ | Jarak Euclidean |\n| **Gradien Dua Titik** | $m = \\frac{y_2 - y_1}{x_2 - x_1}$ | $x_1 \\ne x_2$ |\n| **Garis Melalui Titik & $m$**| $y - y_1 = m(x - x_1)$ | Bentuk titik-kemiringan |\n| **Dua Garis Sejajar** | $m_1 = m_2$ | Tidak berpotongan |\n| **Dua Garis Tegak Lurus**| $m_1 \\cdot m_2 = -1$ | Membentuk sudut $90^\\circ$ |\n| **Jarak Titik ke Garis** | $d = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}}$ | Garis $ax+by+c=0$ |\n"
-  },
-  {
-    "id": "tka-fnd-mat-04",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Materi Prasyarat",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
     "tipe": "materi",
     "babIndex": 4,
-    "babJudul": "4. Pertidaksamaan dan Nilai Mutlak",
-    "content": "# Bab 4: Pertidaksamaan dan Nilai Mutlak\n**Kategori:** Bab Fundamental Matematika Lanjut (Materi Prasyarat) | **Blok:** Materi Prasyarat\n\n## Pendahuluan\nPemahaman syarat keberlakuan fungsi aljabar (pecahan dan bentuk akar) serta penyelesaian persamaan dan pertidaksamaan nilai mutlak merupakan materi prasyarat penting dalam menyelesaikan kalkulus dan analisis matematika lanjut.\n\n---\n\n### A. Syarat Keberlakuan Aljabar\n\n#### 1. Syarat Pecahan Terdefinisi\nSuatu pecahan rasional $\\frac{f(x)}{g(x)}$ terdefinisi pada bilangan real jika dan hanya jika penyebutnya tidak sama dengan nol:\n$$g(x) \\ne 0$$\n* Pada pertidaksamaan pecahan $\\frac{f(x)}{g(x)} \\le 0$, titik pembuat nol penyebut ($g(x) = 0$) **selalu terbuka (tidak termasuk himpunan penyelesaian)**.\n\n#### 2. Syarat Bentuk Akar Terdefinisi\nBentuk akar pangkat genap $\\sqrt{f(x)}$ menghasilkan bilangan real jika dan hanya jika bilangan di bawah tanda akar tidak negatif:\n$$f(x) \\ge 0$$\n* Langkah penyelesaian pertidaksamaan bentuk akar:\n  1. Tentukan syarat batas radikan ($f(x) \\ge 0$).\n  2. Kuadratkan kedua ruas setelah memastikan kedua ruas bernilai non-negatif.\n  3. Cari irisan (interseksi) antara syarat radikan dengan hasil kuadrat.\n\n---\n\n### B. Nilai Mutlak (Konsep & Sifat Dasar)\n\n#### 1. Definisi Geometris Nilai Mutlak\nNilai mutlak $|x|$ merepresentasikan jarak bilangan $x$ dari titik nol pada garis bilangan real (selalu non-negatif $|x| \\ge 0$):\n$$|x| = \\begin{cases} x, & x \\ge 0 \\\\ -x, & x < 0 \\end{cases}$$\n* Sifat penting: $|x|^2 = x^2$ dan $|x| = \\sqrt{x^2}$.\n\n#### 2. Persamaan Nilai Mutlak\n* **Bentuk $|f(x)| = c$ (dengan $c \\ge 0$):**\n  $$f(x) = c \\quad \\text{atau} \\quad f(x) = -c$$\n* **Bentuk $|f(x)| = |g(x)|$:**\n  $$f(x)^2 = g(x)^2 \\iff (f(x) + g(x))(f(x) - g(x)) = 0$$\n\n#### 3. Pertidaksamaan Nilai Mutlak\nUntuk sebarang konstanta $a > 0$:\n1. **Bentuk Kurang Dari ($|x| < a$):**\n   $$-a < x < a$$\n2. **Bentuk Lebih Dari ($|x| > a$):**\n   $$x < -a \\quad \\text{atau} \\quad x > a$$\n"
+    "babJudul": "Vektor pada Bidang dan Ruang",
+    "content": "# Vektor pada Bidang dan Ruang\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n## A. Komponen dan Operasi Vektor\n1. **Representasi Vektor:**\n   * Di bidang $\\mathbb{R}^2$: $\\vec{u} = \\begin{pmatrix} x \\\\ y \\end{pmatrix} = x\\hat{i} + y\\hat{j}$\n   * Di ruang $\\mathbb{R}^3$: $\\vec{u} = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = x\\hat{i} + y\\hat{j} + z\\hat{k}$\n2. **Panjang (Modulus) Vektor:**\n   $$|\\vec{u}| = \\sqrt{x^2 + y^2 + z^2}$$\n   * Vektor satuan: $\\hat{u} = \\frac{\\vec{u}}{|\\vec{u}|}$ (memiliki panjang 1 satuan).\n3. **Operasi Aljabar:**\n   $$\\vec{u} \\pm \\vec{v} = (u_x \\pm v_x)\\hat{i} + (u_y \\pm v_y)\\hat{j} + (u_z \\pm v_z)\\hat{k}$$\n\n---\n\n## B. Perkalian Skalar (Dot Product) & Proyeksi\n1. **Perkalian Titik (Dot Product):**\n   $$\\vec{u} \\cdot \\vec{v} = u_x v_x + u_y v_y + u_z v_z = |\\vec{u}| |\\vec{v}| \\cos\\theta$$\n   * Jika $\\vec{u} \\perp \\vec{v}$ (tegak lurus), maka $\\theta = 90^\\circ \\implies \\vec{u} \\cdot \\vec{v} = 0$.\n   * Sudut antara dua vektor:\n     $$\\cos\\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}| |\\vec{v}|}$$\n2. **Proyeksi Ortogonal Vektor $\\vec{u}$ pada $\\vec{v}$:**\n   * **Panjang Proyeksi Skalar:**\n     $$|\\vec{p}| = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|}$$\n   * **Vektor Proyeksi:**\n     $$\\vec{p} = \\left(\\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\right) \\vec{v}$$\n"
   },
   {
-    "id": "tka-fnd-cs-04",
+    "id": "tka-mat-cs-04",
     "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Materi Prasyarat",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
     "tipe": "contoh-soal",
     "babIndex": 4,
-    "babJudul": "4. Variasi Contoh Soal — Pertidaksamaan dan Nilai Mutlak",
-    "content": "# Variasi Contoh Soal — Pertidaksamaan dan Nilai Mutlak\n**Kategori:** Bab Fundamental Matematika Lanjut | **Blok:** Materi Prasyarat\n\n---\n\n### Soal 1: Pertidaksamaan Nilai Mutlak Linear\n> [!EXAMPLE]\n> Tentukan himpunan penyelesaian dari pertidaksamaan $|2x - 3| \\le 5$!\n\n#### Pembahasan:\n1. **Gunakan Sifat $|u| \\le a \\iff -a \\le u \\le a$:**\n   $$-5 \\le 2x - 3 \\le 5$$\n2. **Tambahkan 3 pada Ketiga Ruas:**\n   $$-5 + 3 \\le 2x \\le 5 + 3 \\implies -2 \\le 2x \\le 8$$\n3. **Bagi Ketiga Ruas dengan 2:**\n   $$-1 \\le x \\le 4$$\n   Himpunan penyelesaiannya adalah **$\\{x \\mid -1 \\le x \\le 4, x \\in \\mathbb{R}\\}$**.\n\n---\n\n### Soal 2: Pertidaksamaan Pecahan dengan Uji Garis Bilangan\n> [!EXAMPLE]\n> Tentukan nilai $x$ yang memenuhi pertidaksamaan rasional:\n> $$\\frac{x - 2}{x + 4} \\ge 0$$\n\n#### Pembahasan:\n1. **Tentukan Pembuat Nol:**\n   * Pembilang: $x - 2 = 0 \\implies x = 2$ (titik penuh, $\\le$ atau $\\ge$).\n   * Penyebut: $x + 4 = 0 \\implies x = -4$ (syarat pecahan: titik selalu terbuka $x \\ne -4$).\n2. **Uji Tanda Interval pada Garis Bilangan:**\n   * Interval $x < -4$ (misal $x = -5$): $\\frac{-5 - 2}{-5 + 4} = \\frac{-7}{-1} = +7 > 0$ (+).\n   * Interval $-4 < x < 2$ (misal $x = 0$): $\\frac{0 - 2}{0 + 4} = -\\frac{1}{2} < 0$ (-).\n   * Interval $x > 2$ (misal $x = 3$): $\\frac{3 - 2}{3 + 4} = \\frac{1}{7} > 0$ (+).\n3. **Himpunan Penyelesaian (Mencari $\\ge 0$):**\n   $$x < -4 \\quad \\text{atau} \\quad x \\ge 2$$\n"
+    "babJudul": "Variasi Contoh Soal — Vektor pada Bidang dan Ruang",
+    "content": "# Variasi Contoh Soal — Vektor\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n### Contoh Soal 1: Dua Vektor Saling Tegak Lurus\nDiketahui vektor $\\vec{a} = 2\\hat{i} - 4\\hat{j} + 3\\hat{k}$ dan $\\vec{b} = x\\hat{i} + 2\\hat{j} + 4\\hat{k}$. Jika vektor $\\vec{a}$ dan $\\vec{b}$ saling tegak lurus, tentukan nilai $x$ dan panjang vektor $\\vec{b}$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Syarat tegak lurus: $\\vec{a} \\cdot \\vec{b} = 0$:\n> $$(2)(x) + (-4)(2) + (3)(4) = 0$$\n> $$2x - 8 + 12 = 0 \\implies 2x + 4 = 0 \\implies 2x = -4 \\implies x = -2$$\n>\n> **Langkah 2:** Hitung panjang vektor $\\vec{b} = -2\\hat{i} + 2\\hat{j} + 4\\hat{k}$:\n> $$|\\vec{b}| = \\sqrt{(-2)^2 + 2^2 + 4^2} = \\sqrt{4 + 4 + 16} = \\sqrt{24} = 2\\sqrt{6}$$\n>\n> **Jawaban:** $x = -2$ dan $|\\vec{b}| = 2\\sqrt{6}$.\n"
   },
   {
-    "id": "tka-fnd-rg-04",
+    "id": "tka-mat-rg-04",
     "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Materi Prasyarat",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
     "tipe": "rangkuman",
     "babIndex": 4,
-    "babJudul": "4. Rangkuman Rumus — Pertidaksamaan dan Nilai Mutlak",
-    "content": "# Rangkuman Rumus — Pertidaksamaan dan Nilai Mutlak\n**Kategori:** Bab Fundamental Matematika Lanjut | **Blok:** Materi Prasyarat\n\n| Bentuk Pertidaksamaan | Solusi / Syarat | Catatan Penting |\n| :--- | :--- | :--- |\n| **Pecahan $\\frac{P(x)}{Q(x)}$** | Syarat $Q(x) \\ne 0$ | Titik penyebut tidak boleh bulat penuh |\n| **Bentuk Akar $\\sqrt{f(x)}$**| Syarat $f(x) \\ge 0$ | Wajib diiriskan dengan solusi akhir |\n| **Nilai Mutlak $|x| < a$** | $-a < x < a$ | Untuk $a > 0$ |\n| **Nilai Mutlak $|x| > a$** | $x < -a$ atau $x > a$ | Daerah terpisah di kiri dan kanan |\n| **$|f(x)| = |g(x)|$** | $(f+g)(f-g) = 0$ | Selisih dua kuadrat |\n"
+    "babJudul": "Rangkuman Rumus Cepat — Vektor pada Bidang dan Ruang",
+    "content": "# Rangkuman Rumus Cepat — Vektor\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n* **Panjang Vektor:** $|\\vec{u}| = \\sqrt{x^2 + y^2 + z^2}$\n* **Dot Product:** $\\vec{u} \\cdot \\vec{v} = u_x v_x + u_y v_y + u_z v_z = |\\vec{u}| |\\vec{v}| \\cos\\theta$\n* **Syarat Tegak Lurus:** $\\vec{u} \\cdot \\vec{v} = 0$\n* **Panjang Proyeksi $\\vec{u}$ pada $\\vec{v}$:** $|\\vec{p}| = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|}$\n* **Vektor Proyeksi $\\vec{u}$ pada $\\vec{v}$:** $\\vec{p} = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2} \\vec{v}$\n"
   },
   {
-    "id": "tka-fnd-mat-05",
+    "id": "tka-mat-mat-05",
     "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Materi Prasyarat",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
     "tipe": "materi",
     "babIndex": 5,
-    "babJudul": "5. Eksponen dan Logaritma",
-    "content": "# Bab 5: Eksponen dan Logaritma\n**Kategori:** Bab Fundamental Matematika Lanjut (Materi Prasyarat) | **Blok:** Materi Prasyarat\n\n## Pendahuluan\nEksponen dan logaritma adalah operasi invers satu sama lain. Penguasaan sifat-sifat pangkat bilangan bulat/rasional dan manipulasi basis logaritma adalah kemampuan wajib untuk memecahkan persamaan transendental dalam matematika lanjut.\n\n---\n\n### A. Aturan Pangkat (Eksponen)\n\n#### 1. Aturan Pangkat Bulat dan Rasional\nUntuk bilangan real $a, b > 0$ dan bilangan bulat atau rasional $m, n$:\n1. **Perkalian Basis Sama:**\n   $$a^m \\cdot a^n = a^{m + n}$$\n2. **Pembagian Basis Sama:**\n   $$\\frac{a^m}{a^n} = a^{m - n}$$\n3. **Pangkat Dipangkatkan:**\n   $$(a^m)^n = a^{m \\cdot n}$$\n4. **Pangkat Perkalian:**\n   $$(a \\cdot b)^n = a^n \\cdot b^n$$\n5. **Pangkat Pembagian:**\n   $$\\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n}$$\n6. **Pangkat Negatif dan Nol:**\n   $$a^{-n} = \\frac{1}{a^n}, \\quad a^0 = 1 \\quad (a \\ne 0)$$\n7. **Pangkat Rasional (Bentuk Akar):**\n   $$a^{\\frac{m}{n}} = \\sqrt[n]{a^m}$$\n\n#### 2. Persamaan Eksponen\nJika $a > 0$ dan $a \\ne 1$:\n$$a^{f(x)} = a^{g(x)} \\implies f(x) = g(x)$$\nJika $a^{f(x)} = b^{f(x)}$ dengan $a \\ne b$, maka $f(x) = 0$.\n\n---\n\n### B. Konsep dan Sifat Logaritma\n\n#### 1. Definisi Logaritma\nLogaritma adalah invers dari perpangkatan:\n$${}^a\\log b = c \\iff a^c = b$$\n* **Syarat Basis ($a$):** $a > 0$ dan $a \\ne 1$.\n* **Syarat Numerus ($b$):** $b > 0$.\n* Logaritma natural: $\\ln x = {}^e\\log x$ (dengan bilangan Euler $e \\approx 2{,}71828$).\n\n#### 2. Sifat-Sifat Operasi Logaritma\n1. **Penjumlahan Logaritma (Perkalian Numerus):**\n   $${}^a\\log(b \\cdot c) = {}^a\\log b + {}^a\\log c$$\n2. **Pengurangan Logaritma (Pembagian Numerus):**\n   $${}^a\\log\\left(\\frac{b}{c}\\right) = {}^a\\log b - {}^a\\log c$$\n3. **Pangkat pada Numerus:**\n   $${}^a\\log(b^n) = n \\cdot {}^a\\log b$$\n4. **Pangkat pada Basis dan Numerus:**\n   $${}^{a^m}\\log(b^n) = \\frac{n}{m} \\cdot {}^a\\log b$$\n5. **Perubahan Basis Logaritma:**\n   $${}^a\\log b = \\frac{{}^c\\log b}{{}^c\\log a} = \\frac{1}{{}^b\\log a}$$\n6. **Rantai Perkalian Logaritma:**\n   $${}^a\\log b \\cdot {}^b\\log c = {}^a\\log c$$\n7. **Sifat Eksponensial Logaritma:**\n   $$a^{{}^a\\log b} = b$$\n"
+    "babJudul": "Lingkaran",
+    "content": "# Lingkaran\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n## A. Persamaan Lingkaran\n1. **Pusat $(0,0)$ dan Jari-Jari $r$:**\n   $$x^2 + y^2 = r^2$$\n2. **Pusat $(a,b)$ dan Jari-Jari $r$:**\n   $$(x - a)^2 + (y - b)^2 = r^2$$\n3. **Bentuk Umum Persamaan Lingkaran:**\n   $$x^2 + y^2 + Ax + By + C = 0$$\n   * Titik Pusat: $P\\left(-\\frac{A}{2}, -\\frac{B}{2}\\right)$\n   * Jari-jari: $r = \\sqrt{\\left(\\frac{A}{2}\\right)^2 + \\left(\\frac{B}{2}\\right)^2 - C}$\n\n---\n\n## B. Persamaan Garis Singgung Lingkaran (PGSL)\n1. **Melalui Titik $(x_1, y_1)$ pada Lingkaran:**\n   * Untuk $x^2 + y^2 = r^2$: $x_1 x + y_1 y = r^2$\n   * Untuk $(x - a)^2 + (y - b)^2 = r^2$:\n     $$(x_1 - a)(x - a) + (y_1 - b)(y - b) = r^2$$\n2. **Dengan Gradien $m$ Tertentu:**\n   $$y - b = m(x - a) \\pm r\\sqrt{1 + m^2}$$\n3. **Unsur-Unsur Geometri Busur dan Juring:**\n   * Keliling $= 2\\pi r$, Luas Lingkaran $= \\pi r^2$\n   * Panjang Busur: $s = \\frac{\\theta}{360^\\circ} \\times 2\\pi r$\n   * Luas Juring: $L_{\\text{juring}} = \\frac{\\theta}{360^\\circ} \\times \\pi r^2$\n   * Luas Tembereng: $L_{\\text{tembereng}} = L_{\\text{juring}} - L_{\\Delta}$\n"
   },
   {
-    "id": "tka-fnd-cs-05",
+    "id": "tka-mat-cs-05",
     "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Materi Prasyarat",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
     "tipe": "contoh-soal",
     "babIndex": 5,
-    "babJudul": "5. Variasi Contoh Soal — Eksponen dan Logaritma",
-    "content": "# Variasi Contoh Soal — Eksponen dan Logaritma\n**Kategori:** Bab Fundamental Matematika Lanjut | **Blok:** Materi Prasyarat\n\n---\n\n### Soal 1: Penyederhanaan Rantai Logaritma\n> [!EXAMPLE]\n> Sederhanakan nilai dari ekspresi logaritma berikut:\n> $${}^2\\log 48 + {}^2\\log\\left(\\frac{1}{3}\\right) - {}^2\\log 2$$\n\n#### Pembahasan:\n1. **Gunakan Sifat Penjumlahan dan Pengurangan Logaritma:**\n   $${}^a\\log x + {}^a\\log y - {}^a\\log z = {}^a\\log\\left(\\frac{x \\cdot y}{z}\\right)$$\n2. **Substitusi Numerus:**\n   $${}^2\\log\\left(\\frac{48 \\times \\frac{1}{3}}{2}\\right) = {}^2\\log\\left(\\frac{16}{2}\\right) = {}^2\\log 8$$\n3. **Ubah 8 Menjadi Pangkat 2:**\n   $${}^2\\log 8 = {}^2\\log(2^3) = 3 \\cdot {}^2\\log 2 = 3(1) = 3$$\n   Nilai dari ekspresi tersebut adalah **$3$**.\n\n---\n\n### Soal 2: Persamaan Eksponen Berbasis Beda\n> [!EXAMPLE]\n> Tentukan nilai $x$ yang memenuhi persamaan:\n> $$3^{2x - 1} = 27^{x - 2}$$\n\n#### Pembahasan:\n1. **Samakan Basis Eksponen (Ubah 27 Menjadi $3^3$):**\n   $$3^{2x - 1} = (3^3)^{x - 2} \\implies 3^{2x - 1} = 3^{3(x - 2)} = 3^{3x - 6}$$\n2. **Samakan Pangkatnya:**\n   $$2x - 1 = 3x - 6$$\n   $$3x - 2x = 6 - 1 \\implies x = 5$$\n   Nilai $x$ yang memenuhi adalah **$x = 5$**.\n"
+    "babJudul": "Variasi Contoh Soal — Lingkaran",
+    "content": "# Variasi Contoh Soal — Lingkaran\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n### Contoh Soal 1: Garis Singgung dengan Gradien Tertentu\nTentukan persamaan garis singgung pada lingkaran $x^2 + y^2 - 4x + 6y - 12 = 0$ yang tegak lurus dengan garis $3x - 4y + 7 = 0$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Tentukan pusat dan jari-jari lingkaran:\n> * Pusat: $P(-(-4)/2, -(6)/2) = (2, -3)$\n> * $r = \\sqrt{2^2 + (-3)^2 - (-12)} = \\sqrt{4 + 9 + 12} = \\sqrt{25} = 5$\n>\n> **Langkah 2:** Tentukan gradien garis singgung:\n> Garis $3x - 4y + 7 = 0 \\implies m_1 = \\frac{3}{4}$.\n> Karena tegak lurus ($m_1 \\cdot m_2 = -1$), maka $m_2 = -\\frac{4}{3}$.\n>\n> **Langkah 3:** Rumus PGSL dengan gradien:\n> $$y - b = m(x - a) \\pm r\\sqrt{1 + m^2}$$\n> $$y - (-3) = -\\frac{4}{3}(x - 2) \\pm 5\\sqrt{1 + \\left(-\\frac{4}{3}\\right)^2}$$\n> $$y + 3 = -\\frac{4}{3}(x - 2) \\pm 5\\sqrt{\\frac{25}{9}} = -\\frac{4}{3}(x - 2) \\pm 5\\left(\\frac{5}{3}\\right) = -\\frac{4}{3}(x - 2) \\pm \\frac{25}{3}$$\n> Kalikan kedua ruas dengan 3:\n> $$3y + 9 = -4(x - 2) \\pm 25 \\implies 3y + 9 = -4x + 8 \\pm 25$$\n> $$4x + 3y + 1 \\pm 25 = 0$$\n> Diperoleh dua garis: $4x + 3y + 26 = 0$ atau $4x + 3y - 24 = 0$.\n>\n> **Jawaban:** $4x + 3y + 26 = 0$ dan $4x + 3y - 24 = 0$.\n"
   },
   {
-    "id": "tka-fnd-rg-05",
+    "id": "tka-mat-rg-05",
     "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Materi Prasyarat",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
     "tipe": "rangkuman",
     "babIndex": 5,
-    "babJudul": "5. Rangkuman Rumus — Eksponen dan Logaritma",
-    "content": "# Rangkuman Rumus — Eksponen dan Logaritma\n**Kategori:** Bab Fundamental Matematika Lanjut | **Blok:** Materi Prasyarat\n\n| Sifat / Identitas | Rumus Matematika | Catatan |\n| :--- | :--- | :--- |\n| **Perkalian Eksponen** | $a^m \\cdot a^n = a^{m+n}$ | Basis harus sama |\n| **Pembagian Eksponen** | $\\frac{a^m}{a^n} = a^{m-n}$ | Basis harus sama |\n| **Pangkat Negatif** | $a^{-n} = \\frac{1}{a^n}$ | $a \\ne 0$ |\n| **Definisi Logaritma** | ${}^a\\log b = c \\iff a^c = b$ | $a > 0, a \\ne 1, b > 0$ |\n| **Penjumlahan Logaritma**| ${}^a\\log b + {}^a\\log c = {}^a\\log(bc)$| Basis sama |\n| **Pangkat Numerus & Basis**| ${}^{a^m}\\log(b^n) = \\frac{n}{m}{}^a\\log b$ | Rumus sangat penting |\n| **Perubahan Basis** | ${}^a\\log b = \\frac{{}^c\\log b}{{}^c\\log a} = \\frac{1}{{}^b\\log a}$ | $c$ basis baru bebas |\n"
+    "babJudul": "Rangkuman Rumus Cepat — Lingkaran",
+    "content": "# Rangkuman Rumus Cepat — Lingkaran\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n* **Pusat & Jari-jari Umum:** $P\\left(-\\frac{A}{2}, -\\frac{B}{2}\\right), \\quad r = \\sqrt{\\frac{A^2}{4} + \\frac{B^2}{4} - C}$\n* **Bagi Adil Titik Singgung:** $(x_1 - a)(x - a) + (y_1 - b)(y - b) = r^2$\n* **PGS Gradien $m$:** $y - b = m(x - a) \\pm r\\sqrt{1 + m^2}$\n* **Panjang Busur:** $s = \\frac{\\theta}{360^\\circ} 2\\pi r$\n* **Luas Juring:** $L = \\frac{\\theta}{360^\\circ} \\pi r^2$\n"
+  },
+  {
+    "id": "tka-mat-mat-06",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
+    "tipe": "materi",
+    "babIndex": 6,
+    "babJudul": "Transformasi Geometri",
+    "content": "# Transformasi Geometri\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n## A. Jenis-Jenis Transformasi Dasar\n1. **Translasi (Pergeseran) $T = \\begin{pmatrix} a \\\\ b \\end{pmatrix}$:**\n   $$x' = x + a, \\quad y' = y + b$$\n2. **Refleksi (Pencerminan):**\n   * Sumbu-$x$: $\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$\n   * Sumbu-$y$: $\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} -1 & 0 \\\\ 0 & 1 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$\n   * Garis $y = x$: $\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$\n   * Garis $y = -x$: $\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 0 & -1 \\\\ -1 & 0 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$\n   * Garis $x = h$: $x' = 2h - x, y' = y$; Garis $y = k$: $x' = x, y' = 2k - y$.\n3. **Rotasi $[P(a,b), \\theta]$:**\n   $$\\begin{pmatrix} x' - a \\\\ y' - b \\end{pmatrix} = \\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix} \\begin{pmatrix} x - a \\\\ y - b \\end{pmatrix}$$\n4. **Dilatasi $[P(a,b), k]$:**\n   $$\\begin{pmatrix} x' - a \\\\ y' - b \\end{pmatrix} = \\begin{pmatrix} k & 0 \\\\ 0 & k \\end{pmatrix} \\begin{pmatrix} x - a \\\\ y - b \\end{pmatrix}$$\n\n---\n\n## B. Komposisi Transformasi dengan Matriks\nJika transformasi $T_1$ bersesuaian dengan matriks $M_1$ dan $T_2$ bersesuaian dengan matriks $M_2$, maka komposisi transformasi $T_2 \\circ T_1$ (dilakukan $T_1$ dulu kemudian $T_2$) bersesuaian dengan perkalian matriks:\n$$M_{\\text{gabungan}} = M_2 \\cdot M_1$$\n$$\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = M_2 \\cdot M_1 \\begin{pmatrix} x \\\\ y \\end{pmatrix}$$\n"
+  },
+  {
+    "id": "tka-mat-cs-06",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
+    "tipe": "contoh-soal",
+    "babIndex": 6,
+    "babJudul": "Variasi Contoh Soal — Transformasi Geometri",
+    "content": "# Variasi Contoh Soal — Transformasi Geometri\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n### Contoh Soal 1: Komposisi Transformasi Garis\nTentukan bayangan garis $2x - 3y + 6 = 0$ setelah dicerminkan terhadap sumbu-$x$, kemudian dilanjutkan dengan rotasi $90^\\circ$ berlawanan arah jarum jam terhadap pusat $(0,0)$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Tentukan matriks transformasi:\n> * Refleksi sumbu-$x$: $M_1 = \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}$\n> * Rotasi $90^\\circ$: $M_2 = \\begin{pmatrix} \\cos 90^\\circ & -\\sin 90^\\circ \\\\ \\sin 90^\\circ & \\cos 90^\\circ \\end{pmatrix} = \\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}$\n>\n> **Langkah 2:** Hitung matriks komposisi $M = M_2 \\cdot M_1$:\n> $$M = \\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix} \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix} = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$$\n>\n> **Langkah 3:** Hubungan koordinat baru:\n> $$\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} y \\\\ x \\end{pmatrix} \\implies x' = y \\implies y = x', \\quad y' = x \\implies x = y'$$\n>\n> **Langkah 4:** Substitusi ke persamaan garis awal:\n> $$2x - 3y + 6 = 0 \\implies 2(y') - 3(x') + 6 = 0 \\implies -3x' + 2y' + 6 = 0 \\implies 3x - 2y - 6 = 0$$\n>\n> **Jawaban:** Bayangan garis adalah $3x - 2y - 6 = 0$.\n"
+  },
+  {
+    "id": "tka-mat-rg-06",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
+    "tipe": "rangkuman",
+    "babIndex": 6,
+    "babJudul": "Rangkuman Rumus Cepat — Transformasi Geometri",
+    "content": "# Rangkuman Rumus Cepat — Transformasi\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n| Transformasi | Matriks Terkait |\n| :--- | :--- |\n| **Refleksi Sumbu-x** | $\\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}$ |\n| **Refleksi Sumbu-y** | $\\begin{pmatrix} -1 & 0 \\\\ 0 & 1 \\end{pmatrix}$ |\n| **Refleksi $y = x$** | $\\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$ |\n| **Rotasi Pusat $(0,0)$ Sudut $\\theta$** | $\\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix}$ |\n| **Dilatasi Pusat $(0,0)$ Faktor $k$** | $\\begin{pmatrix} k & 0 \\\\ 0 & k \\end{pmatrix}$ |\n| **Komposisi $T_2 \\circ T_1$** | $M = M_2 \\cdot M_1$ |\n"
+  },
+  {
+    "id": "tka-mat-mat-07",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Trigonometri",
+    "tipe": "materi",
+    "babIndex": 7,
+    "babJudul": "Limit Fungsi (Aljabar dan Trigonometri)",
+    "content": "# Limit Fungsi (Aljabar dan Trigonometri)\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Trigonometri\n\n## A. Limit Fungsi Aljabar (Bentuk Tak Tentu $\\frac{0}{0}$)\nKetika substitusi langsung menghasilkan nilai tak tentu $\\frac{0}{0}$, penyelesaian dilakukan tanpa aturan L'Hôpital dengan metode:\n1. **Metode Pemfaktoran:**\n   Faktorkan pembuat nol $(x - c)$ dari pembilang dan penyebut:\n   $$\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2} = \\lim_{x \\to 2} \\frac{(x - 2)(x + 2)}{x - 2} = \\lim_{x \\to 2} (x + 2) = 4$$\n2. **Metode Merasionalkan Bentuk Akar:**\n   Kalikan pembilang dan penyebut dengan bentuk sekawan:\n   $$\\lim_{x \\to 4} \\frac{x - 4}{\\sqrt{x} - 2} = \\lim_{x \\to 4} \\frac{(x - 4)(\\sqrt{x} + 2)}{(\\sqrt{x} - 2)(\\sqrt{x} + 2)} = \\lim_{x \\to 4} \\frac{(x - 4)(\\sqrt{x} + 2)}{x - 4} = 4$$\n\n---\n\n## B. Limit Fungsi Trigonometri\n1. **Teorema Limit Trigonometri Dasar ($x \\to 0$):**\n   $$\\lim_{x \\to 0} \\frac{\\sin ax}{bx} = \\frac{a}{b}, \\quad \\lim_{x \\to 0} \\frac{\\tan ax}{bx} = \\frac{a}{b}, \\quad \\lim_{x \\to 0} \\frac{\\sin ax}{\\tan bx} = \\frac{a}{b}$$\n2. **Manipulasi Identitas Trigonometri Penting:**\n   * Kosinus menjadi Sinus:\n     $$1 - \\cos ax = 2\\sin^2\\left(\\frac{ax}{2}\\right)$$\n     Sehingga: $\\lim_{x \\to 0} \\frac{1 - \\cos ax}{x^2} = \\lim_{x \\to 0} \\frac{2\\sin^2(ax/2)}{x^2} = 2 \\left(\\frac{a}{2}\\right)^2 = \\frac{a^2}{2}$\n   * Selisih Kosinus:\n     $$\\cos A - \\cos B = -2 \\sin\\left(\\frac{A+B}{2}\\right) \\sin\\left(\\frac{A-B}{2}\\right)$$\n"
+  },
+  {
+    "id": "tka-mat-cs-07",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Trigonometri",
+    "tipe": "contoh-soal",
+    "babIndex": 7,
+    "babJudul": "Variasi Contoh Soal — Limit Fungsi (Aljabar dan Trigonometri)",
+    "content": "# Variasi Contoh Soal — Limit Fungsi\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Trigonometri\n\n### Contoh Soal 1: Limit Trigonometri dengan Identitas Kosinus\nTentukan nilai dari $\\lim_{x \\to 0} \\frac{1 - \\cos 4x}{x \\tan 2x}$ tanpa menggunakan aturan L'Hôpital!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Ubah bentuk $(1 - \\cos 4x)$ menggunakan identitas sudut rangkap:\n> $$1 - \\cos 4x = 2\\sin^2 2x$$\n>\n> **Langkah 2:** Substitusikan ke limit:\n> $$\\lim_{x \\to 0} \\frac{2\\sin^2 2x}{x \\tan 2x} = 2 \\lim_{x \\to 0} \\left(\\frac{\\sin 2x}{x} \\cdot \\frac{\\sin 2x}{\\tan 2x}\\right)$$\n>\n> **Langkah 3:** Gunakan teorema limit trigonometri:\n> $$= 2 \\cdot \\left(\\frac{2}{1}\\right) \\cdot \\left(\\frac{2}{2}\\right) = 2 \\cdot 2 \\cdot 1 = 4$$\n>\n> **Jawaban:** Nilai limit adalah $4$.\n"
+  },
+  {
+    "id": "tka-mat-rg-07",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Trigonometri",
+    "tipe": "rangkuman",
+    "babIndex": 7,
+    "babJudul": "Rangkuman Rumus Cepat — Limit Fungsi (Aljabar dan Trigonometri)",
+    "content": "# Rangkuman Rumus Cepat — Limit Fungsi\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Trigonometri\n\n* **Trigonometri Dasar:** $\\lim_{x \\to 0} \\frac{\\sin ax}{bx} = \\lim_{x \\to 0} \\frac{\\tan ax}{bx} = \\frac{a}{b}$\n* **Trik Cepat Kosinus:**\n  $$\\lim_{x \\to 0} \\frac{1 - \\cos ax}{x^2} = \\frac{a^2}{2}$$\n  $$\\lim_{x \\to 0} \\frac{\\cos ax - \\cos bx}{x^2} = -\\frac{a^2 - b^2}{2}$$\n* **Aljabar Tak Tentu $\\frac{0}{0}$:** Faktorkan pembuat nol atau kalikan sekawan akar.\n"
+  },
+  {
+    "id": "tka-fund-mat-01",
+    "kategoriUtama": "tka",
+    "subtes": "Fundamental Matematika",
+    "blok": "Fundamental Matematika Lanjut",
+    "tipe": "materi",
+    "babIndex": 1,
+    "babJudul": "Trigonometri Analitik Dasar",
+    "content": "# Trigonometri Analitik Dasar\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n## A. Perbandingan Sisi Segitiga Siku-siku\nPada segitiga siku-siku dengan sudut acuan $\\alpha$:\n$$\\sin\\alpha = \\frac{\\text{depan}}{\\text{miring}}, \\quad \\cos\\alpha = \\frac{\\text{samping}}{\\text{miring}}, \\quad \\tan\\alpha = \\frac{\\text{depan}}{\\text{samping}} = \\frac{\\sin\\alpha}{\\cos\\alpha}$$\n* Kosekan: $\\csc\\alpha = \\frac{1}{\\sin\\alpha}$, Sekan: $\\sec\\alpha = \\frac{1}{\\cos\\alpha}$, Kotangen: $\\cot\\alpha = \\frac{1}{\\tan\\alpha}$.\n\n### Sudut Istimewa Kuadran I:\n* $0^\\circ$: $\\sin 0 = 0$, $\\cos 0 = 1$, $\\tan 0 = 0$\n* $30^\\circ$: $\\sin 30^\\circ = \\frac{1}{2}$, $\\cos 30^\\circ = \\frac{1}{2}\\sqrt{3}$, $\\tan 30^\\circ = \\frac{1}{3}\\sqrt{3}$\n* $45^\\circ$: $\\sin 45^\\circ = \\frac{1}{2}\\sqrt{2}$, $\\cos 45^\\circ = \\frac{1}{2}\\sqrt{2}$, $\\tan 45^\\circ = 1$\n* $60^\\circ$: $\\sin 60^\\circ = \\frac{1}{2}\\sqrt{3}$, $\\cos 60^\\circ = \\frac{1}{2}$, $\\tan 60^\\circ = \\sqrt{3}$\n* $90^\\circ$: $\\sin 90^\\circ = 1$, $\\cos 90^\\circ = 0$, $\\tan 90^\\circ = \\text{tak terdefinisi}$\n\n---\n\n## B. Relasi Sudut di Empat Kuadran & Identitas\n1. **Aturan Tanda Kuadran (ASTC - All Sin Tan Cos):**\n   * Kuadran I ($0^\\circ - 90^\\circ$): Semua positif.\n   * Kuadran II ($90^\\circ - 180^\\circ$): Hanya Sinus positif ($\\sin(180^\\circ - \\alpha) = \\sin\\alpha$).\n   * Kuadran III ($180^\\circ - 270^\\circ$): Hanya Tangen positif ($\\tan(180^\\circ + \\alpha) = \\tan\\alpha$).\n   * Kuadran IV ($270^\\circ - 360^\\circ$): Hanya Kosinus positif ($\\cos(360^\\circ - \\alpha) = \\cos\\alpha$).\n2. **Identitas Pythagoras Pokok:**\n   $$\\sin^2 x + \\cos^2 x = 1, \\quad 1 + \\tan^2 x = \\sec^2 x, \\quad 1 + \\cot^2 x = \\csc^2 x$$\n3. **Rumus Jumlah & Selisih Sudut:**\n   $$\\sin(A \\pm B) = \\sin A \\cos B \\pm \\cos A \\sin B$$\n   $$\\cos(A \\pm B) = \\cos A \\cos B \\mp \\sin A \\sin B$$\n4. **Rumus Sudut Rangkap:**\n   $$\\sin 2x = 2 \\sin x \\cos x$$\n   $$\\cos 2x = \\cos^2 x - \\sin^2 x = 2\\cos^2 x - 1 = 1 - 2\\sin^2 x$$\n"
+  },
+  {
+    "id": "tka-fund-cs-01",
+    "kategoriUtama": "tka",
+    "subtes": "Fundamental Matematika",
+    "blok": "Fundamental Matematika Lanjut",
+    "tipe": "contoh-soal",
+    "babIndex": 1,
+    "babJudul": "Variasi Contoh Soal — Trigonometri Analitik Dasar",
+    "content": "# Variasi Contoh Soal — Trigonometri Analitik Dasar\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n### Contoh Soal 1: Menghitung Nilai dengan Sudut Rangkap\nDiketahui $\\cos\\alpha = -\\frac{4}{5}$ dengan $\\alpha$ berada di kuadran II ($90^\\circ < \\alpha < 180^\\circ$). Tentukan nilai dari $\\sin 2\\alpha$ dan $\\cos 2\\alpha$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Tentukan $\\sin\\alpha$ di kuadran II (bernilai positif):\n> $$\\sin\\alpha = +\\sqrt{1 - \\cos^2\\alpha} = \\sqrt{1 - \\left(-\\frac{4}{5}\\right)^2} = \\sqrt{1 - \\frac{16}{25}} = \\sqrt{\\frac{9}{25}} = \\frac{3}{5}$$\n>\n> **Langkah 2:** Hitung $\\sin 2\\alpha$:\n> $$\\sin 2\\alpha = 2 \\sin\\alpha \\cos\\alpha = 2 \\left(\\frac{3}{5}\\right) \\left(-\\frac{4}{5}\\right) = -\\frac{24}{25}$$\n>\n> **Langkah 3:** Hitung $\\cos 2\\alpha$:\n> $$\\cos 2\\alpha = 2\\cos^2\\alpha - 1 = 2\\left(-\\frac{4}{5}\\right)^2 - 1 = 2\\left(\\frac{16}{25}\\right) - 1 = \\frac{32}{25} - \\frac{25}{25} = \\frac{7}{25}$$\n>\n> **Jawaban:** $\\sin 2\\alpha = -\\frac{24}{25}$ dan $\\cos 2\\alpha = \\frac{7}{25}$.\n"
+  },
+  {
+    "id": "tka-fund-rg-01",
+    "kategoriUtama": "tka",
+    "subtes": "Fundamental Matematika",
+    "blok": "Fundamental Matematika Lanjut",
+    "tipe": "rangkuman",
+    "babIndex": 1,
+    "babJudul": "Rangkuman Rumus Cepat — Trigonometri Analitik Dasar",
+    "content": "# Rangkuman Rumus Cepat — Trigonometri Dasar\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n* **Identitas Pokok:** $\\sin^2 x + \\cos^2 x = 1$\n* **Sudut Rangkap:**\n  $$\\sin 2x = 2\\sin x \\cos x$$\n  $$\\cos 2x = 2\\cos^2 x - 1 = 1 - 2\\sin^2 x$$\n* **Jumlah/Selisih:**\n  $$\\sin(A \\pm B) = \\sin A \\cos B \\pm \\cos A \\sin B$$\n  $$\\cos(A \\pm B) = \\cos A \\cos B \\mp \\sin A \\sin B$$\n"
+  },
+  {
+    "id": "tka-fund-mat-02",
+    "kategoriUtama": "tka",
+    "subtes": "Fundamental Matematika",
+    "blok": "Fundamental Matematika Lanjut",
+    "tipe": "materi",
+    "babIndex": 2,
+    "babJudul": "Aljabar Elementer",
+    "content": "# Aljabar Elementer\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n## A. Manipulasi Bentuk Aljabar & Pemfaktoran\n1. **Bentuk Kuadrat Sempurna:**\n   $$(a + b)^2 = a^2 + 2ab + b^2, \\quad (a - b)^2 = a^2 - 2ab + b^2$$\n2. **Selisih Kuadrat:**\n   $$a^2 - b^2 = (a - b)(a + b)$$\n3. **Selisih & Jumlah Kubik:**\n   $$a^3 - b^3 = (a - b)(a^2 + ab + b^2), \\quad a^3 + b^3 = (a + b)(a^2 - ab + b^2)$$\n4. **Penyederhanaan Pecahan Aljabar:**\n   Faktorkan pembilang dan penyebut terlebih dahulu sebelum membagi faktor sekutu.\n\n---\n\n## B. Sistem Persamaan Linear (SPLDV & SPLTV)\n1. **Sistem Persamaan Linear Dua Variabel (SPLDV):**\n   $$\\begin{cases} a_1 x + b_1 y = c_1 \\\\ a_2 x + b_2 y = c_2 \\end{cases}$$\n   * Metode penyelesaian: eliminasi, substitusi, atau aturan Cramer determinan ($x = D_x/D, y = D_y/D$).\n2. **Sistem Persamaan Linear Tiga Variabel (SPLTV):**\n   Diselesaikan secara sistematis dengan mengeliminasi satu variabel yang sama dari dua pasang persamaan, menghasilkan SPLDV baru.\n"
+  },
+  {
+    "id": "tka-fund-cs-02",
+    "kategoriUtama": "tka",
+    "subtes": "Fundamental Matematika",
+    "blok": "Fundamental Matematika Lanjut",
+    "tipe": "contoh-soal",
+    "babIndex": 2,
+    "babJudul": "Variasi Contoh Soal — Aljabar Elementer",
+    "content": "# Variasi Contoh Soal — Aljabar Elementer\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n### Contoh Soal 1: Penyederhanaan Pecahan Aljabar\nSederhanakan bentuk aljabar $\\frac{x^2 - 9}{2x^2 + 5x - 3}$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Faktorkan pembilang:\n> $$x^2 - 9 = (x - 3)(x + 3)$$\n>\n> **Langkah 2:** Faktorkan penyebut $2x^2 + 5x - 3$:\n> Cari dua bilangan yang hasil kalinya $(2)(-3) = -6$ dan jumlahnya $+5$, yaitu $+6$ dan $-1$:\n> $$2x^2 + 6x - x - 3 = 2x(x + 3) - 1(x + 3) = (2x - 1)(x + 3)$$\n>\n> **Langkah 3:** Bagi faktor sekutu $(x + 3)$:\n> $$\\frac{(x - 3)(x + 3)}{(2x - 1)(x + 3)} = \\frac{x - 3}{2x - 1} \\quad (x \\ne -3)$$\n>\n> **Jawaban:** Bentuk sederhananya adalah $\\frac{x - 3}{2x - 1}$.\n"
+  },
+  {
+    "id": "tka-fund-rg-02",
+    "kategoriUtama": "tka",
+    "subtes": "Fundamental Matematika",
+    "blok": "Fundamental Matematika Lanjut",
+    "tipe": "rangkuman",
+    "babIndex": 2,
+    "babJudul": "Rangkuman Rumus Cepat — Aljabar Elementer",
+    "content": "# Rangkuman Rumus Cepat — Aljabar Elementer\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n* **Selisih Kuadrat:** $a^2 - b^2 = (a - b)(a + b)$\n* **Kuadrat Binomial:** $(a \\pm b)^2 = a^2 \\pm 2ab + b^2$\n* **SPLDV Cramer:** $x = \\frac{D_x}{D}, \\quad y = \\frac{D_y}{D}$\n"
+  },
+  {
+    "id": "tka-fund-mat-03",
+    "kategoriUtama": "tka",
+    "subtes": "Fundamental Matematika",
+    "blok": "Fundamental Matematika Lanjut",
+    "tipe": "materi",
+    "babIndex": 3,
+    "babJudul": "Geometri Analitik Bidang",
+    "content": "# Geometri Analitik Bidang\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n## A. Koordinat Kartesius dan Persamaan Garis Lurus\n1. **Jarak Antara Dua Titik $A(x_1, y_1)$ dan $B(x_2, y_2)$:**\n   $$d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$\n2. **Titik Tengah Ruas Garis $AB$:**\n   $$M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$$\n3. **Gradien Kemiringan Garis ($m$):**\n   $$m = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}$$\n4. **Persamaan Garis Lurus:**\n   * Melalui satu titik $(x_1, y_1)$ dengan gradien $m$: $y - y_1 = m(x - x_1)$\n   * Bentuk gradien-intersep: $y = mx + c$\n   * Bentuk baku umum: $Ax + By + C = 0 \\implies m = -\\frac{A}{B}$\n\n---\n\n## B. Hubungan Garis dan Jarak Titik ke Garis\n1. **Hubungan Dua Garis:**\n   * Garis sejajar ($g_1 \\parallel g_2$): $m_1 = m_2$\n   * Garis tegak lurus ($g_1 \\perp g_2$): $m_1 \\cdot m_2 = -1 \\implies m_2 = -\\frac{1}{m_1}$\n2. **Jarak Titik $P(x_0, y_0)$ ke Garis $Ax + By + C = 0$:**\n   $$d = \\frac{|A x_0 + B y_0 + C|}{\\sqrt{A^2 + B^2}}$$\n"
+  },
+  {
+    "id": "tka-fund-cs-03",
+    "kategoriUtama": "tka",
+    "subtes": "Fundamental Matematika",
+    "blok": "Fundamental Matematika Lanjut",
+    "tipe": "contoh-soal",
+    "babIndex": 3,
+    "babJudul": "Variasi Contoh Soal — Geometri Analitik Bidang",
+    "content": "# Variasi Contoh Soal — Geometri Analitik Bidang\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n### Contoh Soal 1: Jarak Titik ke Garis Lurus\nTentukan jarak tegak lurus dari titik $P(2, -3)$ ke garis lurus $3x - 4y + 7 = 0$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Identifikasi koefisien:\n> $A = 3, B = -4, C = 7, x_0 = 2, y_0 = -3$.\n>\n> **Langkah 2:** Masukkan ke rumus jarak tegak lurus:\n> $$d = \\frac{|A x_0 + B y_0 + C|}{\\sqrt{A^2 + B^2}} = \\frac{|3(2) + (-4)(-3) + 7|}{\\sqrt{3^2 + (-4)^2}}$$\n> $$d = \\frac{|6 + 12 + 7|}{\\sqrt{9 + 16}} = \\frac{|25|}{\\sqrt{25}} = \\frac{25}{5} = 5\\text{ satuan}$$\n>\n> **Jawaban:** Jaraknya adalah $5\\text{ satuan}$.\n"
+  },
+  {
+    "id": "tka-fund-rg-03",
+    "kategoriUtama": "tka",
+    "subtes": "Fundamental Matematika",
+    "blok": "Fundamental Matematika Lanjut",
+    "tipe": "rangkuman",
+    "babIndex": 3,
+    "babJudul": "Rangkuman Rumus Cepat — Geometri Analitik Bidang",
+    "content": "# Rangkuman Rumus Cepat — Geometri Analitik\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n* **Jarak 2 Titik:** $d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$\n* **Gradien Garis:** $m = \\frac{y_2 - y_1}{x_2 - x_1} = -\\frac{A}{B}$\n* **Garis Sejajar:** $m_1 = m_2$\n* **Garis Tegak Lurus:** $m_1 \\cdot m_2 = -1$\n* **Jarak Titik ke Garis:** $d = \\frac{|Ax_0 + By_0 + C|}{\\sqrt{A^2 + B^2}}$\n"
+  },
+  {
+    "id": "tka-fund-mat-04",
+    "kategoriUtama": "tka",
+    "subtes": "Fundamental Matematika",
+    "blok": "Fundamental Matematika Lanjut",
+    "tipe": "materi",
+    "babIndex": 4,
+    "babJudul": "Pertidaksamaan dan Nilai Mutlak",
+    "content": "# Pertidaksamaan dan Nilai Mutlak\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n## A. Pertidaksamaan Rasional dan Bentuk Akar\n1. **Syarat Terdefinisi (Eksistensi):**\n   * Pecahan $\\frac{P(x)}{Q(x)}$: Penyebut $Q(x) \\ne 0$.\n   * Bentuk akar $\\sqrt{f(x)}$: Radikan $f(x) \\ge 0$.\n2. **Pertidaksamaan Kuadrat & Pecahan:**\n   * Jadikan salah satu ruas sama dengan nol.\n   * Tentukan titik pembuat nol (akar-akar pembilang dan penyebut).\n   * Gambar garis bilangan, uji tanda selang $(+)$ atau $(-)$.\n   * Jangan mengalikan silang pertidaksamaan dengan variabel jika tanda variabel belum pasti positif!\n\n---\n\n## B. Persamaan dan Pertidaksamaan Nilai Mutlak\n1. **Definisi Nilai Mutlak:**\n   $$|x| = \\begin{cases} x, & x \\ge 0 \\\\ -x, & x < 0 \\end{cases}$$\n   * Sifat: $|x| = \\sqrt{x^2}$, $|-x| = |x|$, $|xy| = |x||y|$, $\\left|\\frac{x}{y}\\right| = \\frac{|x|}{|y|}$.\n2. **Persamaan Nilai Mutlak:**\n   $$|f(x)| = c \\quad (c \\ge 0) \\implies f(x) = c \\text{ atau } f(x) = -c$$\n3. **Pertidaksamaan Nilai Mutlak:**\n   * Untuk $c > 0$:\n     $$|f(x)| < c \\iff -c < f(x) < c$$\n     $$|f(x)| > c \\iff f(x) < -c \\quad \\text{atau} \\quad f(x) > c$$\n   * Antar nilai mutlak:\n     $$|f(x)| \\le |g(x)| \\iff [f(x)]^2 \\le [g(x)]^2 \\iff (f(x) - g(x))(f(x) + g(x)) \\le 0$$\n"
+  },
+  {
+    "id": "tka-fund-cs-04",
+    "kategoriUtama": "tka",
+    "subtes": "Fundamental Matematika",
+    "blok": "Fundamental Matematika Lanjut",
+    "tipe": "contoh-soal",
+    "babIndex": 4,
+    "babJudul": "Variasi Contoh Soal — Pertidaksamaan dan Nilai Mutlak",
+    "content": "# Variasi Contoh Soal — Pertidaksamaan & Nilai Mutlak\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n### Contoh Soal 1: Pertidaksamaan Nilai Mutlak\nTentukan himpunan penyelesaian dari pertidaksamaan $|2x - 5| < 7$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Gunakan sifat $|f(x)| < c \\iff -c < f(x) < c$:\n> $$-7 < 2x - 5 < 7$$\n>\n> **Langkah 2:** Tambahkan $5$ pada ketiga ruas:\n> $$-7 + 5 < 2x < 7 + 5 \\implies -2 < 2x < 12$$\n>\n> **Langkah 3:** Bagi kedua ruas dengan $2$:\n> $$-1 < x < 6$$\n>\n> **Jawaban:** $HP = \\{x \\in \\mathbb{R} \\mid -1 < x < 6\\}$.\n"
+  },
+  {
+    "id": "tka-fund-rg-04",
+    "kategoriUtama": "tka",
+    "subtes": "Fundamental Matematika",
+    "blok": "Fundamental Matematika Lanjut",
+    "tipe": "rangkuman",
+    "babIndex": 4,
+    "babJudul": "Rangkuman Rumus Cepat — Pertidaksamaan dan Nilai Mutlak",
+    "content": "# Rangkuman Rumus Cepat — Nilai Mutlak\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n* **Definisi:** $|x| = \\sqrt{x^2} \\ge 0$\n* **Sifat Kurang Dari:** $|f(x)| < c \\iff -c < f(x) < c$\n* **Sifat Lebih Dari:** $|f(x)| > c \\iff f(x) < -c \\text{ atau } f(x) > c$\n* **Dua Sisi Mutlak:** $|f| \\le |g| \\iff (f - g)(f + g) \\le 0$\n"
+  },
+  {
+    "id": "tka-fund-mat-05",
+    "kategoriUtama": "tka",
+    "subtes": "Fundamental Matematika",
+    "blok": "Fundamental Matematika Lanjut",
+    "tipe": "materi",
+    "babIndex": 5,
+    "babJudul": "Eksponen dan Logaritma",
+    "content": "# Eksponen dan Logaritma\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n## A. Sifat-Sifat Operasi Eksponen\nUntuk $a, b > 0$ dan $m, n \\in \\mathbb{R}$:\n1. $a^m \\cdot a^n = a^{m+n}$\n2. $\\frac{a^m}{a^n} = a^{m-n}$\n3. $(a^m)^n = a^{mn}$\n4. $(a \\cdot b)^n = a^n \\cdot b^n, \\quad \\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n}$\n5. $a^0 = 1 \\quad (a \\ne 0)$\n6. $a^{-n} = \\frac{1}{a^n}$\n7. Bentuk Akar: $a^{m/n} = \\sqrt[n]{a^m}$\n\n---\n\n## B. Sifat-Sifat Logaritma\nDefinisi: ${}^a\\log b = c \\iff a^c = b$ (Basis $a > 0, a \\ne 1$, Numerus $b > 0$).\n1. ${}^a\\log(x \\cdot y) = {}^a\\log x + {}^a\\log y$\n2. ${}^a\\log\\left(\\frac{x}{y}\\right) = {}^a\\log x - {}^a\\log y$\n3. ${}^a\\log(b^n) = n \\cdot {}^a\\log b$\n4. ${}^{a^m}\\log(b^n) = \\frac{n}{m} \\cdot {}^a\\log b$\n5. Pergantian Basis: ${}^a\\log b = \\frac{{}^c\\log b}{{{}^c\\log a}} = \\frac{1}{{{}^b\\log a}}$\n6. Perkalian Berantai: ${}^a\\log b \\cdot {}^b\\log c = {}^a\\log c$\n7. Pemangkatan Identitas: $a^{{}^a\\log b} = b$\n\n---\n\n## C. Persamaan Eksponen & Logaritma Sederhana\n* $a^{f(x)} = a^{g(x)} \\implies f(x) = g(x)$\n* ${}^a\\log f(x) = {}^a\\log g(x) \\implies f(x) = g(x)$ (dengan syarat numerus $f(x) > 0$ dan $g(x) > 0$).\n"
+  },
+  {
+    "id": "tka-fund-cs-05",
+    "kategoriUtama": "tka",
+    "subtes": "Fundamental Matematika",
+    "blok": "Fundamental Matematika Lanjut",
+    "tipe": "contoh-soal",
+    "babIndex": 5,
+    "babJudul": "Variasi Contoh Soal — Eksponen dan Logaritma",
+    "content": "# Variasi Contoh Soal — Eksponen dan Logaritma\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n### Contoh Soal 1: Persamaan Logaritma\nTentukan nilai $x$ yang memenuhi persamaan ${}^2\\log(x^2 - 3x) = 2$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Ubah ruas kanan menjadi bentuk logaritma basis 2:\n> $$2 = {}^2\\log(2^2) = {}^2\\log 4$$\n>\n> **Langkah 2:** Samakan numerus:\n> $$x^2 - 3x = 4 \\implies x^2 - 3x - 4 = 0$$\n> $$(x - 4)(x + 1) = 0 \\implies x = 4 \\quad \\text{atau} \\quad x = -1$$\n>\n> **Langkah 3:** Uji syarat numerus ($x^2 - 3x > 0$):\n> * Untuk $x = 4$: $4^2 - 3(4) = 16 - 12 = 4 > 0$ (Memenuhi)\n> * Untuk $x = -1$: $(-1)^2 - 3(-1) = 1 + 3 = 4 > 0$ (Memenuhi)\n>\n> **Jawaban:** Nilai $x$ yang memenuhi adalah $x = -1$ atau $x = 4$.\n"
+  },
+  {
+    "id": "tka-fund-rg-05",
+    "kategoriUtama": "tka",
+    "subtes": "Fundamental Matematika",
+    "blok": "Fundamental Matematika Lanjut",
+    "tipe": "rangkuman",
+    "babIndex": 5,
+    "babJudul": "Rangkuman Rumus Cepat — Eksponen dan Logaritma",
+    "content": "# Rangkuman Rumus Cepat — Eksponen & Logaritma\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n* **Perkalian Pangkat:** $a^m \\cdot a^n = a^{m+n}$\n* **Pembagian Pangkat:** $a^m / a^n = a^{m-n}$\n* **Definisi Logaritma:** ${}^a\\log b = c \\iff a^c = b$\n* **Sifat Penjumlahan:** ${}^a\\log x + {}^a\\log y = {}^a\\log(xy)$\n* **Pangkat Numerus/Basis:** ${}^{a^m}\\log(b^n) = \\frac{n}{m} {}^a\\log b$\n* **Perkalian Rantai:** ${}^a\\log b \\cdot {}^b\\log c = {}^a\\log c$\n* **Identitas Pangkat:** $a^{{}^a\\log b} = b$\n"
   },
   {
     "id": "tka-fis-mat-01",

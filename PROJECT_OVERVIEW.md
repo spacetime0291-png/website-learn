@@ -6,29 +6,36 @@
 ## 1. Ikhtisar Proyek (Project Overview)
 * **Nama Aplikasi:** EduMandiri
 * **Fungsi Utama:** Platform belajar mandiri *mobile-first* dan *offline-ready* untuk persiapan:
-  1. **TKA (Tes Kompetensi Akademik):**
-     - **Fisika (6 Bab):** Kinematika, Dinamika, Fluida, Gelombang, Kalor dan Termodinamika, Kelistrikan.
-     - **Matematika Lanjut (3 Bab):** Aljabar, Geometri dan Pengukuran, Trigonometri.
-     - **Bab Fundamental Matematika Lanjut (5 Bab Materi Prasyarat):** Trigonometri Analitik Dasar, Aljabar Elementer, Geometri Analitik Bidang, Pertidaksamaan dan Nilai Mutlak, Eksponen dan Logaritma.
-  2. **SMA (Kurikulum Reguler):**
+  1. **TKA (Tes Kompetensi Akademik — 28 Bab, 84 Modul):**
+     - **I. Fisika TKA (16 Bab, 6 Pembungkus):**
+       - Pembungkus 1 (Kinematika): Bab 1: Pengukuran, Bab 2: Gerak Lurus, Bab 3: Gerak Lengkung.
+       - Pembungkus 2 (Dinamika): Bab 4: Hubungan Gaya dan Gerak, Bab 5: Momentum dan Impuls, Bab 6: Dinamika Rotasi.
+       - Pembungkus 3 (Fluida): Bab 7: Fluida Statis, Bab 8: Fluida Dinamis.
+       - Pembungkus 4 (Gelombang): Bab 9: Gelombang Bunyi, Bab 10: Gelombang Cahaya & Alat Optik.
+       - Pembungkus 5 (Kalor & Termodinamika): Bab 11: Kalor dan Perpindahannya, Bab 12: Pemanasan Global, Bab 13: Gas Ideal, Bab 14: Termodinamika.
+       - Pembungkus 6 (Kelistrikan): Bab 15: Listrik Statis, Bab 16: Rangkaian Arus Searah.
+     - **II. Matematika Lanjut TKA (7 Bab, 3 Pembungkus):**
+       - Pembungkus 1 (Aljabar): Bab 1: Matriks, Bab 2: Polinomial, Bab 3: Fungsi dan Pemodelan.
+       - Pembungkus 2 (Geometri & Pengukuran): Bab 4: Vektor, Bab 5: Lingkaran, Bab 6: Transformasi Geometri.
+       - Pembungkus 3 (Trigonometri): Bab 7: Limit Fungsi.
+     - **III. Fundamental Matematika Lanjut (5 Bab Prasyarat, 1 Pembungkus):**
+       - Pembungkus 1 (Fundamental Matematika Lanjut): Bab 1: Trigonometri Analitik Dasar, Bab 2: Aljabar Elementer, Bab 3: Geometri Analitik Bidang, Bab 4: Pertidaksamaan & Nilai Mutlak, Bab 5: Eksponen & Logaritma.
+  2. **SMA (Kurikulum Reguler — 137 Modul):**
      - **Fisika SMA (30 Bab):** Pengukuran s.d. Energi Terbarukan.
      - **Matematika Wajib (16 Bab):** Eksponen & Logaritma s.d. Peluang.
      - **Matematika Lanjut (9 Bab):** Bilangan Kompleks s.d. Statistika Inferensial.
   3. **UTBK SNBT:** 7 Subtes (Penalaran Umum, PPU, PBM, PK, Literasi B. Indonesia, Literasi B. Inggris, Penalaran Matematika).
 * **Fitur Utama Terkini:**
   * **Top-Level 3 Kategori Utama (TKA, UTBK, SMA):** Switcher kategori di Materi & Rangkuman serta wizard Drilling Soal terintegrasi penuh untuk tiga ranah pembelajaran.
-  * **Daftar Bab Materi Format Kartu 3 Kolom (`.bab-list-minimal`):** Redesain tampilan daftar bab menjadi grid kartu 3-kolom per baris (`repeat(3, 1fr)`) yang ringkas, proporsional, hemat ruang di HP, dan elegan di desktop. Opsi modul (*Materi Lengkap*, *Variasi Soal*, *Rangkuman*, dan *Latihan Kuis*) tersimpan rapi dan dapat dibuka secara accordion.
+  * **Pembungkus Bab Besar (.materi-group-section):** Bab materi TKA dan SMA dikelompokkan dalam seksi pembungkus bertema visual (Kinematika, Dinamika, Aljabar, dsb.) dengan ikon badge, deskripsi fokus materi, dan penghitung bab.
+  * **Format Kartu Rapi & Tanpa Teks Terpotong (.bab-item):** Judul bab wrap secara alami tanpa teks terpotong (`-webkit-line-clamp: none`), dihiasi stripe aksen gradient top, bayangan halus, badge nomor bergradasi lembut, serta drawer accordion untuk pilihan modul (Materi, Contoh Soal, Rangkuman, Latihan Kuis).
   * **Kartu Bab Drilling Lebih Lega & Ergonomis:** Kartu-kartu bab pada wizard drilling diperbesar (`min-height: 94px; padding: 0.85rem 0.95rem; font-size: 0.88rem`) dengan checkmark 20px dan container `max-height: 480px`, memberikan ruang visual yang nyaman dan mudah disentuh di layar mobile.
-  * **Minimalist Reader Bottom Dock:** Bilah navigasi melayang adaptif di bagian bawah saat membaca materi/rangkuman, menggantikan footer statis/navigasi umum. Memungkinkan pindah bab (Prev/Next) dan beralih instan antar-modul (*Materi*, *Variasi*, *Rangkuman*, *Latihan*) secara ergonomis di HP maupun laptop tanpa memakan ruang baca.
-  * **Pemisahan Bab Besar Mandiri di Drilling & Data Soal:** Bab gabungan besar dipecah menjadi dua bab terpisah dengan bank soal mandiri:
-    - **Bab 15:** Aturan Pencacahan (39 Soal Drilling Berkualitas, 3 Sub-Bab Besar: Kaidah & Filling Slots, Permutasi, Kombinasi & Binomial).
-    - **Bab 16:** Peluang (34 Soal Drilling Berkualitas, 3 Sub-Bab Besar: Ruang Sampel & Peluang Sederhana, Komplemen & Frekuensi Harapan, Peluang Majemuk & Bersyarat).
-  * **Pedagogical Fluid Typography:** Tipografi adaptif berbasis ukuran layar (`clamp()`), pembatasan kolom baca maksimal 72 karakter (`max-width: 72ch`), line-height lega (`1.72`), dan visual anchor penomoran langkah.
-  * **Database Bank Soal Klien & IndexedDB:** Bank soal tersimpan langsung di `data_soal.js` (`window.EDUMANDIRI_SOAL_BANK` = 106 soal terverifikasi) dan disinkronkan ke IndexedDB (`EduMandiri_DB`).
+  * **Minimalist Reader Bottom Dock:** Bilah navigasi melayang adaptif di bagian bawah saat membaca materi/rangkuman, memungkinkan navigasi antar bab dan beralih instan antar-modul (*Materi*, *Variasi*, *Rangkuman*, *Latihan*).
+  * **Database Materi Gabungan (221 Modul):** 84 Modul TKA baru + 137 Modul SMA telah digabung dan divalidasi 100% lulus KaTeX parser (0 error) ke dalam `data_materi.js`.
 * **Filosofi Arsitektur:** **Zero-Build Vanilla Web Application**.
   * Tidak menggunakan bundler (Webpack/Vite/Rollup) dan tidak memerlukan runtime Node.js saat produksi.
   * Murni Vanilla HTML5, CSS3 kustom, dan Vanilla JavaScript (ES6+).
-  * 100% Offline-Ready menggunakan Service Worker (`sw.js`, `edumandiri-cache-v26`) dan pustaka lokal vendor (KaTeX + Marked.js tanpa CDN).
+  * 100% Offline-Ready menggunakan Service Worker (`sw.js`, `edumandiri-cache-v28`) dan pustaka lokal vendor (KaTeX + Marked.js tanpa CDN).
 
 ---
 
@@ -38,15 +45,24 @@ d:/web/learn/
 ├── index.html                 # Entry-point SPA: struktur semantik, header, setup drilling, reader, nav
 ├── style.css                  # Fluid Typography vars, tema mobile-first, bab cards 3-kolom, reader dock
 ├── app.js                     # SPA engine: router, AppState (TKA/UTBK/SMA), KaTeX shielding, quiz engine, IndexedDB
-├── data_materi.js             # Database materi, rangkuman & contoh soal client-side (window.EDUMANDIRI_MATERI_BAB = 179 modul)
+├── data_materi.js             # Database materi, rangkuman & contoh soal client-side (window.EDUMANDIRI_MATERI_BAB = 221 modul)
 ├── data_soal.js               # Database bank soal client-side (window.EDUMANDIRI_SOAL_BANK = 106 soal terverifikasi)
 ├── data.json                  # Cadangan JSON bank soal drilling (sinkron dengan data_soal.js via sync-soal.js)
-├── sync-soal.js               # Tool sinkronisasi database soal & validator KaTeX otomatis
-├── sw.js                      # Service Worker PWA (Cache-first offline strategy, versi: edumandiri-cache-v26)
+├── sw.js                      # Service Worker PWA (Cache-first offline strategy, versi: edumandiri-cache-v28)
 ├── manifest.json              # Web App Manifest untuk instalasi PWA di Android/iOS/Desktop
 ├── icon.svg                   # Icon logo SVG EduMandiri
 ├── .nojekyll                  # Penanda bypass pemrosesan Jekyll di GitHub Pages
 ├── PROJECT_OVERVIEW.md        # File ini (sumber pengetahuan tunggal sesi baru)
+│
+├── scripts/                   # Seluruh script utilitas kompilasi, generator, dan sinkronisasi
+│   ├── compile_data_materi.js # Compiler data materi (validasi KaTeX & penggabungan 221 modul)
+│   ├── export_tka_markdown.js # Exporter modul TKA ke folder berkas fisik Markdown
+│   ├── scripts_gen_fisika.js  # Generator 16 Bab Fisika TKA
+│   ├── scripts_gen_matematika.js # Generator 7 Bab Matematika Lanjut TKA
+│   ├── scripts_gen_fundamental.js # Generator 5 Bab Fundamental MTK TKA
+│   ├── generate_tka_data.js   # Script utilitas generator
+│   ├── sync-soal.js           # Tool sinkronisasi database soal & validator KaTeX otomatis
+│   └── sync-to-db.js          # Tool sinkronisasi ke database
 │
 ├── vendor/                    # Dependensi offline lokal (tidak mengandalkan CDN)
 │   ├── marked.min.js          # Parser Markdown ke HTML
@@ -56,16 +72,15 @@ d:/web/learn/
 │       ├── auto-render.min.js
 │       └── fonts/             # Seluruh font WOFF2 KaTeX
 │
-├── data_materi/               # Sumber berkas Markdown mentah per bab
-│   ├── tka/
-│   │   ├── fisika/
-│   │   │   ├── materi/        # 30 file bab materi: bab-01-...md s.d. bab-30-...md
-│   │   │   ├── rangkuman/     # 30 file bab rangkuman formula
-│   │   │   └── contoh-soal/   # Seluruh variasi contoh soal per bab (Bab 1-5 aktif & tervalidasi 0 error)
-│   │   ├── matematika-lanjut/ # 9 Bab sesuai Kurikulum Merdeka & K13
-│   │   └── matematika-wajib/  # 15 Bab sesuai Kurikulum Merdeka & K13
+├── data_materi/               # Sumber berkas Markdown mentah per bab terorganisir per kategori
+│   ├── sma/                   # Modul Kurikulum SMA (Fisika 30 Bab, MTK Wajib 16 Bab, MTK Lanjut 9 Bab)
+│   ├── tka/                   # Modul Kurikulum TKA (Fisika 16 Bab, MTK Lanjut 7 Bab, Fundamental 5 Bab)
 │   └── utbk/                  # Struktur 7 subtes UTBK (01 s.d. 07)
-└── data_soal/                 # Arsip struktur direktori soal mentah per subtes
+│
+└── data_soal/                 # Bank soal mentah terorganisir per kategori
+    ├── sma/                   # Bank soal SMA
+    ├── tka/                   # Bank soal TKA
+    └── utbk/                  # Bank soal UTBK
 ```
 
 ---

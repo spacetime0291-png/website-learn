@@ -666,56 +666,56 @@ body.in-reader-mode .mobile-bottom-nav {
 
 /* --------------------------------------------------------------------------
    8. VIEW 1: DAFTAR BAB MATERI (.bab-list-minimal & .bab-item)
-   Desain Ramping & Tenang, Menghilangkan Tumpukan Garis Kaku (Card Soup)
+   Format Kartu Kecil & Ringkas (Hemat Ruang Layar HP)
    -------------------------------------------------------------------------- */
 .bab-list-minimal {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.75rem;
+  gap: 0.45rem;
 }
 
 @media (min-width: 640px) {
   .bab-list-minimal {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.85rem;
+    gap: 0.65rem;
   }
 }
 
 @media (min-width: 1080px) {
   .bab-list-minimal {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 0.75rem;
   }
 }
 
 .bab-item {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   transition: var(--transition);
   overflow: hidden;
-  box-shadow: var(--shadow-xs);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
   display: flex;
   flex-direction: column;
 }
 
 .bab-item:hover {
   border-color: var(--border-strong);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
 }
 
 .bab-item.expanded {
   border-color: var(--primary);
-  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.1);
+  box-shadow: 0 2px 10px rgba(79, 70, 229, 0.08);
 }
 
 .bab-item-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.95rem 1.05rem;
+  gap: 0.55rem;
+  padding: 0.55rem 0.75rem;
   cursor: pointer;
   user-select: none;
   transition: background-color 0.15s ease;
@@ -728,19 +728,20 @@ body.in-reader-mode .mobile-bottom-nav {
 .bab-item-left {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.55rem;
   min-width: 0;
   flex: 1;
 }
 
 .bab-icon-minimal {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-sm);
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 6px;
   background-color: var(--primary-light);
   color: var(--primary);
   font-weight: 800;
-  font-size: 0.8rem;
+  font-size: 0.74rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -756,15 +757,15 @@ body.in-reader-mode .mobile-bottom-nav {
 .bab-item-title-group {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
   min-width: 0;
 }
 
 .bab-item-title {
-  font-size: 0.92rem;
+  font-size: 0.84rem;
   font-weight: 700;
   color: var(--text-main);
-  line-height: 1.35;
+  line-height: 1.25;
   white-space: normal;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -774,35 +775,37 @@ body.in-reader-mode .mobile-bottom-nav {
 }
 
 .bab-item-meta {
-  font-size: 0.72rem;
+  font-size: 0.66rem;
   color: var(--text-muted);
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.3rem;
+  line-height: 1.2;
 }
 
 .bab-item-right {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   flex-shrink: 0;
 }
 
 .bab-modul-counter {
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 700;
   color: var(--text-muted);
   background-color: var(--bg-muted);
-  padding: 0.18rem 0.5rem;
+  padding: 0.12rem 0.45rem;
   border-radius: var(--radius-full);
+  line-height: 1.2;
 }
 
 .bab-toggle-arrow {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   color: var(--text-subtle);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s ease;
 }
@@ -816,8 +819,8 @@ body.in-reader-mode .mobile-bottom-nav {
 .bab-item-options {
   display: none;
   grid-template-columns: 1fr 1fr;
-  gap: 0.45rem;
-  padding: 0.75rem 0.95rem 0.95rem;
+  gap: 0.35rem;
+  padding: 0.45rem 0.65rem 0.65rem;
   border-top: 1px solid var(--border-light);
   background-color: #fafbfc;
 }
@@ -837,17 +840,18 @@ body.in-reader-mode .mobile-bottom-nav {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
-  padding: 0.55rem 0.45rem;
-  border-radius: var(--radius-md);
+  gap: 0.35rem;
+  padding: 0.4rem 0.45rem;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border-subtle);
   background-color: var(--bg-surface);
   color: var(--text-secondary);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
   text-decoration: none;
+  min-height: 32px;
 }
 
 .btn-bab-opt:hover:not(:disabled) {
@@ -879,17 +883,18 @@ body.in-reader-mode .mobile-bottom-nav {
 }
 
 .opt-icon {
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   line-height: 1;
 }
 
 .opt-badge {
-  font-size: 0.62rem;
-  padding: 0.1rem 0.35rem;
+  font-size: 0.58rem;
+  padding: 0.06rem 0.3rem;
   border-radius: var(--radius-full);
   background-color: #ecfdf5;
   color: #047857;
   font-weight: 700;
+  line-height: 1;
 }
 
 .opt-badge.muted {
@@ -1313,51 +1318,52 @@ body.in-reader-mode .mobile-bottom-nav {
 .setup-unified-box {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xl);
-  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  padding: 0.85rem 0.95rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.85rem;
   box-shadow: var(--shadow-sm);
 }
 
 @media (min-width: 768px) {
   .setup-unified-box {
-    padding: 1.75rem 2rem;
-    gap: 1.5rem;
+    border-radius: var(--radius-xl);
+    padding: 1.5rem 1.75rem;
+    gap: 1.25rem;
   }
 }
 
 .setup-section-row {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.55rem;
 }
 
 .section-row-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: 0.4rem;
   flex-wrap: wrap;
 }
 
 .section-row-label {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.86rem;
+  gap: 0.45rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-main);
 }
 
 .label-badge {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: var(--primary-light);
   color: var(--primary);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 800;
   display: inline-flex;
   align-items: center;
@@ -1366,9 +1372,9 @@ body.in-reader-mode .mobile-bottom-nav {
 }
 
 .badge-selection-count {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  padding: 0.15rem 0.55rem;
+  padding: 0.12rem 0.5rem;
   background-color: var(--primary-light);
   color: var(--primary-text);
   border-radius: var(--radius-full);
@@ -1377,19 +1383,19 @@ body.in-reader-mode .mobile-bottom-nav {
 .bab-multi-actions {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.75rem;
+  gap: 0.35rem;
+  font-size: 0.72rem;
 }
 
 .btn-text-action {
   background: none;
   border: none;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--primary);
   cursor: pointer;
-  padding: 0.15rem 0.35rem;
-  border-radius: var(--radius-sm);
+  padding: 0.12rem 0.3rem;
+  border-radius: var(--radius-xs);
   transition: var(--transition);
 }
 
@@ -1400,25 +1406,33 @@ body.in-reader-mode .mobile-bottom-nav {
 
 .action-divider {
   color: var(--border-strong);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
 }
 
-/* Grid Kartu Bab Target di Drilling */
+/* Grid Kartu Bab Target di Drilling (Kartu Kecil 2-Kolom di HP, Hemat Ruang) */
 .bab-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 0.75rem;
-  max-height: 480px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.45rem;
+  max-height: 360px;
   overflow-y: auto;
-  padding: 0.2rem;
+  padding: 0.15rem;
   scrollbar-width: thin;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .bab-cards-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 0.85rem;
-    max-height: 540px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+    max-height: 420px;
+  }
+}
+
+@media (min-width: 900px) {
+  .bab-cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+    gap: 0.65rem;
+    max-height: 480px;
   }
 }
 
@@ -1427,47 +1441,48 @@ body.in-reader-mode .mobile-bottom-nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 0.65rem;
-  padding: 0.95rem 1.05rem;
-  min-height: 100px;
+  gap: 0.35rem;
+  padding: 0.55rem 0.65rem;
+  min-height: 72px;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   cursor: pointer;
   user-select: none;
   transition: var(--transition);
-  box-shadow: var(--shadow-xs);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 .bab-card:hover {
   border-color: var(--border-strong);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
 .bab-card.selected {
   background-color: var(--primary-surface);
   border-color: var(--primary);
-  box-shadow: 0 0 0 1px var(--primary), var(--shadow-sm);
+  box-shadow: 0 0 0 1px var(--primary), var(--shadow-xs);
 }
 
 .bab-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: 0.35rem;
 }
 
 .bab-card-index {
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   font-weight: 800;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   background-color: var(--bg-muted);
-  padding: 0.18rem 0.5rem;
-  border-radius: var(--radius-sm);
+  padding: 0.1rem 0.38rem;
+  border-radius: 4px;
   transition: var(--transition);
+  line-height: 1.2;
 }
 
 .bab-card.selected .bab-card-index {
@@ -1476,19 +1491,20 @@ body.in-reader-mode .mobile-bottom-nav {
 }
 
 .bab-card-check {
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
   border-radius: 50%;
   border: 1.5px solid var(--border-strong);
   background-color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   font-weight: 800;
   color: transparent;
-  transition: all 0.18s ease;
+  transition: all 0.15s ease;
   flex-shrink: 0;
+  line-height: 1;
 }
 
 .bab-card.selected .bab-card-check {
@@ -1498,13 +1514,17 @@ body.in-reader-mode .mobile-bottom-nav {
 }
 
 .bab-card-title {
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--text-main);
-  line-height: 1.35;
+  line-height: 1.25;
   white-space: normal;
   word-break: break-word;
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .bab-card.selected .bab-card-title {
@@ -1515,21 +1535,22 @@ body.in-reader-mode .mobile-bottom-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.45rem;
-  font-size: 0.74rem;
+  gap: 0.35rem;
+  font-size: 0.68rem;
   color: var(--text-muted);
-  margin-top: 0.2rem;
-  padding-top: 0.4rem;
+  margin-top: 0.1rem;
+  padding-top: 0.25rem;
   border-top: 1px solid var(--border-light);
 }
 
 .bab-card-count-badge {
-  font-size: 0.7rem;
+  font-size: 0.64rem;
   font-weight: 700;
-  padding: 0.12rem 0.5rem;
+  padding: 0.08rem 0.4rem;
   border-radius: var(--radius-full);
   background-color: var(--bg-muted);
   color: var(--text-muted);
+  line-height: 1.3;
 }
 
 .bab-card-count-badge.has-questions {
@@ -1537,34 +1558,39 @@ body.in-reader-mode .mobile-bottom-nav {
   color: #047857;
 }
 
+.bab-card.selected .bab-card-count-badge.has-questions {
+  background-color: #d1fae5;
+  color: #047857;
+}
+
 .badge-mini-variasi {
-  font-size: 0.68rem;
-  padding: 0.15rem 0.5rem;
+  font-size: 0.65rem;
+  padding: 0.12rem 0.45rem;
   background-color: #ecfdf5;
   color: #047857;
   border-radius: var(--radius-full);
   font-weight: 700;
 }
 
-/* Grup Sub Bab Terpisah Per Bab */
+/* Grup Sub Bab Terpisah Per Bab (Ringkas & Rapi di HP) */
 .subbab-groups-list {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
-  max-height: 340px;
+  gap: 0.45rem;
+  max-height: 280px;
   overflow-y: auto;
-  padding: 0.2rem;
+  padding: 0.15rem;
   scrollbar-width: thin;
 }
 
 .subbab-chapter-group {
   background-color: #fafbfc;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 0.75rem 0.95rem;
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.35rem;
   transition: var(--transition);
 }
 
@@ -1576,45 +1602,45 @@ body.in-reader-mode .mobile-bottom-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: 0.4rem;
   flex-wrap: wrap;
-  padding-bottom: 0.35rem;
+  padding-bottom: 0.25rem;
   border-bottom: 1px solid var(--border-light);
 }
 
 .subbab-chapter-title-wrap {
   display: flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.35rem;
   flex-wrap: wrap;
 }
 
 .subbab-chapter-tag {
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 800;
-  padding: 0.12rem 0.45rem;
+  padding: 0.08rem 0.35rem;
   background-color: var(--primary-light);
   color: var(--primary);
-  border-radius: var(--radius-sm);
+  border-radius: 4px;
   text-transform: uppercase;
 }
 
 .subbab-chapter-title {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--text-main);
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 .btn-subbab-action {
   background: none;
   border: none;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: var(--primary);
   cursor: pointer;
-  padding: 0.1rem 0.35rem;
-  border-radius: var(--radius-sm);
+  padding: 0.08rem 0.3rem;
+  border-radius: var(--radius-xs);
   transition: var(--transition);
 }
 
@@ -1626,18 +1652,18 @@ body.in-reader-mode .mobile-bottom-nav {
 .subbab-pills-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.35rem;
 }
 
 .subbab-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0.75rem;
+  gap: 0.35rem;
+  padding: 0.28rem 0.55rem;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-full);
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--text-secondary);
   cursor: pointer;
@@ -1655,19 +1681,19 @@ body.in-reader-mode .mobile-bottom-nav {
   background-color: var(--primary);
   border-color: var(--primary);
   color: #ffffff;
-  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.25);
+  box-shadow: 0 1px 4px rgba(79, 70, 229, 0.25);
   font-weight: 700;
 }
 
 .subbab-pill-check {
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
   border: 1px solid var(--border-strong);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   font-weight: 800;
   color: transparent;
   flex-shrink: 0;
@@ -1681,9 +1707,9 @@ body.in-reader-mode .mobile-bottom-nav {
 }
 
 .subbab-pill-badge {
-  font-size: 0.66rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  padding: 0.1rem 0.45rem;
+  padding: 0.05rem 0.35rem;
   border-radius: var(--radius-full);
   background-color: var(--bg-muted);
   color: var(--text-muted);
@@ -1695,15 +1721,15 @@ body.in-reader-mode .mobile-bottom-nav {
 }
 
 .subbab-empty-note {
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   color: var(--text-muted);
-  padding: 0.75rem 0.85rem;
+  padding: 0.55rem 0.75rem;
   background-color: var(--bg-surface);
   border: 1px dashed var(--border-subtle);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 /* ==========================================================================

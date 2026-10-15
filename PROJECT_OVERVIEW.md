@@ -303,7 +303,7 @@ Antarmuka dan tampilan materi di [`style.css`](file:///d:/web/learn/style.css) m
 ### C. Prosedur Update PWA Service Worker:
 Setiap kali ada pembaruan pada berkas inti (`app.js`, `style.css`, `index.html`, `data_materi.js`, `data_soal.js`), wajib menaikkan nomor versi `CACHE_NAME` di [`sw.js`](file:///d:/web/learn/sw.js):
 ```javascript
-const CACHE_NAME = 'edumandiri-cache-v24'; // Naikkan ke v25, dst.
+const CACHE_NAME = 'edumandiri-cache-v25'; // Naikkan ke v26, dst.
 ```
 
 ---

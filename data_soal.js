@@ -1,5 +1,5 @@
 // ============================================================================
-// EDUMANDIRI: DATABASE BANK SOAL LATIHAN & DRILLING (TKA & UTBK)
+// EDUMANDIRI: DATABASE BANK SOAL LATIHAN & DRILLING (TKA, UTBK, SMA)
 // Disusun sebagai Database Client-Side JavaScript Offline-Ready
 // Bebas dependensi network fetch HTTP & tidak memerlukan GitHub fetch
 // Total: 106 Soal Latihan Terverifikasi
@@ -8,7 +8,7 @@
 window.EDUMANDIRI_SOAL_BANK = [
   {
     "id": "FIS-B01-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Pengukuran & Dimensi",
     "subBabId": "fis-b01-sb03",
@@ -29,7 +29,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B01-P1-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Pengukuran & Dimensi",
     "subBabId": "fis-b01-sb01",
@@ -50,7 +50,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B01-P1-03",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Pengukuran & Dimensi",
     "subBabId": "fis-b01-sb02",
@@ -71,7 +71,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B01-P2-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Pengukuran & Dimensi",
     "subBabId": "fis-b01-sb01",
@@ -92,7 +92,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B01-P2-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Pengukuran & Dimensi",
     "subBabId": "fis-b01-sb03",
@@ -114,7 +114,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B02-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Vektor",
     "subBabId": "fis-b02-sb01",
@@ -136,7 +136,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B02-P1-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Vektor",
     "subBabId": "fis-b02-sb03",
@@ -157,7 +157,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B03-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Kinematika Gerak Lurus",
     "subBabId": "fis-b03-sb02",
@@ -179,7 +179,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B03-P1-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Kinematika Gerak Lurus",
     "subBabId": "fis-b03-sb03",
@@ -200,7 +200,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B04-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Gerak Parabola & Melingkar",
     "subBabId": "fis-b04-sb01",
@@ -221,7 +221,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B05-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Dinamika Gerak",
     "subBabId": "fis-b05-sb01",
@@ -242,7 +242,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B05-P1-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Dinamika Gerak",
     "subBabId": "fis-b05-sb02",
@@ -264,7 +264,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B08-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Dinamika Rotasi",
     "subBabId": "fis-b08-sb01",
@@ -285,7 +285,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B11-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Fluida Statis",
     "subBabId": "fis-b11-sb01",
@@ -306,7 +306,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B12-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Fluida Dinamis",
     "subBabId": "fis-b12-sb01",
@@ -327,7 +327,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B15-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Termodinamika",
     "subBabId": "fis-b15-sb01",
@@ -348,7 +348,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B17-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Gelombang Bunyi",
     "subBabId": "fis-b17-sb01",
@@ -369,7 +369,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B21-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Listrik Arus Searah",
     "subBabId": "fis-b21-sb01",
@@ -390,7 +390,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B22-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Medan Magnet & Lorentz",
     "subBabId": "fis-b22-sb01",
@@ -411,7 +411,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B24-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Arus Bolak-Balik (AC)",
     "subBabId": "fis-b24-sb01",
@@ -432,7 +432,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B26-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Teori Relativitas Khusus",
     "subBabId": "fis-b26-sb01",
@@ -453,7 +453,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "FIS-B27-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Fisika",
     "bab": "Gejala Kuantum & Foton",
     "subBabId": "fis-b27-sb01",
@@ -474,7 +474,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B01-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Eksponen & Logaritma",
     "subBabId": "mtkw-b01-sb01",
@@ -495,7 +495,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B02-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Eksponen & Logaritma",
     "subBabId": "mtkw-b01-sb02",
@@ -516,7 +516,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B03-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Fungsi Kuadrat & Rasional",
     "subBabId": "mtkw-b05-sb01",
@@ -537,7 +537,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B03-P2-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Fungsi Kuadrat & Rasional",
     "subBabId": "mtkw-b05-sb02",
@@ -558,7 +558,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B04-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Nilai Mutlak",
     "subBabId": "mtkw-b02-sb01",
@@ -579,7 +579,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B06-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Matriks Dasar",
     "subBabId": "mtkw-b10-sb01",
@@ -600,7 +600,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B09-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Geometri Ruang (Dimensi 3)",
     "subBabId": "mtkw-b12-sb01",
@@ -621,7 +621,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B12-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Lanjut",
     "bab": "Limit Fungsi",
     "subBabId": "mtkl-b06-sb01",
@@ -642,7 +642,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B13-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Lanjut",
     "bab": "Turunan Fungsi",
     "subBabId": "mtkl-b07-sb01",
@@ -663,7 +663,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B13-P2-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Lanjut",
     "bab": "Turunan Fungsi",
     "subBabId": "mtkl-b07-sb02",
@@ -684,7 +684,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B14-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Lanjut",
     "bab": "Integral Fungsi",
     "subBabId": "mtkl-b08-sb01",
@@ -705,7 +705,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -726,7 +726,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P1-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb01",
@@ -747,7 +747,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P1-03",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb01",
@@ -768,7 +768,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P1-04",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb01",
@@ -789,7 +789,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P1-05",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb01",
@@ -810,7 +810,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P2-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb02",
@@ -831,7 +831,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P2-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb02",
@@ -852,7 +852,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P2-03",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb02",
@@ -873,7 +873,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P2-04",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb02",
@@ -894,7 +894,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P2-05",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb02",
@@ -915,7 +915,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P3-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -936,7 +936,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P3-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -957,7 +957,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P3-03",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -978,7 +978,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P3-04",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -999,7 +999,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P3-05",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -1020,7 +1020,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P1-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb01",
@@ -1041,7 +1041,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P1-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -1062,7 +1062,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P1-03",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -1083,7 +1083,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P1-04",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb02",
@@ -1104,7 +1104,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P1-05",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -1125,7 +1125,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P2-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb01",
@@ -1147,7 +1147,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P2-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb02",
@@ -1168,7 +1168,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P2-03",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -1189,7 +1189,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P2-04",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -1210,7 +1210,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P2-05",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -1231,7 +1231,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P4-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb01",
@@ -1252,7 +1252,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P4-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb01",
@@ -1273,7 +1273,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P4-03",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb01",
@@ -1294,7 +1294,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P4-04",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb01",
@@ -1315,7 +1315,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P4-05",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb02",
@@ -1336,7 +1336,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P4-06",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb02",
@@ -1357,7 +1357,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P5-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb02",
@@ -1378,7 +1378,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P5-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -1399,7 +1399,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P5-03",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -1420,7 +1420,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P5-04",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -1441,7 +1441,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P5-05",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -1462,7 +1462,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P5-06",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -1483,7 +1483,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P3-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb01",
@@ -1505,7 +1505,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P3-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb02",
@@ -1527,7 +1527,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P3-03",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -1548,7 +1548,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P3-04",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb01",
@@ -1569,7 +1569,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P3-05",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -1590,7 +1590,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P3-06",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb02",
@@ -1611,7 +1611,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P4-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -1632,7 +1632,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P4-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -1653,7 +1653,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P4-03",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb01",
@@ -1675,7 +1675,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P4-04",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb02",
@@ -1697,7 +1697,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P4-05",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -1718,7 +1718,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P4-06",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -1739,7 +1739,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P6-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb01",
@@ -1760,7 +1760,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P6-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb01",
@@ -1782,7 +1782,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P6-03",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb02",
@@ -1803,7 +1803,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P6-04",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb02",
@@ -1824,7 +1824,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P6-05",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb02",
@@ -1845,7 +1845,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P6-06",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb02",
@@ -1866,7 +1866,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P7-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -1887,7 +1887,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P7-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -1908,7 +1908,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P7-03",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -1929,7 +1929,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P7-04",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -1950,7 +1950,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P7-05",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -1971,7 +1971,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B15-P7-06",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Aturan Pencacahan",
     "subBabId": "mtk-b15-sb03",
@@ -1992,7 +1992,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P5-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb01",
@@ -2013,7 +2013,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P5-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb01",
@@ -2034,7 +2034,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P5-03",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb01",
@@ -2055,7 +2055,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P5-04",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb02",
@@ -2076,7 +2076,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P5-05",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb02",
@@ -2097,7 +2097,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P5-06",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb02",
@@ -2118,7 +2118,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P6-01",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -2139,7 +2139,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P6-02",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -2160,7 +2160,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P6-03",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -2181,7 +2181,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P6-04",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -2202,7 +2202,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P6-05",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",
@@ -2223,7 +2223,7 @@ window.EDUMANDIRI_SOAL_BANK = [
   },
   {
     "id": "MTK-B16-P6-06",
-    "kategoriUtama": "tka",
+    "kategoriUtama": "sma",
     "subtes": "Matematika Wajib",
     "bab": "Peluang",
     "subBabId": "mtk-b16-sb03",

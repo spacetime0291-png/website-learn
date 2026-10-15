@@ -666,24 +666,22 @@ body.in-reader-mode .mobile-bottom-nav {
 
 /* --------------------------------------------------------------------------
    8. VIEW 1: DAFTAR BAB MATERI (.bab-list-minimal & .bab-item)
-   Format Kartu Kecil & Ringkas (Hemat Ruang Layar HP)
+   Format Kartu 1 Baris 3 Kartu (3 Kolom)
    -------------------------------------------------------------------------- */
 .bab-list-minimal {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.45rem;
 }
 
 @media (min-width: 640px) {
   .bab-list-minimal {
-    grid-template-columns: repeat(2, 1fr);
     gap: 0.65rem;
   }
 }
 
 @media (min-width: 1080px) {
   .bab-list-minimal {
-    grid-template-columns: repeat(3, 1fr);
     gap: 0.75rem;
   }
 }
@@ -697,6 +695,7 @@ body.in-reader-mode .mobile-bottom-nav {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .bab-item:hover {
@@ -712,13 +711,14 @@ body.in-reader-mode .mobile-bottom-nav {
 
 .bab-item-header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.55rem;
-  padding: 0.55rem 0.75rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 0.55rem 0.65rem;
   cursor: pointer;
   user-select: none;
   transition: background-color 0.15s ease;
+  width: 100%;
 }
 
 .bab-item-header:hover {
@@ -728,20 +728,20 @@ body.in-reader-mode .mobile-bottom-nav {
 .bab-item-left {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-  min-width: 0;
-  flex: 1;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0.35rem;
 }
 
 .bab-icon-minimal {
-  width: 28px;
-  height: 28px;
-  min-width: 28px;
-  border-radius: 6px;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border-radius: 5px;
   background-color: var(--primary-light);
   color: var(--primary);
   font-weight: 800;
-  font-size: 0.74rem;
+  font-size: 0.7rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -758,11 +758,11 @@ body.in-reader-mode .mobile-bottom-nav {
   display: flex;
   flex-direction: column;
   gap: 1px;
-  min-width: 0;
+  width: 100%;
 }
 
 .bab-item-title {
-  font-size: 0.84rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--text-main);
   line-height: 1.25;
@@ -775,27 +775,28 @@ body.in-reader-mode .mobile-bottom-nav {
 }
 
 .bab-item-meta {
-  font-size: 0.66rem;
+  font-size: 0.62rem;
   color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   line-height: 1.2;
 }
 
 .bab-item-right {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.3rem;
   flex-shrink: 0;
 }
 
 .bab-modul-counter {
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 700;
   color: var(--text-muted);
   background-color: var(--bg-muted);
-  padding: 0.12rem 0.45rem;
+  padding: 0.08rem 0.35rem;
   border-radius: var(--radius-full);
   line-height: 1.2;
 }
@@ -804,8 +805,8 @@ body.in-reader-mode .mobile-bottom-nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   color: var(--text-subtle);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s ease;
 }
@@ -818,16 +819,18 @@ body.in-reader-mode .mobile-bottom-nav {
 /* Opsi Modul Muncul Saat Bab Diklik (Dropdown Accordion) */
 .bab-item-options {
   display: none;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.35rem;
-  padding: 0.45rem 0.65rem 0.65rem;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+  padding: 0.35rem 0.45rem 0.55rem;
   border-top: 1px solid var(--border-light);
   background-color: #fafbfc;
 }
 
-@media (min-width: 680px) {
+@media (min-width: 768px) {
   .bab-item-options {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr;
+    gap: 0.35rem;
+    padding: 0.45rem 0.6rem 0.65rem;
   }
 }
 
@@ -839,19 +842,76 @@ body.in-reader-mode .mobile-bottom-nav {
 .btn-bab-opt {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  padding: 0.4rem 0.45rem;
-  border-radius: var(--radius-sm);
+  justify-content: flex-start;
+  gap: 0.3rem;
+  padding: 0.32rem 0.4rem;
+  border-radius: var(--radius-xs);
   border: 1px solid var(--border-subtle);
   background-color: var(--bg-surface);
   color: var(--text-secondary);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
   text-decoration: none;
-  min-height: 32px;
+  min-height: 28px;
+  width: 100%;
+}
+
+.btn-bab-opt:hover:not(:disabled) {
+  border-color: var(--primary-border);
+  background-color: var(--primary-light);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.btn-bab-opt.opt-quiz {
+  background-color: var(--primary-light);
+  color: var(--primary-text);
+  border-color: var(--primary-border);
+  font-weight: 700;
+}
+
+.btn-bab-opt.opt-quiz:hover {
+  background-color: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.btn-bab-opt:disabled,
+.btn-bab-opt.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: var(--bg-muted);
+}
+
+.opt-icon {
+  font-size: 0.74rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.opt-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.opt-badge {
+  font-size: 0.54rem;
+  padding: 0.05rem 0.25rem;
+  border-radius: var(--radius-full);
+  background-color: #ecfdf5;
+  color: #047857;
+  font-weight: 700;
+  line-height: 1;
+  margin-left: auto;
+}
+
+.opt-badge.muted {
+  background-color: var(--bg-muted);
+  color: var(--text-muted);
 }
 
 .btn-bab-opt:hover:not(:disabled) {
@@ -1409,30 +1469,30 @@ body.in-reader-mode .mobile-bottom-nav {
   font-size: 0.68rem;
 }
 
-/* Grid Kartu Bab Target di Drilling (Kartu Kecil 2-Kolom di HP, Hemat Ruang) */
+/* Grid Kartu Bab Target di Drilling (Ruang Lega, Nyaman di Layar HP & Desktop) */
 .bab-cards-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.45rem;
-  max-height: 360px;
+  gap: 0.65rem;
+  max-height: 480px;
   overflow-y: auto;
-  padding: 0.15rem;
+  padding: 0.25rem;
   scrollbar-width: thin;
 }
 
 @media (min-width: 600px) {
   .bab-cards-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.6rem;
-    max-height: 420px;
+    gap: 0.75rem;
+    max-height: 520px;
   }
 }
 
 @media (min-width: 900px) {
   .bab-cards-grid {
-    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
-    gap: 0.65rem;
-    max-height: 480px;
+    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+    gap: 0.85rem;
+    max-height: 560px;
   }
 }
 
@@ -1441,46 +1501,46 @@ body.in-reader-mode .mobile-bottom-nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 0.35rem;
-  padding: 0.55rem 0.65rem;
-  min-height: 72px;
+  gap: 0.45rem;
+  padding: 0.85rem 0.95rem;
+  min-height: 94px;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   cursor: pointer;
   user-select: none;
   transition: var(--transition);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .bab-card:hover {
   border-color: var(--border-strong);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
 }
 
 .bab-card.selected {
   background-color: var(--primary-surface);
   border-color: var(--primary);
-  box-shadow: 0 0 0 1px var(--primary), var(--shadow-xs);
+  box-shadow: 0 0 0 1.5px var(--primary), var(--shadow-xs);
 }
 
 .bab-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.35rem;
+  gap: 0.4rem;
 }
 
 .bab-card-index {
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   font-weight: 800;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.03em;
   background-color: var(--bg-muted);
-  padding: 0.1rem 0.38rem;
-  border-radius: 4px;
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
   transition: var(--transition);
   line-height: 1.2;
 }
@@ -1491,15 +1551,15 @@ body.in-reader-mode .mobile-bottom-nav {
 }
 
 .bab-card-check {
-  width: 17px;
-  height: 17px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   border: 1.5px solid var(--border-strong);
   background-color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.62rem;
+  font-size: 0.72rem;
   font-weight: 800;
   color: transparent;
   transition: all 0.15s ease;
@@ -1514,13 +1574,13 @@ body.in-reader-mode .mobile-bottom-nav {
 }
 
 .bab-card-title {
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--text-main);
-  line-height: 1.25;
+  line-height: 1.35;
   white-space: normal;
   word-break: break-word;
-  margin: 0;
+  margin: 0.1rem 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -1535,18 +1595,18 @@ body.in-reader-mode .mobile-bottom-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.35rem;
-  font-size: 0.68rem;
+  gap: 0.4rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
-  margin-top: 0.1rem;
-  padding-top: 0.25rem;
+  margin-top: 0.2rem;
+  padding-top: 0.35rem;
   border-top: 1px solid var(--border-light);
 }
 
 .bab-card-count-badge {
-  font-size: 0.64rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  padding: 0.08rem 0.4rem;
+  padding: 0.12rem 0.5rem;
   border-radius: var(--radius-full);
   background-color: var(--bg-muted);
   color: var(--text-muted);

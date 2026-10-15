@@ -6,27 +6,29 @@
 ## 1. Ikhtisar Proyek (Project Overview)
 * **Nama Aplikasi:** EduMandiri
 * **Fungsi Utama:** Platform belajar mandiri *mobile-first* dan *offline-ready* untuk persiapan:
-  1. **TKA Saintek:** Fisika (30 Bab), Matematika Wajib (16 Bab — Aturan Pencacahan & Peluang dipisah mandiri), Matematika Tingkat Lanjut (9 Bab).
-  2. **UTBK SNBT:** 7 Subtes (Penalaran Umum, PPU, PBM, PK, Literasi B. Indonesia, Literasi B. Inggris, Penalaran Matematika).
+  1. **TKA (Tes Kompetensi Akademik):**
+     - **Fisika (6 Bab):** Kinematika, Dinamika, Fluida, Gelombang, Kalor dan Termodinamika, Kelistrikan.
+     - **Matematika Lanjut (3 Bab):** Aljabar, Geometri dan Pengukuran, Trigonometri.
+     - **Bab Fundamental Matematika Lanjut (5 Bab Materi Prasyarat):** Trigonometri Analitik Dasar, Aljabar Elementer, Geometri Analitik Bidang, Pertidaksamaan dan Nilai Mutlak, Eksponen dan Logaritma.
+  2. **SMA (Kurikulum Reguler):**
+     - **Fisika SMA (30 Bab):** Pengukuran s.d. Energi Terbarukan.
+     - **Matematika Wajib (16 Bab):** Eksponen & Logaritma s.d. Peluang.
+     - **Matematika Lanjut (9 Bab):** Bilangan Kompleks s.d. Statistika Inferensial.
+  3. **UTBK SNBT:** 7 Subtes (Penalaran Umum, PPU, PBM, PK, Literasi B. Indonesia, Literasi B. Inggris, Penalaran Matematika).
 * **Fitur Utama Terkini:**
-  * **Daftar Bab Materi Format Kartu Multi-Kolom (`.bab-list-minimal`):** Redesain tampilan daftar bab dari satu baris penuh menjadi grid kartu multi-kolom yang proporsional, padat, dan adaptif (1 kolom di smartphone, 2 kolom di tablet, 3 kolom di desktop). Opsi modul (*Materi Lengkap*, *Variasi Soal*, *Rangkuman*, dan *Latihan Kuis*) tersimpan rapi dan dapat dibuka secara accordion.
+  * **Top-Level 3 Kategori Utama (TKA, UTBK, SMA):** Switcher kategori di Materi & Rangkuman serta wizard Drilling Soal terintegrasi penuh untuk tiga ranah pembelajaran.
+  * **Daftar Bab Materi Format Kartu 3 Kolom (`.bab-list-minimal`):** Redesain tampilan daftar bab menjadi grid kartu 3-kolom per baris (`repeat(3, 1fr)`) yang ringkas, proporsional, hemat ruang di HP, dan elegan di desktop. Opsi modul (*Materi Lengkap*, *Variasi Soal*, *Rangkuman*, dan *Latihan Kuis*) tersimpan rapi dan dapat dibuka secara accordion.
+  * **Kartu Bab Drilling Lebih Lega & Ergonomis:** Kartu-kartu bab pada wizard drilling diperbesar (`min-height: 94px; padding: 0.85rem 0.95rem; font-size: 0.88rem`) dengan checkmark 20px dan container `max-height: 480px`, memberikan ruang visual yang nyaman dan mudah disentuh di layar mobile.
   * **Minimalist Reader Bottom Dock:** Bilah navigasi melayang adaptif di bagian bawah saat membaca materi/rangkuman, menggantikan footer statis/navigasi umum. Memungkinkan pindah bab (Prev/Next) dan beralih instan antar-modul (*Materi*, *Variasi*, *Rangkuman*, *Latihan*) secara ergonomis di HP maupun laptop tanpa memakan ruang baca.
   * **Pemisahan Bab Besar Mandiri di Drilling & Data Soal:** Bab gabungan besar dipecah menjadi dua bab terpisah dengan bank soal mandiri:
     - **Bab 15:** Aturan Pencacahan (39 Soal Drilling Berkualitas, 3 Sub-Bab Besar: Kaidah & Filling Slots, Permutasi, Kombinasi & Binomial).
     - **Bab 16:** Peluang (34 Soal Drilling Berkualitas, 3 Sub-Bab Besar: Ruang Sampel & Peluang Sederhana, Komplemen & Frekuensi Harapan, Peluang Majemuk & Bersyarat).
-  * **Drilling Dashboard Berbasis Kartu Bab & Pilihan Sub Bab Terarah:**
-    - **Perluasan Window Pilihan Bab (`.drilling-minimal-panel` 1040px & `.bab-cards-grid` max-height 640px):** Area daftar kartu bab diperluas signifikan agar seluruh kartu terlihat lapang dan tidak sesak saat scroll.
-    - **Seleksi Deterministik Berbasis Integer Index (`babIndex`):** Menggunakan integer index presisi sehingga bebas duplikasi atau salah pilih antar-bab dengan kemiripan kata.
-    - **Default Fleksibel & Bebas (Default Kosong):** Saat membuka wizard drilling atau berganti subtes, default seleksi bab adalah kosong (`0 Bab Dipilih`). Tombol 'Mulai Drilling' nonaktif hingga siswa menentukan bab target secara fleksibel (bebas pilih 1 bab, banyak bab, atau 'Pilih Semua').
-    - **Sub-Bab Ramping (Hanya Sub-Bab Besar/Inti):** Opsi sub-bab difokuskan pada 2-3 konsep besar per bab, mencegah kebingungan akibat pembagian mikro yang berlebihan.
-    - **Penyaringan Soal Selesai (Anti-Repetisi):** Soal yang telah dikerjakan (`completedQuestionIds`) secara otomatis tidak akan dimunculkan lagi di sesi kuis drilling baru, dengan indikator jumlah soal baru vs. sudah selesai dan tombol reset riwayat.
-  * **Variasi Contoh Soal Lengkap:** Bab 1 s.d. Bab 5 Fisika aktif dengan total 73 variasi soal, serta **Bab 15 Matematika Wajib (Aturan Pencacahan & Teori Peluang)** aktif dengan **30 variasi soal lengkap**, semuanya 100% tervalidasi bebas KaTeX error.
   * **Pedagogical Fluid Typography:** Tipografi adaptif berbasis ukuran layar (`clamp()`), pembatasan kolom baca maksimal 72 karakter (`max-width: 72ch`), line-height lega (`1.72`), dan visual anchor penomoran langkah.
-  * **Database Bank Soal Klien & IndexedDB:** Bank soal tersimpan langsung di `data_soal.js` (`window.EDUMANDIRI_SOAL_BANK` = 106 soal terverifikasi) dan disinkronkan ke IndexedDB (`EduMandiri_DB`). Tidak memerlukan `fetch` network HTTP atau GitHub push/fetch untuk pengoperasian dan pembaruan lokal.
+  * **Database Bank Soal Klien & IndexedDB:** Bank soal tersimpan langsung di `data_soal.js` (`window.EDUMANDIRI_SOAL_BANK` = 106 soal terverifikasi) dan disinkronkan ke IndexedDB (`EduMandiri_DB`).
 * **Filosofi Arsitektur:** **Zero-Build Vanilla Web Application**.
   * Tidak menggunakan bundler (Webpack/Vite/Rollup) dan tidak memerlukan runtime Node.js saat produksi.
   * Murni Vanilla HTML5, CSS3 kustom, dan Vanilla JavaScript (ES6+).
-  * 100% Offline-Ready menggunakan Service Worker (`sw.js`, `edumandiri-cache-v23`) dan pustaka lokal vendor (KaTeX + Marked.js tanpa CDN). Kompatibel dibuka langsung via protokol `file:///` maupun server web lokal/hosting.
+  * 100% Offline-Ready menggunakan Service Worker (`sw.js`, `edumandiri-cache-v26`) dan pustaka lokal vendor (KaTeX + Marked.js tanpa CDN).
 
 ---
 
@@ -34,14 +36,13 @@
 ```text
 d:/web/learn/
 ├── index.html                 # Entry-point SPA: struktur semantik, header, setup drilling, reader, nav
-├── style.css                  # Fluid Typography vars, tema mobile-first, bab cards, subbab groups, reader dock
-├── app.js                     # SPA engine: router, AppState, KaTeX shielding, quiz engine, IndexedDB loader, localStorage
-├── data_materi.js             # Database materi, rangkuman & contoh soal client-side (window.EDUMANDIRI_MATERI_BAB = 137 modul)
-├── data_soal.js               # Database bank soal client-side (window.EDUMANDIRI_SOAL_BANK = 106 soal terverifikasi, per sub-bab)
+├── style.css                  # Fluid Typography vars, tema mobile-first, bab cards 3-kolom, reader dock
+├── app.js                     # SPA engine: router, AppState (TKA/UTBK/SMA), KaTeX shielding, quiz engine, IndexedDB
+├── data_materi.js             # Database materi, rangkuman & contoh soal client-side (window.EDUMANDIRI_MATERI_BAB = 179 modul)
+├── data_soal.js               # Database bank soal client-side (window.EDUMANDIRI_SOAL_BANK = 106 soal terverifikasi)
 ├── data.json                  # Cadangan JSON bank soal drilling (sinkron dengan data_soal.js via sync-soal.js)
 ├── sync-soal.js               # Tool sinkronisasi database soal & validator KaTeX otomatis
-├── sync-to-db.js              # Tool sinkronisasi berkas markdown materi & contoh soal ke data_materi.js
-├── sw.js                      # Service Worker PWA (Cache-first offline strategy, versi: edumandiri-cache-v23)
+├── sw.js                      # Service Worker PWA (Cache-first offline strategy, versi: edumandiri-cache-v26)
 ├── manifest.json              # Web App Manifest untuk instalasi PWA di Android/iOS/Desktop
 ├── icon.svg                   # Icon logo SVG EduMandiri
 ├── .nojekyll                  # Penanda bypass pemrosesan Jekyll di GitHub Pages

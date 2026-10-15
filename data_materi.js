@@ -489,361 +489,361 @@ window.EDUMANDIRI_MATERI_BAB = [
     "id": "tka-mat-mat-01",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Aljabar",
+    "blok": "Fundamental Matematika Lanjut",
     "tipe": "materi",
     "babIndex": 1,
-    "babJudul": "Matriks",
-    "content": "# Matriks\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n## A. Operasi Matriks dan Sifat-sifatnya\n1. **Penjumlahan & Pengurangan:**\n   Hanya dapat dilakukan pada matriks berordo sama dengan menjumlahkan/mengurangkan elemen yang seletak:\n   $$\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\pm \\begin{pmatrix} e & f \\\\ g & h \\end{pmatrix} = \\begin{pmatrix} a \\pm e & b \\pm f \\\\ c \\pm g & d \\pm h \\end{pmatrix}$$\n2. **Perkalian Matriks dengan Skalar:**\n   $$k \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = \\begin{pmatrix} ka & kb \\\\ kc & kd \\end{pmatrix}$$\n3. **Perkalian Antarmatriks:**\n   Dua matriks dapat dikalikan jika banyak kolom matriks pertama sama dengan banyak baris matriks kedua ($A_{m \\times p} \\times B_{p \\times n} = C_{m \\times n}$):\n   $$\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\begin{pmatrix} e & f \\\\ g & h \\end{pmatrix} = \\begin{pmatrix} ae + bg & af + bh \\\\ ce + dg & cf + dh \\end{pmatrix}$$\n   > Perkalian matriks **tidak komutatif** ($AB \\ne BA$). Berlaku sifat asosiatif $A(BC) = (AB)C$ dan distributif $A(B + C) = AB + AC$.\n\n---\n\n## B. Determinan dan Invers Matriks\n1. **Determinan Matriks Ordo $2\\times2$:**\n   $$\\det(A) = |A| = ad - bc$$\n2. **Determinan Matriks Ordo $3\\times3$ (Metode Sarrus):**\n   $$|A| = a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32} - a_{13}a_{22}a_{31} - a_{11}a_{23}a_{32} - a_{12}a_{21}a_{33}$$\n   * Sifat: $\\det(AB) = \\det(A) \\cdot \\det(B)$, $\\det(A^T) = \\det(A)$, $\\det(A^{-1}) = \\frac{1}{\\det(A)}$, $\\det(kA_{n\\times n}) = k^n \\det(A)$.\n3. **Invers Matriks Ordo $2\\times2$:**\n   $$A^{-1} = \\frac{1}{ad - bc} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} \\quad (ad - bc \\ne 0)$$\n   * Jika $\\det(A) = 0$, matriks disebut **matriks singular** dan tidak memiliki invers.\n4. **Penyelesaian Persamaan Matriks:**\n   * $A \\cdot X = B \\implies X = A^{-1} \\cdot B$\n   * $X \\cdot A = B \\implies X = B \\cdot A^{-1}$\n"
+    "babJudul": "Trigonometri Analitik Dasar",
+    "content": "# Trigonometri Analitik Dasar\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut\n\n## A. Perbandingan Sisi Segitiga Siku-siku\nPada segitiga siku-siku dengan sudut acuan $\\alpha$:\n$$\\sin\\alpha = \\frac{\\text{depan}}{\\text{miring}}, \\quad \\cos\\alpha = \\frac{\\text{samping}}{\\text{miring}}, \\quad \\tan\\alpha = \\frac{\\text{depan}}{\\text{samping}} = \\frac{\\sin\\alpha}{\\cos\\alpha}$$\n* Kosekan: $\\csc\\alpha = \\frac{1}{\\sin\\alpha}$, Sekan: $\\sec\\alpha = \\frac{1}{\\cos\\alpha}$, Kotangen: $\\cot\\alpha = \\frac{1}{\\tan\\alpha}$.\n\n### Sudut Istimewa Kuadran I:\n* $0^\\circ$: $\\sin 0 = 0$, $\\cos 0 = 1$, $\\tan 0 = 0$\n* $30^\\circ$: $\\sin 30^\\circ = \\frac{1}{2}$, $\\cos 30^\\circ = \\frac{1}{2}\\sqrt{3}$, $\\tan 30^\\circ = \\frac{1}{3}\\sqrt{3}$\n* $45^\\circ$: $\\sin 45^\\circ = \\frac{1}{2}\\sqrt{2}$, $\\cos 45^\\circ = \\frac{1}{2}\\sqrt{2}$, $\\tan 45^\\circ = 1$\n* $60^\\circ$: $\\sin 60^\\circ = \\frac{1}{2}\\sqrt{3}$, $\\cos 60^\\circ = \\frac{1}{2}$, $\\tan 60^\\circ = \\sqrt{3}$\n* $90^\\circ$: $\\sin 90^\\circ = 1$, $\\cos 90^\\circ = 0$, $\\tan 90^\\circ = \\text{tak terdefinisi}$\n\n---\n\n## B. Relasi Sudut di Empat Kuadran & Identitas\n1. **Aturan Tanda Kuadran (ASTC - All Sin Tan Cos):**\n   * Kuadran I ($0^\\circ - 90^\\circ$): Semua positif.\n   * Kuadran II ($90^\\circ - 180^\\circ$): Hanya Sinus positif ($\\sin(180^\\circ - \\alpha) = \\sin\\alpha$).\n   * Kuadran III ($180^\\circ - 270^\\circ$): Hanya Tangen positif ($\\tan(180^\\circ + \\alpha) = \\tan\\alpha$).\n   * Kuadran IV ($270^\\circ - 360^\\circ$): Hanya Kosinus positif ($\\cos(360^\\circ - \\alpha) = \\cos\\alpha$).\n2. **Identitas Pythagoras Pokok:**\n   $$\\sin^2 x + \\cos^2 x = 1, \\quad 1 + \\tan^2 x = \\sec^2 x, \\quad 1 + \\cot^2 x = \\csc^2 x$$\n3. **Rumus Jumlah & Selisih Sudut:**\n   $$\\sin(A \\pm B) = \\sin A \\cos B \\pm \\cos A \\sin B$$\n   $$\\cos(A \\pm B) = \\cos A \\cos B \\mp \\sin A \\sin B$$\n4. **Rumus Sudut Rangkap:**\n   $$\\sin 2x = 2 \\sin x \\cos x$$\n   $$\\cos 2x = \\cos^2 x - \\sin^2 x = 2\\cos^2 x - 1 = 1 - 2\\sin^2 x$$\n"
   },
   {
     "id": "tka-mat-cs-01",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Aljabar",
+    "blok": "Fundamental Matematika Lanjut",
     "tipe": "contoh-soal",
     "babIndex": 1,
-    "babJudul": "Variasi Contoh Soal — Matriks",
-    "content": "# Variasi Contoh Soal — Matriks\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n### Contoh Soal 1: Invers dan Persamaan Matriks\nDiketahui matriks $A = \\begin{pmatrix} 3 & 1 \\\\ 5 & 2 \\end{pmatrix}$ dan $B = \\begin{pmatrix} 7 & 4 \\\\ 11 & 6 \\end{pmatrix}$. Tentukan matriks $X$ yang memenuhi $A \\cdot X = B$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung determinan matriks $A$:\n> $$\\det(A) = (3)(2) - (1)(5) = 6 - 5 = 1$$\n>\n> **Langkah 2:** Tentukan invers matriks $A$:\n> $$A^{-1} = \\frac{1}{1} \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} = \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix}$$\n>\n> **Langkah 3:** Hitung $X = A^{-1} \\cdot B$:\n> $$X = \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} \\begin{pmatrix} 7 & 4 \\\\ 11 & 6 \\end{pmatrix}$$\n> $$X = \\begin{pmatrix} 2(7) + (-1)(11) & 2(4) + (-1)(6) \\\\ (-5)(7) + 3(11) & (-5)(4) + 3(6) \\end{pmatrix} = \\begin{pmatrix} 14 - 11 & 8 - 6 \\\\ -35 + 33 & -20 + 18 \\end{pmatrix} = \\begin{pmatrix} 3 & 2 \\\\ -2 & -2 \\end{pmatrix}$$\n>\n> **Jawaban:** $X = \\begin{pmatrix} 3 & 2 \\\\ -2 & -2 \\end{pmatrix}$.\n"
+    "babJudul": "Variasi Contoh Soal — Trigonometri Analitik Dasar",
+    "content": "# Variasi Contoh Soal — Trigonometri Analitik Dasar\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut\n\n### Contoh Soal 1: Menghitung Nilai dengan Sudut Rangkap\nDiketahui $\\cos\\alpha = -\\frac{4}{5}$ dengan $\\alpha$ berada di kuadran II ($90^\\circ < \\alpha < 180^\\circ$). Tentukan nilai dari $\\sin 2\\alpha$ dan $\\cos 2\\alpha$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Tentukan $\\sin\\alpha$ di kuadran II (bernilai positif):\n> $$\\sin\\alpha = +\\sqrt{1 - \\cos^2\\alpha} = \\sqrt{1 - \\left(-\\frac{4}{5}\\right)^2} = \\sqrt{1 - \\frac{16}{25}} = \\sqrt{\\frac{9}{25}} = \\frac{3}{5}$$\n>\n> **Langkah 2:** Hitung $\\sin 2\\alpha$:\n> $$\\sin 2\\alpha = 2 \\sin\\alpha \\cos\\alpha = 2 \\left(\\frac{3}{5}\\right) \\left(-\\frac{4}{5}\\right) = -\\frac{24}{25}$$\n>\n> **Langkah 3:** Hitung $\\cos 2\\alpha$:\n> $$\\cos 2\\alpha = 2\\cos^2\\alpha - 1 = 2\\left(-\\frac{4}{5}\\right)^2 - 1 = 2\\left(\\frac{16}{25}\\right) - 1 = \\frac{32}{25} - \\frac{25}{25} = \\frac{7}{25}$$\n>\n> **Jawaban:** $\\sin 2\\alpha = -\\frac{24}{25}$ dan $\\cos 2\\alpha = \\frac{7}{25}$.\n"
   },
   {
     "id": "tka-mat-rg-01",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Aljabar",
+    "blok": "Fundamental Matematika Lanjut",
     "tipe": "rangkuman",
     "babIndex": 1,
-    "babJudul": "Rangkuman Rumus Cepat — Matriks",
-    "content": "# Rangkuman Rumus Cepat — Matriks\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n* **Perkalian:** $AB \\ne BA$ (Tidak komutatif)\n* **Determinan 2x2:** $|A| = ad - bc$\n* **Invers 2x2:** $A^{-1} = \\frac{1}{|A|} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$\n* **Sifat Determinan:** $|AB| = |A| |B|, \\quad |A^{-1}| = \\frac{1}{|A|}, \\quad |kA_{n\\times n}| = k^n |A|$\n* **Solusi Persamaan:** $AX = B \\implies X = A^{-1}B$; $XA = B \\implies X = BA^{-1}$\n"
+    "babJudul": "Rangkuman Rumus Cepat — Trigonometri Analitik Dasar",
+    "content": "# Rangkuman Rumus Cepat — Trigonometri Dasar\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut\n\n* **Identitas Pokok:** $\\sin^2 x + \\cos^2 x = 1$\n* **Sudut Rangkap:**\n  $$\\sin 2x = 2\\sin x \\cos x$$\n  $$\\cos 2x = 2\\cos^2 x - 1 = 1 - 2\\sin^2 x$$\n* **Jumlah/Selisih:**\n  $$\\sin(A \\pm B) = \\sin A \\cos B \\pm \\cos A \\sin B$$\n  $$\\cos(A \\pm B) = \\cos A \\cos B \\mp \\sin A \\sin B$$\n"
   },
   {
     "id": "tka-mat-mat-02",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Aljabar",
+    "blok": "Fundamental Matematika Lanjut",
     "tipe": "materi",
     "babIndex": 2,
-    "babJudul": "Polinomial (Suku Banyak)",
-    "content": "# Polinomial (Suku Banyak)\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n## A. Konsep Dasar & Operasi Polinomial\nBentuk umum polinomial derajat $n$ satu variabel $x$:\n$$P(x) = a_n x^n + a_{n-1} x^{n-1} + \\dots + a_1 x + a_0 \\quad (a_n \\ne 0)$$\n1. **Derajat Polinomial:** Pangkat tertinggi dari variabel $x$.\n2. **Operasi Aljabar:** Penjumlahan, pengurangan, dan perkalian suku sejenis (orde $\\le 4$).\n3. **Algoritma Pembagian Polinomial:**\n   $$\\text{Yang Dibagi} = (\\text{Pembagi} \\times \\text{Hasil Bagi}) + \\text{Sisa}$$\n   $$P(x) = Q(x) \\cdot H(x) + S(x)$$\n   * Jika pembagi berderajat $k$, derajat sisa maksimum adalah $(k - 1)$.\n   * Pembagian dapat diselesaikan dengan **cara bersusun panjang** atau **skema Horner**.\n\n---\n\n## B. Teorema Sisa dan Teorema Faktor\n1. **Teorema Sisa:**\n   * Jika $P(x)$ dibagi $(x - k)$, sisanya adalah $S = P(k)$.\n   * Jika $P(x)$ dibagi $(ax + b)$, sisanya adalah $S = P\\left(-\\frac{b}{a}\\right)$.\n   * Jika $P(x)$ dibagi $(x - a)(x - b)$, sisanya berbentuk linear $S(x) = px + q$, dengan:\n     $$P(a) = pa + q, \\quad P(b) = pb + q$$\n2. **Teorema Faktor:**\n   Bentuk $(x - k)$ merupakan faktor dari $P(x)$ jika dan hanya jika $P(k) = 0$ (sisa pembagian nol).\n3. **Hubungan Akar-Akar Polinomial (Teorema Vieta untuk Kubik $ax^3 + bx^2 + cx + d = 0$):**\n   * $x_1 + x_2 + x_3 = -\\frac{b}{a}$\n   * $x_1 x_2 + x_1 x_3 + x_2 x_3 = \\frac{c}{a}$\n   * $x_1 x_2 x_3 = -\\frac{d}{a}$\n"
+    "babJudul": "Aljabar Elementer",
+    "content": "# Aljabar Elementer\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut\n\n## A. Manipulasi Bentuk Aljabar & Pemfaktoran\n1. **Bentuk Kuadrat Sempurna:**\n   $$(a + b)^2 = a^2 + 2ab + b^2, \\quad (a - b)^2 = a^2 - 2ab + b^2$$\n2. **Selisih Kuadrat:**\n   $$a^2 - b^2 = (a - b)(a + b)$$\n3. **Selisih & Jumlah Kubik:**\n   $$a^3 - b^3 = (a - b)(a^2 + ab + b^2), \\quad a^3 + b^3 = (a + b)(a^2 - ab + b^2)$$\n4. **Penyederhanaan Pecahan Aljabar:**\n   Faktorkan pembilang dan penyebut terlebih dahulu sebelum membagi faktor sekutu.\n\n---\n\n## B. Sistem Persamaan Linear (SPLDV & SPLTV)\n1. **Sistem Persamaan Linear Dua Variabel (SPLDV):**\n   $$\\begin{cases} a_1 x + b_1 y = c_1 \\\\ a_2 x + b_2 y = c_2 \\end{cases}$$\n   * Metode penyelesaian: eliminasi, substitusi, atau aturan Cramer determinan ($x = D_x/D, y = D_y/D$).\n2. **Sistem Persamaan Linear Tiga Variabel (SPLTV):**\n   Diselesaikan secara sistematis dengan mengeliminasi satu variabel yang sama dari dua pasang persamaan, menghasilkan SPLDV baru.\n"
   },
   {
     "id": "tka-mat-cs-02",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Aljabar",
+    "blok": "Fundamental Matematika Lanjut",
     "tipe": "contoh-soal",
     "babIndex": 2,
-    "babJudul": "Variasi Contoh Soal — Polinomial (Suku Banyak)",
-    "content": "# Variasi Contoh Soal — Polinomial\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n### Contoh Soal 1: Teorema Sisa Pembagi Derajat Dua\nSuku banyak $P(x)$ jika dibagi $(x - 1)$ bersisa $5$, dan jika dibagi $(x + 2)$ bersisa $-4$. Tentukan sisa pembagian $P(x)$ oleh $(x^2 + x - 2)$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Faktorkan pembagi:\n> $$x^2 + x - 2 = (x - 1)(x + 2)$$\n> Karena pembagi berderajat 2, sisa pembagian berbentuk $S(x) = ax + b$.\n>\n> **Langkah 2:** Terapkan Teorema Sisa:\n> * Dibagi $(x - 1)$ bersisa $5 \\implies P(1) = 5 \\implies a(1) + b = 5 \\implies a + b = 5$\n> * Dibagi $(x + 2)$ bersisa $-4 \\implies P(-2) = -4 \\implies a(-2) + b = -4 \\implies -2a + b = -4$\n>\n> **Langkah 3:** Eliminasi sistem persamaan:\n> $$(a + b) - (-2a + b) = 5 - (-4) \\implies 3a = 9 \\implies a = 3$$\n> $$3 + b = 5 \\implies b = 2$$\n>\n> **Jawaban:** Sisa pembagiannya adalah $S(x) = 3x + 2$.\n"
+    "babJudul": "Variasi Contoh Soal — Aljabar Elementer",
+    "content": "# Variasi Contoh Soal — Aljabar Elementer\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut\n\n### Contoh Soal 1: Penyederhanaan Pecahan Aljabar\nSederhanakan bentuk aljabar $\\frac{x^2 - 9}{2x^2 + 5x - 3}$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Faktorkan pembilang:\n> $$x^2 - 9 = (x - 3)(x + 3)$$\n>\n> **Langkah 2:** Faktorkan penyebut $2x^2 + 5x - 3$:\n> Cari dua bilangan yang hasil kalinya $(2)(-3) = -6$ dan jumlahnya $+5$, yaitu $+6$ dan $-1$:\n> $$2x^2 + 6x - x - 3 = 2x(x + 3) - 1(x + 3) = (2x - 1)(x + 3)$$\n>\n> **Langkah 3:** Bagi faktor sekutu $(x + 3)$:\n> $$\\frac{(x - 3)(x + 3)}{(2x - 1)(x + 3)} = \\frac{x - 3}{2x - 1} \\quad (x \\ne -3)$$\n>\n> **Jawaban:** Bentuk sederhananya adalah $\\frac{x - 3}{2x - 1}$.\n"
   },
   {
     "id": "tka-mat-rg-02",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Aljabar",
+    "blok": "Fundamental Matematika Lanjut",
     "tipe": "rangkuman",
     "babIndex": 2,
-    "babJudul": "Rangkuman Rumus Cepat — Polinomial (Suku Banyak)",
-    "content": "# Rangkuman Rumus Cepat — Polinomial\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n* **Pembagian:** $P(x) = Q(x) H(x) + S(x)$\n* **Teorema Sisa:** Sisa bagi $(x - k)$ adalah $P(k)$\n* **Teorema Faktor:** $(x - k)$ faktor $\\iff P(k) = 0$\n* **Sisa Derajat 2:** $S(x) = px + q$\n* **Teorema Vieta (Derajat 3):**\n  $$\\Sigma x_i = -\\frac{b}{a}, \\quad \\Sigma x_i x_j = \\frac{c}{a}, \\quad x_1 x_2 x_3 = -\\frac{d}{a}$$\n"
+    "babJudul": "Rangkuman Rumus Cepat — Aljabar Elementer",
+    "content": "# Rangkuman Rumus Cepat — Aljabar Elementer\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut\n\n* **Selisih Kuadrat:** $a^2 - b^2 = (a - b)(a + b)$\n* **Kuadrat Binomial:** $(a \\pm b)^2 = a^2 \\pm 2ab + b^2$\n* **SPLDV Cramer:** $x = \\frac{D_x}{D}, \\quad y = \\frac{D_y}{D}$\n"
   },
   {
     "id": "tka-mat-mat-03",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Aljabar",
+    "blok": "Fundamental Matematika Lanjut",
     "tipe": "materi",
     "babIndex": 3,
-    "babJudul": "Fungsi dan Pemodelan",
-    "content": "# Fungsi dan Pemodelan\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n## A. Domain, Kodomain, dan Range\nFungsi $f: A \\to B$ memetakan setiap elemen himpunan domain $A$ ke tepat satu elemen himpunan kodomain $B$.\n1. **Domain Alami ($D_f$):**\n   * Fungsi Pecahan $f(x) = \\frac{P(x)}{Q(x)}$: Syarat $Q(x) \\ne 0$.\n   * Fungsi Bentuk Akar $f(x) = \\sqrt{g(x)}$: Syarat $g(x) \\ge 0$.\n   * Fungsi Logaritma $f(x) = \\log_a g(x)$: Syarat numerus $g(x) > 0$ dan basis $a > 0, a \\ne 1$.\n\n---\n\n## B. Karakteristik Ragam Fungsi\n1. **Fungsi Polinomial:** Kontinu di seluruh $\\mathbb{R}$. Derajat 1 berupa garis lurus, derajat 2 berupa parabola ($x_p = -\\frac{b}{2a}, y_p = -\\frac{D}{4a}$), derajat 3 memiliki maksimal 2 titik stasioner.\n2. **Fungsi Rasional:**\n   $$f(x) = \\frac{ax + b}{cx + d}$$\n   * Asimtot tegak: $x = -\\frac{d}{c}$\n   * Asimtot datar: $y = \\frac{a}{c}$\n   * Invers fungsi rasional: $f^{-1}(x) = \\frac{-dx + b}{cx - a}$\n3. **Fungsi Eksponensial & Logaritma:**\n   * $f(x) = a^x$ (selalu positif $> 0$, memotong sumbu-y di $(0,1)$).\n   * $f(x) = \\log_a x$ merupakan invers dari fungsi eksponensial (memotong sumbu-x di $(1,0)$).\n4. **Fungsi Nilai Mutlak:** $f(x) = |x| = \\begin{cases} x, & x \\ge 0 \\\\ -x, & x < 0 \\end{cases}$, grafiknya berbentuk huruf \"V\".\n5. **Fungsi Trigonometri:** Periodik, misal $f(x) = A \\sin(Bx + C) + D$ memiliki amplitudo $|A|$ dan periode $T = \\frac{2\\pi}{|B|}$.\n"
+    "babJudul": "Geometri Analitik Bidang",
+    "content": "# Geometri Analitik Bidang\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut\n\n## A. Koordinat Kartesius dan Persamaan Garis Lurus\n1. **Jarak Antara Dua Titik $A(x_1, y_1)$ dan $B(x_2, y_2)$:**\n   $$d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$\n2. **Titik Tengah Ruas Garis $AB$:**\n   $$M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$$\n3. **Gradien Kemiringan Garis ($m$):**\n   $$m = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}$$\n4. **Persamaan Garis Lurus:**\n   * Melalui satu titik $(x_1, y_1)$ dengan gradien $m$: $y - y_1 = m(x - x_1)$\n   * Bentuk gradien-intersep: $y = mx + c$\n   * Bentuk baku umum: $Ax + By + C = 0 \\implies m = -\\frac{A}{B}$\n\n---\n\n## B. Hubungan Garis dan Jarak Titik ke Garis\n1. **Hubungan Dua Garis:**\n   * Garis sejajar ($g_1 \\parallel g_2$): $m_1 = m_2$\n   * Garis tegak lurus ($g_1 \\perp g_2$): $m_1 \\cdot m_2 = -1 \\implies m_2 = -\\frac{1}{m_1}$\n2. **Jarak Titik $P(x_0, y_0)$ ke Garis $Ax + By + C = 0$:**\n   $$d = \\frac{|A x_0 + B y_0 + C|}{\\sqrt{A^2 + B^2}}$$\n"
   },
   {
     "id": "tka-mat-cs-03",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Aljabar",
+    "blok": "Fundamental Matematika Lanjut",
     "tipe": "contoh-soal",
     "babIndex": 3,
-    "babJudul": "Variasi Contoh Soal — Fungsi dan Pemodelan",
-    "content": "# Variasi Contoh Soal — Fungsi dan Pemodelan\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n### Contoh Soal 1: Menentukan Domain Fungsi Campuran\nTentukan domain alami dari fungsi $f(x) = \\frac{\\sqrt{2x + 6}}{x^2 - 4x + 3}$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Syarat bentuk akar pembilang:\n> $$2x + 6 \\ge 0 \\implies 2x \\ge -6 \\implies x \\ge -3$$\n>\n> **Langkah 2:** Syarat penyebut tidak sama dengan nol:\n> $$x^2 - 4x + 3 \\ne 0 \\implies (x - 1)(x - 3) \\ne 0 \\implies x \\ne 1 \\text{ dan } x \\ne 3$$\n>\n> **Langkah 3:** Gabungkan kedua syarat:\n> $$D_f = \\{x \\in \\mathbb{R} \\mid x \\ge -3, x \\ne 1, x \\ne 3\\}$$\n>\n> **Jawaban:** $D_f = [-3, 1) \\cup (1, 3) \\cup (3, \\infty)$.\n"
+    "babJudul": "Variasi Contoh Soal — Geometri Analitik Bidang",
+    "content": "# Variasi Contoh Soal — Geometri Analitik Bidang\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut\n\n### Contoh Soal 1: Jarak Titik ke Garis Lurus\nTentukan jarak tegak lurus dari titik $P(2, -3)$ ke garis lurus $3x - 4y + 7 = 0$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Identifikasi koefisien:\n> $A = 3, B = -4, C = 7, x_0 = 2, y_0 = -3$.\n>\n> **Langkah 2:** Masukkan ke rumus jarak tegak lurus:\n> $$d = \\frac{|A x_0 + B y_0 + C|}{\\sqrt{A^2 + B^2}} = \\frac{|3(2) + (-4)(-3) + 7|}{\\sqrt{3^2 + (-4)^2}}$$\n> $$d = \\frac{|6 + 12 + 7|}{\\sqrt{9 + 16}} = \\frac{|25|}{\\sqrt{25}} = \\frac{25}{5} = 5\\text{ satuan}$$\n>\n> **Jawaban:** Jaraknya adalah $5\\text{ satuan}$.\n"
   },
   {
     "id": "tka-mat-rg-03",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Aljabar",
+    "blok": "Fundamental Matematika Lanjut",
     "tipe": "rangkuman",
     "babIndex": 3,
-    "babJudul": "Rangkuman Rumus Cepat — Fungsi dan Pemodelan",
-    "content": "# Rangkuman Rumus Cepat — Ragam Fungsi\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n* **Syarat Pecahan:** Penyebut $\\ne 0$\n* **Syarat Akar Genap:** Di bawah tanda akar $\\ge 0$\n* **Syarat Logaritma:** Numerus $> 0$\n* **Invers Rasional:** $f(x) = \\frac{ax+b}{cx+d} \\implies f^{-1}(x) = \\frac{-dx+b}{cx-a}$\n* **Periode Sinus/Kosinus:** $T = \\frac{2\\pi}{|B|}$\n"
+    "babJudul": "Rangkuman Rumus Cepat — Geometri Analitik Bidang",
+    "content": "# Rangkuman Rumus Cepat — Geometri Analitik\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut\n\n* **Jarak 2 Titik:** $d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$\n* **Gradien Garis:** $m = \\frac{y_2 - y_1}{x_2 - x_1} = -\\frac{A}{B}$\n* **Garis Sejajar:** $m_1 = m_2$\n* **Garis Tegak Lurus:** $m_1 \\cdot m_2 = -1$\n* **Jarak Titik ke Garis:** $d = \\frac{|Ax_0 + By_0 + C|}{\\sqrt{A^2 + B^2}}$\n"
   },
   {
     "id": "tka-mat-mat-04",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Geometri dan Pengukuran",
+    "blok": "Fundamental Matematika Lanjut",
     "tipe": "materi",
     "babIndex": 4,
-    "babJudul": "Vektor pada Bidang dan Ruang",
-    "content": "# Vektor pada Bidang dan Ruang\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n## A. Komponen dan Operasi Vektor\n1. **Representasi Vektor:**\n   * Di bidang $\\mathbb{R}^2$: $\\vec{u} = \\begin{pmatrix} x \\\\ y \\end{pmatrix} = x\\hat{i} + y\\hat{j}$\n   * Di ruang $\\mathbb{R}^3$: $\\vec{u} = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = x\\hat{i} + y\\hat{j} + z\\hat{k}$\n2. **Panjang (Modulus) Vektor:**\n   $$|\\vec{u}| = \\sqrt{x^2 + y^2 + z^2}$$\n   * Vektor satuan: $\\hat{u} = \\frac{\\vec{u}}{|\\vec{u}|}$ (memiliki panjang 1 satuan).\n3. **Operasi Aljabar:**\n   $$\\vec{u} \\pm \\vec{v} = (u_x \\pm v_x)\\hat{i} + (u_y \\pm v_y)\\hat{j} + (u_z \\pm v_z)\\hat{k}$$\n\n---\n\n## B. Perkalian Skalar (Dot Product) & Proyeksi\n1. **Perkalian Titik (Dot Product):**\n   $$\\vec{u} \\cdot \\vec{v} = u_x v_x + u_y v_y + u_z v_z = |\\vec{u}| |\\vec{v}| \\cos\\theta$$\n   * Jika $\\vec{u} \\perp \\vec{v}$ (tegak lurus), maka $\\theta = 90^\\circ \\implies \\vec{u} \\cdot \\vec{v} = 0$.\n   * Sudut antara dua vektor:\n     $$\\cos\\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}| |\\vec{v}|}$$\n2. **Proyeksi Ortogonal Vektor $\\vec{u}$ pada $\\vec{v}$:**\n   * **Panjang Proyeksi Skalar:**\n     $$|\\vec{p}| = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|}$$\n   * **Vektor Proyeksi:**\n     $$\\vec{p} = \\left(\\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\right) \\vec{v}$$\n"
+    "babJudul": "Pertidaksamaan dan Nilai Mutlak",
+    "content": "# Pertidaksamaan dan Nilai Mutlak\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut\n\n## A. Pertidaksamaan Rasional dan Bentuk Akar\n1. **Syarat Terdefinisi (Eksistensi):**\n   * Pecahan $\\frac{P(x)}{Q(x)}$: Penyebut $Q(x) \\ne 0$.\n   * Bentuk akar $\\sqrt{f(x)}$: Radikan $f(x) \\ge 0$.\n2. **Pertidaksamaan Kuadrat & Pecahan:**\n   * Jadikan salah satu ruas sama dengan nol.\n   * Tentukan titik pembuat nol (akar-akar pembilang dan penyebut).\n   * Gambar garis bilangan, uji tanda selang $(+)$ atau $(-)$.\n   * Jangan mengalikan silang pertidaksamaan dengan variabel jika tanda variabel belum pasti positif!\n\n---\n\n## B. Persamaan dan Pertidaksamaan Nilai Mutlak\n1. **Definisi Nilai Mutlak:**\n   $$|x| = \\begin{cases} x, & x \\ge 0 \\\\ -x, & x < 0 \\end{cases}$$\n   * Sifat: $|x| = \\sqrt{x^2}$, $|-x| = |x|$, $|xy| = |x||y|$, $\\left|\\frac{x}{y}\\right| = \\frac{|x|}{|y|}$.\n2. **Persamaan Nilai Mutlak:**\n   $$|f(x)| = c \\quad (c \\ge 0) \\implies f(x) = c \\text{ atau } f(x) = -c$$\n3. **Pertidaksamaan Nilai Mutlak:**\n   * Untuk $c > 0$:\n     $$|f(x)| < c \\iff -c < f(x) < c$$\n     $$|f(x)| > c \\iff f(x) < -c \\quad \\text{atau} \\quad f(x) > c$$\n   * Antar nilai mutlak:\n     $$|f(x)| \\le |g(x)| \\iff [f(x)]^2 \\le [g(x)]^2 \\iff (f(x) - g(x))(f(x) + g(x)) \\le 0$$\n"
   },
   {
     "id": "tka-mat-cs-04",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Geometri dan Pengukuran",
+    "blok": "Fundamental Matematika Lanjut",
     "tipe": "contoh-soal",
     "babIndex": 4,
-    "babJudul": "Variasi Contoh Soal — Vektor pada Bidang dan Ruang",
-    "content": "# Variasi Contoh Soal — Vektor\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n### Contoh Soal 1: Dua Vektor Saling Tegak Lurus\nDiketahui vektor $\\vec{a} = 2\\hat{i} - 4\\hat{j} + 3\\hat{k}$ dan $\\vec{b} = x\\hat{i} + 2\\hat{j} + 4\\hat{k}$. Jika vektor $\\vec{a}$ dan $\\vec{b}$ saling tegak lurus, tentukan nilai $x$ dan panjang vektor $\\vec{b}$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Syarat tegak lurus: $\\vec{a} \\cdot \\vec{b} = 0$:\n> $$(2)(x) + (-4)(2) + (3)(4) = 0$$\n> $$2x - 8 + 12 = 0 \\implies 2x + 4 = 0 \\implies 2x = -4 \\implies x = -2$$\n>\n> **Langkah 2:** Hitung panjang vektor $\\vec{b} = -2\\hat{i} + 2\\hat{j} + 4\\hat{k}$:\n> $$|\\vec{b}| = \\sqrt{(-2)^2 + 2^2 + 4^2} = \\sqrt{4 + 4 + 16} = \\sqrt{24} = 2\\sqrt{6}$$\n>\n> **Jawaban:** $x = -2$ dan $|\\vec{b}| = 2\\sqrt{6}$.\n"
+    "babJudul": "Variasi Contoh Soal — Pertidaksamaan dan Nilai Mutlak",
+    "content": "# Variasi Contoh Soal — Pertidaksamaan & Nilai Mutlak\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut\n\n### Contoh Soal 1: Pertidaksamaan Nilai Mutlak\nTentukan himpunan penyelesaian dari pertidaksamaan $|2x - 5| < 7$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Gunakan sifat $|f(x)| < c \\iff -c < f(x) < c$:\n> $$-7 < 2x - 5 < 7$$\n>\n> **Langkah 2:** Tambahkan $5$ pada ketiga ruas:\n> $$-7 + 5 < 2x < 7 + 5 \\implies -2 < 2x < 12$$\n>\n> **Langkah 3:** Bagi kedua ruas dengan $2$:\n> $$-1 < x < 6$$\n>\n> **Jawaban:** $HP = \\{x \\in \\mathbb{R} \\mid -1 < x < 6\\}$.\n"
   },
   {
     "id": "tka-mat-rg-04",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Geometri dan Pengukuran",
+    "blok": "Fundamental Matematika Lanjut",
     "tipe": "rangkuman",
     "babIndex": 4,
-    "babJudul": "Rangkuman Rumus Cepat — Vektor pada Bidang dan Ruang",
-    "content": "# Rangkuman Rumus Cepat — Vektor\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n* **Panjang Vektor:** $|\\vec{u}| = \\sqrt{x^2 + y^2 + z^2}$\n* **Dot Product:** $\\vec{u} \\cdot \\vec{v} = u_x v_x + u_y v_y + u_z v_z = |\\vec{u}| |\\vec{v}| \\cos\\theta$\n* **Syarat Tegak Lurus:** $\\vec{u} \\cdot \\vec{v} = 0$\n* **Panjang Proyeksi $\\vec{u}$ pada $\\vec{v}$:** $|\\vec{p}| = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|}$\n* **Vektor Proyeksi $\\vec{u}$ pada $\\vec{v}$:** $\\vec{p} = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2} \\vec{v}$\n"
+    "babJudul": "Rangkuman Rumus Cepat — Pertidaksamaan dan Nilai Mutlak",
+    "content": "# Rangkuman Rumus Cepat — Nilai Mutlak\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut\n\n* **Definisi:** $|x| = \\sqrt{x^2} \\ge 0$\n* **Sifat Kurang Dari:** $|f(x)| < c \\iff -c < f(x) < c$\n* **Sifat Lebih Dari:** $|f(x)| > c \\iff f(x) < -c \\text{ atau } f(x) > c$\n* **Dua Sisi Mutlak:** $|f| \\le |g| \\iff (f - g)(f + g) \\le 0$\n"
   },
   {
     "id": "tka-mat-mat-05",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Geometri dan Pengukuran",
+    "blok": "Fundamental Matematika Lanjut",
     "tipe": "materi",
     "babIndex": 5,
-    "babJudul": "Lingkaran",
-    "content": "# Lingkaran\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n## A. Persamaan Lingkaran\n1. **Pusat $(0,0)$ dan Jari-Jari $r$:**\n   $$x^2 + y^2 = r^2$$\n2. **Pusat $(a,b)$ dan Jari-Jari $r$:**\n   $$(x - a)^2 + (y - b)^2 = r^2$$\n3. **Bentuk Umum Persamaan Lingkaran:**\n   $$x^2 + y^2 + Ax + By + C = 0$$\n   * Titik Pusat: $P\\left(-\\frac{A}{2}, -\\frac{B}{2}\\right)$\n   * Jari-jari: $r = \\sqrt{\\left(\\frac{A}{2}\\right)^2 + \\left(\\frac{B}{2}\\right)^2 - C}$\n\n---\n\n## B. Persamaan Garis Singgung Lingkaran (PGSL)\n1. **Melalui Titik $(x_1, y_1)$ pada Lingkaran:**\n   * Untuk $x^2 + y^2 = r^2$: $x_1 x + y_1 y = r^2$\n   * Untuk $(x - a)^2 + (y - b)^2 = r^2$:\n     $$(x_1 - a)(x - a) + (y_1 - b)(y - b) = r^2$$\n2. **Dengan Gradien $m$ Tertentu:**\n   $$y - b = m(x - a) \\pm r\\sqrt{1 + m^2}$$\n3. **Unsur-Unsur Geometri Busur dan Juring:**\n   * Keliling $= 2\\pi r$, Luas Lingkaran $= \\pi r^2$\n   * Panjang Busur: $s = \\frac{\\theta}{360^\\circ} \\times 2\\pi r$\n   * Luas Juring: $L_{\\text{juring}} = \\frac{\\theta}{360^\\circ} \\times \\pi r^2$\n   * Luas Tembereng: $L_{\\text{tembereng}} = L_{\\text{juring}} - L_{\\Delta}$\n"
+    "babJudul": "Eksponen dan Logaritma",
+    "content": "# Eksponen dan Logaritma\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut\n\n## A. Sifat-Sifat Operasi Eksponen\nUntuk $a, b > 0$ dan $m, n \\in \\mathbb{R}$:\n1. $a^m \\cdot a^n = a^{m+n}$\n2. $\\frac{a^m}{a^n} = a^{m-n}$\n3. $(a^m)^n = a^{mn}$\n4. $(a \\cdot b)^n = a^n \\cdot b^n, \\quad \\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n}$\n5. $a^0 = 1 \\quad (a \\ne 0)$\n6. $a^{-n} = \\frac{1}{a^n}$\n7. Bentuk Akar: $a^{m/n} = \\sqrt[n]{a^m}$\n\n---\n\n## B. Sifat-Sifat Logaritma\nDefinisi: ${}^a\\log b = c \\iff a^c = b$ (Basis $a > 0, a \\ne 1$, Numerus $b > 0$).\n1. ${}^a\\log(x \\cdot y) = {}^a\\log x + {}^a\\log y$\n2. ${}^a\\log\\left(\\frac{x}{y}\\right) = {}^a\\log x - {}^a\\log y$\n3. ${}^a\\log(b^n) = n \\cdot {}^a\\log b$\n4. ${}^{a^m}\\log(b^n) = \\frac{n}{m} \\cdot {}^a\\log b$\n5. Pergantian Basis: ${}^a\\log b = \\frac{{}^c\\log b}{{{}^c\\log a}} = \\frac{1}{{{}^b\\log a}}$\n6. Perkalian Berantai: ${}^a\\log b \\cdot {}^b\\log c = {}^a\\log c$\n7. Pemangkatan Identitas: $a^{{}^a\\log b} = b$\n\n---\n\n## C. Persamaan Eksponen & Logaritma Sederhana\n* $a^{f(x)} = a^{g(x)} \\implies f(x) = g(x)$\n* ${}^a\\log f(x) = {}^a\\log g(x) \\implies f(x) = g(x)$ (dengan syarat numerus $f(x) > 0$ dan $g(x) > 0$).\n"
   },
   {
     "id": "tka-mat-cs-05",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Geometri dan Pengukuran",
+    "blok": "Fundamental Matematika Lanjut",
     "tipe": "contoh-soal",
     "babIndex": 5,
-    "babJudul": "Variasi Contoh Soal — Lingkaran",
-    "content": "# Variasi Contoh Soal — Lingkaran\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n### Contoh Soal 1: Garis Singgung dengan Gradien Tertentu\nTentukan persamaan garis singgung pada lingkaran $x^2 + y^2 - 4x + 6y - 12 = 0$ yang tegak lurus dengan garis $3x - 4y + 7 = 0$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Tentukan pusat dan jari-jari lingkaran:\n> * Pusat: $P(-(-4)/2, -(6)/2) = (2, -3)$\n> * $r = \\sqrt{2^2 + (-3)^2 - (-12)} = \\sqrt{4 + 9 + 12} = \\sqrt{25} = 5$\n>\n> **Langkah 2:** Tentukan gradien garis singgung:\n> Garis $3x - 4y + 7 = 0 \\implies m_1 = \\frac{3}{4}$.\n> Karena tegak lurus ($m_1 \\cdot m_2 = -1$), maka $m_2 = -\\frac{4}{3}$.\n>\n> **Langkah 3:** Rumus PGSL dengan gradien:\n> $$y - b = m(x - a) \\pm r\\sqrt{1 + m^2}$$\n> $$y - (-3) = -\\frac{4}{3}(x - 2) \\pm 5\\sqrt{1 + \\left(-\\frac{4}{3}\\right)^2}$$\n> $$y + 3 = -\\frac{4}{3}(x - 2) \\pm 5\\sqrt{\\frac{25}{9}} = -\\frac{4}{3}(x - 2) \\pm 5\\left(\\frac{5}{3}\\right) = -\\frac{4}{3}(x - 2) \\pm \\frac{25}{3}$$\n> Kalikan kedua ruas dengan 3:\n> $$3y + 9 = -4(x - 2) \\pm 25 \\implies 3y + 9 = -4x + 8 \\pm 25$$\n> $$4x + 3y + 1 \\pm 25 = 0$$\n> Diperoleh dua garis: $4x + 3y + 26 = 0$ atau $4x + 3y - 24 = 0$.\n>\n> **Jawaban:** $4x + 3y + 26 = 0$ dan $4x + 3y - 24 = 0$.\n"
+    "babJudul": "Variasi Contoh Soal — Eksponen dan Logaritma",
+    "content": "# Variasi Contoh Soal — Eksponen dan Logaritma\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut\n\n### Contoh Soal 1: Persamaan Logaritma\nTentukan nilai $x$ yang memenuhi persamaan ${}^2\\log(x^2 - 3x) = 2$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Ubah ruas kanan menjadi bentuk logaritma basis 2:\n> $$2 = {}^2\\log(2^2) = {}^2\\log 4$$\n>\n> **Langkah 2:** Samakan numerus:\n> $$x^2 - 3x = 4 \\implies x^2 - 3x - 4 = 0$$\n> $$(x - 4)(x + 1) = 0 \\implies x = 4 \\quad \\text{atau} \\quad x = -1$$\n>\n> **Langkah 3:** Uji syarat numerus ($x^2 - 3x > 0$):\n> * Untuk $x = 4$: $4^2 - 3(4) = 16 - 12 = 4 > 0$ (Memenuhi)\n> * Untuk $x = -1$: $(-1)^2 - 3(-1) = 1 + 3 = 4 > 0$ (Memenuhi)\n>\n> **Jawaban:** Nilai $x$ yang memenuhi adalah $x = -1$ atau $x = 4$.\n"
   },
   {
     "id": "tka-mat-rg-05",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Geometri dan Pengukuran",
+    "blok": "Fundamental Matematika Lanjut",
     "tipe": "rangkuman",
     "babIndex": 5,
-    "babJudul": "Rangkuman Rumus Cepat — Lingkaran",
-    "content": "# Rangkuman Rumus Cepat — Lingkaran\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n* **Pusat & Jari-jari Umum:** $P\\left(-\\frac{A}{2}, -\\frac{B}{2}\\right), \\quad r = \\sqrt{\\frac{A^2}{4} + \\frac{B^2}{4} - C}$\n* **Bagi Adil Titik Singgung:** $(x_1 - a)(x - a) + (y_1 - b)(y - b) = r^2$\n* **PGS Gradien $m$:** $y - b = m(x - a) \\pm r\\sqrt{1 + m^2}$\n* **Panjang Busur:** $s = \\frac{\\theta}{360^\\circ} 2\\pi r$\n* **Luas Juring:** $L = \\frac{\\theta}{360^\\circ} \\pi r^2$\n"
+    "babJudul": "Rangkuman Rumus Cepat — Eksponen dan Logaritma",
+    "content": "# Rangkuman Rumus Cepat — Eksponen & Logaritma\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut\n\n* **Perkalian Pangkat:** $a^m \\cdot a^n = a^{m+n}$\n* **Pembagian Pangkat:** $a^m / a^n = a^{m-n}$\n* **Definisi Logaritma:** ${}^a\\log b = c \\iff a^c = b$\n* **Sifat Penjumlahan:** ${}^a\\log x + {}^a\\log y = {}^a\\log(xy)$\n* **Pangkat Numerus/Basis:** ${}^{a^m}\\log(b^n) = \\frac{n}{m} {}^a\\log b$\n* **Perkalian Rantai:** ${}^a\\log b \\cdot {}^b\\log c = {}^a\\log c$\n* **Identitas Pangkat:** $a^{{}^a\\log b} = b$\n"
   },
   {
     "id": "tka-mat-mat-06",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Geometri dan Pengukuran",
+    "blok": "Aljabar",
     "tipe": "materi",
     "babIndex": 6,
-    "babJudul": "Transformasi Geometri",
-    "content": "# Transformasi Geometri\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n## A. Jenis-Jenis Transformasi Dasar\n1. **Translasi (Pergeseran) $T = \\begin{pmatrix} a \\\\ b \\end{pmatrix}$:**\n   $$x' = x + a, \\quad y' = y + b$$\n2. **Refleksi (Pencerminan):**\n   * Sumbu-$x$: $\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$\n   * Sumbu-$y$: $\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} -1 & 0 \\\\ 0 & 1 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$\n   * Garis $y = x$: $\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$\n   * Garis $y = -x$: $\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 0 & -1 \\\\ -1 & 0 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$\n   * Garis $x = h$: $x' = 2h - x, y' = y$; Garis $y = k$: $x' = x, y' = 2k - y$.\n3. **Rotasi $[P(a,b), \\theta]$:**\n   $$\\begin{pmatrix} x' - a \\\\ y' - b \\end{pmatrix} = \\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix} \\begin{pmatrix} x - a \\\\ y - b \\end{pmatrix}$$\n4. **Dilatasi $[P(a,b), k]$:**\n   $$\\begin{pmatrix} x' - a \\\\ y' - b \\end{pmatrix} = \\begin{pmatrix} k & 0 \\\\ 0 & k \\end{pmatrix} \\begin{pmatrix} x - a \\\\ y - b \\end{pmatrix}$$\n\n---\n\n## B. Komposisi Transformasi dengan Matriks\nJika transformasi $T_1$ bersesuaian dengan matriks $M_1$ dan $T_2$ bersesuaian dengan matriks $M_2$, maka komposisi transformasi $T_2 \\circ T_1$ (dilakukan $T_1$ dulu kemudian $T_2$) bersesuaian dengan perkalian matriks:\n$$M_{\\text{gabungan}} = M_2 \\cdot M_1$$\n$$\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = M_2 \\cdot M_1 \\begin{pmatrix} x \\\\ y \\end{pmatrix}$$\n"
+    "babJudul": "Matriks",
+    "content": "# Matriks\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n## A. Operasi Matriks dan Sifat-sifatnya\n1. **Penjumlahan & Pengurangan:**\n   Hanya dapat dilakukan pada matriks berordo sama dengan menjumlahkan/mengurangkan elemen yang seletak:\n   $$\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\pm \\begin{pmatrix} e & f \\\\ g & h \\end{pmatrix} = \\begin{pmatrix} a \\pm e & b \\pm f \\\\ c \\pm g & d \\pm h \\end{pmatrix}$$\n2. **Perkalian Matriks dengan Skalar:**\n   $$k \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = \\begin{pmatrix} ka & kb \\\\ kc & kd \\end{pmatrix}$$\n3. **Perkalian Antarmatriks:**\n   Dua matriks dapat dikalikan jika banyak kolom matriks pertama sama dengan banyak baris matriks kedua ($A_{m \\times p} \\times B_{p \\times n} = C_{m \\times n}$):\n   $$\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\begin{pmatrix} e & f \\\\ g & h \\end{pmatrix} = \\begin{pmatrix} ae + bg & af + bh \\\\ ce + dg & cf + dh \\end{pmatrix}$$\n   > Perkalian matriks **tidak komutatif** ($AB \\ne BA$). Berlaku sifat asosiatif $A(BC) = (AB)C$ dan distributif $A(B + C) = AB + AC$.\n\n---\n\n## B. Determinan dan Invers Matriks\n1. **Determinan Matriks Ordo $2\\times2$:**\n   $$\\det(A) = |A| = ad - bc$$\n2. **Determinan Matriks Ordo $3\\times3$ (Metode Sarrus):**\n   $$|A| = a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32} - a_{13}a_{22}a_{31} - a_{11}a_{23}a_{32} - a_{12}a_{21}a_{33}$$\n   * Sifat: $\\det(AB) = \\det(A) \\cdot \\det(B)$, $\\det(A^T) = \\det(A)$, $\\det(A^{-1}) = \\frac{1}{\\det(A)}$, $\\det(kA_{n\\times n}) = k^n \\det(A)$.\n3. **Invers Matriks Ordo $2\\times2$:**\n   $$A^{-1} = \\frac{1}{ad - bc} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} \\quad (ad - bc \\ne 0)$$\n   * Jika $\\det(A) = 0$, matriks disebut **matriks singular** dan tidak memiliki invers.\n4. **Penyelesaian Persamaan Matriks:**\n   * $A \\cdot X = B \\implies X = A^{-1} \\cdot B$\n   * $X \\cdot A = B \\implies X = B \\cdot A^{-1}$\n"
   },
   {
     "id": "tka-mat-cs-06",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Geometri dan Pengukuran",
+    "blok": "Aljabar",
     "tipe": "contoh-soal",
     "babIndex": 6,
-    "babJudul": "Variasi Contoh Soal — Transformasi Geometri",
-    "content": "# Variasi Contoh Soal — Transformasi Geometri\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n### Contoh Soal 1: Komposisi Transformasi Garis\nTentukan bayangan garis $2x - 3y + 6 = 0$ setelah dicerminkan terhadap sumbu-$x$, kemudian dilanjutkan dengan rotasi $90^\\circ$ berlawanan arah jarum jam terhadap pusat $(0,0)$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Tentukan matriks transformasi:\n> * Refleksi sumbu-$x$: $M_1 = \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}$\n> * Rotasi $90^\\circ$: $M_2 = \\begin{pmatrix} \\cos 90^\\circ & -\\sin 90^\\circ \\\\ \\sin 90^\\circ & \\cos 90^\\circ \\end{pmatrix} = \\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}$\n>\n> **Langkah 2:** Hitung matriks komposisi $M = M_2 \\cdot M_1$:\n> $$M = \\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix} \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix} = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$$\n>\n> **Langkah 3:** Hubungan koordinat baru:\n> $$\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} y \\\\ x \\end{pmatrix} \\implies x' = y \\implies y = x', \\quad y' = x \\implies x = y'$$\n>\n> **Langkah 4:** Substitusi ke persamaan garis awal:\n> $$2x - 3y + 6 = 0 \\implies 2(y') - 3(x') + 6 = 0 \\implies -3x' + 2y' + 6 = 0 \\implies 3x - 2y - 6 = 0$$\n>\n> **Jawaban:** Bayangan garis adalah $3x - 2y - 6 = 0$.\n"
+    "babJudul": "Variasi Contoh Soal — Matriks",
+    "content": "# Variasi Contoh Soal — Matriks\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n### Contoh Soal 1: Invers dan Persamaan Matriks\nDiketahui matriks $A = \\begin{pmatrix} 3 & 1 \\\\ 5 & 2 \\end{pmatrix}$ dan $B = \\begin{pmatrix} 7 & 4 \\\\ 11 & 6 \\end{pmatrix}$. Tentukan matriks $X$ yang memenuhi $A \\cdot X = B$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung determinan matriks $A$:\n> $$\\det(A) = (3)(2) - (1)(5) = 6 - 5 = 1$$\n>\n> **Langkah 2:** Tentukan invers matriks $A$:\n> $$A^{-1} = \\frac{1}{1} \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} = \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix}$$\n>\n> **Langkah 3:** Hitung $X = A^{-1} \\cdot B$:\n> $$X = \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} \\begin{pmatrix} 7 & 4 \\\\ 11 & 6 \\end{pmatrix}$$\n> $$X = \\begin{pmatrix} 2(7) + (-1)(11) & 2(4) + (-1)(6) \\\\ (-5)(7) + 3(11) & (-5)(4) + 3(6) \\end{pmatrix} = \\begin{pmatrix} 14 - 11 & 8 - 6 \\\\ -35 + 33 & -20 + 18 \\end{pmatrix} = \\begin{pmatrix} 3 & 2 \\\\ -2 & -2 \\end{pmatrix}$$\n>\n> **Jawaban:** $X = \\begin{pmatrix} 3 & 2 \\\\ -2 & -2 \\end{pmatrix}$.\n"
   },
   {
     "id": "tka-mat-rg-06",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Geometri dan Pengukuran",
+    "blok": "Aljabar",
     "tipe": "rangkuman",
     "babIndex": 6,
-    "babJudul": "Rangkuman Rumus Cepat — Transformasi Geometri",
-    "content": "# Rangkuman Rumus Cepat — Transformasi\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n| Transformasi | Matriks Terkait |\n| :--- | :--- |\n| **Refleksi Sumbu-x** | $\\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}$ |\n| **Refleksi Sumbu-y** | $\\begin{pmatrix} -1 & 0 \\\\ 0 & 1 \\end{pmatrix}$ |\n| **Refleksi $y = x$** | $\\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$ |\n| **Rotasi Pusat $(0,0)$ Sudut $\\theta$** | $\\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix}$ |\n| **Dilatasi Pusat $(0,0)$ Faktor $k$** | $\\begin{pmatrix} k & 0 \\\\ 0 & k \\end{pmatrix}$ |\n| **Komposisi $T_2 \\circ T_1$** | $M = M_2 \\cdot M_1$ |\n"
+    "babJudul": "Rangkuman Rumus Cepat — Matriks",
+    "content": "# Rangkuman Rumus Cepat — Matriks\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n* **Perkalian:** $AB \\ne BA$ (Tidak komutatif)\n* **Determinan 2x2:** $|A| = ad - bc$\n* **Invers 2x2:** $A^{-1} = \\frac{1}{|A|} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$\n* **Sifat Determinan:** $|AB| = |A| |B|, \\quad |A^{-1}| = \\frac{1}{|A|}, \\quad |kA_{n\\times n}| = k^n |A|$\n* **Solusi Persamaan:** $AX = B \\implies X = A^{-1}B$; $XA = B \\implies X = BA^{-1}$\n"
   },
   {
     "id": "tka-mat-mat-07",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Trigonometri",
+    "blok": "Aljabar",
     "tipe": "materi",
     "babIndex": 7,
-    "babJudul": "Limit Fungsi (Aljabar dan Trigonometri)",
-    "content": "# Limit Fungsi (Aljabar dan Trigonometri)\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Trigonometri\n\n## A. Limit Fungsi Aljabar (Bentuk Tak Tentu $\\frac{0}{0}$)\nKetika substitusi langsung menghasilkan nilai tak tentu $\\frac{0}{0}$, penyelesaian dilakukan tanpa aturan L'Hôpital dengan metode:\n1. **Metode Pemfaktoran:**\n   Faktorkan pembuat nol $(x - c)$ dari pembilang dan penyebut:\n   $$\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2} = \\lim_{x \\to 2} \\frac{(x - 2)(x + 2)}{x - 2} = \\lim_{x \\to 2} (x + 2) = 4$$\n2. **Metode Merasionalkan Bentuk Akar:**\n   Kalikan pembilang dan penyebut dengan bentuk sekawan:\n   $$\\lim_{x \\to 4} \\frac{x - 4}{\\sqrt{x} - 2} = \\lim_{x \\to 4} \\frac{(x - 4)(\\sqrt{x} + 2)}{(\\sqrt{x} - 2)(\\sqrt{x} + 2)} = \\lim_{x \\to 4} \\frac{(x - 4)(\\sqrt{x} + 2)}{x - 4} = 4$$\n\n---\n\n## B. Limit Fungsi Trigonometri\n1. **Teorema Limit Trigonometri Dasar ($x \\to 0$):**\n   $$\\lim_{x \\to 0} \\frac{\\sin ax}{bx} = \\frac{a}{b}, \\quad \\lim_{x \\to 0} \\frac{\\tan ax}{bx} = \\frac{a}{b}, \\quad \\lim_{x \\to 0} \\frac{\\sin ax}{\\tan bx} = \\frac{a}{b}$$\n2. **Manipulasi Identitas Trigonometri Penting:**\n   * Kosinus menjadi Sinus:\n     $$1 - \\cos ax = 2\\sin^2\\left(\\frac{ax}{2}\\right)$$\n     Sehingga: $\\lim_{x \\to 0} \\frac{1 - \\cos ax}{x^2} = \\lim_{x \\to 0} \\frac{2\\sin^2(ax/2)}{x^2} = 2 \\left(\\frac{a}{2}\\right)^2 = \\frac{a^2}{2}$\n   * Selisih Kosinus:\n     $$\\cos A - \\cos B = -2 \\sin\\left(\\frac{A+B}{2}\\right) \\sin\\left(\\frac{A-B}{2}\\right)$$\n"
+    "babJudul": "Polinomial (Suku Banyak)",
+    "content": "# Polinomial (Suku Banyak)\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n## A. Konsep Dasar & Operasi Polinomial\nBentuk umum polinomial derajat $n$ satu variabel $x$:\n$$P(x) = a_n x^n + a_{n-1} x^{n-1} + \\dots + a_1 x + a_0 \\quad (a_n \\ne 0)$$\n1. **Derajat Polinomial:** Pangkat tertinggi dari variabel $x$.\n2. **Operasi Aljabar:** Penjumlahan, pengurangan, dan perkalian suku sejenis (orde $\\le 4$).\n3. **Algoritma Pembagian Polinomial:**\n   $$\\text{Yang Dibagi} = (\\text{Pembagi} \\times \\text{Hasil Bagi}) + \\text{Sisa}$$\n   $$P(x) = Q(x) \\cdot H(x) + S(x)$$\n   * Jika pembagi berderajat $k$, derajat sisa maksimum adalah $(k - 1)$.\n   * Pembagian dapat diselesaikan dengan **cara bersusun panjang** atau **skema Horner**.\n\n---\n\n## B. Teorema Sisa dan Teorema Faktor\n1. **Teorema Sisa:**\n   * Jika $P(x)$ dibagi $(x - k)$, sisanya adalah $S = P(k)$.\n   * Jika $P(x)$ dibagi $(ax + b)$, sisanya adalah $S = P\\left(-\\frac{b}{a}\\right)$.\n   * Jika $P(x)$ dibagi $(x - a)(x - b)$, sisanya berbentuk linear $S(x) = px + q$, dengan:\n     $$P(a) = pa + q, \\quad P(b) = pb + q$$\n2. **Teorema Faktor:**\n   Bentuk $(x - k)$ merupakan faktor dari $P(x)$ jika dan hanya jika $P(k) = 0$ (sisa pembagian nol).\n3. **Hubungan Akar-Akar Polinomial (Teorema Vieta untuk Kubik $ax^3 + bx^2 + cx + d = 0$):**\n   * $x_1 + x_2 + x_3 = -\\frac{b}{a}$\n   * $x_1 x_2 + x_1 x_3 + x_2 x_3 = \\frac{c}{a}$\n   * $x_1 x_2 x_3 = -\\frac{d}{a}$\n"
   },
   {
     "id": "tka-mat-cs-07",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Trigonometri",
+    "blok": "Aljabar",
     "tipe": "contoh-soal",
     "babIndex": 7,
-    "babJudul": "Variasi Contoh Soal — Limit Fungsi (Aljabar dan Trigonometri)",
-    "content": "# Variasi Contoh Soal — Limit Fungsi\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Trigonometri\n\n### Contoh Soal 1: Limit Trigonometri dengan Identitas Kosinus\nTentukan nilai dari $\\lim_{x \\to 0} \\frac{1 - \\cos 4x}{x \\tan 2x}$ tanpa menggunakan aturan L'Hôpital!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Ubah bentuk $(1 - \\cos 4x)$ menggunakan identitas sudut rangkap:\n> $$1 - \\cos 4x = 2\\sin^2 2x$$\n>\n> **Langkah 2:** Substitusikan ke limit:\n> $$\\lim_{x \\to 0} \\frac{2\\sin^2 2x}{x \\tan 2x} = 2 \\lim_{x \\to 0} \\left(\\frac{\\sin 2x}{x} \\cdot \\frac{\\sin 2x}{\\tan 2x}\\right)$$\n>\n> **Langkah 3:** Gunakan teorema limit trigonometri:\n> $$= 2 \\cdot \\left(\\frac{2}{1}\\right) \\cdot \\left(\\frac{2}{2}\\right) = 2 \\cdot 2 \\cdot 1 = 4$$\n>\n> **Jawaban:** Nilai limit adalah $4$.\n"
+    "babJudul": "Variasi Contoh Soal — Polinomial (Suku Banyak)",
+    "content": "# Variasi Contoh Soal — Polinomial\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n### Contoh Soal 1: Teorema Sisa Pembagi Derajat Dua\nSuku banyak $P(x)$ jika dibagi $(x - 1)$ bersisa $5$, dan jika dibagi $(x + 2)$ bersisa $-4$. Tentukan sisa pembagian $P(x)$ oleh $(x^2 + x - 2)$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Faktorkan pembagi:\n> $$x^2 + x - 2 = (x - 1)(x + 2)$$\n> Karena pembagi berderajat 2, sisa pembagian berbentuk $S(x) = ax + b$.\n>\n> **Langkah 2:** Terapkan Teorema Sisa:\n> * Dibagi $(x - 1)$ bersisa $5 \\implies P(1) = 5 \\implies a(1) + b = 5 \\implies a + b = 5$\n> * Dibagi $(x + 2)$ bersisa $-4 \\implies P(-2) = -4 \\implies a(-2) + b = -4 \\implies -2a + b = -4$\n>\n> **Langkah 3:** Eliminasi sistem persamaan:\n> $$(a + b) - (-2a + b) = 5 - (-4) \\implies 3a = 9 \\implies a = 3$$\n> $$3 + b = 5 \\implies b = 2$$\n>\n> **Jawaban:** Sisa pembagiannya adalah $S(x) = 3x + 2$.\n"
   },
   {
     "id": "tka-mat-rg-07",
     "kategoriUtama": "tka",
     "subtes": "Matematika Lanjut",
-    "blok": "Trigonometri",
+    "blok": "Aljabar",
     "tipe": "rangkuman",
     "babIndex": 7,
+    "babJudul": "Rangkuman Rumus Cepat — Polinomial (Suku Banyak)",
+    "content": "# Rangkuman Rumus Cepat — Polinomial\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n* **Pembagian:** $P(x) = Q(x) H(x) + S(x)$\n* **Teorema Sisa:** Sisa bagi $(x - k)$ adalah $P(k)$\n* **Teorema Faktor:** $(x - k)$ faktor $\\iff P(k) = 0$\n* **Sisa Derajat 2:** $S(x) = px + q$\n* **Teorema Vieta (Derajat 3):**\n  $$\\Sigma x_i = -\\frac{b}{a}, \\quad \\Sigma x_i x_j = \\frac{c}{a}, \\quad x_1 x_2 x_3 = -\\frac{d}{a}$$\n"
+  },
+  {
+    "id": "tka-mat-mat-08",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Aljabar",
+    "tipe": "materi",
+    "babIndex": 8,
+    "babJudul": "Fungsi dan Pemodelan",
+    "content": "# Fungsi dan Pemodelan\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n## A. Domain, Kodomain, dan Range\nFungsi $f: A \\to B$ memetakan setiap elemen himpunan domain $A$ ke tepat satu elemen himpunan kodomain $B$.\n1. **Domain Alami ($D_f$):**\n   * Fungsi Pecahan $f(x) = \\frac{P(x)}{Q(x)}$: Syarat $Q(x) \\ne 0$.\n   * Fungsi Bentuk Akar $f(x) = \\sqrt{g(x)}$: Syarat $g(x) \\ge 0$.\n   * Fungsi Logaritma $f(x) = \\log_a g(x)$: Syarat numerus $g(x) > 0$ dan basis $a > 0, a \\ne 1$.\n\n---\n\n## B. Karakteristik Ragam Fungsi\n1. **Fungsi Polinomial:** Kontinu di seluruh $\\mathbb{R}$. Derajat 1 berupa garis lurus, derajat 2 berupa parabola ($x_p = -\\frac{b}{2a}, y_p = -\\frac{D}{4a}$), derajat 3 memiliki maksimal 2 titik stasioner.\n2. **Fungsi Rasional:**\n   $$f(x) = \\frac{ax + b}{cx + d}$$\n   * Asimtot tegak: $x = -\\frac{d}{c}$\n   * Asimtot datar: $y = \\frac{a}{c}$\n   * Invers fungsi rasional: $f^{-1}(x) = \\frac{-dx + b}{cx - a}$\n3. **Fungsi Eksponensial & Logaritma:**\n   * $f(x) = a^x$ (selalu positif $> 0$, memotong sumbu-y di $(0,1)$).\n   * $f(x) = \\log_a x$ merupakan invers dari fungsi eksponensial (memotong sumbu-x di $(1,0)$).\n4. **Fungsi Nilai Mutlak:** $f(x) = |x| = \\begin{cases} x, & x \\ge 0 \\\\ -x, & x < 0 \\end{cases}$, grafiknya berbentuk huruf \"V\".\n5. **Fungsi Trigonometri:** Periodik, misal $f(x) = A \\sin(Bx + C) + D$ memiliki amplitudo $|A|$ dan periode $T = \\frac{2\\pi}{|B|}$.\n"
+  },
+  {
+    "id": "tka-mat-cs-08",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Aljabar",
+    "tipe": "contoh-soal",
+    "babIndex": 8,
+    "babJudul": "Variasi Contoh Soal — Fungsi dan Pemodelan",
+    "content": "# Variasi Contoh Soal — Fungsi dan Pemodelan\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n### Contoh Soal 1: Menentukan Domain Fungsi Campuran\nTentukan domain alami dari fungsi $f(x) = \\frac{\\sqrt{2x + 6}}{x^2 - 4x + 3}$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Syarat bentuk akar pembilang:\n> $$2x + 6 \\ge 0 \\implies 2x \\ge -6 \\implies x \\ge -3$$\n>\n> **Langkah 2:** Syarat penyebut tidak sama dengan nol:\n> $$x^2 - 4x + 3 \\ne 0 \\implies (x - 1)(x - 3) \\ne 0 \\implies x \\ne 1 \\text{ dan } x \\ne 3$$\n>\n> **Langkah 3:** Gabungkan kedua syarat:\n> $$D_f = \\{x \\in \\mathbb{R} \\mid x \\ge -3, x \\ne 1, x \\ne 3\\}$$\n>\n> **Jawaban:** $D_f = [-3, 1) \\cup (1, 3) \\cup (3, \\infty)$.\n"
+  },
+  {
+    "id": "tka-mat-rg-08",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Aljabar",
+    "tipe": "rangkuman",
+    "babIndex": 8,
+    "babJudul": "Rangkuman Rumus Cepat — Fungsi dan Pemodelan",
+    "content": "# Rangkuman Rumus Cepat — Ragam Fungsi\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Aljabar\n\n* **Syarat Pecahan:** Penyebut $\\ne 0$\n* **Syarat Akar Genap:** Di bawah tanda akar $\\ge 0$\n* **Syarat Logaritma:** Numerus $> 0$\n* **Invers Rasional:** $f(x) = \\frac{ax+b}{cx+d} \\implies f^{-1}(x) = \\frac{-dx+b}{cx-a}$\n* **Periode Sinus/Kosinus:** $T = \\frac{2\\pi}{|B|}$\n"
+  },
+  {
+    "id": "tka-mat-mat-09",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
+    "tipe": "materi",
+    "babIndex": 9,
+    "babJudul": "Vektor pada Bidang dan Ruang",
+    "content": "# Vektor pada Bidang dan Ruang\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n## A. Komponen dan Operasi Vektor\n1. **Representasi Vektor:**\n   * Di bidang $\\mathbb{R}^2$: $\\vec{u} = \\begin{pmatrix} x \\\\ y \\end{pmatrix} = x\\hat{i} + y\\hat{j}$\n   * Di ruang $\\mathbb{R}^3$: $\\vec{u} = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = x\\hat{i} + y\\hat{j} + z\\hat{k}$\n2. **Panjang (Modulus) Vektor:**\n   $$|\\vec{u}| = \\sqrt{x^2 + y^2 + z^2}$$\n   * Vektor satuan: $\\hat{u} = \\frac{\\vec{u}}{|\\vec{u}|}$ (memiliki panjang 1 satuan).\n3. **Operasi Aljabar:**\n   $$\\vec{u} \\pm \\vec{v} = (u_x \\pm v_x)\\hat{i} + (u_y \\pm v_y)\\hat{j} + (u_z \\pm v_z)\\hat{k}$$\n\n---\n\n## B. Perkalian Skalar (Dot Product) & Proyeksi\n1. **Perkalian Titik (Dot Product):**\n   $$\\vec{u} \\cdot \\vec{v} = u_x v_x + u_y v_y + u_z v_z = |\\vec{u}| |\\vec{v}| \\cos\\theta$$\n   * Jika $\\vec{u} \\perp \\vec{v}$ (tegak lurus), maka $\\theta = 90^\\circ \\implies \\vec{u} \\cdot \\vec{v} = 0$.\n   * Sudut antara dua vektor:\n     $$\\cos\\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}| |\\vec{v}|}$$\n2. **Proyeksi Ortogonal Vektor $\\vec{u}$ pada $\\vec{v}$:**\n   * **Panjang Proyeksi Skalar:**\n     $$|\\vec{p}| = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|}$$\n   * **Vektor Proyeksi:**\n     $$\\vec{p} = \\left(\\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\right) \\vec{v}$$\n"
+  },
+  {
+    "id": "tka-mat-cs-09",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
+    "tipe": "contoh-soal",
+    "babIndex": 9,
+    "babJudul": "Variasi Contoh Soal — Vektor pada Bidang dan Ruang",
+    "content": "# Variasi Contoh Soal — Vektor\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n### Contoh Soal 1: Dua Vektor Saling Tegak Lurus\nDiketahui vektor $\\vec{a} = 2\\hat{i} - 4\\hat{j} + 3\\hat{k}$ dan $\\vec{b} = x\\hat{i} + 2\\hat{j} + 4\\hat{k}$. Jika vektor $\\vec{a}$ dan $\\vec{b}$ saling tegak lurus, tentukan nilai $x$ dan panjang vektor $\\vec{b}$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Syarat tegak lurus: $\\vec{a} \\cdot \\vec{b} = 0$:\n> $$(2)(x) + (-4)(2) + (3)(4) = 0$$\n> $$2x - 8 + 12 = 0 \\implies 2x + 4 = 0 \\implies 2x = -4 \\implies x = -2$$\n>\n> **Langkah 2:** Hitung panjang vektor $\\vec{b} = -2\\hat{i} + 2\\hat{j} + 4\\hat{k}$:\n> $$|\\vec{b}| = \\sqrt{(-2)^2 + 2^2 + 4^2} = \\sqrt{4 + 4 + 16} = \\sqrt{24} = 2\\sqrt{6}$$\n>\n> **Jawaban:** $x = -2$ dan $|\\vec{b}| = 2\\sqrt{6}$.\n"
+  },
+  {
+    "id": "tka-mat-rg-09",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
+    "tipe": "rangkuman",
+    "babIndex": 9,
+    "babJudul": "Rangkuman Rumus Cepat — Vektor pada Bidang dan Ruang",
+    "content": "# Rangkuman Rumus Cepat — Vektor\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n* **Panjang Vektor:** $|\\vec{u}| = \\sqrt{x^2 + y^2 + z^2}$\n* **Dot Product:** $\\vec{u} \\cdot \\vec{v} = u_x v_x + u_y v_y + u_z v_z = |\\vec{u}| |\\vec{v}| \\cos\\theta$\n* **Syarat Tegak Lurus:** $\\vec{u} \\cdot \\vec{v} = 0$\n* **Panjang Proyeksi $\\vec{u}$ pada $\\vec{v}$:** $|\\vec{p}| = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|}$\n* **Vektor Proyeksi $\\vec{u}$ pada $\\vec{v}$:** $\\vec{p} = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2} \\vec{v}$\n"
+  },
+  {
+    "id": "tka-mat-mat-10",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
+    "tipe": "materi",
+    "babIndex": 10,
+    "babJudul": "Lingkaran",
+    "content": "# Lingkaran\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n## A. Persamaan Lingkaran\n1. **Pusat $(0,0)$ dan Jari-Jari $r$:**\n   $$x^2 + y^2 = r^2$$\n2. **Pusat $(a,b)$ dan Jari-Jari $r$:**\n   $$(x - a)^2 + (y - b)^2 = r^2$$\n3. **Bentuk Umum Persamaan Lingkaran:**\n   $$x^2 + y^2 + Ax + By + C = 0$$\n   * Titik Pusat: $P\\left(-\\frac{A}{2}, -\\frac{B}{2}\\right)$\n   * Jari-jari: $r = \\sqrt{\\left(\\frac{A}{2}\\right)^2 + \\left(\\frac{B}{2}\\right)^2 - C}$\n\n---\n\n## B. Persamaan Garis Singgung Lingkaran (PGSL)\n1. **Melalui Titik $(x_1, y_1)$ pada Lingkaran:**\n   * Untuk $x^2 + y^2 = r^2$: $x_1 x + y_1 y = r^2$\n   * Untuk $(x - a)^2 + (y - b)^2 = r^2$:\n     $$(x_1 - a)(x - a) + (y_1 - b)(y - b) = r^2$$\n2. **Dengan Gradien $m$ Tertentu:**\n   $$y - b = m(x - a) \\pm r\\sqrt{1 + m^2}$$\n3. **Unsur-Unsur Geometri Busur dan Juring:**\n   * Keliling $= 2\\pi r$, Luas Lingkaran $= \\pi r^2$\n   * Panjang Busur: $s = \\frac{\\theta}{360^\\circ} \\times 2\\pi r$\n   * Luas Juring: $L_{\\text{juring}} = \\frac{\\theta}{360^\\circ} \\times \\pi r^2$\n   * Luas Tembereng: $L_{\\text{tembereng}} = L_{\\text{juring}} - L_{\\Delta}$\n"
+  },
+  {
+    "id": "tka-mat-cs-10",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
+    "tipe": "contoh-soal",
+    "babIndex": 10,
+    "babJudul": "Variasi Contoh Soal — Lingkaran",
+    "content": "# Variasi Contoh Soal — Lingkaran\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n### Contoh Soal 1: Garis Singgung dengan Gradien Tertentu\nTentukan persamaan garis singgung pada lingkaran $x^2 + y^2 - 4x + 6y - 12 = 0$ yang tegak lurus dengan garis $3x - 4y + 7 = 0$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Tentukan pusat dan jari-jari lingkaran:\n> * Pusat: $P(-(-4)/2, -(6)/2) = (2, -3)$\n> * $r = \\sqrt{2^2 + (-3)^2 - (-12)} = \\sqrt{4 + 9 + 12} = \\sqrt{25} = 5$\n>\n> **Langkah 2:** Tentukan gradien garis singgung:\n> Garis $3x - 4y + 7 = 0 \\implies m_1 = \\frac{3}{4}$.\n> Karena tegak lurus ($m_1 \\cdot m_2 = -1$), maka $m_2 = -\\frac{4}{3}$.\n>\n> **Langkah 3:** Rumus PGSL dengan gradien:\n> $$y - b = m(x - a) \\pm r\\sqrt{1 + m^2}$$\n> $$y - (-3) = -\\frac{4}{3}(x - 2) \\pm 5\\sqrt{1 + \\left(-\\frac{4}{3}\\right)^2}$$\n> $$y + 3 = -\\frac{4}{3}(x - 2) \\pm 5\\sqrt{\\frac{25}{9}} = -\\frac{4}{3}(x - 2) \\pm 5\\left(\\frac{5}{3}\\right) = -\\frac{4}{3}(x - 2) \\pm \\frac{25}{3}$$\n> Kalikan kedua ruas dengan 3:\n> $$3y + 9 = -4(x - 2) \\pm 25 \\implies 3y + 9 = -4x + 8 \\pm 25$$\n> $$4x + 3y + 1 \\pm 25 = 0$$\n> Diperoleh dua garis: $4x + 3y + 26 = 0$ atau $4x + 3y - 24 = 0$.\n>\n> **Jawaban:** $4x + 3y + 26 = 0$ dan $4x + 3y - 24 = 0$.\n"
+  },
+  {
+    "id": "tka-mat-rg-10",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
+    "tipe": "rangkuman",
+    "babIndex": 10,
+    "babJudul": "Rangkuman Rumus Cepat — Lingkaran",
+    "content": "# Rangkuman Rumus Cepat — Lingkaran\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n* **Pusat & Jari-jari Umum:** $P\\left(-\\frac{A}{2}, -\\frac{B}{2}\\right), \\quad r = \\sqrt{\\frac{A^2}{4} + \\frac{B^2}{4} - C}$\n* **Bagi Adil Titik Singgung:** $(x_1 - a)(x - a) + (y_1 - b)(y - b) = r^2$\n* **PGS Gradien $m$:** $y - b = m(x - a) \\pm r\\sqrt{1 + m^2}$\n* **Panjang Busur:** $s = \\frac{\\theta}{360^\\circ} 2\\pi r$\n* **Luas Juring:** $L = \\frac{\\theta}{360^\\circ} \\pi r^2$\n"
+  },
+  {
+    "id": "tka-mat-mat-11",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
+    "tipe": "materi",
+    "babIndex": 11,
+    "babJudul": "Transformasi Geometri",
+    "content": "# Transformasi Geometri\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n## A. Jenis-Jenis Transformasi Dasar\n1. **Translasi (Pergeseran) $T = \\begin{pmatrix} a \\\\ b \\end{pmatrix}$:**\n   $$x' = x + a, \\quad y' = y + b$$\n2. **Refleksi (Pencerminan):**\n   * Sumbu-$x$: $\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$\n   * Sumbu-$y$: $\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} -1 & 0 \\\\ 0 & 1 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$\n   * Garis $y = x$: $\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$\n   * Garis $y = -x$: $\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 0 & -1 \\\\ -1 & 0 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}$\n   * Garis $x = h$: $x' = 2h - x, y' = y$; Garis $y = k$: $x' = x, y' = 2k - y$.\n3. **Rotasi $[P(a,b), \\theta]$:**\n   $$\\begin{pmatrix} x' - a \\\\ y' - b \\end{pmatrix} = \\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix} \\begin{pmatrix} x - a \\\\ y - b \\end{pmatrix}$$\n4. **Dilatasi $[P(a,b), k]$:**\n   $$\\begin{pmatrix} x' - a \\\\ y' - b \\end{pmatrix} = \\begin{pmatrix} k & 0 \\\\ 0 & k \\end{pmatrix} \\begin{pmatrix} x - a \\\\ y - b \\end{pmatrix}$$\n\n---\n\n## B. Komposisi Transformasi dengan Matriks\nJika transformasi $T_1$ bersesuaian dengan matriks $M_1$ dan $T_2$ bersesuaian dengan matriks $M_2$, maka komposisi transformasi $T_2 \\circ T_1$ (dilakukan $T_1$ dulu kemudian $T_2$) bersesuaian dengan perkalian matriks:\n$$M_{\\text{gabungan}} = M_2 \\cdot M_1$$\n$$\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = M_2 \\cdot M_1 \\begin{pmatrix} x \\\\ y \\end{pmatrix}$$\n"
+  },
+  {
+    "id": "tka-mat-cs-11",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
+    "tipe": "contoh-soal",
+    "babIndex": 11,
+    "babJudul": "Variasi Contoh Soal — Transformasi Geometri",
+    "content": "# Variasi Contoh Soal — Transformasi Geometri\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n### Contoh Soal 1: Komposisi Transformasi Garis\nTentukan bayangan garis $2x - 3y + 6 = 0$ setelah dicerminkan terhadap sumbu-$x$, kemudian dilanjutkan dengan rotasi $90^\\circ$ berlawanan arah jarum jam terhadap pusat $(0,0)$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Tentukan matriks transformasi:\n> * Refleksi sumbu-$x$: $M_1 = \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}$\n> * Rotasi $90^\\circ$: $M_2 = \\begin{pmatrix} \\cos 90^\\circ & -\\sin 90^\\circ \\\\ \\sin 90^\\circ & \\cos 90^\\circ \\end{pmatrix} = \\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}$\n>\n> **Langkah 2:** Hitung matriks komposisi $M = M_2 \\cdot M_1$:\n> $$M = \\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix} \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix} = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$$\n>\n> **Langkah 3:** Hubungan koordinat baru:\n> $$\\begin{pmatrix} x' \\\\ y' \\end{pmatrix} = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} y \\\\ x \\end{pmatrix} \\implies x' = y \\implies y = x', \\quad y' = x \\implies x = y'$$\n>\n> **Langkah 4:** Substitusi ke persamaan garis awal:\n> $$2x - 3y + 6 = 0 \\implies 2(y') - 3(x') + 6 = 0 \\implies -3x' + 2y' + 6 = 0 \\implies 3x - 2y - 6 = 0$$\n>\n> **Jawaban:** Bayangan garis adalah $3x - 2y - 6 = 0$.\n"
+  },
+  {
+    "id": "tka-mat-rg-11",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Geometri dan Pengukuran",
+    "tipe": "rangkuman",
+    "babIndex": 11,
+    "babJudul": "Rangkuman Rumus Cepat — Transformasi Geometri",
+    "content": "# Rangkuman Rumus Cepat — Transformasi\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Geometri dan Pengukuran\n\n| Transformasi | Matriks Terkait |\n| :--- | :--- |\n| **Refleksi Sumbu-x** | $\\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}$ |\n| **Refleksi Sumbu-y** | $\\begin{pmatrix} -1 & 0 \\\\ 0 & 1 \\end{pmatrix}$ |\n| **Refleksi $y = x$** | $\\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$ |\n| **Rotasi Pusat $(0,0)$ Sudut $\\theta$** | $\\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix}$ |\n| **Dilatasi Pusat $(0,0)$ Faktor $k$** | $\\begin{pmatrix} k & 0 \\\\ 0 & k \\end{pmatrix}$ |\n| **Komposisi $T_2 \\circ T_1$** | $M = M_2 \\cdot M_1$ |\n"
+  },
+  {
+    "id": "tka-mat-mat-12",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Trigonometri",
+    "tipe": "materi",
+    "babIndex": 12,
+    "babJudul": "Limit Fungsi (Aljabar dan Trigonometri)",
+    "content": "# Limit Fungsi (Aljabar dan Trigonometri)\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Trigonometri\n\n## A. Limit Fungsi Aljabar (Bentuk Tak Tentu $\\frac{0}{0}$)\nKetika substitusi langsung menghasilkan nilai tak tentu $\\frac{0}{0}$, penyelesaian dilakukan tanpa aturan L'Hôpital dengan metode:\n1. **Metode Pemfaktoran:**\n   Faktorkan pembuat nol $(x - c)$ dari pembilang dan penyebut:\n   $$\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2} = \\lim_{x \\to 2} \\frac{(x - 2)(x + 2)}{x - 2} = \\lim_{x \\to 2} (x + 2) = 4$$\n2. **Metode Merasionalkan Bentuk Akar:**\n   Kalikan pembilang dan penyebut dengan bentuk sekawan:\n   $$\\lim_{x \\to 4} \\frac{x - 4}{\\sqrt{x} - 2} = \\lim_{x \\to 4} \\frac{(x - 4)(\\sqrt{x} + 2)}{(\\sqrt{x} - 2)(\\sqrt{x} + 2)} = \\lim_{x \\to 4} \\frac{(x - 4)(\\sqrt{x} + 2)}{x - 4} = 4$$\n\n---\n\n## B. Limit Fungsi Trigonometri\n1. **Teorema Limit Trigonometri Dasar ($x \\to 0$):**\n   $$\\lim_{x \\to 0} \\frac{\\sin ax}{bx} = \\frac{a}{b}, \\quad \\lim_{x \\to 0} \\frac{\\tan ax}{bx} = \\frac{a}{b}, \\quad \\lim_{x \\to 0} \\frac{\\sin ax}{\\tan bx} = \\frac{a}{b}$$\n2. **Manipulasi Identitas Trigonometri Penting:**\n   * Kosinus menjadi Sinus:\n     $$1 - \\cos ax = 2\\sin^2\\left(\\frac{ax}{2}\\right)$$\n     Sehingga: $\\lim_{x \\to 0} \\frac{1 - \\cos ax}{x^2} = \\lim_{x \\to 0} \\frac{2\\sin^2(ax/2)}{x^2} = 2 \\left(\\frac{a}{2}\\right)^2 = \\frac{a^2}{2}$\n   * Selisih Kosinus:\n     $$\\cos A - \\cos B = -2 \\sin\\left(\\frac{A+B}{2}\\right) \\sin\\left(\\frac{A-B}{2}\\right)$$\n"
+  },
+  {
+    "id": "tka-mat-cs-12",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Trigonometri",
+    "tipe": "contoh-soal",
+    "babIndex": 12,
+    "babJudul": "Variasi Contoh Soal — Limit Fungsi (Aljabar dan Trigonometri)",
+    "content": "# Variasi Contoh Soal — Limit Fungsi\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Trigonometri\n\n### Contoh Soal 1: Limit Trigonometri dengan Identitas Kosinus\nTentukan nilai dari $\\lim_{x \\to 0} \\frac{1 - \\cos 4x}{x \\tan 2x}$ tanpa menggunakan aturan L'Hôpital!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Ubah bentuk $(1 - \\cos 4x)$ menggunakan identitas sudut rangkap:\n> $$1 - \\cos 4x = 2\\sin^2 2x$$\n>\n> **Langkah 2:** Substitusikan ke limit:\n> $$\\lim_{x \\to 0} \\frac{2\\sin^2 2x}{x \\tan 2x} = 2 \\lim_{x \\to 0} \\left(\\frac{\\sin 2x}{x} \\cdot \\frac{\\sin 2x}{\\tan 2x}\\right)$$\n>\n> **Langkah 3:** Gunakan teorema limit trigonometri:\n> $$= 2 \\cdot \\left(\\frac{2}{1}\\right) \\cdot \\left(\\frac{2}{2}\\right) = 2 \\cdot 2 \\cdot 1 = 4$$\n>\n> **Jawaban:** Nilai limit adalah $4$.\n"
+  },
+  {
+    "id": "tka-mat-rg-12",
+    "kategoriUtama": "tka",
+    "subtes": "Matematika Lanjut",
+    "blok": "Trigonometri",
+    "tipe": "rangkuman",
+    "babIndex": 12,
     "babJudul": "Rangkuman Rumus Cepat — Limit Fungsi (Aljabar dan Trigonometri)",
     "content": "# Rangkuman Rumus Cepat — Limit Fungsi\n**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Trigonometri\n\n* **Trigonometri Dasar:** $\\lim_{x \\to 0} \\frac{\\sin ax}{bx} = \\lim_{x \\to 0} \\frac{\\tan ax}{bx} = \\frac{a}{b}$\n* **Trik Cepat Kosinus:**\n  $$\\lim_{x \\to 0} \\frac{1 - \\cos ax}{x^2} = \\frac{a^2}{2}$$\n  $$\\lim_{x \\to 0} \\frac{\\cos ax - \\cos bx}{x^2} = -\\frac{a^2 - b^2}{2}$$\n* **Aljabar Tak Tentu $\\frac{0}{0}$:** Faktorkan pembuat nol atau kalikan sekawan akar.\n"
-  },
-  {
-    "id": "tka-fund-mat-01",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Fundamental Matematika Lanjut",
-    "tipe": "materi",
-    "babIndex": 1,
-    "babJudul": "Trigonometri Analitik Dasar",
-    "content": "# Trigonometri Analitik Dasar\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n## A. Perbandingan Sisi Segitiga Siku-siku\nPada segitiga siku-siku dengan sudut acuan $\\alpha$:\n$$\\sin\\alpha = \\frac{\\text{depan}}{\\text{miring}}, \\quad \\cos\\alpha = \\frac{\\text{samping}}{\\text{miring}}, \\quad \\tan\\alpha = \\frac{\\text{depan}}{\\text{samping}} = \\frac{\\sin\\alpha}{\\cos\\alpha}$$\n* Kosekan: $\\csc\\alpha = \\frac{1}{\\sin\\alpha}$, Sekan: $\\sec\\alpha = \\frac{1}{\\cos\\alpha}$, Kotangen: $\\cot\\alpha = \\frac{1}{\\tan\\alpha}$.\n\n### Sudut Istimewa Kuadran I:\n* $0^\\circ$: $\\sin 0 = 0$, $\\cos 0 = 1$, $\\tan 0 = 0$\n* $30^\\circ$: $\\sin 30^\\circ = \\frac{1}{2}$, $\\cos 30^\\circ = \\frac{1}{2}\\sqrt{3}$, $\\tan 30^\\circ = \\frac{1}{3}\\sqrt{3}$\n* $45^\\circ$: $\\sin 45^\\circ = \\frac{1}{2}\\sqrt{2}$, $\\cos 45^\\circ = \\frac{1}{2}\\sqrt{2}$, $\\tan 45^\\circ = 1$\n* $60^\\circ$: $\\sin 60^\\circ = \\frac{1}{2}\\sqrt{3}$, $\\cos 60^\\circ = \\frac{1}{2}$, $\\tan 60^\\circ = \\sqrt{3}$\n* $90^\\circ$: $\\sin 90^\\circ = 1$, $\\cos 90^\\circ = 0$, $\\tan 90^\\circ = \\text{tak terdefinisi}$\n\n---\n\n## B. Relasi Sudut di Empat Kuadran & Identitas\n1. **Aturan Tanda Kuadran (ASTC - All Sin Tan Cos):**\n   * Kuadran I ($0^\\circ - 90^\\circ$): Semua positif.\n   * Kuadran II ($90^\\circ - 180^\\circ$): Hanya Sinus positif ($\\sin(180^\\circ - \\alpha) = \\sin\\alpha$).\n   * Kuadran III ($180^\\circ - 270^\\circ$): Hanya Tangen positif ($\\tan(180^\\circ + \\alpha) = \\tan\\alpha$).\n   * Kuadran IV ($270^\\circ - 360^\\circ$): Hanya Kosinus positif ($\\cos(360^\\circ - \\alpha) = \\cos\\alpha$).\n2. **Identitas Pythagoras Pokok:**\n   $$\\sin^2 x + \\cos^2 x = 1, \\quad 1 + \\tan^2 x = \\sec^2 x, \\quad 1 + \\cot^2 x = \\csc^2 x$$\n3. **Rumus Jumlah & Selisih Sudut:**\n   $$\\sin(A \\pm B) = \\sin A \\cos B \\pm \\cos A \\sin B$$\n   $$\\cos(A \\pm B) = \\cos A \\cos B \\mp \\sin A \\sin B$$\n4. **Rumus Sudut Rangkap:**\n   $$\\sin 2x = 2 \\sin x \\cos x$$\n   $$\\cos 2x = \\cos^2 x - \\sin^2 x = 2\\cos^2 x - 1 = 1 - 2\\sin^2 x$$\n"
-  },
-  {
-    "id": "tka-fund-cs-01",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Fundamental Matematika Lanjut",
-    "tipe": "contoh-soal",
-    "babIndex": 1,
-    "babJudul": "Variasi Contoh Soal — Trigonometri Analitik Dasar",
-    "content": "# Variasi Contoh Soal — Trigonometri Analitik Dasar\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n### Contoh Soal 1: Menghitung Nilai dengan Sudut Rangkap\nDiketahui $\\cos\\alpha = -\\frac{4}{5}$ dengan $\\alpha$ berada di kuadran II ($90^\\circ < \\alpha < 180^\\circ$). Tentukan nilai dari $\\sin 2\\alpha$ dan $\\cos 2\\alpha$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Tentukan $\\sin\\alpha$ di kuadran II (bernilai positif):\n> $$\\sin\\alpha = +\\sqrt{1 - \\cos^2\\alpha} = \\sqrt{1 - \\left(-\\frac{4}{5}\\right)^2} = \\sqrt{1 - \\frac{16}{25}} = \\sqrt{\\frac{9}{25}} = \\frac{3}{5}$$\n>\n> **Langkah 2:** Hitung $\\sin 2\\alpha$:\n> $$\\sin 2\\alpha = 2 \\sin\\alpha \\cos\\alpha = 2 \\left(\\frac{3}{5}\\right) \\left(-\\frac{4}{5}\\right) = -\\frac{24}{25}$$\n>\n> **Langkah 3:** Hitung $\\cos 2\\alpha$:\n> $$\\cos 2\\alpha = 2\\cos^2\\alpha - 1 = 2\\left(-\\frac{4}{5}\\right)^2 - 1 = 2\\left(\\frac{16}{25}\\right) - 1 = \\frac{32}{25} - \\frac{25}{25} = \\frac{7}{25}$$\n>\n> **Jawaban:** $\\sin 2\\alpha = -\\frac{24}{25}$ dan $\\cos 2\\alpha = \\frac{7}{25}$.\n"
-  },
-  {
-    "id": "tka-fund-rg-01",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Fundamental Matematika Lanjut",
-    "tipe": "rangkuman",
-    "babIndex": 1,
-    "babJudul": "Rangkuman Rumus Cepat — Trigonometri Analitik Dasar",
-    "content": "# Rangkuman Rumus Cepat — Trigonometri Dasar\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n* **Identitas Pokok:** $\\sin^2 x + \\cos^2 x = 1$\n* **Sudut Rangkap:**\n  $$\\sin 2x = 2\\sin x \\cos x$$\n  $$\\cos 2x = 2\\cos^2 x - 1 = 1 - 2\\sin^2 x$$\n* **Jumlah/Selisih:**\n  $$\\sin(A \\pm B) = \\sin A \\cos B \\pm \\cos A \\sin B$$\n  $$\\cos(A \\pm B) = \\cos A \\cos B \\mp \\sin A \\sin B$$\n"
-  },
-  {
-    "id": "tka-fund-mat-02",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Fundamental Matematika Lanjut",
-    "tipe": "materi",
-    "babIndex": 2,
-    "babJudul": "Aljabar Elementer",
-    "content": "# Aljabar Elementer\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n## A. Manipulasi Bentuk Aljabar & Pemfaktoran\n1. **Bentuk Kuadrat Sempurna:**\n   $$(a + b)^2 = a^2 + 2ab + b^2, \\quad (a - b)^2 = a^2 - 2ab + b^2$$\n2. **Selisih Kuadrat:**\n   $$a^2 - b^2 = (a - b)(a + b)$$\n3. **Selisih & Jumlah Kubik:**\n   $$a^3 - b^3 = (a - b)(a^2 + ab + b^2), \\quad a^3 + b^3 = (a + b)(a^2 - ab + b^2)$$\n4. **Penyederhanaan Pecahan Aljabar:**\n   Faktorkan pembilang dan penyebut terlebih dahulu sebelum membagi faktor sekutu.\n\n---\n\n## B. Sistem Persamaan Linear (SPLDV & SPLTV)\n1. **Sistem Persamaan Linear Dua Variabel (SPLDV):**\n   $$\\begin{cases} a_1 x + b_1 y = c_1 \\\\ a_2 x + b_2 y = c_2 \\end{cases}$$\n   * Metode penyelesaian: eliminasi, substitusi, atau aturan Cramer determinan ($x = D_x/D, y = D_y/D$).\n2. **Sistem Persamaan Linear Tiga Variabel (SPLTV):**\n   Diselesaikan secara sistematis dengan mengeliminasi satu variabel yang sama dari dua pasang persamaan, menghasilkan SPLDV baru.\n"
-  },
-  {
-    "id": "tka-fund-cs-02",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Fundamental Matematika Lanjut",
-    "tipe": "contoh-soal",
-    "babIndex": 2,
-    "babJudul": "Variasi Contoh Soal — Aljabar Elementer",
-    "content": "# Variasi Contoh Soal — Aljabar Elementer\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n### Contoh Soal 1: Penyederhanaan Pecahan Aljabar\nSederhanakan bentuk aljabar $\\frac{x^2 - 9}{2x^2 + 5x - 3}$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Faktorkan pembilang:\n> $$x^2 - 9 = (x - 3)(x + 3)$$\n>\n> **Langkah 2:** Faktorkan penyebut $2x^2 + 5x - 3$:\n> Cari dua bilangan yang hasil kalinya $(2)(-3) = -6$ dan jumlahnya $+5$, yaitu $+6$ dan $-1$:\n> $$2x^2 + 6x - x - 3 = 2x(x + 3) - 1(x + 3) = (2x - 1)(x + 3)$$\n>\n> **Langkah 3:** Bagi faktor sekutu $(x + 3)$:\n> $$\\frac{(x - 3)(x + 3)}{(2x - 1)(x + 3)} = \\frac{x - 3}{2x - 1} \\quad (x \\ne -3)$$\n>\n> **Jawaban:** Bentuk sederhananya adalah $\\frac{x - 3}{2x - 1}$.\n"
-  },
-  {
-    "id": "tka-fund-rg-02",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Fundamental Matematika Lanjut",
-    "tipe": "rangkuman",
-    "babIndex": 2,
-    "babJudul": "Rangkuman Rumus Cepat — Aljabar Elementer",
-    "content": "# Rangkuman Rumus Cepat — Aljabar Elementer\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n* **Selisih Kuadrat:** $a^2 - b^2 = (a - b)(a + b)$\n* **Kuadrat Binomial:** $(a \\pm b)^2 = a^2 \\pm 2ab + b^2$\n* **SPLDV Cramer:** $x = \\frac{D_x}{D}, \\quad y = \\frac{D_y}{D}$\n"
-  },
-  {
-    "id": "tka-fund-mat-03",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Fundamental Matematika Lanjut",
-    "tipe": "materi",
-    "babIndex": 3,
-    "babJudul": "Geometri Analitik Bidang",
-    "content": "# Geometri Analitik Bidang\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n## A. Koordinat Kartesius dan Persamaan Garis Lurus\n1. **Jarak Antara Dua Titik $A(x_1, y_1)$ dan $B(x_2, y_2)$:**\n   $$d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$\n2. **Titik Tengah Ruas Garis $AB$:**\n   $$M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$$\n3. **Gradien Kemiringan Garis ($m$):**\n   $$m = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}$$\n4. **Persamaan Garis Lurus:**\n   * Melalui satu titik $(x_1, y_1)$ dengan gradien $m$: $y - y_1 = m(x - x_1)$\n   * Bentuk gradien-intersep: $y = mx + c$\n   * Bentuk baku umum: $Ax + By + C = 0 \\implies m = -\\frac{A}{B}$\n\n---\n\n## B. Hubungan Garis dan Jarak Titik ke Garis\n1. **Hubungan Dua Garis:**\n   * Garis sejajar ($g_1 \\parallel g_2$): $m_1 = m_2$\n   * Garis tegak lurus ($g_1 \\perp g_2$): $m_1 \\cdot m_2 = -1 \\implies m_2 = -\\frac{1}{m_1}$\n2. **Jarak Titik $P(x_0, y_0)$ ke Garis $Ax + By + C = 0$:**\n   $$d = \\frac{|A x_0 + B y_0 + C|}{\\sqrt{A^2 + B^2}}$$\n"
-  },
-  {
-    "id": "tka-fund-cs-03",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Fundamental Matematika Lanjut",
-    "tipe": "contoh-soal",
-    "babIndex": 3,
-    "babJudul": "Variasi Contoh Soal — Geometri Analitik Bidang",
-    "content": "# Variasi Contoh Soal — Geometri Analitik Bidang\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n### Contoh Soal 1: Jarak Titik ke Garis Lurus\nTentukan jarak tegak lurus dari titik $P(2, -3)$ ke garis lurus $3x - 4y + 7 = 0$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Identifikasi koefisien:\n> $A = 3, B = -4, C = 7, x_0 = 2, y_0 = -3$.\n>\n> **Langkah 2:** Masukkan ke rumus jarak tegak lurus:\n> $$d = \\frac{|A x_0 + B y_0 + C|}{\\sqrt{A^2 + B^2}} = \\frac{|3(2) + (-4)(-3) + 7|}{\\sqrt{3^2 + (-4)^2}}$$\n> $$d = \\frac{|6 + 12 + 7|}{\\sqrt{9 + 16}} = \\frac{|25|}{\\sqrt{25}} = \\frac{25}{5} = 5\\text{ satuan}$$\n>\n> **Jawaban:** Jaraknya adalah $5\\text{ satuan}$.\n"
-  },
-  {
-    "id": "tka-fund-rg-03",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Fundamental Matematika Lanjut",
-    "tipe": "rangkuman",
-    "babIndex": 3,
-    "babJudul": "Rangkuman Rumus Cepat — Geometri Analitik Bidang",
-    "content": "# Rangkuman Rumus Cepat — Geometri Analitik\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n* **Jarak 2 Titik:** $d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$\n* **Gradien Garis:** $m = \\frac{y_2 - y_1}{x_2 - x_1} = -\\frac{A}{B}$\n* **Garis Sejajar:** $m_1 = m_2$\n* **Garis Tegak Lurus:** $m_1 \\cdot m_2 = -1$\n* **Jarak Titik ke Garis:** $d = \\frac{|Ax_0 + By_0 + C|}{\\sqrt{A^2 + B^2}}$\n"
-  },
-  {
-    "id": "tka-fund-mat-04",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Fundamental Matematika Lanjut",
-    "tipe": "materi",
-    "babIndex": 4,
-    "babJudul": "Pertidaksamaan dan Nilai Mutlak",
-    "content": "# Pertidaksamaan dan Nilai Mutlak\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n## A. Pertidaksamaan Rasional dan Bentuk Akar\n1. **Syarat Terdefinisi (Eksistensi):**\n   * Pecahan $\\frac{P(x)}{Q(x)}$: Penyebut $Q(x) \\ne 0$.\n   * Bentuk akar $\\sqrt{f(x)}$: Radikan $f(x) \\ge 0$.\n2. **Pertidaksamaan Kuadrat & Pecahan:**\n   * Jadikan salah satu ruas sama dengan nol.\n   * Tentukan titik pembuat nol (akar-akar pembilang dan penyebut).\n   * Gambar garis bilangan, uji tanda selang $(+)$ atau $(-)$.\n   * Jangan mengalikan silang pertidaksamaan dengan variabel jika tanda variabel belum pasti positif!\n\n---\n\n## B. Persamaan dan Pertidaksamaan Nilai Mutlak\n1. **Definisi Nilai Mutlak:**\n   $$|x| = \\begin{cases} x, & x \\ge 0 \\\\ -x, & x < 0 \\end{cases}$$\n   * Sifat: $|x| = \\sqrt{x^2}$, $|-x| = |x|$, $|xy| = |x||y|$, $\\left|\\frac{x}{y}\\right| = \\frac{|x|}{|y|}$.\n2. **Persamaan Nilai Mutlak:**\n   $$|f(x)| = c \\quad (c \\ge 0) \\implies f(x) = c \\text{ atau } f(x) = -c$$\n3. **Pertidaksamaan Nilai Mutlak:**\n   * Untuk $c > 0$:\n     $$|f(x)| < c \\iff -c < f(x) < c$$\n     $$|f(x)| > c \\iff f(x) < -c \\quad \\text{atau} \\quad f(x) > c$$\n   * Antar nilai mutlak:\n     $$|f(x)| \\le |g(x)| \\iff [f(x)]^2 \\le [g(x)]^2 \\iff (f(x) - g(x))(f(x) + g(x)) \\le 0$$\n"
-  },
-  {
-    "id": "tka-fund-cs-04",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Fundamental Matematika Lanjut",
-    "tipe": "contoh-soal",
-    "babIndex": 4,
-    "babJudul": "Variasi Contoh Soal — Pertidaksamaan dan Nilai Mutlak",
-    "content": "# Variasi Contoh Soal — Pertidaksamaan & Nilai Mutlak\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n### Contoh Soal 1: Pertidaksamaan Nilai Mutlak\nTentukan himpunan penyelesaian dari pertidaksamaan $|2x - 5| < 7$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Gunakan sifat $|f(x)| < c \\iff -c < f(x) < c$:\n> $$-7 < 2x - 5 < 7$$\n>\n> **Langkah 2:** Tambahkan $5$ pada ketiga ruas:\n> $$-7 + 5 < 2x < 7 + 5 \\implies -2 < 2x < 12$$\n>\n> **Langkah 3:** Bagi kedua ruas dengan $2$:\n> $$-1 < x < 6$$\n>\n> **Jawaban:** $HP = \\{x \\in \\mathbb{R} \\mid -1 < x < 6\\}$.\n"
-  },
-  {
-    "id": "tka-fund-rg-04",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Fundamental Matematika Lanjut",
-    "tipe": "rangkuman",
-    "babIndex": 4,
-    "babJudul": "Rangkuman Rumus Cepat — Pertidaksamaan dan Nilai Mutlak",
-    "content": "# Rangkuman Rumus Cepat — Nilai Mutlak\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n* **Definisi:** $|x| = \\sqrt{x^2} \\ge 0$\n* **Sifat Kurang Dari:** $|f(x)| < c \\iff -c < f(x) < c$\n* **Sifat Lebih Dari:** $|f(x)| > c \\iff f(x) < -c \\text{ atau } f(x) > c$\n* **Dua Sisi Mutlak:** $|f| \\le |g| \\iff (f - g)(f + g) \\le 0$\n"
-  },
-  {
-    "id": "tka-fund-mat-05",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Fundamental Matematika Lanjut",
-    "tipe": "materi",
-    "babIndex": 5,
-    "babJudul": "Eksponen dan Logaritma",
-    "content": "# Eksponen dan Logaritma\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n## A. Sifat-Sifat Operasi Eksponen\nUntuk $a, b > 0$ dan $m, n \\in \\mathbb{R}$:\n1. $a^m \\cdot a^n = a^{m+n}$\n2. $\\frac{a^m}{a^n} = a^{m-n}$\n3. $(a^m)^n = a^{mn}$\n4. $(a \\cdot b)^n = a^n \\cdot b^n, \\quad \\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n}$\n5. $a^0 = 1 \\quad (a \\ne 0)$\n6. $a^{-n} = \\frac{1}{a^n}$\n7. Bentuk Akar: $a^{m/n} = \\sqrt[n]{a^m}$\n\n---\n\n## B. Sifat-Sifat Logaritma\nDefinisi: ${}^a\\log b = c \\iff a^c = b$ (Basis $a > 0, a \\ne 1$, Numerus $b > 0$).\n1. ${}^a\\log(x \\cdot y) = {}^a\\log x + {}^a\\log y$\n2. ${}^a\\log\\left(\\frac{x}{y}\\right) = {}^a\\log x - {}^a\\log y$\n3. ${}^a\\log(b^n) = n \\cdot {}^a\\log b$\n4. ${}^{a^m}\\log(b^n) = \\frac{n}{m} \\cdot {}^a\\log b$\n5. Pergantian Basis: ${}^a\\log b = \\frac{{}^c\\log b}{{{}^c\\log a}} = \\frac{1}{{{}^b\\log a}}$\n6. Perkalian Berantai: ${}^a\\log b \\cdot {}^b\\log c = {}^a\\log c$\n7. Pemangkatan Identitas: $a^{{}^a\\log b} = b$\n\n---\n\n## C. Persamaan Eksponen & Logaritma Sederhana\n* $a^{f(x)} = a^{g(x)} \\implies f(x) = g(x)$\n* ${}^a\\log f(x) = {}^a\\log g(x) \\implies f(x) = g(x)$ (dengan syarat numerus $f(x) > 0$ dan $g(x) > 0$).\n"
-  },
-  {
-    "id": "tka-fund-cs-05",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Fundamental Matematika Lanjut",
-    "tipe": "contoh-soal",
-    "babIndex": 5,
-    "babJudul": "Variasi Contoh Soal — Eksponen dan Logaritma",
-    "content": "# Variasi Contoh Soal — Eksponen dan Logaritma\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n### Contoh Soal 1: Persamaan Logaritma\nTentukan nilai $x$ yang memenuhi persamaan ${}^2\\log(x^2 - 3x) = 2$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Ubah ruas kanan menjadi bentuk logaritma basis 2:\n> $$2 = {}^2\\log(2^2) = {}^2\\log 4$$\n>\n> **Langkah 2:** Samakan numerus:\n> $$x^2 - 3x = 4 \\implies x^2 - 3x - 4 = 0$$\n> $$(x - 4)(x + 1) = 0 \\implies x = 4 \\quad \\text{atau} \\quad x = -1$$\n>\n> **Langkah 3:** Uji syarat numerus ($x^2 - 3x > 0$):\n> * Untuk $x = 4$: $4^2 - 3(4) = 16 - 12 = 4 > 0$ (Memenuhi)\n> * Untuk $x = -1$: $(-1)^2 - 3(-1) = 1 + 3 = 4 > 0$ (Memenuhi)\n>\n> **Jawaban:** Nilai $x$ yang memenuhi adalah $x = -1$ atau $x = 4$.\n"
-  },
-  {
-    "id": "tka-fund-rg-05",
-    "kategoriUtama": "tka",
-    "subtes": "Fundamental Matematika",
-    "blok": "Fundamental Matematika Lanjut",
-    "tipe": "rangkuman",
-    "babIndex": 5,
-    "babJudul": "Rangkuman Rumus Cepat — Eksponen dan Logaritma",
-    "content": "# Rangkuman Rumus Cepat — Eksponen & Logaritma\n**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut\n\n* **Perkalian Pangkat:** $a^m \\cdot a^n = a^{m+n}$\n* **Pembagian Pangkat:** $a^m / a^n = a^{m-n}$\n* **Definisi Logaritma:** ${}^a\\log b = c \\iff a^c = b$\n* **Sifat Penjumlahan:** ${}^a\\log x + {}^a\\log y = {}^a\\log(xy)$\n* **Pangkat Numerus/Basis:** ${}^{a^m}\\log(b^n) = \\frac{n}{m} {}^a\\log b$\n* **Perkalian Rantai:** ${}^a\\log b \\cdot {}^b\\log c = {}^a\\log c$\n* **Identitas Pangkat:** $a^{{}^a\\log b} = b$\n"
   },
   {
     "id": "tka-fis-mat-01",

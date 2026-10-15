@@ -1,5 +1,5 @@
 # Geometri Analitik Bidang
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ## A. Koordinat Kartesius dan Persamaan Garis Lurus
 1. **Jarak Antara Dua Titik $A(x_1, y_1)$ dan $B(x_2, y_2)$:**

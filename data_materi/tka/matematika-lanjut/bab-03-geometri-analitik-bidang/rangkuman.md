@@ -1,5 +1,5 @@
 # Rangkuman Rumus Cepat — Geometri Analitik
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 * **Jarak 2 Titik:** $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$
 * **Gradien Garis:** $m = \frac{y_2 - y_1}{x_2 - x_1} = -\frac{A}{B}$

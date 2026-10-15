@@ -15,7 +15,7 @@ const STORAGE_KEYS = {
   USER_ANSWERS: 'edumandiri_user_answers'
 };
 
-const TKA_SUBTESTS = ['Fisika', 'Matematika Lanjut', 'Fundamental Matematika'];
+const TKA_SUBTESTS = ['Fisika', 'Matematika Lanjut'];
 const SMA_SUBTESTS = ['Fisika', 'Matematika Wajib', 'Matematika Lanjut'];
 const UTBK_SUBTESTS = [
   'Penalaran Umum (PU)',
@@ -469,7 +469,7 @@ function renderMateriView() {
     return a.babIndex - b.babIndex;
   });
 
-  // Helper render kartu bab individual (desain elegan, judul utuh tanpa terpotong)
+  // Helper render kartu bab individual (desain rapi, horizontal list card di mobile)
   function renderSingleBabCard(bab) {
     const babIndexPadded = String(bab.babIndex).padStart(2, '0');
     const babKey = `${bab.kategoriUtama}_${bab.subtes.replace(/[^a-zA-Z0-9]/g, '_')}_${bab.babIndex}`;
@@ -484,22 +484,20 @@ function renderMateriView() {
     return `
       <div class="bab-item" id="bab-item-${babKey}" data-bab-key="${babKey}">
         <div class="bab-item-header" onclick="toggleBabItem('${babKey}')">
-          <div class="bab-item-top">
-            <div class="bab-icon-minimal">
-              <span>${babIndexPadded}</span>
-            </div>
-            <div class="bab-item-right">
-              <span class="bab-modul-counter">${availableCount} Modul</span>
-              <span class="bab-toggle-arrow">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </span>
-            </div>
+          <div class="bab-icon-minimal">
+            <span>${babIndexPadded}</span>
           </div>
           <div class="bab-item-title-group">
             <h4 class="bab-item-title">${escapeHtml(cleanTitle)}</h4>
             <span class="bab-item-meta">${escapeHtml(bab.blok || bab.subtes)}</span>
+          </div>
+          <div class="bab-item-right">
+            <span class="bab-modul-counter">${availableCount} Modul</span>
+            <span class="bab-toggle-arrow">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
           </div>
         </div>
 
@@ -531,21 +529,33 @@ function renderMateriView() {
     `;
   }
 
-  // Metadata Pembungkus Bab Besar
+  // Metadata Pembungkus Bab Besar (TKA & SMA)
   const WRAPPER_METAS = {
-    'Kinematika': { icon: '🚀', desc: 'Gerak Lurus, Gerak Lengkung, & Pengukuran Presisi' },
+    // TKA Fisika
+    'Kinematika': { icon: '🚀', desc: 'Gerak Lurus, Gerak Melingkar, & Pengukuran Presisi' },
     'Dinamika': { icon: '⚖️', desc: 'Hukum Newton, Momentum, Impuls, & Dinamika Rotasi' },
-    'Fluida': { icon: '💧', desc: 'Tekanan Hidrostatis, Hukum Pascal, Archimedes, & Bernoulli' },
-    'Gelombang': { icon: '🌊', desc: 'Gelombang Mekanik Bunyi, Cahaya, & Karakteristik Optik' },
-    'Kalor dan Termodinamika': { icon: '🔥', desc: 'Suhu, Kalor, Gas Ideal, & Siklus Termodinamika' },
+    'Fluida': { icon: '💧', desc: 'Tekanan Hidrostatis, Archimedes, Kontinuitas, & Bernoulli' },
+    'Gelombang': { icon: '🌊', desc: 'Gelombang Mekanik Bunyi, Cepat Rambat, & Karakteristik Optik' },
+    'Kalor dan Termodinamika': { icon: '🔥', desc: 'Suhu, Kalor, Teori Kinetik Gas, & Siklus Termodinamika' },
     'Kelistrikan': { icon: '⚡', desc: 'Elektrostatika, Hukum Coulomb, & Rangkaian Arus Searah' },
+
+    // TKA Matematika Lanjut (Termasuk Fundamental di Bagian Awal)
+    'Fundamental Matematika Lanjut': { icon: '🏛️', desc: 'Materi Prasyarat: Trigonometri, Aljabar, Geometri, Nilai Mutlak, & Eksponen' },
     'Aljabar': { icon: '🔢', desc: 'Matriks Ordo 2x2/3x3, Polinomial Horner, & Pemodelan Fungsi' },
-    'Geometri dan Pengukuran': { icon: '📐', desc: 'Vektor R2/R3, Persamaan Lingkaran, & Transformasi Geometri' },
+    'Geometri dan Pengukuran': { icon: '📐', desc: 'Vektor Bidang & Ruang, Persamaan Lingkaran, & Transformasi' },
     'Trigonometri': { icon: '📈', desc: 'Limit Fungsi Aljabar & Teorema Limit Trigonometri' },
-    'Fundamental Matematika Lanjut': { icon: '🏛️', desc: 'Materi Prasyarat Esensial Matematika Tingkat Lanjut' }
+
+    // SMA Reguler
+    'Blok 1: Mekanika': { icon: '⚙️', desc: 'Pengukuran, Vektor, Kinematika, Dinamika, Usaha, Energi, & Rotasi' },
+    'Blok 2: Fluida & Termofisika': { icon: '💧', desc: 'Fluida Statis & Dinamis, Suhu, Kalor, Gas Ideal, & Termodinamika' },
+    'Blok 3: Gelombang, Bunyi, & Optik': { icon: '🌊', desc: 'Gelombang Berjalan, Gelombang Bunyi, & Optik Geometri/Fisis' },
+    'Blok 4: Kelistrikan & Kemagnetan': { icon: '⚡', desc: 'Listrik DC, Medan Magnet, Gaya Lorentz, & Induksi Elektromagnetik' },
+    'Blok 5: Fisika Modern & Inti': { icon: '⚛️', desc: 'Relativitas Khusus, Kuantum, Teori Atom, & Radioaktivitas' },
+    'Matematika Wajib (Umum)': { icon: '📐', desc: 'Eksponen, Nilai Mutlak, SPLDV, Matriks, Transformasi, Dimensi Tiga, & Peluang' },
+    'Matematika Tingkat Lanjut (Peminatan)': { icon: '🔢', desc: 'Bilangan Kompleks, Polinomial, Irisan Kerucut, Limit, Turunan, & Integral' }
   };
 
-  // Cek apakah kategori saat ini memiliki pembungkus blok (seperti TKA)
+  // Cek apakah kategori saat ini memiliki pembungkus blok (seperti TKA & SMA)
   const hasBlokGrouping = sortedBabs.some(b => b.blok);
 
   if (hasBlokGrouping) {
@@ -565,30 +575,40 @@ function renderMateriView() {
     let html = '';
     for (const [groupName, groupData] of groups.entries()) {
       const meta = WRAPPER_METAS[groupName] || { icon: '📦', desc: `Kumpulan Materi ${groupName}` };
+      const groupSlug = groupName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
       html += `
-        <section class="materi-group-section">
-          <div class="materi-group-header">
+        <section class="materi-group-section" id="materi-group-${groupSlug}">
+          <div class="materi-group-header" onclick="toggleMateriGroup('${groupSlug}')">
             <div class="materi-group-title-wrap">
               <span class="materi-group-icon">${meta.icon}</span>
               <div class="materi-group-text">
-                <h3 class="materi-group-title">${escapeHtml(groupName)}</h3>
+                <div class="materi-group-title-row">
+                  <h3 class="materi-group-title">${escapeHtml(groupName)}</h3>
+                  <span class="materi-group-count">${groupData.babs.length} Bab</span>
+                </div>
                 <p class="materi-group-desc">${escapeHtml(meta.desc)}</p>
               </div>
             </div>
-            <div class="materi-group-meta-pill">
+            <div class="materi-group-right">
               <span class="materi-group-subtes-tag">${escapeHtml(groupData.subtes)}</span>
-              <span class="materi-group-count">${groupData.babs.length} Bab</span>
+              <span class="materi-group-toggle-arrow">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
             </div>
           </div>
-          <div class="bab-list-minimal">
-            ${groupData.babs.map(renderSingleBabCard).join('')}
+          <div class="materi-group-body">
+            <div class="bab-list-minimal">
+              ${groupData.babs.map(renderSingleBabCard).join('')}
+            </div>
           </div>
         </section>
       `;
     }
     container.innerHTML = html;
   } else {
-    // Kategori tanpa blok khusus (misal SMA): render dalam pembungkus subtes
+    // Kategori tanpa blok khusus (misal UTBK): render dalam pembungkus subtes
     const subtesGroups = new Map();
     sortedBabs.forEach(b => {
       if (!subtesGroups.has(b.subtes)) subtesGroups.set(b.subtes, []);
@@ -598,20 +618,32 @@ function renderMateriView() {
     let html = '';
     for (const [subtesName, babs] of subtesGroups.entries()) {
       const icon = subtesName.includes('Fisika') ? '⚛️' : (subtesName.includes('Matematika') ? '📐' : '📚');
+      const groupSlug = subtesName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
       html += `
-        <section class="materi-group-section">
-          <div class="materi-group-header">
+        <section class="materi-group-section" id="materi-group-${groupSlug}">
+          <div class="materi-group-header" onclick="toggleMateriGroup('${groupSlug}')">
             <div class="materi-group-title-wrap">
               <span class="materi-group-icon">${icon}</span>
               <div class="materi-group-text">
-                <h3 class="materi-group-title">${escapeHtml(subtesName)}</h3>
+                <div class="materi-group-title-row">
+                  <h3 class="materi-group-title">${escapeHtml(subtesName)}</h3>
+                  <span class="materi-group-count">${babs.length} Bab</span>
+                </div>
                 <p class="materi-group-desc">${babs.length} Bab Materi Terstruktur</p>
               </div>
             </div>
-            <span class="materi-group-count">${babs.length} Bab</span>
+            <div class="materi-group-right">
+              <span class="materi-group-toggle-arrow">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </div>
           </div>
-          <div class="bab-list-minimal">
-            ${babs.map(renderSingleBabCard).join('')}
+          <div class="materi-group-body">
+            <div class="bab-list-minimal">
+              ${babs.map(renderSingleBabCard).join('')}
+            </div>
           </div>
         </section>
       `;
@@ -620,7 +652,14 @@ function renderMateriView() {
   }
 }
 
-// Helper: Toggle expand/collapse pada list bab
+// Helper: Toggle expand/collapse pada pembungkus materi besar
+window.toggleMateriGroup = function(groupSlug) {
+  const targetGroup = document.getElementById(`materi-group-${groupSlug}`);
+  if (!targetGroup) return;
+  targetGroup.classList.toggle('collapsed');
+};
+
+// Helper: Toggle expand/collapse pada list bab individual
 window.toggleBabItem = function(babKey) {
   const targetItem = document.getElementById(`bab-item-${babKey}`);
   if (!targetItem) return;
@@ -862,13 +901,18 @@ const CANONICAL_BAB_TITLES = {
     16: 'Rangkaian Arus Searah'
   },
   'tka-matematika lanjut': {
-    1: 'Matriks',
-    2: 'Polinomial',
-    3: 'Fungsi dan Pemodelan',
-    4: 'Vektor',
-    5: 'Lingkaran',
-    6: 'Transformasi Geometri',
-    7: 'Limit Fungsi'
+    1: 'Trigonometri Analitik Dasar',
+    2: 'Aljabar Elementer',
+    3: 'Geometri Analitik Bidang',
+    4: 'Pertidaksamaan & Nilai Mutlak',
+    5: 'Eksponen & Logaritma',
+    6: 'Matriks',
+    7: 'Polinomial',
+    8: 'Fungsi dan Pemodelan',
+    9: 'Vektor',
+    10: 'Lingkaran',
+    11: 'Transformasi Geometri',
+    12: 'Limit Fungsi'
   },
   'tka-fundamental matematika': {
     1: 'Trigonometri Analitik Dasar',
@@ -1019,30 +1063,50 @@ const CANONICAL_CHAPTER_SUBBABS = {
   },
   'tka-matematika lanjut': {
     1: [
+      { id: 'tka-fnd-b01-sb01', nama: 'Perbandingan Sisi & Sudut Istimewa' },
+      { id: 'tka-fnd-b01-sb02', nama: 'Identitas Pythagoras, Sudut Rangkap, Jumlah & Selisih' }
+    ],
+    2: [
+      { id: 'tka-fnd-b02-sb01', nama: 'Pemfaktoran Bentuk Kuadrat & Pecahan Aljabar' },
+      { id: 'tka-fnd-b02-sb02', nama: 'SPLDV & SPLTV (Substitusi & Eliminasi)' }
+    ],
+    3: [
+      { id: 'tka-fnd-b03-sb01', nama: 'Titik Koordinat & Persamaan Garis Lurus' },
+      { id: 'tka-fnd-b03-sb02', nama: 'Gradien Garis Sejajar & Tegak Lurus, Jarak Titik ke Garis' }
+    ],
+    4: [
+      { id: 'tka-fnd-b04-sb01', nama: 'Syarat Pecahan & Bentuk Akar Terdefinisi' },
+      { id: 'tka-fnd-b04-sb02', nama: 'Persamaan & Pertidaksamaan Nilai Mutlak' }
+    ],
+    5: [
+      { id: 'tka-fnd-b05-sb01', nama: 'Aturan Pangkat Bulat & Rasional' },
+      { id: 'tka-fnd-b05-sb02', nama: 'Sifat Penjumlahan, Pengurangan, & Basis Logaritma' }
+    ],
+    6: [
       { id: 'tka-mtk-b01-sb01', nama: 'Operasi & Perkalian Matriks' },
       { id: 'tka-mtk-b01-sb02', nama: 'Determinan, Invers (2x2 & 3x3), & Sistem Persamaan' }
     ],
-    2: [
+    7: [
       { id: 'tka-mtk-b02-sb01', nama: 'Operasi & Pembagian Polinomial (Horner)' },
       { id: 'tka-mtk-b02-sb02', nama: 'Teorema Sisa & Teorema Faktor Linear' }
     ],
-    3: [
+    8: [
       { id: 'tka-mtk-b03-sb01', nama: 'Domain, Kodomain, Range Fungsi Polinom, Rasional, Akar' },
       { id: 'tka-mtk-b03-sb02', nama: 'Fungsi Eksponensial, Logaritma, Mutlak, & Trigonometri' }
     ],
-    4: [
+    9: [
       { id: 'tka-mtk-b04-sb01', nama: 'Komponen Vektor di R2 dan R3' },
       { id: 'tka-mtk-b04-sb02', nama: 'Panjang Vektor, Operasi Aljabar, & Perkalian Dot' }
     ],
-    5: [
+    10: [
       { id: 'tka-mtk-b05-sb01', nama: 'Persamaan Lingkaran Pusat (0,0) & (a,b)' },
       { id: 'tka-mtk-b05-sb02', nama: 'Garis Singgung Lingkaran, Panjang Busur, & Luas Juring' }
     ],
-    6: [
+    11: [
       { id: 'tka-mtk-b06-sb01', nama: 'Translasi, Refleksi, Rotasi, & Dilatasi' },
       { id: 'tka-mtk-b06-sb02', nama: 'Komposisi Transformasi & Representasi Matriks' }
     ],
-    7: [
+    12: [
       { id: 'tka-mtk-b07-sb01', nama: 'Limit Fungsi Aljabar (Substitusi, Faktorisasi, Sekawan)' },
       { id: 'tka-mtk-b07-sb02', nama: 'Limit Fungsi Trigonometri Tanpa L\'Hopital' }
     ]
@@ -1253,18 +1317,23 @@ function getQuestionBabIndex(q, subtes, category) {
     }
     if (subStr.includes('lanjut')) {
       const smaIndex = getQuestionBabIndex(q, subtes, 'sma');
-      if (smaIndex === 3) return 1; // Matriks
-      if (smaIndex === 2) return 2; // Polinomial
-      if (smaIndex === 7) return 3; // Fungsi
-      if (smaIndex === 4) return 7; // Limit
-      if (smaIndex === 5) return 5; // Lingkaran
-      if (smaIndex === 6) return 7; // Limit
+      if (smaIndex === 3) return 6; // Matriks (Bab 6)
+      if (smaIndex === 2) return 7; // Polinomial (Bab 7)
+      if (smaIndex === 7) return 8; // Fungsi (Bab 8)
+      if (smaIndex === 4 || smaIndex === 6) return 12; // Limit (Bab 12)
+      if (smaIndex === 5) return 10; // Lingkaran (Bab 10)
       const wajibIndex = getQuestionBabIndex(q, 'matematika wajib', 'sma');
-      if (wajibIndex === 10) return 1; // Matriks
-      if (wajibIndex === 5 || wajibIndex === 6) return 3; // Fungsi
-      if (wajibIndex === 9) return 4; // Vektor
-      if (wajibIndex === 13) return 5; // Lingkaran
-      if (wajibIndex === 11) return 6; // Transformasi Geometri
+      // Prasyarat Fundamental (Bab 1 s.d. 5)
+      if (wajibIndex === 7 || wajibIndex === 8) return 1; // Trigonometri Analitik Dasar
+      if (wajibIndex === 3 || wajibIndex === 4) return 2; // Aljabar Elementer
+      if (wajibIndex === 12 || wajibIndex === 13) return 3; // Geometri Analitik Bidang
+      if (wajibIndex === 2) return 4; // Pertidaksamaan & Nilai Mutlak
+      if (wajibIndex === 1) return 5; // Eksponen & Logaritma
+      // Bab Lanjutan (Bab 6 s.d. 12)
+      if (wajibIndex === 10) return 6; // Matriks
+      if (wajibIndex === 5 || wajibIndex === 6) return 8; // Fungsi
+      if (wajibIndex === 9) return 9; // Vektor
+      if (wajibIndex === 11) return 11; // Transformasi Geometri
       return 1;
     }
     if (subStr.includes('fundamental')) {
@@ -2262,7 +2331,7 @@ function renderPembahasanSubtesFilters() {
   const container = document.getElementById('pembahasan-subtes-filters');
   if (!container) return;
 
-  const subtests = ['semua', 'Fisika', 'Matematika Lanjut', 'Matematika Wajib', 'Fundamental Matematika'];
+  const subtests = ['semua', 'Fisika', 'Matematika Lanjut', 'Matematika Wajib'];
   container.innerHTML = subtests.map((sub) => `
     <button class="chip-filter ${AppState.pembahasanSubtesFilter.toLowerCase() === sub.toLowerCase() ? 'active' : ''}" data-pemb-subtes="${sub}">
       ${sub === 'semua' ? 'Semua Subtes' : sub}

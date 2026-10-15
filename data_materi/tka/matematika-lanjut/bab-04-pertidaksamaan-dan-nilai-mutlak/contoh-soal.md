@@ -1,5 +1,5 @@
 # Variasi Contoh Soal — Pertidaksamaan & Nilai Mutlak
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ### Contoh Soal 1: Pertidaksamaan Nilai Mutlak
 Tentukan himpunan penyelesaian dari pertidaksamaan $|2x - 5| < 7$!

@@ -1,5 +1,5 @@
 # Rangkuman Rumus Cepat — Eksponen & Logaritma
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 * **Perkalian Pangkat:** $a^m \cdot a^n = a^{m+n}$
 * **Pembagian Pangkat:** $a^m / a^n = a^{m-n}$

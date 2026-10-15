@@ -59,16 +59,18 @@ fisikaChapters.forEach(c => {
   });
 });
 
-// 2. Process Matematika Lanjut (7 Bab)
-matematikaLanjutChapters.forEach(c => {
-  const pad = String(c.index).padStart(2, '0');
+// 2. Process Matematika Lanjut (12 Bab: 5 Fundamental + 7 Lanjut)
+// 2A. Fundamental Matematika Lanjut (Bab 1 s.d. 5)
+fundamentalChapters.forEach((c, idx) => {
+  const babIndex = idx + 1;
+  const pad = String(babIndex).padStart(2, '0');
   tkaModules.push({
     id: `tka-mat-mat-${pad}`,
     kategoriUtama: 'tka',
     subtes: 'Matematika Lanjut',
     blok: c.blok,
     tipe: 'materi',
-    babIndex: c.index,
+    babIndex: babIndex,
     babJudul: c.judul,
     content: c.materi
   });
@@ -78,7 +80,7 @@ matematikaLanjutChapters.forEach(c => {
     subtes: 'Matematika Lanjut',
     blok: c.blok,
     tipe: 'contoh-soal',
-    babIndex: c.index,
+    babIndex: babIndex,
     babJudul: `Variasi Contoh Soal — ${c.judul}`,
     content: c.cs
   });
@@ -88,42 +90,43 @@ matematikaLanjutChapters.forEach(c => {
     subtes: 'Matematika Lanjut',
     blok: c.blok,
     tipe: 'rangkuman',
-    babIndex: c.index,
+    babIndex: babIndex,
     babJudul: `Rangkuman Rumus Cepat — ${c.judul}`,
     content: c.rangkuman
   });
 });
 
-// 3. Process Fundamental Matematika (5 Bab)
-fundamentalChapters.forEach(c => {
-  const pad = String(c.index).padStart(2, '0');
+// 2B. Matematika Lanjut Lanjutan (Bab 6 s.d. 12)
+matematikaLanjutChapters.forEach((c, idx) => {
+  const babIndex = idx + 6;
+  const pad = String(babIndex).padStart(2, '0');
   tkaModules.push({
-    id: `tka-fund-mat-${pad}`,
+    id: `tka-mat-mat-${pad}`,
     kategoriUtama: 'tka',
-    subtes: 'Fundamental Matematika',
+    subtes: 'Matematika Lanjut',
     blok: c.blok,
     tipe: 'materi',
-    babIndex: c.index,
+    babIndex: babIndex,
     babJudul: c.judul,
     content: c.materi
   });
   tkaModules.push({
-    id: `tka-fund-cs-${pad}`,
+    id: `tka-mat-cs-${pad}`,
     kategoriUtama: 'tka',
-    subtes: 'Fundamental Matematika',
+    subtes: 'Matematika Lanjut',
     blok: c.blok,
     tipe: 'contoh-soal',
-    babIndex: c.index,
+    babIndex: babIndex,
     babJudul: `Variasi Contoh Soal — ${c.judul}`,
     content: c.cs
   });
   tkaModules.push({
-    id: `tka-fund-rg-${pad}`,
+    id: `tka-mat-rg-${pad}`,
     kategoriUtama: 'tka',
-    subtes: 'Fundamental Matematika',
+    subtes: 'Matematika Lanjut',
     blok: c.blok,
     tipe: 'rangkuman',
-    babIndex: c.index,
+    babIndex: babIndex,
     babJudul: `Rangkuman Rumus Cepat — ${c.judul}`,
     content: c.rangkuman
   });

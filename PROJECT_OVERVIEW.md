@@ -14,12 +14,11 @@
        - Pembungkus 4 (Gelombang): Bab 9: Gelombang Bunyi, Bab 10: Gelombang Cahaya & Alat Optik.
        - Pembungkus 5 (Kalor & Termodinamika): Bab 11: Kalor dan Perpindahannya, Bab 12: Pemanasan Global, Bab 13: Gas Ideal, Bab 14: Termodinamika.
        - Pembungkus 6 (Kelistrikan): Bab 15: Listrik Statis, Bab 16: Rangkaian Arus Searah.
-     - **II. Matematika Lanjut TKA (7 Bab, 3 Pembungkus):**
-       - Pembungkus 1 (Aljabar): Bab 1: Matriks, Bab 2: Polinomial, Bab 3: Fungsi dan Pemodelan.
-       - Pembungkus 2 (Geometri & Pengukuran): Bab 4: Vektor, Bab 5: Lingkaran, Bab 6: Transformasi Geometri.
-       - Pembungkus 3 (Trigonometri): Bab 7: Limit Fungsi.
-     - **III. Fundamental Matematika Lanjut (5 Bab Prasyarat, 1 Pembungkus):**
+     - **II. Matematika Lanjut TKA (12 Bab, 4 Pembungkus — Fundamental di Bagian Awal):**
        - Pembungkus 1 (Fundamental Matematika Lanjut): Bab 1: Trigonometri Analitik Dasar, Bab 2: Aljabar Elementer, Bab 3: Geometri Analitik Bidang, Bab 4: Pertidaksamaan & Nilai Mutlak, Bab 5: Eksponen & Logaritma.
+       - Pembungkus 2 (Aljabar): Bab 6: Matriks, Bab 7: Polinomial, Bab 8: Fungsi dan Pemodelan.
+       - Pembungkus 3 (Geometri & Pengukuran): Bab 9: Vektor, Bab 10: Lingkaran, Bab 11: Transformasi Geometri.
+       - Pembungkus 4 (Trigonometri): Bab 12: Limit Fungsi.
   2. **SMA (Kurikulum Reguler — 137 Modul):**
      - **Fisika SMA (30 Bab):** Pengukuran s.d. Energi Terbarukan.
      - **Matematika Wajib (16 Bab):** Eksponen & Logaritma s.d. Peluang.

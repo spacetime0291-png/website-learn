@@ -1,5 +1,5 @@
 # Variasi Contoh Soal — Eksponen dan Logaritma
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ### Contoh Soal 1: Persamaan Logaritma
 Tentukan nilai $x$ yang memenuhi persamaan ${}^2\log(x^2 - 3x) = 2$!

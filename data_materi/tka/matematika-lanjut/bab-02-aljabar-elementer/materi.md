@@ -1,5 +1,5 @@
 # Aljabar Elementer
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ## A. Manipulasi Bentuk Aljabar & Pemfaktoran
 1. **Bentuk Kuadrat Sempurna:**

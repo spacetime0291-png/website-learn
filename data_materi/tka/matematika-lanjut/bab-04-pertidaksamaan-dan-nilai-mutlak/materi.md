@@ -1,5 +1,5 @@
 # Pertidaksamaan dan Nilai Mutlak
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ## A. Pertidaksamaan Rasional dan Bentuk Akar
 1. **Syarat Terdefinisi (Eksistensi):**

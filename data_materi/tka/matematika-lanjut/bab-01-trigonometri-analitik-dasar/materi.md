@@ -1,5 +1,5 @@
 # Trigonometri Analitik Dasar
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ## A. Perbandingan Sisi Segitiga Siku-siku
 Pada segitiga siku-siku dengan sudut acuan $\alpha$:

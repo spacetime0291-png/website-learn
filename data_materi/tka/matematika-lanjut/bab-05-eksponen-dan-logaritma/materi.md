@@ -1,5 +1,5 @@
 # Eksponen dan Logaritma
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ## A. Sifat-Sifat Operasi Eksponen
 Untuk $a, b > 0$ dan $m, n \in \mathbb{R}$:

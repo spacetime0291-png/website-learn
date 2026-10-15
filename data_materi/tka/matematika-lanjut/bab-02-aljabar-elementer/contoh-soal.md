@@ -1,5 +1,5 @@
 # Variasi Contoh Soal — Aljabar Elementer
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ### Contoh Soal 1: Penyederhanaan Pecahan Aljabar
 Sederhanakan bentuk aljabar $\frac{x^2 - 9}{2x^2 + 5x - 3}$!

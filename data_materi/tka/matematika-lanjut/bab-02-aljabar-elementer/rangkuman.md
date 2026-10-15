@@ -1,5 +1,5 @@
 # Rangkuman Rumus Cepat — Aljabar Elementer
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 * **Selisih Kuadrat:** $a^2 - b^2 = (a - b)(a + b)$
 * **Kuadrat Binomial:** $(a \pm b)^2 = a^2 \pm 2ab + b^2$

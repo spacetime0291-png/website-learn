@@ -1,5 +1,5 @@
 # Rangkuman Rumus Cepat — Trigonometri Dasar
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 * **Identitas Pokok:** $\sin^2 x + \cos^2 x = 1$
 * **Sudut Rangkap:**

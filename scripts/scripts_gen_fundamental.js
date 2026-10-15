@@ -8,7 +8,7 @@ const fundamentalChapters = [
     blok: "Fundamental Matematika Lanjut",
     judul: "Trigonometri Analitik Dasar",
     materi: `# Trigonometri Analitik Dasar
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ## A. Perbandingan Sisi Segitiga Siku-siku
 Pada segitiga siku-siku dengan sudut acuan $\\alpha$:
@@ -40,7 +40,7 @@ $$\\sin\\alpha = \\frac{\\text{depan}}{\\text{miring}}, \\quad \\cos\\alpha = \\
    $$\\cos 2x = \\cos^2 x - \\sin^2 x = 2\\cos^2 x - 1 = 1 - 2\\sin^2 x$$
 `,
     cs: `# Variasi Contoh Soal — Trigonometri Analitik Dasar
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ### Contoh Soal 1: Menghitung Nilai dengan Sudut Rangkap
 Diketahui $\\cos\\alpha = -\\frac{4}{5}$ dengan $\\alpha$ berada di kuadran II ($90^\\circ < \\alpha < 180^\\circ$). Tentukan nilai dari $\\sin 2\\alpha$ dan $\\cos 2\\alpha$!
@@ -58,7 +58,7 @@ Diketahui $\\cos\\alpha = -\\frac{4}{5}$ dengan $\\alpha$ berada di kuadran II (
 > **Jawaban:** $\\sin 2\\alpha = -\\frac{24}{25}$ dan $\\cos 2\\alpha = \\frac{7}{25}$.
 `,
     rangkuman: `# Rangkuman Rumus Cepat — Trigonometri Dasar
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 * **Identitas Pokok:** $\\sin^2 x + \\cos^2 x = 1$
 * **Sudut Rangkap:**
@@ -75,7 +75,7 @@ Diketahui $\\cos\\alpha = -\\frac{4}{5}$ dengan $\\alpha$ berada di kuadran II (
     blok: "Fundamental Matematika Lanjut",
     judul: "Aljabar Elementer",
     materi: `# Aljabar Elementer
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ## A. Manipulasi Bentuk Aljabar & Pemfaktoran
 1. **Bentuk Kuadrat Sempurna:**
@@ -97,7 +97,7 @@ Diketahui $\\cos\\alpha = -\\frac{4}{5}$ dengan $\\alpha$ berada di kuadran II (
    Diselesaikan secara sistematis dengan mengeliminasi satu variabel yang sama dari dua pasang persamaan, menghasilkan SPLDV baru.
 `,
     cs: `# Variasi Contoh Soal — Aljabar Elementer
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ### Contoh Soal 1: Penyederhanaan Pecahan Aljabar
 Sederhanakan bentuk aljabar $\\frac{x^2 - 9}{2x^2 + 5x - 3}$!
@@ -116,7 +116,7 @@ Sederhanakan bentuk aljabar $\\frac{x^2 - 9}{2x^2 + 5x - 3}$!
 > **Jawaban:** Bentuk sederhananya adalah $\\frac{x - 3}{2x - 1}$.
 `,
     rangkuman: `# Rangkuman Rumus Cepat — Aljabar Elementer
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 * **Selisih Kuadrat:** $a^2 - b^2 = (a - b)(a + b)$
 * **Kuadrat Binomial:** $(a \\pm b)^2 = a^2 \\pm 2ab + b^2$
@@ -129,7 +129,7 @@ Sederhanakan bentuk aljabar $\\frac{x^2 - 9}{2x^2 + 5x - 3}$!
     blok: "Fundamental Matematika Lanjut",
     judul: "Geometri Analitik Bidang",
     materi: `# Geometri Analitik Bidang
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ## A. Koordinat Kartesius dan Persamaan Garis Lurus
 1. **Jarak Antara Dua Titik $A(x_1, y_1)$ dan $B(x_2, y_2)$:**
@@ -153,7 +153,7 @@ Sederhanakan bentuk aljabar $\\frac{x^2 - 9}{2x^2 + 5x - 3}$!
    $$d = \\frac{|A x_0 + B y_0 + C|}{\\sqrt{A^2 + B^2}}$$
 `,
     cs: `# Variasi Contoh Soal — Geometri Analitik Bidang
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ### Contoh Soal 1: Jarak Titik ke Garis Lurus
 Tentukan jarak tegak lurus dari titik $P(2, -3)$ ke garis lurus $3x - 4y + 7 = 0$!
@@ -169,7 +169,7 @@ Tentukan jarak tegak lurus dari titik $P(2, -3)$ ke garis lurus $3x - 4y + 7 = 0
 > **Jawaban:** Jaraknya adalah $5\\text{ satuan}$.
 `,
     rangkuman: `# Rangkuman Rumus Cepat — Geometri Analitik
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 * **Jarak 2 Titik:** $d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$
 * **Gradien Garis:** $m = \\frac{y_2 - y_1}{x_2 - x_1} = -\\frac{A}{B}$
@@ -184,7 +184,7 @@ Tentukan jarak tegak lurus dari titik $P(2, -3)$ ke garis lurus $3x - 4y + 7 = 0
     blok: "Fundamental Matematika Lanjut",
     judul: "Pertidaksamaan dan Nilai Mutlak",
     materi: `# Pertidaksamaan dan Nilai Mutlak
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ## A. Pertidaksamaan Rasional dan Bentuk Akar
 1. **Syarat Terdefinisi (Eksistensi):**
@@ -212,7 +212,7 @@ Tentukan jarak tegak lurus dari titik $P(2, -3)$ ke garis lurus $3x - 4y + 7 = 0
      $$|f(x)| \\le |g(x)| \\iff [f(x)]^2 \\le [g(x)]^2 \\iff (f(x) - g(x))(f(x) + g(x)) \\le 0$$
 `,
     cs: `# Variasi Contoh Soal — Pertidaksamaan & Nilai Mutlak
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ### Contoh Soal 1: Pertidaksamaan Nilai Mutlak
 Tentukan himpunan penyelesaian dari pertidaksamaan $|2x - 5| < 7$!
@@ -230,7 +230,7 @@ Tentukan himpunan penyelesaian dari pertidaksamaan $|2x - 5| < 7$!
 > **Jawaban:** $HP = \\{x \\in \\mathbb{R} \\mid -1 < x < 6\\}$.
 `,
     rangkuman: `# Rangkuman Rumus Cepat — Nilai Mutlak
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 * **Definisi:** $|x| = \\sqrt{x^2} \\ge 0$
 * **Sifat Kurang Dari:** $|f(x)| < c \\iff -c < f(x) < c$
@@ -244,7 +244,7 @@ Tentukan himpunan penyelesaian dari pertidaksamaan $|2x - 5| < 7$!
     blok: "Fundamental Matematika Lanjut",
     judul: "Eksponen dan Logaritma",
     materi: `# Eksponen dan Logaritma
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ## A. Sifat-Sifat Operasi Eksponen
 Untuk $a, b > 0$ dan $m, n \\in \\mathbb{R}$:
@@ -275,7 +275,7 @@ Definisi: \${}^a\\log b = c \\iff a^c = b$ (Basis $a > 0, a \\ne 1$, Numerus $b 
 * \${}^a\\log f(x) = {}^a\\log g(x) \\implies f(x) = g(x)$ (dengan syarat numerus $f(x) > 0$ dan $g(x) > 0$).
 `,
     cs: `# Variasi Contoh Soal — Eksponen dan Logaritma
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ### Contoh Soal 1: Persamaan Logaritma
 Tentukan nilai $x$ yang memenuhi persamaan \${}^2\\log(x^2 - 3x) = 2$!
@@ -295,7 +295,7 @@ Tentukan nilai $x$ yang memenuhi persamaan \${}^2\\log(x^2 - 3x) = 2$!
 > **Jawaban:** Nilai $x$ yang memenuhi adalah $x = -1$ atau $x = 4$.
 `,
     rangkuman: `# Rangkuman Rumus Cepat — Eksponen & Logaritma
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 * **Perkalian Pangkat:** $a^m \\cdot a^n = a^{m+n}$
 * **Pembagian Pangkat:** $a^m / a^n = a^{m-n}$

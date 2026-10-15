@@ -1,5 +1,5 @@
 # Rangkuman Rumus Cepat — Nilai Mutlak
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 * **Definisi:** $|x| = \sqrt{x^2} \ge 0$
 * **Sifat Kurang Dari:** $|f(x)| < c \iff -c < f(x) < c$

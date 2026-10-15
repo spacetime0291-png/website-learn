@@ -1,5 +1,5 @@
 # Variasi Contoh Soal — Geometri Analitik Bidang
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ### Contoh Soal 1: Jarak Titik ke Garis Lurus
 Tentukan jarak tegak lurus dari titik $P(2, -3)$ ke garis lurus $3x - 4y + 7 = 0$!

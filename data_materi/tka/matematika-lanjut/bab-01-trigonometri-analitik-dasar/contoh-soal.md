@@ -1,5 +1,5 @@
 # Variasi Contoh Soal — Trigonometri Analitik Dasar
-**Kategori:** TKA Fundamental Matematika | **Pembungkus:** Fundamental Matematika Lanjut
+**Kategori:** TKA Matematika Lanjut | **Pembungkus:** Fundamental Matematika Lanjut
 
 ### Contoh Soal 1: Menghitung Nilai dengan Sudut Rangkap
 Diketahui $\cos\alpha = -\frac{4}{5}$ dengan $\alpha$ berada di kuadran II ($90^\circ < \alpha < 180^\circ$). Tentukan nilai dari $\sin 2\alpha$ dan $\cos 2\alpha$!

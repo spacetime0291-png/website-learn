@@ -1,16 +1,24 @@
-# Variasi Contoh Soal — Dinamika Rotasi
+# Variasi Contoh Soal — Dinamika Rotasi dan Kesetimbangan Benda Tegar
 **Kategori:** TKA Fisika | **Pembungkus:** Dinamika
 
 ### Contoh Soal 1: Balapan Menggelinding di Bidang Miring
-Sebuah silinder pejal ($k = 0{,}5$) dan sebuah bola pejal ($k = 0{,}4$) dilepaskan bersamaan dari puncak bidang miring yang sama. Benda manakah yang mencapai dasar terlebih dahulu dan memiliki kelajuan lebih besar?
+Sebuah silinder pejal ($k = 0{,}5$) dan bola pejal ($k = 0{,}4$) dilepaskan dari keadaan diam di puncak bidang miring setinggi $h$. Tentukan perbandingan kelajuan linier kedua benda saat tiba di dasar bidang!
 
 > [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Hubungan kelajuan menggelinding:
-> $$v = \sqrt{\frac{2gh}{1 + k}}$$
-> Nilai $k$ bola pejal ($0{,}4$) lebih kecil daripada $k$ silinder pejal ($0{,}5$).
+> **Langkah 1:** Formula kelajuan menggelinding murni:
+> $$\begin{aligned}
+> v &= \sqrt{\frac{2gh}{1 + k}}
+> \end{aligned}$$
 >
-> **Langkah 2:** Perbandingan:
-> * Bola pejal: $v = \sqrt{\frac{2gh}{1{,}4}} \approx \sqrt{1{,}43 gh}$
-> * Silinder pejal: $v = \sqrt{\frac{2gh}{1{,}5}} \approx \sqrt{1{,}33 gh}$
+> **Langkah 2:** Hitung perbandingan kelajuan bola pejal terhadap silinder pejal:
+> $$\begin{aligned}
+> \frac{v_{\text{bola}}}{v_{\text{silinder}}} &= \sqrt{\frac{1 + k_{\text{silinder}}}{1 + k_{\text{bola}}}} \\
+> &= \sqrt{\frac{1 + 0{,}5}{1 + 0{,}4}} \\
+> &= \sqrt{\frac{1{,}5}{1{,}4}} \\
+> &= \sqrt{\frac{15}{14}}
+> \end{aligned}$$
 >
-> **Jawaban:** Bola pejal memiliki percepatan dan kelajuan lebih besar, sehingga mencapai dasar terlebih dahulu.
+> **Langkah 3:** Analisis fisis:
+> Karena $k_{\text{bola}} < k_{\text{silinder}}$, bola pejal mengalami percepatan linier lebih besar sehingga mencapai dasar lebih cepat dengan kelajuan lebih tinggi.
+>
+> **Jawaban:** Perbandingan kelajuan adalah $\sqrt{15} : \sqrt{14}$ dengan bola pejal tiba terlebih dahulu.

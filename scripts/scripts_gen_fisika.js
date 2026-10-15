@@ -1,12 +1,11 @@
 // ============================================================================
-// GENERATOR MATERI LENGKAP TKA TERSPESIFIKASI (16 Fisika, 7 MTK Lanjut, 5 Fundamental)
-// 28 Bab x 3 Tipe Modul (Materi, Contoh Soal, Rangkuman) = 84 Modul
+// GENERATOR MATERI LENGKAP TKA TERSPESIFIKASI (16 Fisika)
 // Disusun dengan KaTeX murni, format rapi, tanpa bug escape.
+// Sempurna untuk tampilan mobile, formula penyelesaian vertikal ke bawah satu =.
 // ============================================================================
 
 const fs = require('fs');
 
-// Helper escape untuk KaTeX template string
 function createModule(id, kategoriUtama, subtes, blok, tipe, babIndex, babJudul, content) {
   return {
     id,
@@ -20,1086 +19,167 @@ function createModule(id, kategoriUtama, subtes, blok, tipe, babIndex, babJudul,
   };
 }
 
-// -----------------------------------------------------------------------------
-// I. FISIKA (TKA) - 16 BAB
-// -----------------------------------------------------------------------------
 const fisikaChapters = [
-  // Pembungkus 1: Kinematika
+  // Bab 1: Pengukuran dan Ketelitian Alat Ukur (Kinematika)
   {
     index: 1,
     blok: "Kinematika",
     judul: "Pengukuran dan Ketelitian Alat Ukur",
-    materi: `# Pengukuran dan Ketelitian Alat Ukur
-**Kategori:** TKA Fisika | **Pembungkus:** Kinematika
-
-## A. Prinsip Pengukuran dan Satuan
-Pengukuran merupakan proses membandingkan suatu besaran fisis objek dengan besaran standar satuan yang telah disepakati (Sistem Internasional/SI). Dalam eksperimen fisika presisi, penguasaan prinsip kerja alat ukur panjang dan massa sangat krusial.
-
----
-
-### 1. Jangka Sorong (Vernier Caliper)
-* **Fungsi Utama:** Mengukur diameter luar, diameter dalam tabung/lubang silinder, serta kedalaman tabung sempit.
-* **Komponen:** Rahang tetap (skala utama/SU dalam $\\text{cm}$ atau $\\text{mm}$) dan rahang geser (skala nonius/SN).
-* **Nilai Skala Terkecil (NST):**
-  $$\\text{NST} = \\frac{1\\text{ mm}}{n}$$
-  Untuk nonius 10 skala, $\\text{NST} = 0{,}1\\text{ mm} = 0{,}01\\text{ cm}$. Untuk nonius 20 skala, $\\text{NST} = 0{,}05\\text{ mm} = 0{,}005\\text{ cm}$.
-* **Formula Pembacaan:**
-  $$\\text{Hasil} = \\text{Skala Utama (SU)} + (\\text{Garis Nonius Berimpit} \\times \\text{NST})$$
-
-### 2. Mikrometer Sekrup (Micrometer Screw Gauge)
-* **Fungsi Utama:** Mengukur ketebalan pelat tipis, diameter kawat halus, atau kertas dengan presisi tinggi.
-* **Komponen:** Poros tetap (*anvil*), poros geser (*spindle*), silinder tetap berskala utama (*sleeve*), dan silinder putar berulir nonius (*thimble*).
-* **Nilai Skala Terkecil (NST):**
-  Satu putaran penuh memajukan poros geser sebesar $0{,}5\\text{ mm}$ yang terbagi atas 50 skala putar:
-  $$\\text{NST} = \\frac{0{,}5\\text{ mm}}{50} = 0{,}01\\text{ mm} = 0{,}001\\text{ cm}$$
-* **Formula Pembacaan:**
-  $$\\text{Hasil} = \\text{Skala Utama} + (\\text{Skala Nonius Putar} \\times 0{,}01\\text{ mm})$$
-
-### 3. Neraca Tiga Lengan (Ohaus Balance)
-* **Fungsi Utama:** Mengukur massa benda padat melalui prinsip kesetimbangan momen gaya tiga anting pemberat.
-* **Karakteristik Skala Lengan:**
-  * Lengan belakang: ratusan gram ($0 - 500\\text{ g}$, skala $100\\text{ g}$).
-  * Lengan tengah: puluhan gram ($0 - 100\\text{ g}$, skala $10\\text{ g}$).
-  * Lengan depan: satuan gram hingga desimal ($0 - 10\\text{ g}$, ketelitian $0{,}1\\text{ g}$ atau $0{,}05\\text{ g}$).
-* **Formula Pembacaan:**
-  $$\\text{Massa Total} = \\text{Skala Belakang} + \\text{Skala Tengah} + \\text{Skala Depan}$$
-
----
-
-## B. Aturan Angka Penting dan Pelaporan Pengukuran
-1. Semua angka bukan nol adalah Angka Penting (AP).
-2. Angka nol di antara angka bukan nol adalah AP (contoh: $4005$ memiliki 4 AP).
-3. Angka nol di sebelah kiri angka bukan nol pertama **bukan** AP (contoh: $0{,}0072$ memiliki 2 AP).
-4. Angka nol di belakang tanda desimal setelah angka bukan nol adalah AP (contoh: $5{,}300$ memiliki 4 AP).
-5. **Kaidah Operasi Hitung:**
-   * Penjumlahan/Pengurangan: Mengikuti jumlah desimal (angka taksiran) paling sedikit.
-   * Perkalian/Pembagian: Mengikuti jumlah angka penting paling sedikit dari faktor yang dioperasikan.
-6. **Pelaporan Hasil Pengukuran Tunggal:**
-   $$x = \\bar{x} \\pm \\Delta x, \\quad \\Delta x = \\frac{1}{2} \\times \\text{NST}$$
-`,
-    cs: `# Variasi Contoh Soal — Pengukuran dan Ketelitian Alat Ukur
-**Kategori:** TKA Fisika | **Pembungkus:** Kinematika
-
-### Contoh Soal 1: Pembacaan Jangka Sorong
-Pengukuran diameter kelereng dengan jangka sorong menunjukkan skala utama $2{,}4\\text{ cm}$ dan garis nonius ke-7 berimpit tepat dengan garis skala utama. Jika jangka sorong memiliki ketelitian $0{,}05\\text{ mm}$, berapakah diameter kelereng tersebut?
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Identifikasi data:
-> * Skala Utama (SU) $= 2{,}4\\text{ cm} = 24{,}0\\text{ mm}$
-> * Skala Nonius $(\\text{SN}) = 7$
-> * $\\text{NST} = 0{,}05\\text{ mm}$
->
-> **Langkah 2:** Hitung nilai nonius:
-> $$\\text{Nilai Nonius} = 7 \\times 0{,}05\\text{ mm} = 0{,}35\\text{ mm}$$
->
-> **Langkah 3:** Jumlahkan SU dan nilai nonius:
-> $$\\text{Hasil} = 24{,}0\\text{ mm} + 0{,}35\\text{ mm} = 24{,}35\\text{ mm} = 2{,}435\\text{ cm}$$
->
-> **Jawaban:** $24{,}35\\text{ mm}$ atau $2{,}435\\text{ cm}$.
-
----
-
-### Contoh Soal 2: Operasi Hitung Angka Penting
-Panjang dan lebar pelat seng berturut-turut diukur sebesar $15{,}35\\text{ cm}$ dan $2{,}4\\text{ cm}$. Berdasarkan aturan angka penting, luas pelat tersebut adalah...
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Hitung perkalian matematis murni:
-> $$\\text{Luas} = 15{,}35 \\times 2{,}4 = 36{,}84\\text{ cm}^2$$
->
-> **Langkah 2:** Analisis jumlah angka penting:
-> * $15{,}35$ memiliki 4 AP
-> * $2{,}4$ memiliki 2 AP
-> Hasil perkalian harus dibulatkan hingga memiliki 2 angka penting.
->
-> **Langkah 3:** Pembulatan ke 2 AP:
-> Angka $36{,}84$ dibulatkan menjadi $37\\text{ cm}^2$.
->
-> **Jawaban:** $37\\text{ cm}^2$.
-`,
-    rangkuman: `# Rangkuman Rumus Cepat — Pengukuran
-**Kategori:** TKA Fisika | **Pembungkus:** Kinematika
-
-| Alat Ukur | Skala Utama (SU) | Nilai Skala Terkecil (NST) | Formula Pembacaan |
-| :--- | :--- | :--- | :--- |
-| **Jangka Sorong** | $\\text{cm}$ / $\\text{mm}$ | $0{,}1\\text{ mm}$ / $0{,}05\\text{ mm}$ | $\\text{SU} + (\\text{garis nonius} \\times \\text{NST})$ |
-| **Mikrometer Sekrup** | $\\text{mm}$ (sleeve) | $0{,}01\\text{ mm}$ (thimble) | $\\text{SU} + (\\text{skala putar} \\times 0{,}01\\text{ mm})$ |
-| **Neraca Tiga Lengan** | Gram (g) | $0{,}1\\text{ g}$ | Lengan Belakang + Tengah + Depan |
-
-> [!TIP] Ringkasan Cepat Angka Penting:
-> * **Perkalian/Pembagian:** Ikuti jumlah AP tersedikit dari komponen.
-> * **Penjumlahan/Pengurangan:** Ikuti jumlah desimal (angka di belakang koma) tersedikit.
-> * **Ketidakpastian Tunggal:** $\\Delta x = \\frac{1}{2} \\times \\text{NST}$.
-`
+    materi: "# Pengukuran dan Ketelitian Alat Ukur\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n## A. Prinsip Pengukuran dan Satuan\nPengukuran merupakan proses membandingkan suatu besaran fisis objek dengan besaran standar satuan yang telah disepakati (Sistem Internasional/SI). Dalam eksperimen fisika presisi, penguasaan prinsip kerja alat ukur panjang dan massa sangat krusial.\n\n---\n\n### 1. Jangka Sorong (Vernier Caliper)\n* **Fungsi Utama:** Mengukur diameter luar, diameter dalam tabung/lubang silinder, serta kedalaman tabung sempit.\n* **Komponen:** Rahang tetap (skala utama/SU dalam $\\text{cm}$ atau $\\text{mm}$) dan rahang geser (skala nonius/SN).\n* **Nilai Skala Terkecil (NST):**\n  $$\\text{NST} = \\frac{1\\text{ mm}}{n}$$\n  Untuk nonius 10 skala, $\\text{NST} = 0{,}1\\text{ mm} = 0{,}01\\text{ cm}$. Untuk nonius 20 skala, $\\text{NST} = 0{,}05\\text{ mm} = 0{,}005\\text{ cm}$.\n* **Formula Pembacaan:**\n  $$\\text{Hasil} = \\text{Skala Utama (SU)} + (\\text{Garis Nonius Berimpit} \\times \\text{NST})$$\n\n### 2. Mikrometer Sekrup (Micrometer Screw Gauge)\n* **Fungsi Utama:** Mengukur ketebalan pelat tipis, diameter kawat halus, atau kertas dengan presisi tinggi.\n* **Komponen:** Poros tetap (*anvil*), poros geser (*spindle*), silinder tetap berskala utama (*sleeve*), dan silinder putar berulir nonius (*thimble*).\n* **Nilai Skala Terkecil (NST):**\n  Satu putaran penuh memajukan poros geser sebesar $0{,}5\\text{ mm}$ yang terbagi atas 50 skala putar:\n  $$\\text{NST} = \\frac{0{,}5\\text{ mm}}{50} = 0{,}01\\text{ mm} = 0{,}001\\text{ cm}$$\n* **Formula Pembacaan:**\n  $$\\text{Hasil} = \\text{Skala Utama} + (\\text{Skala Nonius Putar} \\times 0{,}01\\text{ mm})$$\n\n### 3. Neraca Tiga Lengan (Ohaus Balance)\n* **Fungsi Utama:** Mengukur massa benda padat melalui prinsip kesetimbangan momen gaya tiga anting pemberat.\n* **Karakteristik Skala Lengan:**\n  * Lengan belakang: ratusan gram ($0 - 500\\text{ g}$, skala $100\\text{ g}$).\n  * Lengan tengah: puluhan gram ($0 - 100\\text{ g}$, skala $10\\text{ g}$).\n  * Lengan depan: satuan gram hingga desimal ($0 - 10\\text{ g}$, ketelitian $0{,}1\\text{ g}$ atau $0{,}05\\text{ g}$).\n* **Formula Pembacaan:**\n  $$\\text{Massa Total} = \\text{Skala Belakang} + \\text{Skala Tengah} + \\text{Skala Depan}$$\n\n---\n\n## B. Aturan Angka Penting dan Pelaporan Pengukuran\n1. Semua angka bukan nol adalah Angka Penting (AP).\n2. Angka nol di antara angka bukan nol adalah AP (contoh: $4005$ memiliki 4 AP).\n3. Angka nol di sebelah kiri angka bukan nol pertama **bukan** AP (contoh: $0{,}0072$ memiliki 2 AP).\n4. Angka nol di belakang tanda desimal setelah angka bukan nol adalah AP (contoh: $5{,}300$ memiliki 4 AP).\n5. **Kaidah Operasi Hitung:**\n   * Penjumlahan/Pengurangan: Mengikuti jumlah desimal (angka taksiran) paling sedikit.\n   * Perkalian/Pembagian: Mengikuti jumlah angka penting paling sedikit dari faktor yang dioperasikan.\n6. **Pelaporan Hasil Pengukuran Tunggal:**\n   $$x = \\bar{x} \\pm \\Delta x, \\quad \\Delta x = \\frac{1}{2} \\times \\text{NST}$$\n",
+    cs: "# Variasi Contoh Soal — Pengukuran dan Ketelitian Alat Ukur\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n### Contoh Soal 1: Pembacaan Jangka Sorong\nPengukuran diameter kelereng dengan jangka sorong menunjukkan skala utama $2{,}4\\text{ cm}$ dan garis nonius ke-7 berimpit tepat dengan garis skala utama. Jika jangka sorong memiliki ketelitian $0{,}05\\text{ mm}$, berapakah diameter kelereng tersebut?\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Identifikasi data pengukuran:\n> * Skala Utama (SU) $= 2{,}4\\text{ cm} = 24{,}0\\text{ mm}$\n> * Garis Nonius $(\\text{SN}) = 7$\n> * Nilai Skala Terkecil $(\\text{NST}) = 0{,}05\\text{ mm}$\n>\n> **Langkah 2:** Hitung nilai skala nonius:\n> $$\\begin{aligned}\n> \\text{Nilai Nonius} &= \\text{SN} \\times \\text{NST} \\\\\n> &= 7 \\times 0{,}05\\text{ mm} \\\\\n> &= 0{,}35\\text{ mm}\n> \\end{aligned}$$\n>\n> **Langkah 3:** Hitung hasil pengukuran total:\n> $$\\begin{aligned}\n> \\text{Hasil} &= \\text{SU} + \\text{Nilai Nonius} \\\\\n> &= 24{,}0\\text{ mm} + 0{,}35\\text{ mm} \\\\\n> &= 24{,}35\\text{ mm} \\\\\n> &= 2{,}435\\text{ cm}\n> \\end{aligned}$$\n>\n> **Jawaban:** Diameter kelereng adalah $24{,}35\\text{ mm}$ atau $2{,}435\\text{ cm}$.\n\n---\n\n### Contoh Soal 2: Operasi Hitung Angka Penting\nPanjang dan lebar pelat seng berturut-turut diukur sebesar $15{,}35\\text{ cm}$ dan $2{,}4\\text{ cm}$. Berdasarkan aturan angka penting, luas pelat tersebut adalah...\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung perkalian matematis murni:\n> $$\\begin{aligned}\n> \\text{Luas} &= p \\times l \\\\\n> &= 15{,}35\\text{ cm} \\times 2{,}4\\text{ cm} \\\\\n> &= 36{,}84\\text{ cm}^2\n> \\end{aligned}$$\n>\n> **Langkah 2:** Analisis jumlah angka penting:\n> * Nilai $15{,}35$ memiliki 4 angka penting.\n> * Nilai $2{,}4$ memiliki 2 angka penting.\n> * Berdasarkan kaidah perkalian angka penting, hasil akhir harus dibulatkan mengikuti faktor dengan angka penting paling sedikit (2 AP).\n>\n> **Langkah 3:** Pembulatan ke 2 AP:\n> Angka $36{,}84$ dibulatkan menjadi $37\\text{ cm}^2$.\n>\n> **Jawaban:** Luas pelat seng adalah $37\\text{ cm}^2$.\n",
+    rangkuman: "# Rangkuman Rumus Cepat — Pengukuran dan Ketelitian Alat Ukur\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n### A. Tabel Komparasi Alat Ukur Panjang & Massa\n| Alat Ukur | Skala Utama (SU) | Nilai Skala Terkecil (NST) | Ketidakpastian ($\\Delta x$) | Formula Pembacaan |\n| :--- | :--- | :--- | :--- | :--- |\n| **Jangka Sorong** | $\\text{cm}$ / $\\text{mm}$ | $0{,}1\\text{ mm}$ / $0{,}05\\text{ mm}$ | $\\frac{1}{2} \\times \\text{NST}$ | $\\text{SU} + (\\text{Nonius} \\times \\text{NST})$ |\n| **Mikrometer Sekrup** | $\\text{mm}$ (sleeve) | $0{,}01\\text{ mm}$ (thimble) | $0{,}005\\text{ mm}$ | $\\text{SU} + (\\text{Putar} \\times 0{,}01\\text{ mm})$ |\n| **Neraca Ohaus** | Gram (g) | $0{,}1\\text{ g}$ atau $0{,}05\\text{ g}$ | $0{,}05\\text{ g}$ | Lengan Belakang + Tengah + Depan |\n\n### B. Tabel Aturan Angka Penting & Operasi Hitung\n| Aturan / Operasi | Ketentuan Pembulatan | Contoh Operasi |\n| :--- | :--- | :--- |\n| **Perkalian / Pembagian** | Ikuti jumlah angka penting (AP) paling sedikit | $12{,}5\\text{ (3 AP)} \\times 2{,}0\\text{ (2 AP)} = 25\\text{ (2 AP)}$ |\n| **Penjumlahan / Pengurangan** | Ikuti desimal (angka taksiran) paling sedikit | $15{,}35\\text{ (2 des)} + 2{,}4\\text{ (1 des)} = 17{,}8\\text{ (1 des)}$ |\n| **Pelaporan Hasil Ukur** | Format: $x = \\bar{x} \\pm \\Delta x$ | $x = (24{,}35 \\pm 0{,}025)\\text{ mm}$ |\n\n> [!TIP] Shortcut Ujian:\n> Satuan SU dan NST wajib disamakan terlebih dahulu (misal sama-sama dalam $\\text{mm}$) sebelum dilakukan penjumlahan!\n"
   },
 
+  // Bab 2: Gerak Lurus (GLB dan GLBB) (Kinematika)
   {
     index: 2,
     blok: "Kinematika",
     judul: "Gerak Lurus (GLB dan GLBB)",
-    materi: `# Gerak Lurus (GLB dan GLBB)
-**Kategori:** TKA Fisika | **Pembungkus:** Kinematika
-
-## A. Besaran Kinematika Gerak Lurus
-1. **Posisi & Perpindahan:** Perpindahan ($\\Delta \\vec{x} = \\vec{x}_2 - \\vec{x}_1$) adalah besaran vektor yang merepresentasikan perubahan kedudukan, sedangkan jarak ($s$) adalah panjang total lintasan fisik riil (skalar).
-2. **Kelajuan vs Kecepatan:**
-   * Kelajuan rata-rata (skalar): $v = \\frac{s_{\\text{total}}}{\\Delta t}$
-   * Kecepatan rata-rata (vektor): $\\vec{v} = \\frac{\\Delta \\vec{x}}{\\Delta t}$
-   * Kecepatan sesaat: $\\vec{v}(t) = \\frac{d\\vec{x}}{dt}$
-3. **Percepatan:** Perubahan kecepatan tiap satuan waktu: $\\vec{a}(t) = \\frac{d\\vec{v}}{dt} = \\frac{d^2\\vec{x}}{dt^2}$.
-
----
-
-## B. Gerak Lurus Beraturan (GLB)
-Benda bergerak lurus dengan **kecepatan konstan** (percepatan $a = 0$):
-$$x(t) = x_0 + v \\cdot t$$
-* **Grafik $v-t$:** Garis horizontal mendatar. Luas daerah di bawah kurva $v-t$ sama dengan jarak perpindahan.
-* **Grafik $x-t$:** Garis lurus linier dengan gradien kemiringan $\\tan\\alpha = v$.
-
----
-
-## C. Gerak Lurus Berubah Beraturan (GLBB)
-Benda bergerak lurus dengan **percepatan tetap** ($a = \\text{konstan}$):
-$$v_t = v_0 + a t$$
-$$s = v_0 t + \\frac{1}{2} a t^2$$
-$$v_t^2 = v_0^2 + 2 a s$$
-* Jika percepatan searah kecepatan ($a > 0$), gerak dipercepat beraturan.
-* Jika percepatan berlawanan arah kecepatan ($a < 0$), gerak diperlambat hingga berhenti ($v_t = 0$).
-
-### Kasus Khusus Gerak Vertikal (Pengaruh Gravitasi $g$):
-1. **Gerak Jatuh Bebas (GJB):** $v_0 = 0, a = +g$
-   $$v_t = gt, \\quad h = \\frac{1}{2}gt^2, \\quad v_t = \\sqrt{2gh}$$
-2. **Gerak Vertikal ke Atas (GVA):** $a = -g$
-   $$h_{\\max} = \\frac{v_0^2}{2g}, \\quad t_{\\text{puncak}} = \\frac{v_0}{g}, \\quad t_{\\text{total}} = \\frac{2v_0}{g}$$
-`,
-    cs: `# Variasi Contoh Soal — Gerak Lurus (GLB dan GLBB)
-**Kategori:** TKA Fisika | **Pembungkus:** Kinematika
-
-### Contoh Soal 1: Pengejaran Dua Mobil (GLB & GLBB)
-Mobil A bergerak dengan kecepatan tetap $20\\text{ m/s}$. Dari titik yang sama, mobil B mulai bergerak dari keadaan diam dengan percepatan tetap $4\\text{ m/s}^2$ ke arah yang sama. Kapan dan pada jarak berapa mobil B menyusul mobil A?
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Persamaan posisi kedua mobil:
-> * Mobil A (GLB): $x_A = v_A \\cdot t = 20t$
-> * Mobil B (GLBB): $x_B = v_{0B}t + \\frac{1}{2}a_B t^2 = 0 + \\frac{1}{2}(4)t^2 = 2t^2$
->
-> **Langkah 2:** Kondisi menyusul ($x_A = x_B$):
-> $$20t = 2t^2 \\implies 2t^2 - 20t = 0 \\implies 2t(t - 10) = 0$$
-> Diperoleh $t = 10\\text{ detik}$ (saat $t=0$ posisi awal bersamaan).
->
-> **Langkah 3:** Hitung jarak tempuh saat menyusul:
-> $$x = 20 \\times 10 = 200\\text{ meter}$$
->
-> **Jawaban:** Mobil B menyusul setelah $10\\text{ detik}$ pada jarak $200\\text{ meter}$.
-
----
-
-### Contoh Soal 2: Gerak Vertikal ke Atas
-Sebuah bola dilempar vertikal ke atas dengan kelajuan awal $30\\text{ m/s}$. Jika $g = 10\\text{ m/s}^2$, tentukan tinggi maksimum dan kelajuan bola saat berada di ketinggian $25\\text{ meter}$ di atas tanah!
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Hitung tinggi maksimum:
-> $$h_{\\max} = \\frac{v_0^2}{2g} = \\frac{30^2}{2(10)} = \\frac{900}{20} = 45\\text{ meter}$$
->
-> **Langkah 2:** Hitung kelajuan pada ketinggian $h = 25\\text{ m}$:
-> $$v_t^2 = v_0^2 - 2gh = 30^2 - 2(10)(25) = 900 - 500 = 400$$
-> $$v_t = \\sqrt{400} = 20\\text{ m/s}$$
->
-> **Jawaban:** Tinggi maksimum $45\\text{ meter}$ dan kelajuan pada $25\\text{ m}$ adalah $20\\text{ m/s}$.
-`,
-    rangkuman: `# Rangkuman Rumus Cepat — Gerak Lurus
-**Kategori:** TKA Fisika | **Pembungkus:** Kinematika
-
-| Jenis Gerak | Syarat / Ciri | Rumus Utama |
-| :--- | :--- | :--- |
-| **GLB** | $a = 0, v = \\text{tetap}$ | $s = v \\cdot t$ |
-| **GLBB** | $a = \\text{konstan}$ | $v_t = v_0 + at$ <br> $s = v_0 t + \\frac{1}{2}at^2$ <br> $v_t^2 = v_0^2 + 2as$ |
-| **Jatuh Bebas** | $v_0 = 0, a = g$ | $v = \\sqrt{2gh}, \\quad t = \\sqrt{\\frac{2h}{g}}$ |
-| **Vertikal ke Atas** | $a = -g, v_{\\text{puncak}} = 0$ | $h_{\\max} = \\frac{v_0^2}{2g}, \\quad t_{\\text{naik}} = \\frac{v_0}{g}$ |
-
-> [!TIP] Trik Cepat Grafik:
-> * Luas di bawah kurva grafik $v-t$ = Perpindahan / Jarak Tempuh ($s$).
-> * Kemiringan kurva grafik $v-t$ (gradien) = Percepatan ($a = \\Delta v / \\Delta t$).
-`
+    materi: "# Gerak Lurus (GLB dan GLBB)\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n## A. Besaran Kinematika Gerak Lurus\n1. **Posisi & Perpindahan:** Perpindahan ($\\Delta \\vec{x} = \\vec{x}_2 - \\vec{x}_1$) adalah besaran vektor yang merepresentasikan perubahan kedudukan, sedangkan jarak ($s$) adalah panjang total lintasan fisik riil (skalar).\n2. **Kelajuan vs Kecepatan:**\n   * Kelajuan rata-rata (skalar): $v = \\frac{s_{\\text{total}}}{\\Delta t}$\n   * Kecepatan rata-rata (vektor): $\\vec{v} = \\frac{\\Delta \\vec{x}}{\\Delta t}$\n   * Kecepatan sesaat: $\\vec{v}(t) = \\frac{d\\vec{x}}{dt}$\n3. **Percepatan:** Perubahan kecepatan tiap satuan waktu: $\\vec{a}(t) = \\frac{d\\vec{v}}{dt} = \\frac{d^2\\vec{x}}{dt^2}$.\n\n---\n\n## B. Gerak Lurus Beraturan (GLB)\nBenda bergerak lurus dengan **kecepatan konstan** (percepatan $a = 0$):\n$$x(t) = x_0 + v \\cdot t$$\n* **Grafik $v-t$:** Garis horizontal mendatar. Luas daerah di bawah kurva $v-t$ sama dengan jarak perpindahan.\n* **Grafik $x-t$:** Garis lurus linier dengan gradien kemiringan $\\tan\\alpha = v$.\n\n---\n\n## C. Gerak Lurus Berubah Beraturan (GLBB)\nBenda bergerak lurus dengan **percepatan tetap** ($a = \\text{konstan}$):\n$$v_t = v_0 + a t$$\n$$s = v_0 t + \\frac{1}{2} a t^2$$\n$$v_t^2 = v_0^2 + 2 a s$$\n* Jika percepatan searah kecepatan ($a > 0$), gerak dipercepat beraturan.\n* Jika percepatan berlawanan arah kecepatan ($a < 0$), gerak diperlambat hingga berhenti ($v_t = 0$).\n\n### Kasus Khusus Gerak Vertikal (Pengaruh Gravitasi $g$):\n1. **Gerak Jatuh Bebas (GJB):** $v_0 = 0, a = +g$\n   $$v_t = gt, \\quad h = \\frac{1}{2}gt^2, \\quad v_t = \\sqrt{2gh}$$\n2. **Gerak Vertikal ke Atas (GVA):** $a = -g$\n   $$h_{\\max} = \\frac{v_0^2}{2g}, \\quad t_{\\text{puncak}} = \\frac{v_0}{g}, \\quad t_{\\text{total}} = \\frac{2v_0}{g}$$\n",
+    cs: "# Variasi Contoh Soal — Gerak Lurus (GLB dan GLBB)\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n### Contoh Soal 1: Pengejaran Dua Mobil (GLB & GLBB)\nMobil A bergerak dengan kecepatan tetap $20\\text{ m/s}$. Dari titik dan arah yang sama, mobil B mulai bergerak dari keadaan diam dengan percepatan tetap $4\\text{ m/s}^2$. Kapan dan pada jarak berapa mobil B menyusul mobil A?\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Tuliskan fungsi posisi masing-masing mobil:\n> * Posisi mobil A (GLB): $x_A = v_A \\cdot t = 20t$\n> * Posisi mobil B (GLBB):\n> $$\\begin{aligned}\n> x_B &= v_{0B}t + \\frac{1}{2}a_B t^2 \\\\\n> &= 0 + \\frac{1}{2}(4)t^2 \\\\\n> &= 2t^2\n> \\end{aligned}$$\n>\n> **Langkah 2:** Tentukan saat mobil B menyusul mobil A ($x_B = x_A$):\n> $$\\begin{aligned}\n> 2t^2 &= 20t \\\\\n> 2t^2 - 20t &= 0 \\\\\n> 2t(t - 10) &= 0 \\\\\n> t &= 10\\text{ detik}\n> \\end{aligned}$$\n>\n> **Langkah 3:** Hitung jarak tempuh saat menyusul:\n> $$\\begin{aligned}\n> x &= 20 \\times 10 \\\\\n> &= 200\\text{ meter}\n> \\end{aligned}$$\n>\n> **Jawaban:** Mobil B menyusul setelah $10\\text{ detik}$ pada jarak tempuh $200\\text{ meter}$.\n\n---\n\n### Contoh Soal 2: Gerak Vertikal ke Atas\nSebuah bola dilempar vertikal ke atas dengan kelajuan awal $30\\text{ m/s}$. Jika $g = 10\\text{ m/s}^2$, tentukan tinggi maksimum dan kelajuan bola saat berada di ketinggian $25\\text{ meter}$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung ketinggian maksimum ($v_{\\text{puncak}} = 0$):\n> $$\\begin{aligned}\n> h_{\\max} &= \\frac{v_0^2}{2g} \\\\\n> &= \\frac{30^2}{2(10)} \\\\\n> &= \\frac{900}{20} \\\\\n> &= 45\\text{ meter}\n> \\end{aligned}$$\n>\n> **Langkah 2:** Hitung kelajuan saat $h = 25\\text{ m}$:\n> $$\\begin{aligned}\n> v_t^2 &= v_0^2 - 2gh \\\\\n> &= 30^2 - 2(10)(25) \\\\\n> &= 900 - 500 \\\\\n> &= 400\n> \\end{aligned}$$\n> $$\\begin{aligned}\n> v_t &= \\sqrt{400} \\\\\n> &= 20\\text{ m/s}\n> \\end{aligned}$$\n>\n> **Jawaban:** Tinggi maksimum $45\\text{ m}$ dan kelajuan pada $25\\text{ m}$ adalah $20\\text{ m/s}$.\n",
+    rangkuman: "# Rangkuman Rumus Cepat — Gerak Lurus (GLB dan GLBB)\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n### A. Tabel Matriks Formula Gerak Lurus\n| Jenis Gerak | Syarat Percepatan | Kecepatan Sesaat ($v_t$) | Jarak / Ketinggian ($s$ atau $h$) |\n| :--- | :--- | :--- | :--- |\n| **GLB** | $a = 0$ | $v = \\text{konstan}$ | $s = v \\cdot t$ |\n| **GLBB** | $a = \\text{konstan}$ | $v_t = v_0 + at$ | $s = v_0 t + \\frac{1}{2}at^2$, $v_t^2 = v_0^2 + 2as$ |\n| **Jatuh Bebas (GJB)** | $v_0 = 0, a = +g$ | $v_t = gt = \\sqrt{2gh}$ | $h = \\frac{1}{2}gt^2 \\implies t = \\sqrt{\\frac{2h}{g}}$ |\n| **Vertikal ke Atas (GVA)** | $a = -g, v_{\\text{puncak}} = 0$ | $v_t = v_0 - gt$ | $h_{\\max} = \\frac{v_0^2}{2g}, \\quad t_{\\text{naik}} = \\frac{v_0}{g}$ |\n| **Vertikal ke Bawah (GVB)** | $v_0 \\ne 0, a = +g$ | $v_t = v_0 + gt$ | $h = v_0 t + \\frac{1}{2}gt^2, \\quad v_t^2 = v_0^2 + 2gh$ |\n\n### B. Tabel Analisis Grafik Kinematika\n| Bentuk Kurva | Kemiringan / Gradien ($m$) | Luas Area di Bawah Kurva |\n| :--- | :--- | :--- |\n| **Grafik $s-t$** | Kecepatan sesaat ($v = \\Delta s / \\Delta t$) | Tidak memiliki interpretasi fisis |\n| **Grafik $v-t$** | Percepatan sesaat ($a = \\Delta v / \\Delta t$) | Jarak tempuh / perpindahan ($s$) |\n| **Grafik $a-t$** | Sentakan (*jerk*) | Perubahan kecepatan ($\\Delta v$) |\n\n> [!TIP] Trik Cepat Grafik $v-t$:\n> Jarak tempuh selalu sama dengan luas bidang antara garis grafik kecepatan dan sumbu waktu $t$.\n"
   },
 
+  // Bab 3: Gerak Lengkung (Parabola dan Melingkar) (Kinematika)
   {
     index: 3,
     blok: "Kinematika",
     judul: "Gerak Lengkung (Parabola dan Melingkar)",
-    materi: `# Gerak Lengkung (Parabola dan Melingkar)
-**Kategori:** TKA Fisika | **Pembungkus:** Kinematika
-
-## A. Gerak Parabola (Proyektil)
-Gerak parabola merupakan perpaduan dua gerak independen:
-1. **Sumbu Horizontal ($x$):** Gerak Lurus Beraturan (GLB) tanpa hambatan udara ($a_x = 0$):
-   $$v_x = v_0 \\cos\\theta$$
-   $$x(t) = (v_0 \\cos\\theta) t$$
-2. **Sumbu Vertikal ($y$):** Gerak Lurus Berubah Beraturan (GLBB) dipengaruhi gravitasi bumi ($a_y = -g$):
-   $$v_y(t) = v_0 \\sin\\theta - gt$$
-   $$y(t) = (v_0 \\sin\\theta) t - \\frac{1}{2}gt^2$$
-3. **Kecepatan Total pada Saat $t$:**
-   $$v(t) = \\sqrt{v_x^2 + v_y^2(t)}, \\quad \\tan\\alpha = \\frac{v_y}{v_x}$$
-4. **Karakteristik Titik Puncak ($v_y = 0$):**
-   $$t_{\\text{puncak}} = \\frac{v_0 \\sin\\theta}{g}, \\quad h_{\\max} = \\frac{v_0^2 \\sin^2\\theta}{2g}$$
-5. **Titik Terjauh di Bidang Datar ($y = 0$):**
-   $$t_{\\text{total}} = \\frac{2 v_0 \\sin\\theta}{g}, \\quad X_{\\max} = \\frac{v_0^2 \\sin 2\\theta}{g}$$
-   > Sudut elevasi $\\theta = 45^\\circ$ menghasilkan jangkauan terjauh maksimum karena $\\sin 2(45^\\circ) = 1$.
-
----
-
-## B. Gerak Melingkar Beraturan (GMB)
-Gerak benda menempuh lintasan lingkaran dengan kelajuan linier dan kelajuan sudut konstan.
-1. **Periode ($T$) dan Frekuensi ($f$):**
-   $$T = \\frac{t}{n}, \\quad f = \\frac{1}{T}, \\quad \\omega = 2\\pi f = \\frac{2\\pi}{T}$$
-2. **Hubungan Besaran Sudut dan Linier:**
-   $$s = \\theta \\cdot R, \\quad v = \\omega \\cdot R, \\quad a_t = \\alpha \\cdot R$$
-3. **Percepatan Sentripetal ($a_s$):**
-   Percepatan yang selalu mengarah tegak lurus ke pusat lingkaran untuk mengubah arah gerak:
-   $$a_s = \\frac{v^2}{R} = \\omega^2 R$$
-4. **Hubungan Roda-Roda:**
-   * **Seporos / Seakar:** $\\omega_A = \\omega_B \\implies \\frac{v_A}{R_A} = \\frac{v_B}{R_B}$
-   * **Bersinggungan / Dihubungkan Rantai:** $v_A = v_B \\implies \\omega_A R_A = \\omega_B R_B$
-`,
-    cs: `# Variasi Contoh Soal — Gerak Lengkung
-**Kategori:** TKA Fisika | **Pembungkus:** Kinematika
-
-### Contoh Soal 1: Gerak Parabola
-Peluru ditembakkan dari tanah dengan kelajuan awal $40\\text{ m/s}$ pada sudut elevasi $30^\\circ$. Tentukan titik tertinggi peluru dan jarak horizontal terjauhnya ($g = 10\\text{ m/s}^2$)!
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Identifikasi komponen kecepatan awal:
-> * $v_{0x} = v_0 \\cos 30^\\circ = 40 \\times \\frac{1}{2}\\sqrt{3} = 20\\sqrt{3}\\text{ m/s}$
-> * $v_{0y} = v_0 \\sin 30^\\circ = 40 \\times \\frac{1}{2} = 20\\text{ m/s}$
->
-> **Langkah 2:** Hitung titik tertinggi:
-> $$h_{\\max} = \\frac{v_{0y}^2}{2g} = \\frac{20^2}{2(10)} = \\frac{400}{20} = 20\\text{ meter}$$
->
-> **Langkah 3:** Hitung jarak terjauh:
-> $$X_{\\max} = \\frac{v_0^2 \\sin(2 \\times 30^\\circ)}{g} = \\frac{1600 \\sin 60^\\circ}{10} = 160 \\times \\frac{1}{2}\\sqrt{3} = 80\\sqrt{3}\\text{ meter}$$
->
-> **Jawaban:** Tinggi maksimum $= 20\\text{ m}$ dan jarak terjauh $= 80\\sqrt{3}\\text{ m}$.
-`,
-    rangkuman: `# Rangkuman Rumus Cepat — Gerak Lengkung
-**Kategori:** TKA Fisika | **Pembungkus:** Kinematika
-
-| Besaran Parabola | Formula Cepat |
-| :--- | :--- |
-| **Waktu Puncak** | $t_{\\text{puncak}} = \\frac{v_0 \\sin\\theta}{g}$ |
-| **Tinggi Maksimum** | $h_{\\max} = \\frac{v_0^2 \\sin^2\\theta}{2g}$ |
-| **Jarak Terjauh** | $X_{\\max} = \\frac{v_0^2 \\sin 2\\theta}{g}$ |
-| **Percepatan Sentripetal** | $a_s = \\frac{v^2}{R} = \\omega^2 R$ |
-| **Hubungan Rantai / Singgung** | $v_A = v_B \\implies \\omega_A R_A = \\omega_B R_B$ |
-| **Hubungan Seporos** | $\\omega_A = \\omega_B \\implies \\frac{v_A}{R_A} = \\frac{v_B}{R_B}$ |
-`
+    materi: "# Gerak Lengkung (Parabola dan Melingkar)\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n## A. Gerak Parabola (Proyektil)\nGerak parabola merupakan perpaduan dua gerak independen:\n1. **Sumbu Horizontal ($x$):** Gerak Lurus Beraturan (GLB) tanpa hambatan udara ($a_x = 0$):\n   $$v_x = v_0 \\cos\\theta$$\n   $$x(t) = (v_0 \\cos\\theta) t$$\n2. **Sumbu Vertikal ($y$):** Gerak Lurus Berubah Beraturan (GLBB) dipengaruhi gravitasi bumi ($a_y = -g$):\n   $$v_y(t) = v_0 \\sin\\theta - gt$$\n   $$y(t) = (v_0 \\sin\\theta) t - \\frac{1}{2}gt^2$$\n3. **Kecepatan Total pada Saat $t$:**\n   $$v(t) = \\sqrt{v_x^2 + v_y^2(t)}, \\quad \\tan\\alpha = \\frac{v_y}{v_x}$$\n4. **Karakteristik Titik Puncak ($v_y = 0$):**\n   $$t_{\\text{puncak}} = \\frac{v_0 \\sin\\theta}{g}, \\quad h_{\\max} = \\frac{v_0^2 \\sin^2\\theta}{2g}$$\n5. **Titik Terjauh di Bidang Datar ($y = 0$):**\n   $$t_{\\text{total}} = \\frac{2 v_0 \\sin\\theta}{g}, \\quad X_{\\max} = \\frac{v_0^2 \\sin 2\\theta}{g}$$\n   > Sudut elevasi $\\theta = 45^\\circ$ menghasilkan jangkauan terjauh maksimum karena $\\sin 2(45^\\circ) = 1$.\n\n---\n\n## B. Gerak Melingkar Beraturan (GMB)\nGerak benda menempuh lintasan lingkaran dengan kelajuan linier dan kelajuan sudut konstan.\n1. **Periode ($T$) dan Frekuensi ($f$):**\n   $$T = \\frac{t}{n}, \\quad f = \\frac{1}{T}, \\quad \\omega = 2\\pi f = \\frac{2\\pi}{T}$$\n2. **Hubungan Besaran Sudut dan Linier:**\n   $$s = \\theta \\cdot R, \\quad v = \\omega \\cdot R, \\quad a_t = \\alpha \\cdot R$$\n3. **Percepatan Sentripetal ($a_s$):**\n   Percepatan yang selalu mengarah tegak lurus ke pusat lingkaran untuk mengubah arah gerak:\n   $$a_s = \\frac{v^2}{R} = \\omega^2 R$$\n4. **Hubungan Roda-Roda:**\n   * **Seporos / Seakar:** $\\omega_A = \\omega_B \\implies \\frac{v_A}{R_A} = \\frac{v_B}{R_B}$\n   * **Bersinggungan / Dihubungkan Rantai:** $v_A = v_B \\implies \\omega_A R_A = \\omega_B R_B$\n",
+    cs: "# Variasi Contoh Soal — Gerak Lengkung (Parabola dan Melingkar)\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n### Contoh Soal 1: Gerak Parabola\nPeluru ditembakkan dari tanah dengan kelajuan awal $40\\text{ m/s}$ pada sudut elevasi $30^\\circ$. Tentukan titik tertinggi dan jarak horizontal terjauh peluru ($g = 10\\text{ m/s}^2$)!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Uraikan komponen kecepatan awal:\n> $$\\begin{aligned}\n> v_{0x} &= v_0 \\cos 30^\\circ \\\\\n> &= 40 \\times \\frac{1}{2}\\sqrt{3} \\\\\n> &= 20\\sqrt{3}\\text{ m/s}\n> \\end{aligned}$$\n> $$\\begin{aligned}\n> v_{0y} &= v_0 \\sin 30^\\circ \\\\\n> &= 40 \\times \\frac{1}{2} \\\\\n> &= 20\\text{ m/s}\n> \\end{aligned}$$\n>\n> **Langkah 2:** Hitung tinggi maksimum peluru:\n> $$\\begin{aligned}\n> h_{\\max} &= \\frac{v_{0y}^2}{2g} \\\\\n> &= \\frac{20^2}{2(10)} \\\\\n> &= \\frac{400}{20} \\\\\n> &= 20\\text{ meter}\n> \\end{aligned}$$\n>\n> **Langkah 3:** Hitung jarak jangkauan terjauh:\n> $$\\begin{aligned}\n> X_{\\max} &= \\frac{v_0^2 \\sin(2 \\times 30^\\circ)}{g} \\\\\n> &= \\frac{1600 \\sin 60^\\circ}{10} \\\\\n> &= 160 \\times \\frac{1}{2}\\sqrt{3} \\\\\n> &= 80\\sqrt{3}\\text{ meter}\n> \\end{aligned}$$\n>\n> **Jawaban:** Titik tertinggi adalah $20\\text{ m}$ dan jarak terjauh adalah $80\\sqrt{3}\\text{ m}$.\n",
+    rangkuman: "# Rangkuman Rumus Cepat — Gerak Lengkung (Parabola dan Melingkar)\n**Kategori:** TKA Fisika | **Pembungkus:** Kinematika\n\n### A. Tabel Analisis Komponen Gerak Parabola\n| Parameter Gerak | Sumbu X (Horisontal - GLB) | Sumbu Y (Vertikal - GLBB) |\n| :--- | :--- | :--- |\n| **Kecepatan Awal** | $v_{0x} = v_0 \\cos\\theta$ | $v_{0y} = v_0 \\sin\\theta$ |\n| **Kecepatan Sesaat ($t$)** | $v_x = v_0 \\cos\\theta$ (konstan) | $v_y = v_0 \\sin\\theta - gt$ |\n| **Posisi Sesaat ($t$)** | $x = (v_0 \\cos\\theta) \\cdot t$ | $y = (v_0 \\sin\\theta)t - \\frac{1}{2}gt^2$ |\n| **Puncak Tertinggi** | $t_{\\text{puncak}} = \\frac{v_0 \\sin\\theta}{g}$ | $h_{\\max} = \\frac{v_0^2 \\sin^2\\theta}{2g}$ |\n| **Jarak Terjauh** | $t_{\\text{total}} = \\frac{2v_0 \\sin\\theta}{g}$ | $X_{\\max} = \\frac{v_0^2 \\sin 2\\theta}{g}$ |\n\n### B. Tabel Komparasi Gerak Melingkar (GMB vs GMBB)\n| Besaran Sudut | Hubungan Linier | GMB ($\\alpha = 0$) | GMBB ($\\alpha = \\text{konstan}$) |\n| :--- | :--- | :--- | :--- |\n| **Posisi Sudut ($\\theta$)** | $s = \\theta R$ | $\\theta = \\omega t$ | $\\theta = \\omega_0 t + \\frac{1}{2}\\alpha t^2$ |\n| **Kecepatan Sudut ($\\omega$)** | $v = \\omega R$ | $\\omega = \\frac{2\\pi}{T} = 2\\pi f$ | $\\omega_t = \\omega_0 + \\alpha t$ |\n| **Percepatan Sentripetal ($a_s$)** | $a_s = \\frac{v^2}{R} = \\omega^2 R$ | Arah radial ke pusat | Percepatan total: $a = \\sqrt{a_s^2 + a_t^2}$ |\n\n> [!TIP] Nilai Maksimum Parabola:\n> Jarak tembak $X_{\\max}$ bernilai paling besar saat sudut elevasi $\\theta = 45^\\circ$ (karena $\\sin 90^\\circ = 1$).\n"
   },
 
-  // Pembungkus 2: Dinamika
+  // Bab 4: Hubungan Gaya dan Gerak (Hukum Newton) (Dinamika)
   {
     index: 4,
     blok: "Dinamika",
     judul: "Hubungan Gaya dan Gerak (Hukum Newton)",
-    materi: `# Hubungan Gaya dan Gerak (Hukum Newton)
-**Kategori:** TKA Fisika | **Pembungkus:** Dinamika
-
-## A. Tiga Hukum Newton tentang Gerak
-1. **Hukum I Newton (Kelembaman/Inersia):**
-   Setiap benda mempertahankan keadaan diam atau bergerak lurus beraturan jika tidak ada gaya luar total yang mempengaruhinya:
-   $$\\Sigma \\vec{F} = 0$$
-2. **Hukum II Newton:**
-   Percepatan yang dihasilkan resultan gaya berbanding lurus dengan gaya dan berbanding terbalik dengan massa benda:
-   $$\\Sigma \\vec{F} = m \\vec{a}$$
-3. **Hukum III Newton (Aksi-Reaksi):**
-   Gaya aksi dan reaksi selalu sama besar, berlawanan arah, bekerja pada **dua benda yang berbeda**, dan segaris kerja:
-   $$\\vec{F}_{\\text{aksi}} = -\\vec{F}_{\\text{reaksi}}$$
-
----
-
-## B. Diagram Gaya Bebas (Free Body Diagram)
-1. **Gaya Berat ($w$):** Gaya gravitasi yang bekerja pada massa benda, selalu berarah tegak lurus ke pusat bumi:
-   $$w = m \\cdot g$$
-2. **Gaya Normal ($N$):** Gaya kontak tegak lurus dari permukaan bidang sentuh:
-   * Pada bidang datar horizontal: $N = w = mg$
-   * Pada bidang miring bersudut $\\theta$: $N = mg \\cos\\theta$
-   * Di dalam lift bergerak ke atas dipercepat $a$: $N = m(g + a)$ (berat semu terasa lebih berat)
-   * Di dalam lift bergerak ke bawah dipercepat $a$: $N = m(g - a)$
-3. **Gaya Gesek ($f$):**
-   * Gaya gesek statis: $f_s \\le \\mu_s N$ (menahan benda tetap diam). Benda tepat akan bergerak saat $f_{s,\\max} = \\mu_s N$.
-   * Gaya gesek kinetis: $f_k = \\mu_k N$ (bekerja saat benda sedang bergerak meluncur, $\\mu_k < \\mu_s$).
-4. **Gerak pada Bidang Miring:**
-   Komponen gaya berat sejajar bidang: $w_x = mg \\sin\\theta$.
-   Komponen gaya berat tegak lurus bidang: $w_y = mg \\cos\\theta$.
-   Jika licin: $a = g \\sin\\theta$.
-   Jika kasar: $a = g(\\sin\\theta - \\mu_k \\cos\\theta)$.
-`,
-    cs: `# Variasi Contoh Soal — Hubungan Gaya dan Gerak
-**Kategori:** TKA Fisika | **Pembungkus:** Dinamika
-
-### Contoh Soal 1: Benda di Bidang Miring Kasar
-Balok bermassa $4\\text{ kg}$ diletakkan pada bidang miring dengan sudut $\\theta = 37^\\circ$ ($\to \\sin 37^\\circ = 0{,}6, \\cos 37^\\circ = 0{,}8$). Koefisien gesek kinetis bidang $\\mu_k = 0{,}25$ dan $g = 10\\text{ m/s}^2$. Tentukan percepatan balok meluncur turun!
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Uraikan gaya-gaya yang bekerja:
-> * Gaya pendorong ke bawah: $w_x = mg \\sin 37^\\circ = 4(10)(0{,}6) = 24\\text{ N}$
-> * Gaya normal: $N = mg \\cos 37^\\circ = 4(10)(0{,}8) = 32\\text{ N}$
-> * Gaya gesek kinetis: $f_k = \\mu_k N = 0{,}25 \\times 32 = 8\\text{ N}$
->
-> **Langkah 2:** Terapkan Hukum II Newton pada sumbu bidang:
-> $$\\Sigma F = m a \\implies w_x - f_k = m a$$
-> $$24 - 8 = 4a \\implies 16 = 4a \\implies a = 4\\text{ m/s}^2$$
->
-> **Jawaban:** Percepatan balok meluncur adalah $4\\text{ m/s}^2$.
-`,
-    rangkuman: `# Rangkuman Rumus Cepat — Hukum Newton
-**Kategori:** TKA Fisika | **Pembungkus:** Dinamika
-
-| Kasus Gerak | Formula Percepatan ($a$) | Gaya Normal ($N$) |
-| :--- | :--- | :--- |
-| **Bidang Datar Kasar** | $a = \\frac{F - \\mu_k mg}{m}$ | $N = mg$ |
-| **Bidang Miring Licin** | $a = g \\sin\\theta$ | $N = mg \\cos\\theta$ |
-| **Bidang Miring Kasar** | $a = g(\\sin\\theta - \\mu_k \\cos\\theta)$ | $N = mg \\cos\\theta$ |
-| **Lift Dipercepat ke Atas** | $a$ | $N = m(g + a)$ |
-| **Lift Dipercepat ke Bawah** | $a$ | $N = m(g - a)$ |
-| **Sistem Katrol Atwood** | $a = \\frac{m_2 - m_1}{m_1 + m_2} g$ | $T = \\frac{2 m_1 m_2}{m_1 + m_2} g$ |
-`
+    materi: "# Hubungan Gaya dan Gerak (Hukum Newton)\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n## A. Tiga Hukum Newton tentang Gerak\n1. **Hukum I Newton (Kelembaman/Inersia):**\n   Setiap benda mempertahankan keadaan diam atau bergerak lurus beraturan jika tidak ada gaya luar total yang mempengaruhinya:\n   $$\\Sigma \\vec{F} = 0$$\n2. **Hukum II Newton:**\n   Percepatan yang dihasilkan resultan gaya berbanding lurus dengan gaya dan berbanding terbalik dengan massa benda:\n   $$\\Sigma \\vec{F} = m \\vec{a}$$\n3. **Hukum III Newton (Aksi-Reaksi):**\n   Gaya aksi dan reaksi selalu sama besar, berlawanan arah, bekerja pada **dua benda yang berbeda**, dan segaris kerja:\n   $$\\vec{F}_{\\text{aksi}} = -\\vec{F}_{\\text{reaksi}}$$\n\n---\n\n## B. Diagram Gaya Bebas (Free Body Diagram)\n1. **Gaya Berat ($w$):** Gaya gravitasi yang bekerja pada massa benda, selalu berarah tegak lurus ke pusat bumi:\n   $$w = m \\cdot g$$\n2. **Gaya Normal ($N$):** Gaya kontak tegak lurus dari permukaan bidang sentuh:\n   * Pada bidang datar horizontal: $N = w = mg$\n   * Pada bidang miring bersudut $\\theta$: $N = mg \\cos\\theta$\n   * Di dalam lift bergerak ke atas dipercepat $a$: $N = m(g + a)$ (berat semu terasa lebih berat)\n   * Di dalam lift bergerak ke bawah dipercepat $a$: $N = m(g - a)$\n3. **Gaya Gesek ($f$):**\n   * Gaya gesek statis: $f_s \\le \\mu_s N$ (menahan benda tetap diam). Benda tepat akan bergerak saat $f_{s,\\max} = \\mu_s N$.\n   * Gaya gesek kinetis: $f_k = \\mu_k N$ (bekerja saat benda sedang bergerak meluncur, $\\mu_k < \\mu_s$).\n4. **Gerak pada Bidang Miring:**\n   Komponen gaya berat sejajar bidang: $w_x = mg \\sin\\theta$.\n   Komponen gaya berat tegak lurus bidang: $w_y = mg \\cos\\theta$.\n   Jika licin: $a = g \\sin\\theta$.\n   Jika kasar: $a = g(\\sin\\theta - \\mu_k \\cos\\theta)$.\n",
+    cs: "# Variasi Contoh Soal — Hubungan Gaya dan Gerak (Hukum Newton)\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n### Contoh Soal 1: Balok pada Bidang Miring Kasar\nBalok bermassa $4\\text{ kg}$ diletakkan pada bidang miring dengan sudut kemiringan $\\theta = 37^\\circ$ ($\\sin 37^\\circ = 0{,}6, \\cos 37^\\circ = 0{,}8$). Koefisien gesek kinetis $\\mu_k = 0{,}25$ dan $g = 10\\text{ m/s}^2$. Tentukan percepatan balok meluncur turun!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Uraikan komponen gaya berat dan gaya normal:\n> $$\\begin{aligned}\n> w_x &= mg \\sin 37^\\circ \\\\\n> &= 4(10)(0{,}6) \\\\\n> &= 24\\text{ N}\n> \\end{aligned}$$\n> $$\\begin{aligned}\n> N &= mg \\cos 37^\\circ \\\\\n> &= 4(10)(0{,}8) \\\\\n> &= 32\\text{ N}\n> \\end{aligned}$$\n>\n> **Langkah 2:** Hitung gaya gesek kinetis penahan:\n> $$\\begin{aligned}\n> f_k &= \\mu_k N \\\\\n> &= 0{,}25 \\times 32 \\\\\n> &= 8\\text{ N}\n> \\end{aligned}$$\n>\n> **Langkah 3:** Terapkan Hukum II Newton pada sumbu bidang miring:\n> $$\\begin{aligned}\n> \\Sigma F_x &= m a \\\\\n> w_x - f_k &= m a \\\\\n> 24 - 8 &= 4a \\\\\n> 16 &= 4a \\\\\n> a &= \\frac{16}{4} \\\\\n> a &= 4\\text{ m/s}^2\n> \\end{aligned}$$\n>\n> **Jawaban:** Percepatan luncur balok adalah $4\\text{ m/s}^2$.\n",
+    rangkuman: "# Rangkuman Rumus Cepat — Hubungan Gaya dan Gerak (Hukum Newton)\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n### A. Tabel Trilogi Hukum Newton & Karakteristik Gaya\n| Hukum Fisika | Formulasi Matematis | Makna Fisis & Konteks |\n| :--- | :--- | :--- |\n| **Hukum I Newton** | $\\Sigma F = 0 \\implies v = \\text{tetap}$ | Hukum kelembaman (inersia), benda diam atau GLB |\n| **Hukum II Newton** | $\\Sigma F = m a \\implies a = \\frac{\\Sigma F}{m}$ | Percepatan berbanding lurus resultan gaya |\n| **Hukum III Newton** | $F_{\\text{aksi}} = -F_{\\text{reaksi}}$ | Bekerja pada 2 benda berlainan, berlawanan arah |\n| **Gaya Gesek Statis** | $f_s \\le \\mu_s N, \\quad f_{s,\\max} = \\mu_s N$ | Menahan benda agar tetap diam |\n| **Gaya Gesek Kinetis** | $f_k = \\mu_k N \\quad (\\mu_k < \\mu_s)$ | Terjadi saat benda sudah meluncur |\n\n### B. Tabel Formulasi Aplikasi Khusus Dinamika\n| Kasus Fisis | Gaya Normal ($N$) | Percepatan Gerak ($a$) |\n| :--- | :--- | :--- |\n| **Bidang Miring Licin** | $N = mg \\cos\\theta$ | $a = g \\sin\\theta$ |\n| **Bidang Miring Kasar** | $N = mg \\cos\\theta$ | $a = g(\\sin\\theta - \\mu_k \\cos\\theta)$ |\n| **Katrol Gantung (Atwood)** | Tali ringan tak elastis | $a = \\frac{m_2 - m_1}{m_1 + m_2} g, \\quad T = \\frac{2m_1 m_2}{m_1 + m_2} g$ |\n| **Lift Bergerak Naik ($+a$)** | $N = m(g + a)$ | Berat semu terasa bertambah |\n| **Lift Bergerak Turun ($-a$)** | $N = m(g - a)$ | Berat semu terasa berkurang |\n"
   },
 
+  // Bab 5: Momentum dan Impuls (Dinamika)
   {
     index: 5,
     blok: "Dinamika",
     judul: "Momentum dan Impuls",
-    materi: `# Momentum dan Impuls
-**Kategori:** TKA Fisika | **Pembungkus:** Dinamika
-
-## A. Konsep Dasar Momentum dan Impuls
-1. **Momentum Linier ($\\vec{p}$):**
-   Ukuran tingkat kesukaran menghentikan benda yang sedang bergerak, merupakan besaran vektor:
-   $$\\vec{p} = m \\cdot \\vec{v} \\quad (\\text{satuan: } \\text{kg}\\cdot\\text{m/s})$$
-2. **Impuls ($\\vec{I}$):**
-   Gaya impulsif yang bekerja dalam selang waktu sangat singkat:
-   $$\\vec{I} = \\vec{F} \\cdot \\Delta t = \\int_{t_1}^{t_2} \\vec{F}\\,dt \\quad (\\text{satuan: } \\text{N}\\cdot\\text{s})$$
-   * Pada grafik $F-t$, Impuls sama dengan luas daerah di bawah kurva $F-t$.
-3. **Teorema Impuls-Momentum:**
-   Impuls gaya sama dengan perubahan momentum yang dialami benda:
-   $$\\vec{I} = \\Delta \\vec{p} = m(\\vec{v}_2 - \\vec{v}_1)$$
-
----
-
-## B. Hukum Kekekalan Momentum & Tumbukan
-Jika resultan gaya luar pada sistem sama dengan nol ($\\Sigma \\vec{F}_{\\text{ext}} = 0$):
-$$m_1 v_1 + m_2 v_2 = m_1 v_1' + m_2 v_2'$$
-
-### Koefisien Restitusi ($e$):
-Derajat elastisitas tumbukan:
-$$e = -\\frac{v_1' - v_2'}{v_1 - v_2} = \\frac{v_2' - v_1'}{v_1 - v_2}$$
-1. **Tumbukan Lenting Sempurna ($e = 1$):**
-   Berlaku Hukum Kekekalan Momentum dan Kekekalan Energi Kinetik ($EK_{\\text{awal}} = EK_{\\text{akhir}}$).
-2. **Tumbukan Lenting Sebagian ($0 < e < 1$):**
-   Berlaku Hukum Kekekalan Momentum, sebagian energi kinetik berubah menjadi kalor/bunyi.
-   * Pantulan bola dari lantai: $e = \\sqrt{\\frac{h_2}{h_1}} = \\sqrt{\\frac{h_3}{h_2}}$
-3. **Tumbukan Tidak Lenting Sama Sekali ($e = 0$):**
-   Kedua benda bersatu setelah tumbukan ($v_1' = v_2' = v'$):
-   $$v' = \\frac{m_1 v_1 + m_2 v_2}{m_1 + m_2}$$
-`,
-    cs: `# Variasi Contoh Soal — Momentum dan Impuls
-**Kategori:** TKA Fisika | **Pembungkus:** Dinamika
-
-### Contoh Soal 1: Ayunan Balistik (Tumbukan Tidak Lenting)
-Peluru bermassa $20\\text{ g}$ ditembakkan horizontal dengan kecepatan $v$ menembus balok diam bermassa $1{,}98\\text{ kg}$ yang digantung tali. Peluru bersarang di balok dan berayun mencapai tinggi maksimum $20\\text{ cm}$. Tentukan kecepatan awal peluru ($g = 10\\text{ m/s}^2$)!
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Kecepatan balok+peluru setelah tumbukan dari kekekalan energi mekanik ayunan:
-> $$v' = \\sqrt{2gh} = \\sqrt{2(10)(0{,}2)} = \\sqrt{4} = 2\\text{ m/s}$$
->
-> **Langkah 2:** Terapkan kekekalan momentum sebelum & sesudah tumbukan:
-> $$m_p v_p + m_b v_b = (m_p + m_b) v'$$
-> $$(0{,}02) v + 0 = (0{,}02 + 1{,}98)(2) = (2)(2) = 4$$
-> $$0{,}02 v = 4 \\implies v = \\frac{4}{0{,}02} = 200\\text{ m/s}$$
->
-> **Jawaban:** Kelajuan awal peluru adalah $200\\text{ m/s}$.
-`,
-    rangkuman: `# Rangkuman Rumus Cepat — Momentum & Impuls
-**Kategori:** TKA Fisika | **Pembungkus:** Dinamika
-
-| Konsep | Persamaan Kunci | Catatan Penting |
-| :--- | :--- | :--- |
-| **Momentum** | $p = mv$ | Vektor, perhatikan tanda arah ($\pm$) |
-| **Impuls** | $I = F \\Delta t = \\Delta p$ | Luas grafik $F-t$ |
-| **Kekekalan Momentum** | $m_1 v_1 + m_2 v_2 = m_1 v_1' + m_2 v_2'$ | $\\Sigma F_{\\text{luar}} = 0$ |
-| **Lenting Sempurna** | $e = 1$ | $EK$ kekal |
-| **Sama Sekali Tak Lenting** | $e = 0, v_1' = v_2' = v'$ | $v' = \\frac{m_1 v_1 + m_2 v_2}{m_1 + m_2}$ |
-| **Pantulan Lantai** | $e = \\sqrt{\\frac{h'}{h}}$ | $h' = e^2 h$ |
-`
+    materi: "# Momentum dan Impuls\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n## A. Konsep Dasar Momentum dan Impuls\n1. **Momentum Linier ($\\vec{p}$):**\n   Ukuran tingkat kesukaran menghentikan benda yang sedang bergerak, merupakan besaran vektor:\n   $$\\vec{p} = m \\cdot \\vec{v} \\quad (\\text{satuan: } \\text{kg}\\cdot\\text{m/s})$$\n2. **Impuls ($\\vec{I}$):**\n   Gaya impulsif yang bekerja dalam selang waktu sangat singkat:\n   $$\\vec{I} = \\vec{F} \\cdot \\Delta t = \\int_{t_1}^{t_2} \\vec{F}\\,dt \\quad (\\text{satuan: } \\text{N}\\cdot\\text{s})$$\n   * Pada grafik $F-t$, Impuls sama dengan luas daerah di bawah kurva $F-t$.\n3. **Teorema Impuls-Momentum:**\n   Impuls gaya sama dengan perubahan momentum yang dialami benda:\n   $$\\vec{I} = \\Delta \\vec{p} = m(\\vec{v}_2 - \\vec{v}_1)$$\n\n---\n\n## B. Hukum Kekekalan Momentum & Tumbukan\nJika resultan gaya luar pada sistem sama dengan nol ($\\Sigma \\vec{F}_{\\text{ext}} = 0$):\n$$m_1 v_1 + m_2 v_2 = m_1 v_1' + m_2 v_2'$$\n\n### Koefisien Restitusi ($e$):\nDerajat elastisitas tumbukan:\n$$e = -\\frac{v_1' - v_2'}{v_1 - v_2} = \\frac{v_2' - v_1'}{v_1 - v_2}$$\n1. **Tumbukan Lenting Sempurna ($e = 1$):**\n   Berlaku Hukum Kekekalan Momentum dan Kekekalan Energi Kinetik ($EK_{\\text{awal}} = EK_{\\text{akhir}}$).\n2. **Tumbukan Lenting Sebagian ($0 < e < 1$):**\n   Berlaku Hukum Kekekalan Momentum, sebagian energi kinetik berubah menjadi kalor/bunyi.\n   * Pantulan bola dari lantai: $e = \\sqrt{\\frac{h_2}{h_1}} = \\sqrt{\\frac{h_3}{h_2}}$\n3. **Tumbukan Tidak Lenting Sama Sekali ($e = 0$):**\n   Kedua benda bersatu setelah tumbukan ($v_1' = v_2' = v'$):\n   $$v' = \\frac{m_1 v_1 + m_2 v_2}{m_1 + m_2}$$\n",
+    cs: "# Variasi Contoh Soal — Momentum dan Impuls\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n### Contoh Soal 1: Ayunan Balistik\nPeluru bermassa $20\\text{ g}$ ditembakkan mendatar menembus balok diam bermassa $1{,}98\\text{ kg}$ yang tergantung pada seutas tali. Peluru bersarang di balok sehingga sistem berayun naik setinggi $h = 20\\text{ cm}$. Tentukan kelajuan awal peluru ($g = 10\\text{ m/s}^2$)!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung kelajuan gabungan sesaat setelah tumbukan dari kekekalan energi ayunan:\n> $$\\begin{aligned}\n> v' &= \\sqrt{2gh} \\\\\n> &= \\sqrt{2(10)(0{,}2)} \\\\\n> &= \\sqrt{4} \\\\\n> &= 2\\text{ m/s}\n> \\end{aligned}$$\n>\n> **Langkah 2:** Terapkan hukum kekekalan momentum linear:\n> $$\\begin{aligned}\n> m_p v_p + m_b v_b &= (m_p + m_b) v' \\\\\n> (0{,}02)v_p + 0 &= (0{,}02 + 1{,}98)(2) \\\\\n> 0{,}02 v_p &= (2{,}00)(2) \\\\\n> 0{,}02 v_p &= 4 \\\\\n> v_p &= \\frac{4}{0{,}02} \\\\\n> v_p &= 200\\text{ m/s}\n> \\end{aligned}$$\n>\n> **Jawaban:** Kelajuan awal peluru adalah $200\\text{ m/s}$.\n",
+    rangkuman: "# Rangkuman Rumus Cepat — Momentum dan Impuls\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n### A. Tabel Besaran & Teorema Momentum-Impuls\n| Besaran / Konsep | Simbol & Satuan SI | Formula Matematis | Catatan Penting |\n| :--- | :--- | :--- | :--- |\n| **Momentum Linear** | $p\\text{ (kg}\\cdot\\text{m/s)}$ | $p = m v$ | Besaran vektor searah kecepatan |\n| **Impuls Gaya** | $I\\text{ (N}\\cdot\\text{s)}$ | $I = F \\cdot \\Delta t = \\text{Luas } F-t$ | Gaya impulsif kontak singkat |\n| **Teorema Impuls-Momentum** | $I = \\Delta p$ | $F \\cdot \\Delta t = m(v_t - v_0)$ | Menjelaskan fungsi *airbag* mobil |\n| **Kekekalan Momentum** | $\\Sigma F_{\\text{luar}} = 0$ | $m_1 v_1 + m_2 v_2 = m_1 v_1' + m_2 v_2'$ | Selalu berlaku pada semua tumbukan |\n\n### B. Tabel Karakteristik Tumbukan Dua Benda\n| Tipe Tumbukan | Koefisien Restitusi ($e$) | Kekekalan Energi Kinetik | Ciri Kecepatan Pascatumbukan |\n| :--- | :--- | :--- | :--- |\n| **Lenting Sempurna** | $e = 1$ | Berlaku ($E_{k1} + E_{k2} = E_{k1}' + E_{k2}'$) | $-(v_1' - v_2') = v_1 - v_2$ |\n| **Lenting Sebagian** | $0 < e < 1$ | Tidak berlaku (energi hilang jadi panas) | $e = -\\frac{v_1' - v_2'}{v_1 - v_2}$ |\n| **Tidak Lenting Sama Sekali** | $e = 0$ | Kehilangan energi kinetik maksimum | Benda bersatu ($v_1' = v_2' = v'$) |\n| **Pantulan Bola di Lantai** | $e = \\sqrt{\\frac{h_1}{h_0}}$ | Tinggi pantulan ke-$n$: $h_n = h_0 \\cdot e^{2n}$ | Waktu pantul: $t = \\sqrt{\\frac{2h}{g}}$ |\n"
   },
 
+  // Bab 6: Dinamika Rotasi dan Kesetimbangan Benda Tegar (Dinamika)
   {
     index: 6,
     blok: "Dinamika",
     judul: "Dinamika Rotasi dan Kesetimbangan Benda Tegar",
-    materi: `# Dinamika Rotasi dan Kesetimbangan Benda Tegar
-**Kategori:** TKA Fisika | **Pembungkus:** Dinamika
-
-## A. Besaran Dinamika Rotasi
-1. **Momen Gaya / Torsi ($\\tau$):**
-   Kecenderungan gaya memutar benda terhadap poros acuan:
-   $$\\tau = r F \\sin\\theta$$
-   * Torsi positif: berlawanan arah putaran jarum jam.
-   * Torsi negatif: searah jarum jam.
-2. **Momen Inersia ($I$):**
-   Ukuran kelembaman benda berputar pada porosnya:
-   $$I = \\Sigma m_i r_i^2$$
-   * Batang silinder poros pusat: $I = \\frac{1}{12} M L^2$
-   * Batang silinder poros ujung: $I = \\frac{1}{3} M L^2$
-   * Silinder pejal / cakram: $I = \\frac{1}{2} M R^2$
-   * Bola pejal: $I = \\frac{2}{5} M R^2$
-   * Bola berongga / kulit bola: $I = \\frac{2}{3} M R^2$
-3. **Hukum II Newton untuk Rotasi:**
-   $$\\Sigma \\tau = I \\alpha$$
-
----
-
-## B. Menggelinding Murni & Kesetimbangan
-1. **Energi Kinetik Total Benda Menggelinding (Translasi + Rotasi):**
-   $$EK_{\\text{total}} = EK_{\\text{trans}} + EK_{\\text{rot}} = \\frac{1}{2}mv^2 + \\frac{1}{2}I\\omega^2 = \\frac{1}{2}(1 + k) m v^2$$
-   * Di mana $k$ adalah koefisien inersia ($I = k m R^2$).
-   * Menggelinding turun pada bidang miring tinggi $h$:
-     $$v = \\sqrt{\\frac{2gh}{1+k}}, \\quad a = \\frac{g \\sin\\theta}{1+k}$$
-2. **Syarat Kesetimbangan Benda Tegar:**
-   Benda tidak bertranslasi dan tidak berotasi:
-   $$\\Sigma F_x = 0, \\quad \\Sigma F_y = 0, \\quad \\Sigma \\tau = 0$$
-`,
-    cs: `# Variasi Contoh Soal — Dinamika Rotasi
-**Kategori:** TKA Fisika | **Pembungkus:** Dinamika
-
-### Contoh Soal 1: Balapan Menggelinding di Bidang Miring
-Sebuah silinder pejal ($k = 0{,}5$) dan sebuah bola pejal ($k = 0{,}4$) dilepaskan bersamaan dari puncak bidang miring yang sama. Benda manakah yang mencapai dasar terlebih dahulu dan memiliki kelajuan lebih besar?
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Hubungan kelajuan menggelinding:
-> $$v = \\sqrt{\\frac{2gh}{1 + k}}$$
-> Nilai $k$ bola pejal ($0{,}4$) lebih kecil daripada $k$ silinder pejal ($0{,}5$).
->
-> **Langkah 2:** Perbandingan:
-> * Bola pejal: $v = \\sqrt{\\frac{2gh}{1{,}4}} \\approx \\sqrt{1{,}43 gh}$
-> * Silinder pejal: $v = \\sqrt{\\frac{2gh}{1{,}5}} \\approx \\sqrt{1{,}33 gh}$
->
-> **Jawaban:** Bola pejal memiliki percepatan dan kelajuan lebih besar, sehingga mencapai dasar terlebih dahulu.
-`,
-    rangkuman: `# Rangkuman Rumus Cepat — Dinamika Rotasi
-**Kategori:** TKA Fisika | **Pembungkus:** Dinamika
-
-| Besaran | Rumus Translasi | Rumus Rotasi | Hubungan |
-| :--- | :--- | :--- | :--- |
-| **Posisi** | $s$ | $\\theta$ | $s = \\theta R$ |
-| **Kecepatan** | $v$ | $\\omega$ | $v = \\omega R$ |
-| **Percepatan** | $a$ | $\\alpha$ | $a = \\alpha R$ |
-| **Inersia** | $m$ | $I$ | $I = k m R^2$ |
-| **Gaya / Torsi** | $F = ma$ | $\\tau = I\\alpha$ | $\\tau = r F \\sin\\theta$ |
-| **Momentum** | $p = mv$ | $L = I\\omega$ | Kekal bila $\\Sigma \\tau = 0$ |
-`
+    materi: "# Dinamika Rotasi dan Kesetimbangan Benda Tegar\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n## A. Besaran Dinamika Rotasi\n1. **Momen Gaya / Torsi ($\\tau$):**\n   Kecenderungan gaya memutar benda terhadap poros acuan:\n   $$\\tau = r F \\sin\\theta$$\n   * Torsi positif: berlawanan arah putaran jarum jam.\n   * Torsi negatif: searah jarum jam.\n2. **Momen Inersia ($I$):**\n   Ukuran kelembaman benda berputar pada porosnya:\n   $$I = \\Sigma m_i r_i^2$$\n   * Batang silinder poros pusat: $I = \\frac{1}{12} M L^2$\n   * Batang silinder poros ujung: $I = \\frac{1}{3} M L^2$\n   * Silinder pejal / cakram: $I = \\frac{1}{2} M R^2$\n   * Bola pejal: $I = \\frac{2}{5} M R^2$\n   * Bola berongga / kulit bola: $I = \\frac{2}{3} M R^2$\n3. **Hukum II Newton untuk Rotasi:**\n   $$\\Sigma \\tau = I \\alpha$$\n\n---\n\n## B. Menggelinding Murni & Kesetimbangan\n1. **Energi Kinetik Total Benda Menggelinding (Translasi + Rotasi):**\n   $$EK_{\\text{total}} = EK_{\\text{trans}} + EK_{\\text{rot}} = \\frac{1}{2}mv^2 + \\frac{1}{2}I\\omega^2 = \\frac{1}{2}(1 + k) m v^2$$\n   * Di mana $k$ adalah koefisien inersia ($I = k m R^2$).\n   * Menggelinding turun pada bidang miring tinggi $h$:\n     $$v = \\sqrt{\\frac{2gh}{1+k}}, \\quad a = \\frac{g \\sin\\theta}{1+k}$$\n2. **Syarat Kesetimbangan Benda Tegar:**\n   Benda tidak bertranslasi dan tidak berotasi:\n   $$\\Sigma F_x = 0, \\quad \\Sigma F_y = 0, \\quad \\Sigma \\tau = 0$$\n",
+    cs: "# Variasi Contoh Soal — Dinamika Rotasi dan Kesetimbangan Benda Tegar\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n### Contoh Soal 1: Balapan Menggelinding di Bidang Miring\nSebuah silinder pejal ($k = 0{,}5$) dan bola pejal ($k = 0{,}4$) dilepaskan dari keadaan diam di puncak bidang miring setinggi $h$. Tentukan perbandingan kelajuan linier kedua benda saat tiba di dasar bidang!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Formula kelajuan menggelinding murni:\n> $$\\begin{aligned}\n> v &= \\sqrt{\\frac{2gh}{1 + k}}\n> \\end{aligned}$$\n>\n> **Langkah 2:** Hitung perbandingan kelajuan bola pejal terhadap silinder pejal:\n> $$\\begin{aligned}\n> \\frac{v_{\\text{bola}}}{v_{\\text{silinder}}} &= \\sqrt{\\frac{1 + k_{\\text{silinder}}}{1 + k_{\\text{bola}}}} \\\\\n> &= \\sqrt{\\frac{1 + 0{,}5}{1 + 0{,}4}} \\\\\n> &= \\sqrt{\\frac{1{,}5}{1{,}4}} \\\\\n> &= \\sqrt{\\frac{15}{14}}\n> \\end{aligned}$$\n>\n> **Langkah 3:** Analisis fisis:\n> Karena $k_{\\text{bola}} < k_{\\text{silinder}}$, bola pejal mengalami percepatan linier lebih besar sehingga mencapai dasar lebih cepat dengan kelajuan lebih tinggi.\n>\n> **Jawaban:** Perbandingan kelajuan adalah $\\sqrt{15} : \\sqrt{14}$ dengan bola pejal tiba terlebih dahulu.\n",
+    rangkuman: "# Rangkuman Rumus Cepat — Dinamika Rotasi dan Kesetimbangan Benda Tegar\n**Kategori:** TKA Fisika | **Pembungkus:** Dinamika\n\n### A. Tabel Analogi Gerak Translasi vs Gerak Rotasi\n| Besaran Fisis | Translasi (Garis Lurus) | Rotasi (Melintasi Sudut) | Hubungan Dinamika |\n| :--- | :--- | :--- | :--- |\n| **Inersia / Kelembaman** | Massa $m\\text{ (kg)}$ | Momen Inersia $I\\text{ (kg}\\cdot\\text{m}^2\\text{)}$ | $I = \\Sigma m r^2$ |\n| **Penyebab Gerak** | Gaya $F = ma\\text{ (N)}$ | Torsi $\\tau = I\\alpha\\text{ (N}\\cdot\\text{m)}$ | $\\tau = r F \\sin\\theta$ |\n| **Momentum** | $p = mv$ | Momentum Sudut $L = I\\omega$ | Kekal jika $\\Sigma\\tau_{\\text{luar}} = 0$ |\n| **Energi Kinetik** | $E_k = \\frac{1}{2}mv^2$ | $E_{k,\\text{rot}} = \\frac{1}{2}I\\omega^2$ | $E_{k,\\text{total}} = \\frac{1}{2}mv^2(1 + k)$ |\n\n### B. Tabel Momen Inersia ($I = k m R^2$) & Gerak Menggelinding\n| Bentuk Benda Tegar | Faktor Inersia ($k$) | Formula Inersia ($I$) | Percepatan di Bidang Miring ($a$) |\n| :--- | :--- | :--- | :--- |\n| **Silinder Berongga Tipis** | $k = 1$ | $I = m R^2$ | $a = \\frac{1}{2} g \\sin\\theta$ |\n| **Silinder Pejal / Cakram** | $k = 0{,}5$ | $I = \\frac{1}{2} m R^2$ | $a = \\frac{2}{3} g \\sin\\theta$ |\n| **Bola Berongga Tipis** | $k \\approx 0{,}67$ | $I = \\frac{2}{3} m R^2$ | $a = \\frac{3}{5} g \\sin\\theta$ |\n| **Bola Pejal** | $k = 0{,}4$ | $I = \\frac{2}{5} m R^2$ | $a = \\frac{5}{7} g \\sin\\theta$ |\n"
   },
 
-  // Pembungkus 3: Fluida
+  // Bab 7: Fluida Statis (Fluida)
   {
     index: 7,
     blok: "Fluida",
     judul: "Fluida Statis",
-    materi: `# Fluida Statis
-**Kategori:** TKA Fisika | **Pembungkus:** Fluida
-
-## A. Tekanan pada Fluida Statis
-1. **Tekanan Hidrostatis ($P_h$):**
-   Tekanan yang dihasilkan oleh fluida tak bergerak akibat gaya gravitasi bobot zat cair di atasnya:
-   $$P_h = \\rho \\cdot g \\cdot h$$
-   * $\\rho$ = massa jenis fluida ($\\text{kg/m}^3$)
-   * $h$ = kedalaman titik diukur dari permukaan zat cair ($\\text{m}$)
-2. **Tekanan Mutlak / Total ($P$):**
-   $$P = P_0 + P_h = P_0 + \\rho g h$$
-   ($P_0$ adalah tekanan atmosfer permukaan $\\approx 1\\text{ atm} = 1{,}013 \\times 10^5\\text{ Pa}$)
-3. **Hukum Pokok Hidrostatika:**
-   Semua titik yang terletak pada bidang mendatar di dalam zat cair yang sejenis memiliki tekanan yang sama ($P_A = P_B$).
-   * Tabung U beda zat cair: $\\rho_1 h_1 = \\rho_2 h_2$
-
----
-
-## B. Hukum Pascal dan Hukum Archimedes
-1. **Hukum Pascal:**
-   Tekanan yang diberikan pada fluida di dalam ruang tertutup akan diteruskan sama besar ke segala arah:
-   $$P_1 = P_2 \\implies \\frac{F_1}{A_1} = \\frac{F_2}{A_2} \\implies F_2 = F_1 \\left(\\frac{D_2}{D_1}\\right)^2$$
-2. **Hukum Archimedes:**
-   Benda yang tercelup sebagian atau seluruhnya ke dalam zat cair mengalami gaya angkat ke atas ($F_a$) sebesar berat zat cair yang dipindahkan:
-   $$F_a = \\rho_f \\cdot V_{bf} \\cdot g$$
-   * **Terapung:** $w = F_a \\implies \\rho_b < \\rho_f \\implies \\frac{V_{bf}}{V_b} = \\frac{\\rho_b}{\\rho_f}$
-   * **Melayang:** $w = F_a \\implies \\rho_b = \\rho_f \\implies V_{bf} = V_b$
-   * **Tenggelam:** $w > F_a \\implies \\rho_b > \\rho_f \\implies w_{\\text{semu}} = w - F_a$
-`,
-    cs: `# Variasi Contoh Soal — Fluida Statis
-**Kategori:** TKA Fisika | **Pembungkus:** Fluida
-
-### Contoh Soal 1: Benda Terapung
-Sebongkah es terapung di atas air laut (massa jenis air laut $1030\\text{ kg/m}^3$). Jika massa jenis es $920\\text{ kg/m}^3$, berapa persen volume es yang muncul di atas permukaan air laut?
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Hitung fraksi volume yang tercelup:
-> $$\\frac{V_{\\text{tercelup}}}{V_{\\text{total}}} = \\frac{\\rho_{\\text{es}}}{\\rho_{\\text{air}}} = \\frac{920}{1030} \\approx 0{,}893 = 89{,}3\\%$$
->
-> **Langkah 2:** Hitung volume es yang muncul di atas permukaan:
-> $$V_{\\text{muncul}} = 100\\% - 89{,}3\\% = 10{,}7\\%$$
->
-> **Jawaban:** $10{,}7\\%$ bagian es berada di atas permukaan air.
-`,
-    rangkuman: `# Rangkuman Rumus Cepat — Fluida Statis
-**Kategori:** TKA Fisika | **Pembungkus:** Fluida
-
-* **Tekanan Hidrostatis:** $P_h = \\rho g h$
-* **Tekanan Total:** $P = P_0 + \\rho g h$
-* **Hukum Pascal:** $\\frac{F_1}{A_1} = \\frac{F_2}{A_2} \\implies F_2 = F_1 \\left(\\frac{D_2}{D_1}\\right)^2$
-* **Gaya Apung Archimedes:** $F_a = \\rho_f V_{bf} g$
-* **Fraksi Benda Terapung:** $\\frac{V_{\\text{tercelup}}}{V_{\\text{benda}}} = \\frac{\\rho_{\\text{benda}}}{\\rho_{\\text{fluida}}}$
-`
+    materi: "# Fluida Statis\n**Kategori:** TKA Fisika | **Pembungkus:** Fluida\n\n## A. Tekanan pada Fluida Statis\n1. **Tekanan Hidrostatis ($P_h$):**\n   Tekanan yang dihasilkan oleh fluida tak bergerak akibat gaya gravitasi bobot zat cair di atasnya:\n   $$P_h = \\rho \\cdot g \\cdot h$$\n   * $\\rho$ = massa jenis fluida ($\\text{kg/m}^3$)\n   * $h$ = kedalaman titik diukur dari permukaan zat cair ($\\text{m}$)\n2. **Tekanan Mutlak / Total ($P$):**\n   $$P = P_0 + P_h = P_0 + \\rho g h$$\n   ($P_0$ adalah tekanan atmosfer permukaan $\\approx 1\\text{ atm} = 1{,}013 \\times 10^5\\text{ Pa}$)\n3. **Hukum Pokok Hidrostatika:**\n   Semua titik yang terletak pada bidang mendatar di dalam zat cair yang sejenis memiliki tekanan yang sama ($P_A = P_B$).\n   * Tabung U beda zat cair: $\\rho_1 h_1 = \\rho_2 h_2$\n\n---\n\n## B. Hukum Pascal dan Hukum Archimedes\n1. **Hukum Pascal:**\n   Tekanan yang diberikan pada fluida di dalam ruang tertutup akan diteruskan sama besar ke segala arah:\n   $$P_1 = P_2 \\implies \\frac{F_1}{A_1} = \\frac{F_2}{A_2} \\implies F_2 = F_1 \\left(\\frac{D_2}{D_1}\\right)^2$$\n2. **Hukum Archimedes:**\n   Benda yang tercelup sebagian atau seluruhnya ke dalam zat cair mengalami gaya angkat ke atas ($F_a$) sebesar berat zat cair yang dipindahkan:\n   $$F_a = \\rho_f \\cdot V_{bf} \\cdot g$$\n   * **Terapung:** $w = F_a \\implies \\rho_b < \\rho_f \\implies \\frac{V_{bf}}{V_b} = \\frac{\\rho_b}{\\rho_f}$\n   * **Melayang:** $w = F_a \\implies \\rho_b = \\rho_f \\implies V_{bf} = V_b$\n   * **Tenggelam:** $w > F_a \\implies \\rho_b > \\rho_f \\implies w_{\\text{semu}} = w - F_a$\n",
+    cs: "# Variasi Contoh Soal — Fluida Statis\n**Kategori:** TKA Fisika | **Pembungkus:** Fluida\n\n### Contoh Soal 1: Fraksi Benda Terapung\nSebongkah eserapung di perairan laut (massa jenis air laut $\\rho_{\\text{air}} = 1030\\text{ kg/m}^3$). Jika massa jenis es $\\rho_{\\text{es}} = 920\\text{ kg/m}^3$, tentukan persentase volume es yang muncul di atas permukaan air laut!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Terapkan syarat kesetimbangan benda terapung:\n> $$\\begin{aligned}\n> F_a &= W \\\\\n> \\rho_{\\text{air}} V_{\\text{celup}} g &= \\rho_{\\text{es}} V_{\\text{total}} g\n> \\end{aligned}$$\n>\n> **Langkah 2:** Hitung fraksi volume yang tercelup di dalam air laut:\n> $$\\begin{aligned}\n> \\frac{V_{\\text{celup}}}{V_{\\text{total}}} &= \\frac{\\rho_{\\text{es}}}{\\rho_{\\text{air}}} \\\\\n> &= \\frac{920}{1030} \\\\\n> &\\approx 0{,}893 \\\\\n> &= 89{,}3\\%\n> \\end{aligned}$$\n>\n> **Langkah 3:** Hitung fraksi volume yang muncul di atas permukaan:\n> $$\\begin{aligned}\n> V_{\\text{muncul}} &= 100\\% - 89{,}3\\% \\\\\n> &= 10{,}7\\%\n> \\end{aligned}$$\n>\n> **Jawaban:** Persentase volume es yang muncul di atas permukaan adalah $10{,}7\\%$.\n",
+    rangkuman: "# Rangkuman Rumus Cepat — Fluida Statis\n**Kategori:** TKA Fisika | **Pembungkus:** Fluida\n\n### A. Tabel Hukum Pokok Fluida Statis\n| Hukum / Parameter | Formulasi Matematis | Keterangan & Satuan SI |\n| :--- | :--- | :--- |\n| **Tekanan Hidrostatis** | $P_h = \\rho g h$ | Tergantung kedalaman ($h$), bukan bentuk wadah |\n| **Tekanan Mutlak** | $P = P_0 + \\rho g h$ | $P_0 = 1\\text{ atm} \\approx 10^5\\text{ Pa} \\approx 76\\text{ cmHg}$ |\n| **Hukum Pascal** | $\\frac{F_1}{A_1} = \\frac{F_2}{A_2} \\implies F_2 = F_1 \\left(\\frac{D_2}{D_1}\\right)^2$ | Digunakan pada dongkrak dan rem hidrolik |\n| **Gaya Apung Archimedes** | $F_a = \\rho_f V_{\\text{celup}} g$ | Gaya ke atas sebanding berat fluida yang dipindahkan |\n| **Tegangan Permukaan** | $\\gamma = \\frac{F}{d} = \\frac{F}{2L}$ | Selaput tipis cairan |\n| **Hukum Stokes (Viskositas)** | $F_s = 6\\pi \\eta r v, \\quad v_t = \\frac{2r^2g}{9\\eta}(\\rho_b - \\rho_f)$ | Gesekan fluida & kecepatan terminal kelereng |\n\n### B. Tabel Kondisi Benda dalam Fluida\n| Kondisi Benda | Perbandingan Massa Jenis | Kesetimbangan Gaya | Volume Tercelup |\n| :--- | :--- | :--- | :--- |\n| **Terapung** | $\\rho_{\\text{benda}} < \\rho_{\\text{fluida}}$ | $F_a = W_{\\text{benda}}$ | $\\frac{V_{\\text{celup}}}{V_{\\text{total}}} = \\frac{\\rho_{\\text{benda}}}{\\rho_{\\text{fluida}}}$ |\n| **Melayang** | $\\rho_{\\text{benda}} = \\rho_{\\text{fluida}}$ | $F_a = W_{\\text{benda}}$ | $V_{\\text{celup}} = V_{\\text{total}}$ |\n| **Tenggelam** | $\\rho_{\\text{benda}} > \\rho_{\\text{fluida}}$ | $F_a < W_{\\text{benda}}$ | Berat semu: $W' = W - F_a$ |\n"
   },
 
+  // Bab 8: Fluida Dinamis (Fluida)
   {
     index: 8,
     blok: "Fluida",
     judul: "Fluida Dinamis",
-    materi: `# Fluida Dinamis
-**Kategori:** TKA Fisika | **Pembungkus:** Fluida
-
-## A. Karakteristik Fluida Ideal & Persamaan Kontinuitas
-Fluida ideal bersifat: inkompresibel (massa jenis konstan), non-viskos (tidak ada gesekan internal), aliran tunak/laminer (*steady*), dan tidak berotasi (*irrotational*).
-1. **Debit Aliran ($Q$):**
-   Banyaknya volume fluida yang mengalir tiap satuan waktu:
-   $$Q = \\frac{V}{t} = A \\cdot v \\quad (\\text{m}^3/\\text{s})$$
-2. **Persamaan Kontinuitas:**
-   Debit fluida pada pipa dengan penampang berbeda adalah konstan:
-   $$A_1 v_1 = A_2 v_2 \\implies v_2 = v_1 \\left(\\frac{D_1}{D_2}\\right)^2$$
-
----
-
-## B. Asas Bernoulli dan Aplikasinya
-Di dalam pipa mendatar, tekanan fluida paling besar berada pada bagian yang kelajuannya paling kecil:
-$$P_1 + \\frac{1}{2}\\rho v_1^2 + \\rho g h_1 = P_2 + \\frac{1}{2}\\rho v_2^2 + \\rho g h_2 = \\text{konstan}$$
-
-### Aplikasi Utama Bernoulli:
-1. **Teorema Torricelli (Kebocoran Tangki):**
-   * Kelajuan pancaran air bocor pada kedalaman $h$:
-     $$v = \\sqrt{2gh}$$
-   * Jarak pancaran terjauh dari dasar lantai (ketinggian lubang $y$):
-     $$x = 2\\sqrt{h \\cdot y}$$
-2. **Venturimeter Tanpa Manometer:**
-   $$v_1 = \\sqrt{\\frac{2gh}{\\left(\\frac{A_1}{A_2}\\right)^2 - 1}}$$
-3. **Gaya Angkat Sayap Pesawat Terbang:**
-   Profil sayap menyebabkan kelajuan udara di atas ($v_a$) lebih cepat daripada di bawah ($v_b$), sehingga tekanan di bawah lebih besar ($P_b > P_a$):
-   $$F_{\\text{angkat}} = \\frac{1}{2} \\rho A (v_a^2 - v_b^2)$$
-`,
-    cs: `# Variasi Contoh Soal — Fluida Dinamis
-**Kategori:** TKA Fisika | **Pembungkus:** Fluida
-
-### Contoh Soal 1: Teorema Torricelli
-Sebuah tangki air memiliki lubang kebocoran kecil pada kedalaman $h = 3{,}2\\text{ m}$ dari permukaan air. Jika lubang tersebut berada pada ketinggian $y = 5\\text{ m}$ dari lantai tanah, tentukan kelajuan semburan air dan jarak horizontal jatuhnya air di tanah ($g = 10\\text{ m/s}^2$)!
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Hitung kecepatan semburan:
-> $$v = \\sqrt{2gh} = \\sqrt{2(10)(3{,}2)} = \\sqrt{64} = 8\\text{ m/s}$$
->
-> **Langkah 2:** Hitung jarak jangkauan horizontal $x$:
-> $$x = 2\\sqrt{h \\cdot y} = 2\\sqrt{3{,}2 \\times 5} = 2\\sqrt{16} = 2 \\times 4 = 8\\text{ meter}$$
->
-> **Jawaban:** Kelajuan semburan air $8\\text{ m/s}$ dan jarak jatuh di tanah $8\\text{ meter}$.
-`,
-    rangkuman: `# Rangkuman Rumus Cepat — Fluida Dinamis
-**Kategori:** TKA Fisika | **Pembungkus:** Fluida
-
-* **Debit:** $Q = A v = \\frac{V}{t}$
-* **Kontinuitas:** $A_1 v_1 = A_2 v_2 \\implies v_2 = v_1 \\left(\\frac{D_1}{D_2}\\right)^2$
-* **Persamaan Bernoulli:** $P + \\frac{1}{2}\\rho v^2 + \\rho g h = \\text{konstan}$
-* **Torricelli:** $v = \\sqrt{2gh}, \\quad x = 2\\sqrt{h y}$
-* **Gaya Angkat Sayap:** $F = \\frac{1}{2}\\rho A (v_{\\text{atas}}^2 - v_{\\text{bawah}}^2)$
-`
+    materi: "# Fluida Dinamis\n**Kategori:** TKA Fisika | **Pembungkus:** Fluida\n\n## A. Karakteristik Fluida Ideal & Persamaan Kontinuitas\nFluida ideal bersifat: inkompresibel (massa jenis konstan), non-viskos (tidak ada gesekan internal), aliran tunak/laminer (*steady*), dan tidak berotasi (*irrotational*).\n1. **Debit Aliran ($Q$):**\n   Banyaknya volume fluida yang mengalir tiap satuan waktu:\n   $$Q = \\frac{V}{t} = A \\cdot v \\quad (\\text{m}^3/\\text{s})$$\n2. **Persamaan Kontinuitas:**\n   Debit fluida pada pipa dengan penampang berbeda adalah konstan:\n   $$A_1 v_1 = A_2 v_2 \\implies v_2 = v_1 \\left(\\frac{D_1}{D_2}\\right)^2$$\n\n---\n\n## B. Asas Bernoulli dan Aplikasinya\nDi dalam pipa mendatar, tekanan fluida paling besar berada pada bagian yang kelajuannya paling kecil:\n$$P_1 + \\frac{1}{2}\\rho v_1^2 + \\rho g h_1 = P_2 + \\frac{1}{2}\\rho v_2^2 + \\rho g h_2 = \\text{konstan}$$\n\n### Aplikasi Utama Bernoulli:\n1. **Teorema Torricelli (Kebocoran Tangki):**\n   * Kelajuan pancaran air bocor pada kedalaman $h$:\n     $$v = \\sqrt{2gh}$$\n   * Jarak pancaran terjauh dari dasar lantai (ketinggian lubang $y$):\n     $$x = 2\\sqrt{h \\cdot y}$$\n2. **Venturimeter Tanpa Manometer:**\n   $$v_1 = \\sqrt{\\frac{2gh}{\\left(\\frac{A_1}{A_2}\\right)^2 - 1}}$$\n3. **Gaya Angkat Sayap Pesawat Terbang:**\n   Profil sayap menyebabkan kelajuan udara di atas ($v_a$) lebih cepat daripada di bawah ($v_b$), sehingga tekanan di bawah lebih besar ($P_b > P_a$):\n   $$F_{\\text{angkat}} = \\frac{1}{2} \\rho A (v_a^2 - v_b^2)$$\n",
+    cs: "# Variasi Contoh Soal — Fluida Dinamis\n**Kategori:** TKA Fisika | **Pembungkus:** Fluida\n\n### Contoh Soal 1: Teorema Torricelli (Tangki Bocor)\nSebuah tangki air memiliki lubang kebocoran kecil pada kedalaman $h = 3{,}2\\text{ m}$ di bawah permukaan air. Lubang tersebut berada pada ketinggian $y = 5\\text{ m}$ dari lantai tanah. Tentukan kelajuan semburan air dan jarak jatuh pancaran air ($g = 10\\text{ m/s}^2$)!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung kelajuan semburan air (Teorema Torricelli):\n> $$\\begin{aligned}\n> v &= \\sqrt{2gh} \\\\\n> &= \\sqrt{2(10)(3{,}2)} \\\\\n> &= \\sqrt{64} \\\\\n> &= 8\\text{ m/s}\n> \\end{aligned}$$\n>\n> **Langkah 2:** Hitung jangkauan horizontal pancaran air di lantai:\n> $$\\begin{aligned}\n> x &= 2\\sqrt{h \\cdot y} \\\\\n> &= 2\\sqrt{3{,}2 \\times 5} \\\\\n> &= 2\\sqrt{16} \\\\\n> &= 2 \\times 4 \\\\\n> &= 8\\text{ meter}\n> \\end{aligned}$$\n>\n> **Jawaban:** Kelajuan semburan air adalah $8\\text{ m/s}$ dan jarak pancaran horizontal adalah $8\\text{ m}$.\n",
+    rangkuman: "# Rangkuman Rumus Cepat — Fluida Dinamis\n**Kategori:** TKA Fisika | **Pembungkus:** Fluida\n\n### A. Tabel Persamaan Pokok Fluida Dinamis\n| Persamaan / Fenomena | Rumus Matematis | Makna Fisis & Satuan |\n| :--- | :--- | :--- |\n| **Debit Aliran ($Q$)** | $Q = \\frac{V}{t} = A \\cdot v$ | Volume per detik ($\\text{m}^3\\text{/s}$) |\n| **Persamaan Kontinuitas** | $A_1 v_1 = A_2 v_2 \\implies v_2 = v_1 \\left(\\frac{D_1}{D_2}\\right)^2$ | Pipa mengecil $\\implies$ laju aliran membesar |\n| **Hukum Bernoulli** | $P + \\frac{1}{2}\\rho v^2 + \\rho gh = \\text{konstan}$ | Kekekalan energi fluida ideal tak termampatkan |\n| **Venturimeter (Tanpa Manometer)** | $v_1 = \\sqrt{\\frac{2gh}{\\left(\\frac{A_1}{A_2}\\right)^2 - 1}}$ | Beda tekanan: $\\Delta P = \\frac{1}{2}\\rho(v_2^2 - v_1^2) = \\rho gh$ |\n| **Gaya Angkat Sayap Pesawat** | $F_{\\text{angkat}} = \\frac{1}{2}\\rho A (v_{\\text{atas}}^2 - v_{\\text{bawah}}^2)$ | $v_{\\text{atas}} > v_{\\text{bawah}} \\implies P_{\\text{bawah}} > P_{\\text{atas}}$ |\n\n### B. Tabel Teorema Torricelli (Tangki Bocor)\n| Besaran | Formula Matematis | Catatan Praktis |\n| :--- | :--- | :--- |\n| **Kelajuan Semburan ($v$)** | $v = \\sqrt{2gh}$ | $h = \\text{kedalaman lubang dari permukaan air}$ |\n| **Waktu Jatuh ke Lantai ($t$)** | $t = \\sqrt{\\frac{2y}{g}}$ | $y = \\text{jarak vertikal lubang ke lantai tanah}$ |\n| **Jangkauan Pancaran ($x$)** | $x = 2\\sqrt{h \\cdot y}$ | Nilai $x$ maksimal tercapai jika $h = y$ |\n"
   },
 
-  // Pembungkus 4: Gelombang
+  // Bab 9: Gelombang Bunyi (Gelombang)
   {
     index: 9,
     blok: "Gelombang",
     judul: "Gelombang Bunyi",
-    materi: `# Gelombang Bunyi
-**Kategori:** TKA Fisika | **Pembungkus:** Gelombang
-
-## A. Karakteristik Gelombang Bunyi
-Gelombang bunyi merupakan gelombang mekanik longitudinal yang merambat melalui rapatan dan renggangan medium.
-1. **Cepat Rambat Bunyi:**
-   * Pada gas: $v = \\sqrt{\\frac{\\gamma R T}{M}}$
-   * Pada zat cair: $v = \\sqrt{\\frac{B}{\\rho}}$ (B = modulus bulk)
-   * Pada zat padat: $v = \\sqrt{\\frac{E}{\\rho}}$ (E = modulus Young)
-
----
-
-## B. Sumber-Sumber Bunyi (Dawai & Pipa Organa)
-1. **Dawai / Senar (Hukum Mersenne):**
-   $$v = \\sqrt{\\frac{F}{\\mu}} = \\sqrt{\\frac{F \\cdot L}{m}}$$
-   Frekuensi nada harmonik ke-$n$ ($n = 0, 1, 2, \\dots$):
-   $$f_n = (n+1) \\frac{v}{2L} \\implies f_0 : f_1 : f_2 = 1 : 2 : 3$$
-2. **Pipa Organa Terbuka (POB):**
-   $$f_n = (n+1) \\frac{v}{2L} \\implies f_0 : f_1 : f_2 = 1 : 2 : 3$$
-3. **Pipa Organa Tertutup (POT):**
-   $$f_n = (2n+1) \\frac{v}{4L} \\implies f_0 : f_1 : f_2 = 1 : 3 : 5$$
-
----
-
-## C. Intensitas, Taraf Intensitas, & Efek Doppler
-1. **Intensitas Bunyi ($I$):** Daya per satuan luas permukaan bola:
-   $$I = \\frac{P}{4\\pi r^2} \\implies \\frac{I_1}{I_2} = \\left(\\frac{r_2}{r_1}\\right)^2$$
-2. **Taraf Intensitas Bunyi ($TI$ dalam dB):**
-   $$TI = 10 \\log\\left(\\frac{I}{I_0}\\right) \\quad (I_0 = 10^{-12}\\text{ W/m}^2)$$
-   * Untuk $n$ sumber bunyi identik: $TI_n = TI_1 + 10 \\log n$
-   * Untuk jarak yang berbeda: $TI_2 = TI_1 - 20 \\log\\left(\\frac{r_2}{r_1}\\right)$
-3. **Efek Doppler:**
-   $$f_p = \\left(\\frac{v \\pm v_p}{v \\mp v_s}\\right) f_s$$
-   * $v_p$ bernilai $(+)$ jika pendengar mendekati sumber; $(-)$ jika menjauhi.
-   * $v_s$ bernilai $(-)$ jika sumber mendekati pendengar; $(+)$ jika menjauhi.
-`,
-    cs: `# Variasi Contoh Soal — Gelombang Bunyi
-**Kategori:** TKA Fisika | **Pembungkus:** Gelombang
-
-### Contoh Soal 1: Taraf Intensitas Banyak Sumber
-Taraf intensitas sebuah mesin bubut pada jarak $2\\text{ m}$ adalah $70\\text{ dB}$. Jika terdapat 100 buah mesin bubut identik dibunyikan bersamaan, berapakah taraf intensitasnya pada jarak $20\\text{ meter}$?
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Tambah pengaruh 100 mesin pada jarak tetap $2\\text{ m}$:
-> $$TI_{100} = TI_1 + 10 \\log(100) = 70 + 10(2) = 90\\text{ dB}$$
->
-> **Langkah 2:** Hitung perubahan akibat pertambahan jarak dari $r_1 = 2\\text{ m}$ ke $r_2 = 20\\text{ m}$:
-> $$TI_2 = TI_{100} - 20 \\log\\left(\\frac{20}{2}\\right) = 90 - 20 \\log(10) = 90 - 20 = 70\\text{ dB}$$
->
-> **Jawaban:** Taraf intensitas gabungan pada jarak $20\\text{ m}$ adalah $70\\text{ dB}$.
-`,
-    rangkuman: `# Rangkuman Rumus Cepat — Gelombang Bunyi
-**Kategori:** TKA Fisika | **Pembungkus:** Gelombang
-
-* **Dawai & POB:** $f_n = (n+1)\\frac{v}{2L}$ (rasio harmonik $1 : 2 : 3$)
-* **POT:** $f_n = (2n+1)\\frac{v}{4L}$ (rasio harmonik ganjil $1 : 3 : 5$)
-* **Taraf Intensitas $N$ Sumber:** $TI_n = TI_1 + 10\\log N$
-* **Taraf Intensitas Beda Jarak:** $TI_2 = TI_1 - 20\\log(r_2/r_1)$
-* **Efek Doppler:** $f_p = \\left(\\frac{v \\pm v_p}{v \\mp v_s}\\right) f_s$
-`
+    materi: "# Gelombang Bunyi\n**Kategori:** TKA Fisika | **Pembungkus:** Gelombang\n\n## A. Karakteristik Gelombang Bunyi\nGelombang bunyi merupakan gelombang mekanik longitudinal yang merambat melalui rapatan dan renggangan medium.\n1. **Cepat Rambat Bunyi:**\n   * Pada gas: $v = \\sqrt{\\frac{\\gamma R T}{M}}$\n   * Pada zat cair: $v = \\sqrt{\\frac{B}{\\rho}}$ (B = modulus bulk)\n   * Pada zat padat: $v = \\sqrt{\\frac{E}{\\rho}}$ (E = modulus Young)\n\n---\n\n## B. Sumber-Sumber Bunyi (Dawai & Pipa Organa)\n1. **Dawai / Senar (Hukum Mersenne):**\n   $$v = \\sqrt{\\frac{F}{\\mu}} = \\sqrt{\\frac{F \\cdot L}{m}}$$\n   Frekuensi nada harmonik ke-$n$ ($n = 0, 1, 2, \\dots$):\n   $$f_n = (n+1) \\frac{v}{2L} \\implies f_0 : f_1 : f_2 = 1 : 2 : 3$$\n2. **Pipa Organa Terbuka (POB):**\n   $$f_n = (n+1) \\frac{v}{2L} \\implies f_0 : f_1 : f_2 = 1 : 2 : 3$$\n3. **Pipa Organa Tertutup (POT):**\n   $$f_n = (2n+1) \\frac{v}{4L} \\implies f_0 : f_1 : f_2 = 1 : 3 : 5$$\n\n---\n\n## C. Intensitas, Taraf Intensitas, & Efek Doppler\n1. **Intensitas Bunyi ($I$):** Daya per satuan luas permukaan bola:\n   $$I = \\frac{P}{4\\pi r^2} \\implies \\frac{I_1}{I_2} = \\left(\\frac{r_2}{r_1}\\right)^2$$\n2. **Taraf Intensitas Bunyi ($TI$ dalam dB):**\n   $$TI = 10 \\log\\left(\\frac{I}{I_0}\\right) \\quad (I_0 = 10^{-12}\\text{ W/m}^2)$$\n   * Untuk $n$ sumber bunyi identik: $TI_n = TI_1 + 10 \\log n$\n   * Untuk jarak yang berbeda: $TI_2 = TI_1 - 20 \\log\\left(\\frac{r_2}{r_1}\\right)$\n3. **Efek Doppler:**\n   $$f_p = \\left(\\frac{v \\pm v_p}{v \\mp v_s}\\right) f_s$$\n   * $v_p$ bernilai $(+)$ jika pendengar mendekati sumber; $(-)$ jika menjauhi.\n   * $v_s$ bernilai $(-)$ jika sumber mendekati pendengar; $(+)$ jika menjauhi.\n",
+    cs: "# Variasi Contoh Soal — Gelombang Bunyi\n**Kategori:** TKA Fisika | **Pembungkus:** Gelombang\n\n### Contoh Soal 1: Taraf Intensitas Banyak Sumber dan Perubahan Jarak\nTaraf intensitas sebuah mesin pada jarak $2\\text{ m}$ adalah $70\\text{ dB}$. Tentukan taraf intensitas jika $100$ mesin identik dinyalakan bersamaan dan didengar pada jarak $20\\text{ meter}$!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung pengaruh $100$ mesin identik pada jarak tetap $r_1 = 2\\text{ m}$:\n> $$\\begin{aligned}\n> TI_{100} &= TI_1 + 10 \\log(100) \\\\\n> &= 70 + 10(2) \\\\\n> &= 70 + 20 \\\\\n> &= 90\\text{ dB}\n> \\end{aligned}$$\n>\n> **Langkah 2:** Hitung penurunan akibat pertambahan jarak dari $2\\text{ m}$ ke $20\\text{ m}$:\n> $$\\begin{aligned}\n> TI_2 &= TI_{100} - 20 \\log\\left(\\frac{r_2}{r_1}\\right) \\\\\n> &= 90 - 20 \\log\\left(\\frac{20}{2}\\right) \\\\\n> &= 90 - 20 \\log(10) \\\\\n> &= 90 - 20(1) \\\\\n> &= 70\\text{ dB}\n> \\end{aligned}$$\n>\n> **Jawaban:** Taraf intensitas gabungan pada jarak $20\\text{ meter}$ adalah $70\\text{ dB}$.\n",
+    rangkuman: "# Rangkuman Rumus Cepat — Gelombang Bunyi\n**Kategori:** TKA Fisika | **Pembungkus:** Gelombang\n\n### A. Tabel Cepat Rambat Gelombang Bunyi\n| Medium Perambatan | Formula Cepat Rambat ($v$) | Parameter Utama |\n| :--- | :--- | :--- |\n| **Zat Padat (Batang)** | $v = \\sqrt{\\frac{E}{\\rho}}$ | $E = \\text{modulus Young}, \\rho = \\text{massa jenis}$ |\n| **Zat Cair** | $v = \\sqrt{\\frac{B}{\\rho}}$ | $B = \\text{modulus Bulk}$ |\n| **Gas / Udara** | $v = \\sqrt{\\frac{\\gamma R T}{M}} = \\sqrt{\\frac{\\gamma P}{\\rho}}$ | $\\gamma = \\text{konstanta Laplace}, T = \\text{suhu mutlak (K)}$ |\n| **Dawai / Senar (Hukum Melde)** | $v = \\sqrt{\\frac{F}{\\mu}} = \\sqrt{\\frac{F \\cdot L}{m}}$ | $F = \\text{tegangan tali}, \\mu = m/L$ |\n\n### B. Tabel Resonansi Frekuensi Harmonik\n| Sumber Gelombang | Pola Panjang Gelombang ($\\lambda_n$) | Frekuensi Harmonik ($f_n$) | Rasio Nada ($f_0 : f_1 : f_2$) |\n| :--- | :--- | :--- | :--- |\n| **Dawai & Pipa Organa Terbuka (POB)** | $\\lambda_n = \\frac{2L}{n + 1}$ | $f_n = (n + 1)\\frac{v}{2L}$ | $1 : 2 : 3 : \\dots$ |\n| **Pipa Organa Tertutup (POT)** | $\\lambda_n = \\frac{4L}{2n + 1}$ | $f_n = (2n + 1)\\frac{v}{4L}$ | $1 : 3 : 5 : \\dots$ |\n\n### C. Tabel Taraf Intensitas & Efek Doppler\n| Konsep / Fenomena | Formula Matematis | Aturan Tanda & Catatan |\n| :--- | :--- | :--- |\n| **Taraf Intensitas Tunggal** | $TI = 10 \\log\\left(\\frac{I}{I_0}\\right)$ | $I_0 = 10^{-12}\\text{ W/m}^2\\text{ (ambang pendengaran)}$ |\n| **$n$ Sumber Identik** | $TI_n = TI_1 + 10 \\log n$ | $10\\text{ sumber} \\implies +10\\text{ dB}; 100\\text{ sumber} \\implies +20\\text{ dB}$ |\n| **Perubahan Jarak ($r_1 \\to r_2$)** | $TI_2 = TI_1 - 20 \\log\\left(\\frac{r_2}{r_1}\\right)$ | Tiap jarak naik $10\\times$, $TI$ berkurang $20\\text{ dB}$ |\n| **Efek Doppler** | $f_p = \\left(\\frac{v \\pm v_p}{v \\mp v_s}\\right) f_s$ | Pendengar mendekat ($+v_p$), Sumber mendekat ($-v_s$) |\n"
   },
 
+  // Bab 10: Gelombang Cahaya dan Alat Optik (Gelombang)
   {
     index: 10,
     blok: "Gelombang",
     judul: "Gelombang Cahaya dan Alat Optik",
-    materi: `# Gelombang Cahaya dan Alat Optik
-**Kategori:** TKA Fisika | **Pembungkus:** Gelombang
-
-## A. Sifat Gelombang Cahaya & Pembiasan
-1. **Hukum Pembiasan Snellius:**
-   $$n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2$$
-   * Indeks bias: $n = \\frac{c}{v} = \\frac{\\lambda_0}{\\lambda_n}$
-   * Sudut kritis & pemantulan sempurna (dari rapat ke renggang, $n_1 > n_2$):
-     $$\\sin\\theta_k = \\frac{n_2}{n_1}$$
-2. **Interferensi Celah Ganda Young:**
-   * Garis terang (maksimum): $d \\sin\\theta = \\frac{d \\cdot p}{L} = m \\lambda$ ($m = 0, 1, 2, \\dots$)
-   * Garis gelap (minimum): $d \\sin\\theta = \\frac{d \\cdot p}{L} = \\left(m - \\frac{1}{2}\\right) \\lambda$
-3. **Difraksi Kisi:** $d \\sin\\theta = n \\lambda$, di mana tetapan kisi $d = \\frac{1}{N}$.
-
----
-
-## B. Pembentukan Bayangan Cermin dan Lensa
-$$\\frac{1}{f} = \\frac{1}{s} + \\frac{1}{s'}, \\quad M = \\left|\\frac{s'}{s}\\right| = \\left|\\frac{h'}{h}\\right|$$
-* Cermin cekung & lensa cembung: $f > 0$ (konvergen).
-* Cermin cembung & lensa cekung: $f < 0$ (divergen).
-* Kekuatan lensa: $P = \\frac{1}{f\\text{ (meter)}} = \\frac{100}{f\\text{ (cm)}}$ dioptri.
-
----
-
-## C. Prinsip Alat Optik
-1. **Mata Normal & Cacat Mata:**
-   * Miopi (rabun jauh): $P = -\\frac{100}{PR\\text{ (cm)}}$
-   * Hipermetropi (rabun dekat): $P = 4 - \\frac{100}{PP\\text{ (cm)}}$
-2. **Lup (Kaca Pembesar):**
-   * Mata berakomodasi maksimum: $M = \\frac{S_n}{f} + 1$
-   * Mata tidak berakomodasi: $M = \\frac{S_n}{f}$ ($S_n = 25\\text{ cm}$)
-3. **Mikroskop:**
-   $$M_{\\text{total}} = M_{\\text{ob}} \\times M_{\\text{ok}} = \\left|\\frac{s_{\\text{ob}}'}{s_{\\text{ob}}}\\right| \\times M_{\\text{ok}}$$
-   Panjang tubus mikroskop: $d = s_{\\text{ob}}' + s_{\\text{ok}}$.
-`,
-    cs: `# Variasi Contoh Soal — Gelombang Cahaya dan Alat Optik
-**Kategori:** TKA Fisika | **Pembungkus:** Gelombang
-
-### Contoh Soal 1: Mikroskop
-Sebuah mikroskop memiliki lensa objektif berfokus $1\\text{ cm}$ dan lensa okuler berfokus $5\\text{ cm}$. Benda diletakkan pada jarak $1{,}1\\text{ cm}$ di depan objektif. Pengamatan dilakukan dengan mata berakomodasi maksimum ($S_n = 25\\text{ cm}$). Tentukan perbesaran total bayangan!
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Hitung jarak bayangan objektif ($s_{\\text{ob}}'$):
-> $$\\frac{1}{s_{\\text{ob}}'} = \\frac{1}{f_{\\text{ob}}} - \\frac{1}{s_{\\text{ob}}} = \\frac{1}{1} - \\frac{1}{1{,}1} = 1 - \\frac{10}{11} = \\frac{1}{11} \\implies s_{\\text{ob}}' = 11\\text{ cm}$$
->
-> **Langkah 2:** Perbesaran objektif:
-> $$M_{\\text{ob}} = \\left|\\frac{s_{\\text{ob}}'}{s_{\\text{ob}}}\\right| = \\frac{11}{1{,}1} = 10\\text{ kali}$$
->
-> **Langkah 3:** Perbesaran okuler (akomodasi maksimum):
-> $$M_{\\text{ok}} = \\frac{S_n}{f_{\\text{ok}}} + 1 = \\frac{25}{5} + 1 = 5 + 1 = 6\\text{ kali}$$
->
-> **Langkah 4:** Perbesaran total:
-> $$M_{\\text{total}} = M_{\\text{ob}} \\times M_{\\text{ok}} = 10 \\times 6 = 60\\text{ kali}$$
->
-> **Jawaban:** Perbesaran total mikroskop adalah $60\\text{ kali}$.
-`,
-    rangkuman: `# Rangkuman Rumus Cepat — Cahaya & Alat Optik
-**Kategori:** TKA Fisika | **Pembungkus:** Gelombang
-
-* **Snellius:** $n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2$
-* **Lensa & Cermin:** $\\frac{1}{f} = \\frac{1}{s} + \\frac{1}{s'}, \\quad M = \\left|\\frac{s'}{s}\\right|$
-* **Cacat Mata Miopi:** $P = -\\frac{100}{PR}$
-* **Cacat Mata Hipermetropi:** $P = 4 - \\frac{100}{PP}$
-* **Lup Akomodasi Maks:** $M = \\frac{25}{f} + 1$
-* **Perbesaran Mikroskop:** $M = M_{\\text{ob}} \\times M_{\\text{ok}}$
-`
+    materi: "# Gelombang Cahaya dan Alat Optik\n**Kategori:** TKA Fisika | **Pembungkus:** Gelombang\n\n## A. Sifat Gelombang Cahaya & Pembiasan\n1. **Hukum Pembiasan Snellius:**\n   $$n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2$$\n   * Indeks bias: $n = \\frac{c}{v} = \\frac{\\lambda_0}{\\lambda_n}$\n   * Sudut kritis & pemantulan sempurna (dari rapat ke renggang, $n_1 > n_2$):\n     $$\\sin\\theta_k = \\frac{n_2}{n_1}$$\n2. **Interferensi Celah Ganda Young:**\n   * Garis terang (maksimum): $d \\sin\\theta = \\frac{d \\cdot p}{L} = m \\lambda$ ($m = 0, 1, 2, \\dots$)\n   * Garis gelap (minimum): $d \\sin\\theta = \\frac{d \\cdot p}{L} = \\left(m - \\frac{1}{2}\\right) \\lambda$\n3. **Difraksi Kisi:** $d \\sin\\theta = n \\lambda$, di mana tetapan kisi $d = \\frac{1}{N}$.\n\n---\n\n## B. Pembentukan Bayangan Cermin dan Lensa\n$$\\frac{1}{f} = \\frac{1}{s} + \\frac{1}{s'}, \\quad M = \\left|\\frac{s'}{s}\\right| = \\left|\\frac{h'}{h}\\right|$$\n* Cermin cekung & lensa cembung: $f > 0$ (konvergen).\n* Cermin cembung & lensa cekung: $f < 0$ (divergen).\n* Kekuatan lensa: $P = \\frac{1}{f\\text{ (meter)}} = \\frac{100}{f\\text{ (cm)}}$ dioptri.\n\n---\n\n## C. Prinsip Alat Optik\n1. **Mata Normal & Cacat Mata:**\n   * Miopi (rabun jauh): $P = -\\frac{100}{PR\\text{ (cm)}}$\n   * Hipermetropi (rabun dekat): $P = 4 - \\frac{100}{PP\\text{ (cm)}}$\n2. **Lup (Kaca Pembesar):**\n   * Mata berakomodasi maksimum: $M = \\frac{S_n}{f} + 1$\n   * Mata tidak berakomodasi: $M = \\frac{S_n}{f}$ ($S_n = 25\\text{ cm}$)\n3. **Mikroskop:**\n   $$M_{\\text{total}} = M_{\\text{ob}} \\times M_{\\text{ok}} = \\left|\\frac{s_{\\text{ob}}'}{s_{\\text{ob}}}\\right| \\times M_{\\text{ok}}$$\n   Panjang tubus mikroskop: $d = s_{\\text{ob}}' + s_{\\text{ok}}$.\n",
+    cs: "# Variasi Contoh Soal — Gelombang Cahaya dan Alat Optik\n**Kategori:** TKA Fisika | **Pembungkus:** Gelombang\n\n### Contoh Soal 1: Perbesaran Total Mikroskop\nSebuah mikroskop memiliki lensa objektif dengan fokus $1\\text{ cm}$ dan lensa okuler dengan fokus $5\\text{ cm}$. Benda diletakkan pada jarak $1{,}1\\text{ cm}$ di depan objektif. Jika mata berakomodasi maksimum ($S_n = 25\\text{ cm}$), tentukan perbesaran total bayangan!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung jarak bayangan lensa objektif ($s_{\\text{ob}}'$):\n> $$\\begin{aligned}\n> \\frac{1}{s_{\\text{ob}}'} &= \\frac{1}{f_{\\text{ob}}} - \\frac{1}{s_{\\text{ob}}} \\\\\n> &= \\frac{1}{1} - \\frac{1}{1{,}1} \\\\\n> &= 1 - \\frac{10}{11} \\\\\n> &= \\frac{1}{11}\n> \\end{aligned}$$\n> $$\\begin{aligned}\n> s_{\\text{ob}}' &= 11\\text{ cm}\n> \\end{aligned}$$\n>\n> **Langkah 2:** Hitung perbesaran lensa objektif:\n> $$\\begin{aligned}\n> M_{\\text{ob}} &= \\left|\\frac{s_{\\text{ob}}'}{s_{\\text{ob}}}\\right| \\\\\n> &= \\frac{11}{1{,}1} \\\\\n> &= 10\\text{ kali}\n> \\end{aligned}$$\n>\n> **Langkah 3:** Hitung perbesaran okuler (akomodasi maksimum):\n> $$\\begin{aligned}\n> M_{\\text{ok}} &= \\frac{S_n}{f_{\\text{ok}}} + 1 \\\\\n> &= \\frac{25}{5} + 1 \\\\\n> &= 5 + 1 \\\\\n> &= 6\\text{ kali}\n> \\end{aligned}$$\n>\n> **Langkah 4:** Hitung perbesaran total mikroskop:\n> $$\\begin{aligned}\n> M_{\\text{total}} &= M_{\\text{ob}} \\times M_{\\text{ok}} \\\\\n> &= 10 \\times 6 \\\\\n> &= 60\\text{ kali}\n> \\end{aligned}$$\n>\n> **Jawaban:** Perbesaran total mikroskop adalah $60\\text{ kali}$.\n",
+    rangkuman: "# Rangkuman Rumus Cepat — Gelombang Cahaya dan Alat Optik\n**Kategori:** TKA Fisika | **Pembungkus:** Gelombang\n\n### A. Tabel Cermin & Lensa (Optik Geometri)\n| Elemen Optik | Persamaan Titik Fokus & Perbesaran | Karakteristik Tanda |\n| :--- | :--- | :--- |\n| **Cermin Cekung / Lensa Cembung** | $\\frac{1}{f} = \\frac{1}{s} + \\frac{1}{s'}, \\quad M = \\left|\\frac{s'}{s}\\right|$ | Fokus positif ($f > 0$, konvergen) |\n| **Cermin Cembung / Lensa Cekung** | $\\frac{1}{f} = \\frac{1}{s} + \\frac{1}{s'}, \\quad P = \\frac{100}{f\\text{ (cm)}}$ | Fokus negatif ($f < 0$, divergen) |\n| **Tanda Bayangan** | $s' > 0 \\implies \\text{nyata, terbalik}$ | $s' < 0 \\implies \\text{maya, tegak}$ |\n\n### B. Tabel Optik Fisis (Pola Interferensi & Difraksi)\n| Fenomena | Pola Terang (Maksimum) | Pola Gelap (Minimum) |\n| :--- | :--- | :--- |\n| **Interferensi Celah Ganda (Young)** | $d \\frac{p}{L} = m \\lambda$ | $d \\frac{p}{L} = \\left(m - \\frac{1}{2}\\right)\\lambda$ |\n| **Difraksi Celah Tunggal** | $d \\frac{p}{L} = \\left(m + \\frac{1}{2}\\right)\\lambda$ | $d \\frac{p}{L} = m \\lambda$ |\n| **Difraksi Kisi** | $d \\sin\\theta = m \\lambda \\implies \\frac{1}{N}\\sin\\theta = m\\lambda$ | $N = \\text{tetapan jumlah garis per meter}$ |\n| **Sudut Polarisasi Brewster** | $\\tan\\theta_p = \\frac{n_2}{n_1}$ | Sinar pantul terpolarisasi linier murni |\n\n### C. Tabel Formulasi Lengkap Alat Optik\n| Alat Optik | Mata Tanpa Akomodasi ($s' = \\infty$) | Mata Akomodasi Maksimum ($s' = -S_n$) |\n| :--- | :--- | :--- |\n| **Kacamata Miopi** | $P = -\\frac{100}{PR\\text{ (cm)}}$ | Lensa negatif (cekung) |\n| **Kacamata Hipermetropi** | $P = 4 - \\frac{100}{PP\\text{ (cm)}}$ | Lensa positif (cembung) |\n| **Lup (Kaca Pembesar)** | $M = \\frac{S_n}{f}$ | $M = \\frac{S_n}{f} + 1$ |\n| **Mikroskop** | $M_{\\text{total}} = M_{\\text{ob}} \\times \\frac{S_n}{f_{\\text{ok}}}, \\quad d = s_{\\text{ob}}' + f_{\\text{ok}}$ | $M_{\\text{total}} = M_{\\text{ob}} \\times \\left(\\frac{S_n}{f_{\\text{ok}}} + 1\\right)$ |\n| **Teropong Bintang** | $M = \\frac{f_{\\text{ob}}}{f_{\\text{ok}}}, \\quad d = f_{\\text{ob}} + f_{\\text{ok}}$ | Objektif selalu lebih panjang dari okuler |\n"
   },
 
-  // Pembungkus 5: Kalor dan Termodinamika
+  // Bab 11: Kalor dan Perpindahannya (Kalor dan Termodinamika)
   {
     index: 11,
     blok: "Kalor dan Termodinamika",
     judul: "Kalor dan Perpindahannya",
-    materi: `# Kalor dan Perpindahannya
-**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika
-
-## A. Kalor, Suhu, dan Perubahan Wujud
-1. **Kalor Perubahan Suhu:**
-   $$Q = m \\cdot c \\cdot \\Delta T = C \\cdot \\Delta T$$
-   * $c$ = kalor jenis zat ($\\text{J}/(\\text{kg}\\cdot\\text{K})$), $C = mc$ = kapasitas kalor.
-2. **Kalor Laten Perubahan Wujud:**
-   Terjadi pada suhu konstan (titik lebur/didih):
-   $$Q = m \\cdot L \\quad (\\text{lebur/beku}), \\quad Q = m \\cdot U \\quad (\\text{uap/embun})$$
-3. **Pemuaian Zat:**
-   * Pemuaian Panjang: $\\Delta L = L_0 \\alpha \\Delta T \\implies L_t = L_0(1 + \\alpha \\Delta T)$
-   * Pemuaian Luas: $\\Delta A = A_0 \\beta \\Delta T \\implies \\beta = 2\\alpha$
-   * Pemuaian Volume: $\\Delta V = V_0 \\gamma \\Delta T \\implies \\gamma = 3\\alpha$
-4. **Asas Black (Kekekalan Kalor):**
-   $$Q_{\\text{lepas}} = Q_{\\text{terima}}$$
-
----
-
-## B. Mekanisme Perpindahan Kalor
-1. **Konduksi (Tanpa perpindahan massa medium):**
-   $$H = \\frac{Q}{t} = \\frac{k \\cdot A \\cdot \\Delta T}{L}$$
-2. **Konveksi (Disertai aliran massa medium):**
-   $$H = \\frac{Q}{t} = h \\cdot A \\cdot \\Delta T$$
-3. **Radiasi (Gelombang elektromagnetik tanpa medium):**
-   Hukum Stefan-Boltzmann:
-   $$P = \\frac{Q}{t} = e \\cdot \\sigma \\cdot A \\cdot T^4 \\quad (\\sigma = 5{,}67 \\times 10^{-8}\\text{ W/m}^2\\text{K}^4)$$
-`,
-    cs: `# Variasi Contoh Soal — Kalor dan Perpindahannya
-**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika
-
-### Contoh Soal 1: Asas Black (Campuran Air dan Es)
-Sebanyak $100\\text{ g}$ es bersuhu $0^\\circ\\text{C}$ dicampurkan dengan $200\\text{ g}$ air bersuhu $50^\\circ\\text{C}$. Kalor jenis air $= 1\\text{ kal/g}^\circ\\text{C}$ dan kalor lebur es $= 80\\text{ kal/g}$. Tentukan suhu akhir kesetimbangan termal!
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Kalor yang dibutuhkan untuk meleburkan seluruh es:
-> $$Q_{\\text{lebur}} = m_{\\text{es}} \\cdot L = 100 \\times 80 = 8000\\text{ kal}$$
->
-> **Langkah 2:** Kalor maksimal yang dapat dilepas air saat turun ke $0^\\circ\\text{C}$:
-> $$Q_{\\text{lepas,max}} = m_{\\text{air}} \\cdot c \\cdot (50 - 0) = 200 \\times 1 \\times 50 = 10000\\text{ kal}$$
->
-> **Langkah 3:** Karena $Q_{\\text{lepas,max}} > Q_{\\text{lebur}}$, seluruh es mencair dan suhu akhir $T_c > 0^\\circ\\text{C}$:
-> $$Q_{\\text{lepas}} = Q_{\\text{terima}}$$
-> $$200 \\times 1 \\times (50 - T_c) = 8000 + 100 \\times 1 \\times (T_c - 0)$$
-> $$10000 - 200 T_c = 8000 + 100 T_c \\implies 300 T_c = 2000 \\implies T_c = \\frac{20}{3} \\approx 6{,}67^\\circ\\text{C}$$
->
-> **Jawaban:** Suhu akhir campuran adalah $6{,}67^\\circ\\text{C}$.
-`,
-    rangkuman: `# Rangkuman Rumus Cepat — Kalor
-**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika
-
-* **Kalor Suhu:** $Q = mc\\Delta T$
-* **Kalor Wujud:** $Q = mL$
-* **Asas Black:** $Q_{\\text{lepas}} = Q_{\\text{terima}}$
-* **Pemuaian Panjang:** $\\Delta L = L_0 \\alpha \\Delta T$
-* **Konduksi:** $H = \\frac{k A \\Delta T}{L}$
-* **Radiasi:** $P = e \\sigma A T^4$ ($T$ wajib Kelvin)
-`
+    materi: "# Kalor dan Perpindahannya\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n## A. Kalor, Suhu, dan Perubahan Wujud\n1. **Kalor Perubahan Suhu:**\n   $$Q = m \\cdot c \\cdot \\Delta T = C \\cdot \\Delta T$$\n   * $c$ = kalor jenis zat ($\\text{J}/(\\text{kg}\\cdot\\text{K})$), $C = mc$ = kapasitas kalor.\n2. **Kalor Laten Perubahan Wujud:**\n   Terjadi pada suhu konstan (titik lebur/didih):\n   $$Q = m \\cdot L \\quad (\\text{lebur/beku}), \\quad Q = m \\cdot U \\quad (\\text{uap/embun})$$\n3. **Pemuaian Zat:**\n   * Pemuaian Panjang: $\\Delta L = L_0 \\alpha \\Delta T \\implies L_t = L_0(1 + \\alpha \\Delta T)$\n   * Pemuaian Luas: $\\Delta A = A_0 \\beta \\Delta T \\implies \\beta = 2\\alpha$\n   * Pemuaian Volume: $\\Delta V = V_0 \\gamma \\Delta T \\implies \\gamma = 3\\alpha$\n4. **Asas Black (Kekekalan Kalor):**\n   $$Q_{\\text{lepas}} = Q_{\\text{terima}}$$\n\n---\n\n## B. Mekanisme Perpindahan Kalor\n1. **Konduksi (Tanpa perpindahan massa medium):**\n   $$H = \\frac{Q}{t} = \\frac{k \\cdot A \\cdot \\Delta T}{L}$$\n2. **Konveksi (Disertai aliran massa medium):**\n   $$H = \\frac{Q}{t} = h \\cdot A \\cdot \\Delta T$$\n3. **Radiasi (Gelombang elektromagnetik tanpa medium):**\n   Hukum Stefan-Boltzmann:\n   $$P = \\frac{Q}{t} = e \\cdot \\sigma \\cdot A \\cdot T^4 \\quad (\\sigma = 5{,}67 \\times 10^{-8}\\text{ W/m}^2\\text{K}^4)$$\n",
+    cs: "# Variasi Contoh Soal — Kalor dan Perpindahannya\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n### Contoh Soal 1: Asas Black (Campuran Air dan Es)\nSebanyak $100\\text{ g}$ es bersuhu $0^\\circ\\text{C}$ dimasukkan ke dalam $200\\text{ g}$ air bersuhu $50^\\circ\\text{C}$. Diketahui kalor jenis air $c = 1\\text{ kal/g}^\\circ\\text{C}$ dan kalor lebur es $L = 80\\text{ kal/g}$. Tentukan suhu akhir kesetimbangan campuran!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung kalor yang dibutuhkan untuk melebur seluruh es:\n> $$\\begin{aligned}\n> Q_{\\text{lebur}} &= m_{\\text{es}} \\cdot L \\\\\n> &= 100 \\times 80 \\\\\n> &= 8000\\text{ kal}\n> \\end{aligned}$$\n>\n> **Langkah 2:** Hitung kalor maksimal yang dilepas air bila turun ke $0^\\circ\\text{C}$:\n> $$\\begin{aligned}\n> Q_{\\text{lepas,max}} &= m_{\\text{air}} \\cdot c \\cdot \\Delta T \\\\\n> &= 200 \\times 1 \\times (50 - 0) \\\\\n> &= 10000\\text{ kal}\n> \\end{aligned}$$\n>\n> **Langkah 3:** Karena $Q_{\\text{lepas,max}} > Q_{\\text{lebur}}$, seluruh es melebur dan suhu akhir $T_c > 0^\\circ\\text{C}$:\n> $$\\begin{aligned}\n> Q_{\\text{lepas}} &= Q_{\\text{terima}} \\\\\n> m_{\\text{air}} c (50 - T_c) &= Q_{\\text{lebur}} + m_{\\text{es}} c (T_c - 0) \\\\\n> 200(1)(50 - T_c) &= 8000 + 100(1)(T_c) \\\\\n> 10000 - 200 T_c &= 8000 + 100 T_c \\\\\n> 300 T_c &= 2000 \\\\\n> T_c &= \\frac{2000}{300} \\\\\n> T_c &= \\frac{20}{3} \\\\\n> T_c &\\approx 6{,}67^\\circ\\text{C}\n> \\end{aligned}$$\n>\n> **Jawaban:** Suhu akhir kesetimbangan termal adalah $6{,}67^\\circ\\text{C}$.\n",
+    rangkuman: "# Rangkuman Rumus Cepat — Kalor dan Perpindahannya\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n### A. Tabel Kalor & Asas Black\n| Proses Fisis | Formulasi Matematis | Keterangan Parameter |\n| :--- | :--- | :--- |\n| **Kalor Sensibel (Ubah Suhu)** | $Q = m \\cdot c \\cdot \\Delta T = C \\cdot \\Delta T$ | $c = \\text{kalor jenis}, C = mc = \\text{kapasitas kalor}$ |\n| **Kalor Laten (Ubah Wujud)** | $Q = m \\cdot L$ (lebur) / $Q = m \\cdot U$ (uap) | Terjadi pada suhu konstan (titik lebur/didih) |\n| **Asas Black** | $Q_{\\text{lepas}} = Q_{\\text{terima}}$ | Benda suhu tinggi melepas $=$ benda suhu rendah menyerap |\n\n### B. Tabel Pemuaian Zat Padat\n| Bentuk Muai | Formula Pertambahan Ukuran | Hubungan Koefisien |\n| :--- | :--- | :--- |\n| **Panjang ($L$)** | $\\Delta L = L_0 \\alpha \\Delta T \\implies L_t = L_0(1 + \\alpha\\Delta T)$ | $\\alpha = \\text{koefisien muai panjang}$ |\n| **Luas ($A$)** | $\\Delta A = A_0 \\beta \\Delta T \\implies A_t = A_0(1 + \\beta\\Delta T)$ | $\\beta = 2\\alpha$ |\n| **Volume ($V$)** | $\\Delta V = V_0 \\gamma \\Delta T \\implies V_t = V_0(1 + \\gamma\\Delta T)$ | $\\gamma = 3\\alpha$ |\n\n### C. Tabel Mekanisme Perpindahan Kalor\n| Mekanisme | Laju Kalor ($H = \\frac{Q}{t}$) | Keterangan & Karakteristik |\n| :--- | :--- | :--- |\n| **Konduksi** | $H = k A \\frac{\\Delta T}{L}$ | Melalui zat padat tanpa disertai perpindahan partikel |\n| **Konveksi** | $H = h A \\Delta T$ | Melalui fluida yang mengalir disertai perpindahan massa |\n| **Radiasi** | $P = e \\sigma A T^4$ | Gelombang elektromagnetik, $\\sigma = 5{,}67 \\times 10^{-8}\\text{ W/m}^2\\text{K}^4$ |\n"
   },
 
+  // Bab 12: Pemanasan Global dan Efek Rumah Kaca (Kalor dan Termodinamika)
   {
     index: 12,
     blok: "Kalor dan Termodinamika",
     judul: "Pemanasan Global dan Efek Rumah Kaca",
-    materi: `# Pemanasan Global dan Efek Rumah Kaca
-**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika
-
-## A. Mekanisme Fisika Efek Rumah Kaca
-1. Matahari memancarkan radiasi gelombang pendek (spektrum tampak dan UV) menembus atmosfer bumi.
-2. Permukaan bumi menyerap energi radiasi ini dan suhunya meningkat, lalu memancarkannya kembali ke atmosfer sebagai radiasi termal inframerah gelombang panjang ($T_{\\text{bumi}} \\ll T_{\\text{matahari}}$).
-3. Molekul gas rumah kaca di troposfer menyerap radiasi inframerah tersebut melalui resonansi vibrasi ikatan molekuler dan memancarkannya kembali ke segala arah (sebagian besar kembali ke permukaan bumi), menahan panas di atmosfer.
-
----
-
-## B. Gas Rumah Kaca (GRK) dan Aktivitas Pemicu
-1. **Karbondioksida ($\\text{CO}_2$):** Pembakaran bahan bakar fosil (batubara, minyak bumi) dan deforestasi.
-2. **Metana ($\\text{CH}_4$):** Peternakan ruminansia, persawahan padi anaerobik, dan kebocoran gas alam (potensi pemanasan 25x lebih kuat dari $\\text{CO}_2$).
-3. **Dinitrogen Oksida ($\\text{N}_2\\text{O}$):** Penggunaan pupuk kimia nitrogen berlebih pada pertanian.
-4. **CFC / HFC:** Gas pendingin AC dan refrigerasi (juga merusak lapisan ozon stratosfer).
-
----
-
-## C. Solusi dan Mitigasi
-* Transisi energi menuju Energi Baru Terbarukan (EBT: solar PV, angin, hidro, panas bumi).
-* Konservasi energi dan penerapan efisiensi daya pada bangunan dan industri.
-* Reboisasi dan penangkapan karbon (*Carbon Capture, Utilization, and Storage / CCUS*).
-`,
-    cs: `# Variasi Contoh Soal — Pemanasan Global
-**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika
-
-### Contoh Soal 1: Mekanisme Efek Rumah Kaca
-Mengapa gas rumah kaca seperti $\\text{CO}_2$ dan $\\text{CH}_4$ dapat meloloskan cahaya matahari tetapi menahan radiasi kalor yang dipancarkan permukaan bumi?
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> Berdasarkan Hukum Pergeseran Wien ($\lambda_{\\max} T = C$), radiasi matahari dari fotosfer bersuhu $\\approx 6000\\text{ K}$ didominasi panjang gelombang pendek (cahaya tampak $\\approx 0{,}5\\,\\mu\\text{m}$), yang tidak diserap oleh ikatan molekul $\\text{CO}_2$.
-> Sebaliknya, permukaan bumi yang bersuhu $\\approx 300\\text{ K}$ memancarkan radiasi inframerah gelombang panjang ($\approx 10\\,\\mu\\text{m}$). Panjang gelombang ini tepat cocok dengan frekuensi resonansi vibrasi lentur dan regang molekul $\\text{CO}_2$, sehingga radiasi diserap kuat dan dipantulkan kembali.
-`,
-    rangkuman: `# Rangkuman Rumus Cepat — Pemanasan Global
-**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika
-
-* **Radiasi Masuk:** Gelombang pendek (cahaya tampak), lolos atmosfer.
-* **Radiasi Keluar:** Gelombang panjang (inframerah), diserap gas rumah kaca.
-* **Gas Utama:** $\\text{CO}_2, \\text{CH}_4, \\text{N}_2\\text{O}, \\text{H}_2\\text{O}$, fluorinated gases.
-* **Mitigasi:** Dekarbonisasi, transisi EBT, efisiensi energi.
-`
+    materi: "# Pemanasan Global dan Efek Rumah Kaca\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n## A. Mekanisme Fisika Efek Rumah Kaca\n1. Matahari memancarkan radiasi gelombang pendek (spektrum tampak dan UV) menembus atmosfer bumi.\n2. Permukaan bumi menyerap energi radiasi ini dan suhunya meningkat, lalu memancarkannya kembali ke atmosfer sebagai radiasi termal inframerah gelombang panjang ($T_{\\text{bumi}} \\ll T_{\\text{matahari}}$).\n3. Molekul gas rumah kaca di troposfer menyerap radiasi inframerah tersebut melalui resonansi vibrasi ikatan molekuler dan memancarkannya kembali ke segala arah (sebagian besar kembali ke permukaan bumi), menahan panas di atmosfer.\n\n---\n\n## B. Gas Rumah Kaca (GRK) dan Aktivitas Pemicu\n1. **Karbondioksida ($\\text{CO}_2$):** Pembakaran bahan bakar fosil (batubara, minyak bumi) dan deforestasi.\n2. **Metana ($\\text{CH}_4$):** Peternakan ruminansia, persawahan padi anaerobik, dan kebocoran gas alam (potensi pemanasan 25x lebih kuat dari $\\text{CO}_2$).\n3. **Dinitrogen Oksida ($\\text{N}_2\\text{O}$):** Penggunaan pupuk kimia nitrogen berlebih pada pertanian.\n4. **CFC / HFC:** Gas pendingin AC dan refrigerasi (juga merusak lapisan ozon stratosfer).\n\n---\n\n## C. Solusi dan Mitigasi\n* Transisi energi menuju Energi Baru Terbarukan (EBT: solar PV, angin, hidro, panas bumi).\n* Konservasi energi dan penerapan efisiensi daya pada bangunan dan industri.\n* Reboisasi dan penangkapan karbon (*Carbon Capture, Utilization, and Storage / CCUS*).\n",
+    cs: "# Variasi Contoh Soal — Pemanasan Global dan Efek Rumah Kaca\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n### Contoh Soal 1: Pergeseran Wien Radiasi Matahari dan Bumi\nPermukaan matahari memancarkan radiasi dengan suhu efektif $T_{\\text{matahari}} \\approx 6000\\text{ K}$, sedangkan permukaan bumi bersuhu rata-rata $T_{\\text{bumi}} \\approx 300\\text{ K}$. Jika konstanta Wien $C = 2{,}898 \\times 10^{-3}\\text{ m}\\cdot\\text{K}$, tentukan panjang gelombang pancaran maksimum masing-masing dan kaitannya dengan efek rumah kaca!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung puncak panjang gelombang radiasi matahari:\n> $$\\begin{aligned}\n> \\lambda_{\\max,\\text{matahari}} &= \\frac{C}{T_{\\text{matahari}}} \\\\\n> &= \\frac{2{,}898 \\times 10^{-3}}{6000} \\\\\n> &= 0{,}483 \\times 10^{-6}\\text{ m} \\\\\n> &= 0{,}483\\,\\mu\\text{m}\n> \\end{aligned}$$\n>\n> **Langkah 2:** Hitung puncak panjang gelombang radiasi bumi:\n> $$\\begin{aligned}\n> \\lambda_{\\max,\\text{bumi}} &= \\frac{C}{T_{\\text{bumi}}} \\\\\n> &= \\frac{2{,}898 \\times 10^{-3}}{300} \\\\\n> &= 9{,}66 \\times 10^{-6}\\text{ m} \\\\\n> &= 9{,}66\\,\\mu\\text{m}\n> \\end{aligned}$$\n>\n> **Langkah 3:** Analisis fisis keterkaitan efek rumah kaca:\n> Radiasi matahari berada pada spektrum gelombang pendek (cahaya tampak) yang tidak diserap gas rumah kaca. Sebaliknya, radiasi permukaan bumi berada pada spektrum inframerah gelombang panjang ($9{,}66\\,\\mu\\text{m}$) yang beresonansi dengan frekuensi getaran molekul $\\text{CO}_2$ dan $\\text{CH}_4$, memerangkap kalor di troposfer.\n>\n> **Jawaban:** $\\lambda_{\\max,\\text{matahari}} = 0{,}483\\,\\mu\\text{m}$ (cahaya tampak) dan $\\lambda_{\\max,\\text{bumi}} = 9{,}66\\,\\mu\\text{m}$ (inframerah termal).\n",
+    rangkuman: "# Rangkuman Rumus Cepat — Pemanasan Global dan Efek Rumah Kaca\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n### A. Tabel Gas Rumah Kaca (GRK) & Potensi Pemanasan Global\n| Gas Rumah Kaca | Simbol | Sumber Utama Emisi | Potensi Pemanasan (GWP - 100 thn) | Masa Tinggal di Atmosfer |\n| :--- | :--- | :--- | :--- | :--- |\n| **Karbon Dioksida** | $\\text{CO}_2$ | Pembakaran bahan bakar fosil, deforestasi | $1$ (Basis Acuan) | Ratusan tahun |\n| **Metana** | $\\text{CH}_4$ | Peternakan sapi, limbah organik, sawah padi | $28 - 36 \\times \\text{CO}_2$ | $\\approx 12\\text{ tahun}$ |\n| **Dinitrogen Oksida** | $\\text{N}_2\\text{O}$ | Pupuk nitrogen sintetis, pembakaran biomassa | $\\approx 265 - 298 \\times \\text{CO}_2$ | $\\approx 114\\text{ tahun}$ |\n| **Fluorinated Gases** | $\\text{CFC} / \\text{HFC}$ | Refrigeran pendingin (AC/Kulkas), aerosol | $1000 - 10000 \\times \\text{CO}_2$ | Sangat lama (merusak lapisan $\\text{O}_3$) |\n\n### B. Tabel Dampak Ekologis & Perjanjian Iklim Global\n| Sektor Lingkungan | Fenomena / Gejala Dampak | Solusi & Protokol Internasional |\n| :--- | :--- | :--- |\n| **Kriosfer & Lautan** | Pencairan gletser kutub, kenaikan muka air laut | Protokol Kyoto (1997): komitmen reduksi emisi GRK |\n| **Atmosfer & Biosfer** | Cuaca ekstrem, kekeringan, kepunahan spesies | Perjanjian Paris (2015): batasi kenaikan suhu $< 1{,}5^\\circ\\text{C}$ |\n| **Transisi Energi** | Penurunan ketergantungan energi fosil | Pemanfaatan Energi Baru Terbarukan (EBT): surya, angin, hidro |\n"
   },
 
+  // Bab 13: Teori Kinetik Gas Ideal (Kalor dan Termodinamika)
   {
     index: 13,
     blok: "Kalor dan Termodinamika",
     judul: "Teori Kinetik Gas Ideal",
-    materi: `# Teori Kinetik Gas Ideal
-**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika
-
-## A. Hukum-Hukum Gas & Persamaan Keadaan
-1. **Hukum Boyle ($T = \\text{konstan}$):** $P_1 V_1 = P_2 V_2$
-2. **Hukum Charles ($P = \\text{konstan}$):** $\\frac{V_1}{T_1} = \\frac{V_2}{T_2}$
-3. **Hukum Gay-Lussac ($V = \\text{konstan}$):** $\\frac{P_1}{T_1} = \\frac{P_2}{T_2}$
-4. **Persamaan Umum Gas Ideal:**
-   $$P V = n R T = N k T$$
-   * $R = 8{,}314\\text{ J/mol}\\cdot\\text{K}$
-   * $k = \\frac{R}{N_A} = 1{,}38 \\times 10^{-23}\\text{ J/K}$
-
----
-
-## B. Tekanan Kinetik dan Energi Kinetik Partikel
-1. **Tekanan Gas Ideal:**
-   $$P = \\frac{1}{3} \\frac{N m}{V} \\overline{v^2} = \\frac{2}{3} \\frac{N}{V} \\overline{EK}$$
-2. **Energi Kinetik Rata-Rata per Molekul:**
-   Berbanding lurus hanya terhadap suhu mutlak gas ($T$ dalam Kelvin):
-   $$\\overline{EK} = \\frac{f}{2} k T$$
-   (Untuk gas monoatomik, derajat kebebasan $f = 3 \\implies \\overline{EK} = \\frac{3}{2} k T$)
-3. **Kelajuan Efektif ($v_{\\text{rms}}$):**
-   $$v_{\\text{rms}} = \\sqrt{\\frac{3RT}{M}} = \\sqrt{\\frac{3kT}{m}} = \\sqrt{\\frac{3P}{\\rho}}$$
-4. **Energi Dalam Gas Ideal ($U$):**
-   $$U = N \\cdot \\overline{EK} = \\frac{f}{2} n R T$$
-`,
-    cs: `# Variasi Contoh Soal — Teori Kinetik Gas Ideal
-**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika
-
-### Contoh Soal 1: Perubahan Suhu dan Kelajuan rms
-Sebuah bejana berisi gas helium pada suhu $27^\\circ\\text{C}$. Jika suhu gas dinaikkan menjadi $327^\\circ\\text{C}$, berapakah perbandingan kelajuan efektif ($v_{\\text{rms}}$) molekul gas sebelum dan sesudah dipanaskan?
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Konversikan suhu ke Kelvin:
-> * $T_1 = 27 + 273 = 300\\text{ K}$
-> * $T_2 = 327 + 273 = 600\\text{ K}$
->
-> **Langkah 2:** Rumus kelajuan $v_{\\text{rms}} \\propto \\sqrt{T}$:
-> $$\\frac{v_1}{v_2} = \\sqrt{\\frac{T_1}{T_2}} = \\sqrt{\\frac{300}{600}} = \\sqrt{\\frac{1}{2}} = \\frac{1}{\\sqrt{2}} = 1 : \\sqrt{2}$$
->
-> **Jawaban:** Perbandingannya adalah $1 : \\sqrt{2}$.
-`,
-    rangkuman: `# Rangkuman Rumus Cepat — Gas Ideal
-**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika
-
-* **Persamaan Gas:** $PV = nRT = NkT$
-* **Energi Kinetik (Monoatomik):** $\\overline{EK} = \\frac{3}{2}kT$
-* **Kelajuan rms:** $v_{\\text{rms}} = \\sqrt{\\frac{3RT}{M}} = \\sqrt{\\frac{3P}{\\rho}}$
-* **Energi Dalam:** $U = \\frac{3}{2}nRT$
-`
+    materi: "# Teori Kinetik Gas Ideal\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n## A. Hukum-Hukum Gas & Persamaan Keadaan\n1. **Hukum Boyle ($T = \\text{konstan}$):** $P_1 V_1 = P_2 V_2$\n2. **Hukum Charles ($P = \\text{konstan}$):** $\\frac{V_1}{T_1} = \\frac{V_2}{T_2}$\n3. **Hukum Gay-Lussac ($V = \\text{konstan}$):** $\\frac{P_1}{T_1} = \\frac{P_2}{T_2}$\n4. **Persamaan Umum Gas Ideal:**\n   $$P V = n R T = N k T$$\n   * $R = 8{,}314\\text{ J/mol}\\cdot\\text{K}$\n   * $k = \\frac{R}{N_A} = 1{,}38 \\times 10^{-23}\\text{ J/K}$\n\n---\n\n## B. Tekanan Kinetik dan Energi Kinetik Partikel\n1. **Tekanan Gas Ideal:**\n   $$P = \\frac{1}{3} \\frac{N m}{V} \\overline{v^2} = \\frac{2}{3} \\frac{N}{V} \\overline{EK}$$\n2. **Energi Kinetik Rata-Rata per Molekul:**\n   Berbanding lurus hanya terhadap suhu mutlak gas ($T$ dalam Kelvin):\n   $$\\overline{EK} = \\frac{f}{2} k T$$\n   (Untuk gas monoatomik, derajat kebebasan $f = 3 \\implies \\overline{EK} = \\frac{3}{2} k T$)\n3. **Kelajuan Efektif ($v_{\\text{rms}}$):**\n   $$v_{\\text{rms}} = \\sqrt{\\frac{3RT}{M}} = \\sqrt{\\frac{3kT}{m}} = \\sqrt{\\frac{3P}{\\rho}}$$\n4. **Energi Dalam Gas Ideal ($U$):**\n   $$U = N \\cdot \\overline{EK} = \\frac{f}{2} n R T$$\n",
+    cs: "# Variasi Contoh Soal — Teori Kinetik Gas Ideal\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n### Contoh Soal 1: Perubahan Suhu dan Kelajuan Efektif ($v_{\\text{rms}}$)\nSebuah tabung tertutup berisi gas helium pada suhu $27^\\circ\\text{C}$. Jika gas dipanaskan sehingga suhunya naik menjadi $327^\\circ\\text{C}$, tentukan perbandingan kelajuan efektif ($v_{\\text{rms}}$) molekul gas sebelum dan sesudah dipanaskan!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Konversikan nilai suhu ke satuan mutlak Kelvin:\n> $$\\begin{aligned}\n> T_1 &= 27 + 273 \\\\\n> &= 300\\text{ K}\n> \\end{aligned}$$\n> $$\\begin{aligned}\n> T_2 &= 327 + 273 \\\\\n> &= 600\\text{ K}\n> \\end{aligned}$$\n>\n> **Langkah 2:** Terapkan hubungan kelajuan efektif $v_{\\text{rms}} \\propto \\sqrt{T}$:\n> $$\\begin{aligned}\n> \\frac{v_1}{v_2} &= \\sqrt{\\frac{T_1}{T_2}} \\\\\n> &= \\sqrt{\\frac{300}{600}} \\\\\n> &= \\sqrt{\\frac{1}{2}} \\\\\n> &= \\frac{1}{\\sqrt{2}} \\\\\n> &= 1 : \\sqrt{2}\n> \\end{aligned}$$\n>\n> **Jawaban:** Perbandingan kelajuan efektif sebelum dan sesudah dipanaskan adalah $1 : \\sqrt{2}$.\n",
+    rangkuman: "# Rangkuman Rumus Cepat — Teori Kinetik Gas Ideal\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n### A. Tabel Persamaan Keadaan Gas Ideal\n| Hukum Termal | Formulasi Matematis | Syarat Keadaan |\n| :--- | :--- | :--- |\n| **Persamaan Gas Ideal** | $PV = nRT = NkT$ | $R = 8{,}314\\text{ J/mol}\\cdot\\text{K}, k = 1{,}38 \\times 10^{-23}\\text{ J/K}$ |\n| **Hukum Boyle (Isotermal)** | $P_1 V_1 = P_2 V_2$ | Suhu mutlak konstan ($T = \\text{tetap}$) |\n| **Hukum Charles (Isobarik)** | $\\frac{V_1}{T_1} = \\frac{V_2}{T_2}$ | Tekanan konstan ($P = \\text{tetap}$) |\n| **Hukum Gay-Lussac (Isokhorik)** | $\\frac{P_1}{T_1} = \\frac{P_2}{T_2}$ | Volume konstan ($V = \\text{tetap}$) |\n| **Hukum Boyle-Gay Lussac** | $\\frac{P_1 V_1}{T_1} = \\frac{P_2 V_2}{T_2}$ | Jumlah mol gas konstan |\n\n### B. Tabel Kinetika Mikroskopik Partikel Gas\n| Besaran Mikroskopik | Formula Matematis | Catatan Analisis |\n| :--- | :--- | :--- |\n| **Tekanan Gas Kinetik** | $P = \\frac{1}{3}\\frac{N m \\bar{v^2}}{V} = \\frac{2}{3}\\frac{N \\bar{E}_k}{V}$ | Berbanding lurus energi kinetik rata-rata partikel |\n| **Energi Kinetik Rata-rata** | $\\bar{E}_k = \\frac{3}{2} k T$ | Hanya bergantung pada suhu mutlak ($T$) |\n| **Kecepatan Efektif RMS** | $v_{\\text{rms}} = \\sqrt{\\frac{3RT}{M}} = \\sqrt{\\frac{3kT}{m}} = \\sqrt{\\frac{3P}{\\rho}}$ | $v_{\\text{rms}} \\propto \\sqrt{T}$ dan $v_{\\text{rms}} \\propto \\frac{1}{\\sqrt{M}}$ |\n| **Energi Dalam Gas ($U$)** | $U = N \\bar{E}_k = \\frac{f}{2} N k T = \\frac{f}{2} n R T$ | $f = \\text{derajat kebebasan}$ |\n\n### C. Tabel Derajat Kebebasan ($f$) Gas\n| Tipe Gas | Suhu Rendah ($\\approx 250\\text{ K}$) | Suhu Sedang ($\\approx 500\\text{ K}$) | Suhu Tinggi ($\\approx 1000\\text{ K}$) |\n| :--- | :--- | :--- | :--- |\n| **Monoatomik (He, Ne, Ar)** | $f = 3$ (translasi) | $f = 3$ (translasi) | $f = 3$ (translasi) |\n| **Diatomik ($\\text{H}_2, \\text{N}_2, \\text{O}_2$)** | $f = 3$ (translasi) | $f = 5$ (3 trans + 2 rotasi) | $f = 7$ (3 trans + 2 rot + 2 vibrasi) |\n"
   },
 
+  // Bab 14: Termodinamika (Kalor dan Termodinamika)
   {
     index: 14,
     blok: "Kalor dan Termodinamika",
     judul: "Termodinamika",
-    materi: `# Termodinamika
-**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika
-
-## A. Usaha Luar & Empat Proses Termodinamika
-Usaha yang dilakukan gas pada ekspansi/kompresi:
-$$W = \\int_{V_1}^{V_2} P \\, dV$$
-1. **Isobarik ($P = \\text{konstan}$):**
-   $$W = P(V_2 - V_1) = n R \\Delta T$$
-2. **Isokhorik ($V = \\text{konstan}$):**
-   $$W = 0$$
-3. **Isotermal ($T = \\text{konstan}, \\Delta U = 0$):**
-   $$W = n R T \\ln\\left(\\frac{V_2}{V_1}\\right) = Q$$
-4. **Adiabatik ($Q = 0$):**
-   $$P_1 V_1^\\gamma = P_2 V_2^\\gamma, \\quad W = -\\Delta U = \\frac{1}{\\gamma - 1}(P_1 V_1 - P_2 V_2)$$
-
----
-
-## B. Hukum I & II Termodinamika (Mesin Carnot)
-1. **Hukum I Termodinamika:**
-   Kekekalan energi sistem gas:
-   $$Q = \\Delta U + W$$
-   * $Q (+)$: menyerap kalor; $Q (-)$: melepas kalor
-   * $W (+)$: gas melakukan usaha (ekspansi); $W (-)$: gas menerima usaha
-   * $\\Delta U (+)$: suhu naik; $\\Delta U (-)$: suhu turun
-2. **Hukum II Termodinamika & Siklus Carnot:**
-   Mesin kalor ideal yang beroperasi di antara reservoir suhu tinggi ($T_h$) dan suhu rendah ($T_c$):
-   * Usaha bersih mesin: $W = Q_h - Q_c$
-   * Efisiensi mesin Carnot:
-     $$\\eta = \\left(1 - \\frac{T_c}{T_h}\\right) \\times 100\\% = \\left(\\frac{W}{Q_h}\\right) \\times 100\\%$$
-`,
-    cs: `# Variasi Contoh Soal — Termodinamika
-**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika
-
-### Contoh Soal 1: Efisiensi Mesin Carnot
-Sebuah mesin kalor Carnot beroperasi antara suhu $800\\text{ K}$ dan $400\\text{ K}$. Jika mesin menyerap kalor sebesar $1200\\text{ Joule}$ dari reservoir panas tiap siklus, berapakah usaha yang dihasilkan dan efisiensi mesin tersebut?
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Hitung efisiensi mesin Carnot:
-> $$\\eta = 1 - \\frac{T_c}{T_h} = 1 - \\frac{400}{800} = 1 - 0{,}5 = 0{,}5 = 50\\%$$
->
-> **Langkah 2:** Hitung usaha yang dihasilkan:
-> $$W = \\eta \\cdot Q_h = 0{,}5 \\times 1200\\text{ J} = 600\\text{ Joule}$$
->
-> **Jawaban:** Efisiensi mesin $50\\%$ dan usaha yang dihasilkan $600\\text{ J}$.
-`,
-    rangkuman: `# Rangkuman Rumus Cepat — Termodinamika
-**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika
-
-* **Hukum I Termodinamika:** $Q = \\Delta U + W$
-* **Isobarik:** $W = P \\Delta V$
-* **Isokhorik:** $W = 0 \\implies Q = \\Delta U$
-* **Isotermal:** $\\Delta U = 0 \\implies Q = W$
-* **Adiabatik:** $Q = 0 \\implies W = -\\Delta U$
-* **Efisiensi Carnot:** $\\eta = 1 - \\frac{T_c}{T_h} = \\frac{W}{Q_h}$
-`
+    materi: "# Termodinamika\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n## A. Usaha Luar & Empat Proses Termodinamika\nUsaha yang dilakukan gas pada ekspansi/kompresi:\n$$W = \\int_{V_1}^{V_2} P \\, dV$$\n1. **Isobarik ($P = \\text{konstan}$):**\n   $$W = P(V_2 - V_1) = n R \\Delta T$$\n2. **Isokhorik ($V = \\text{konstan}$):**\n   $$W = 0$$\n3. **Isotermal ($T = \\text{konstan}, \\Delta U = 0$):**\n   $$W = n R T \\ln\\left(\\frac{V_2}{V_1}\\right) = Q$$\n4. **Adiabatik ($Q = 0$):**\n   $$P_1 V_1^\\gamma = P_2 V_2^\\gamma, \\quad W = -\\Delta U = \\frac{1}{\\gamma - 1}(P_1 V_1 - P_2 V_2)$$\n\n---\n\n## B. Hukum I & II Termodinamika (Mesin Carnot)\n1. **Hukum I Termodinamika:**\n   Kekekalan energi sistem gas:\n   $$Q = \\Delta U + W$$\n   * $Q (+)$: menyerap kalor; $Q (-)$: melepas kalor\n   * $W (+)$: gas melakukan usaha (ekspansi); $W (-)$: gas menerima usaha\n   * $\\Delta U (+)$: suhu naik; $\\Delta U (-)$: suhu turun\n2. **Hukum II Termodinamika & Siklus Carnot:**\n   Mesin kalor ideal yang beroperasi di antara reservoir suhu tinggi ($T_h$) dan suhu rendah ($T_c$):\n   * Usaha bersih mesin: $W = Q_h - Q_c$\n   * Efisiensi mesin Carnot:\n     $$\\eta = \\left(1 - \\frac{T_c}{T_h}\\right) \\times 100\\% = \\left(\\frac{W}{Q_h}\\right) \\times 100\\%$$\n",
+    cs: "# Variasi Contoh Soal — Termodinamika\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n### Contoh Soal 1: Efisiensi dan Usaha Mesin Carnot\nSebuah mesin kalor Carnot menyerap kalor $Q_h = 1200\\text{ Joule}$ dari reservoir bersuhu $800\\text{ K}$ dan membuang kalor ke reservoir bersuhu $400\\text{ K}$. Tentukan efisiensi termal mesin dan besar usaha mekanik yang dihasilkan tiap siklus!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Hitung efisiensi teoretis mesin Carnot:\n> $$\\begin{aligned}\n> \\eta &= 1 - \\frac{T_c}{T_h} \\\\\n> &= 1 - \\frac{400}{800} \\\\\n> &= 1 - 0{,}5 \\\\\n> &= 0{,}5 \\\\\n> &= 50\\%\n> \\end{aligned}$$\n>\n> **Langkah 2:** Hitung usaha mekanik ($W$):\n> $$\\begin{aligned}\n> W &= \\eta \\cdot Q_h \\\\\n> &= 0{,}5 \\times 1200\\text{ J} \\\\\n> &= 600\\text{ Joule}\n> \\end{aligned}$$\n>\n> **Jawaban:** Efisiensi mesin adalah $50\\%$ dan usaha yang dihasilkan adalah $600\\text{ Joule}$.\n",
+    rangkuman: "# Rangkuman Rumus Cepat — Termodinamika\n**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika\n\n### A. Tabel 4 Proses Termodinamika Gas\n| Proses Termal | Karakteristik Keadaan | Usaha Luar Gas ($W$) | Perubahan Energi Dalam ($\\Delta U$) | Kalor Diserap/Dilepas ($Q$) |\n| :--- | :--- | :--- | :--- | :--- |\n| **Isobarik** | $P = \\text{konstan}$ | $W = P(V_2 - V_1) = nR\\Delta T$ | $\\Delta U = \\frac{f}{2}nR\\Delta T$ | $Q = \\Delta U + W$ |\n| **Isokhorik** | $V = \\text{konstan} \\implies \\Delta V = 0$ | $W = 0$ | $\\Delta U = Q = \\frac{f}{2}nR\\Delta T$ | $Q = \\Delta U$ |\n| **Isotermal** | $T = \\text{konstan} \\implies \\Delta T = 0$ | $W = nRT \\ln\\left(\\frac{V_2}{V_1}\\right)$ | $\\Delta U = 0$ | $Q = W$ |\n| **Adiabatik** | $Q = 0$ (tanpa aliran kalor) | $W = -\\Delta U = \\frac{P_1 V_1 - P_2 V_2}{\\gamma - 1}$ | $\\Delta U = -W$ | $P_1 V_1^\\gamma = P_2 V_2^\\gamma$ |\n\n### B. Tabel Mesin Kalor Carnot & Refrigerator\n| Jenis Siklus Mesin | Formulasi Efisiensi / Kinerja | Hubungan Energi |\n| :--- | :--- | :--- |\n| **Mesin Kalor Carnot** | $\\eta = 1 - \\frac{T_c}{T_h} = \\frac{W}{Q_h} = \\frac{Q_h - Q_c}{Q_h}$ | Efisiensi teoretis maksimum antara dua reservoir |\n| **Refrigerator (Mesin Pendingin)** | $COP = \\frac{Q_c}{W} = \\frac{T_c}{T_h - T_c}$ | $W = Q_h - Q_c$ |\n| **Heat Pump (Pompa Kalor)** | $COP_{\\text{HP}} = \\frac{Q_h}{W} = \\frac{T_h}{T_h - T_c} = COP + 1$ | Memindahkan kalor ke ruang bersuhu tinggi |\n"
   },
 
-  // Pembungkus 6: Kelistrikan
+  // Bab 15: Listrik Statis (Elektrostatika) (Kelistrikan)
   {
     index: 15,
     blok: "Kelistrikan",
     judul: "Listrik Statis (Elektrostatika)",
-    materi: `# Listrik Statis (Elektrostatika)
-**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan
-
-## A. Hukum Coulomb dan Medan Listrik
-1. **Gaya Elektrostatik (Hukum Coulomb):**
-   $$F = k \\frac{|q_1 q_2|}{r^2} \\quad (k = 9 \\times 10^9\\text{ N}\\cdot\\text{m}^2/\\text{C}^2)$$
-   * Gaya tarik-menarik untuk muatan berlawanan jenis; tolak-menolak untuk muatan sejenis.
-2. **Kuat Medan Listrik ($\\vec{E}$):**
-   Gaya per satuan muatan uji positif (vektor):
-   $$\\vec{E} = \\frac{\\vec{F}}{q} = k \\frac{q}{r^2} \\hat{r}$$
-   * Garis medan listrik memancar keluar dari muatan positif dan masuk menuju muatan negatif.
-
----
-
-## B. Potensial Listrik, Energi Potensial, dan Kapasitor
-1. **Potensial Listrik ($V$):** Besaran skalar:
-   $$V = k \\frac{q}{r}$$
-2. **Energi Potensial Listrik ($EP$) & Usaha ($W$):**
-   $$EP = k \\frac{q_1 q_2}{r}, \\quad W_{A \\to B} = q(V_B - V_A)$$
-3. **Kapasitor Keping Sejajar:**
-   $$C = \\frac{\\varepsilon_0 \\varepsilon_r A}{d}, \\quad Q = C \\cdot V$$
-   * Energi tersimpan: $W = \\frac{1}{2} C V^2 = \\frac{1}{2} \\frac{Q^2}{C} = \\frac{1}{2} Q V$
-   * Susunan seri: $\\frac{1}{C_s} = \\frac{1}{C_1} + \\frac{1}{C_2}$; Susunan paralel: $C_p = C_1 + C_2$.
-`,
-    cs: `# Variasi Contoh Soal — Listrik Statis
-**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan
-
-### Contoh Soal 1: Gaya Coulomb Segaris
-Dua muatan listrik $q_1 = +4\\,\\mu\\text{C}$ dan $q_2 = +9\\,\\mu\\text{C}$ terpisah sejauh $20\\text{ cm}$. Di manakah muatan uji $q_3$ harus diletakkan agar kuat medan listrik di titik tersebut sama dengan nol?
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Karena kedua muatan sama-sama positif, titik medan nol berada di antara kedua muatan.
-> Misalkan jarak dari $q_1$ adalah $x$, maka jarak dari $q_2$ adalah $(20 - x)$.
->
-> **Langkah 2:** Syarat medan nol: $E_1 = E_2$:
-> $$k \\frac{q_1}{x^2} = k \\frac{q_2}{(20 - x)^2} \\implies \\frac{4}{x^2} = \\frac{9}{(20 - x)^2}$$
->
-> **Langkah 3:** Tarik akar kedua ruas:
-> $$\\frac{2}{x} = \\frac{3}{20 - x} \\implies 2(20 - x) = 3x \\implies 40 - 2x = 3x \\implies 5x = 40 \\implies x = 8\\text{ cm}$$
->
-> **Jawaban:** Titik berada $8\\text{ cm}$ dari muatan $q_1$.
-`,
-    rangkuman: `# Rangkuman Rumus Cepat — Listrik Statis
-**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan
-
-* **Gaya Coulomb:** $F = k \\frac{q_1 q_2}{r^2}$ (vektor)
-* **Kuat Medan:** $E = k \\frac{q}{r^2}$ (vektor)
-* **Potensial:** $V = k \\frac{q}{r}$ (skalar, sertakan tanda $\\pm$)
-* **Energi Potensial:** $EP = qV$
-* **Kapasitas Keping:** $C = \\frac{\\varepsilon A}{d}, \\quad Q = CV, \\quad W = \\frac{1}{2}CV^2$
-`
+    materi: "# Listrik Statis (Elektrostatika)\n**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan\n\n## A. Hukum Coulomb dan Medan Listrik\n1. **Gaya Elektrostatik (Hukum Coulomb):**\n   $$F = k \\frac{|q_1 q_2|}{r^2} \\quad (k = 9 \\times 10^9\\text{ N}\\cdot\\text{m}^2/\\text{C}^2)$$\n   * Gaya tarik-menarik untuk muatan berlawanan jenis; tolak-menolak untuk muatan sejenis.\n2. **Kuat Medan Listrik ($\\vec{E}$):**\n   Gaya per satuan muatan uji positif (vektor):\n   $$\\vec{E} = \\frac{\\vec{F}}{q} = k \\frac{q}{r^2} \\hat{r}$$\n   * Garis medan listrik memancar keluar dari muatan positif dan masuk menuju muatan negatif.\n\n---\n\n## B. Potensial Listrik, Energi Potensial, dan Kapasitor\n1. **Potensial Listrik ($V$):** Besaran skalar:\n   $$V = k \\frac{q}{r}$$\n2. **Energi Potensial Listrik ($EP$) & Usaha ($W$):**\n   $$EP = k \\frac{q_1 q_2}{r}, \\quad W_{A \\to B} = q(V_B - V_A)$$\n3. **Kapasitor Keping Sejajar:**\n   $$C = \\frac{\\varepsilon_0 \\varepsilon_r A}{d}, \\quad Q = C \\cdot V$$\n   * Energi tersimpan: $W = \\frac{1}{2} C V^2 = \\frac{1}{2} \\frac{Q^2}{C} = \\frac{1}{2} Q V$\n   * Susunan seri: $\\frac{1}{C_s} = \\frac{1}{C_1} + \\frac{1}{C_2}$; Susunan paralel: $C_p = C_1 + C_2$.\n",
+    cs: "# Variasi Contoh Soal — Listrik Statis (Elektrostatika)\n**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan\n\n### Contoh Soal 1: Letak Titik Kuat Medan Listrik Nol\nDua muatan titik positif $q_1 = +4\\,\\mu\\text{C}$ dan $q_2 = +9\\,\\mu\\text{C}$ terpisah sejauh $20\\text{ cm}$. Di manakah letak titik uji yang memiliki kuat medan listrik sama dengan nol?\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Tentukan arah medan listrik:\n> Karena kedua muatan sejenis positif, medan nol terletak di antara kedua muatan. Misalkan jarak titik dari muatan $q_1$ adalah $x$, maka jaraknya dari $q_2$ adalah $(20 - x)$.\n>\n> **Langkah 2:** Syarat medan nol ($E_1 = E_2$):\n> $$\\begin{aligned}\n> k \\frac{q_1}{x^2} &= k \\frac{q_2}{(20 - x)^2} \\\\\n> \\frac{4}{x^2} &= \\frac{9}{(20 - x)^2}\n> \\end{aligned}$$\n>\n> **Langkah 3:** Lakukan penarikan akar pada kedua ruas:\n> $$\\begin{aligned}\n> \\frac{2}{x} &= \\frac{3}{20 - x} \\\\\n> 2(20 - x) &= 3x \\\\\n> 40 - 2x &= 3x \\\\\n> 5x &= 40 \\\\\n> x &= \\frac{40}{5} \\\\\n> x &= 8\\text{ cm}\n> \\end{aligned}$$\n>\n> **Jawaban:** Titik yang kuat medannya nol berjarak $8\\text{ cm}$ dari muatan $q_1$.\n",
+    rangkuman: "# Rangkuman Rumus Cepat — Listrik Statis (Elektrostatika)\n**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan\n\n### A. Tabel Matriks 4 Besaran Pokok Elektrostatika\n| Besaran | Sifat / Jenis | Formulasi Matematis | Satuan SI |\n| :--- | :--- | :--- | :--- |\n| **Gaya Coulomb ($F$)** | Vektor | $F = k \\frac{|q_1 q_2|}{r^2}$ | Newton ($\\text{N}$) |\n| **Kuat Medan Listrik ($E$)** | Vektor | $E = k \\frac{|q|}{r^2}, \\quad F = qE$ | $\\text{N/C}$ atau $\\text{V/m}$ |\n| **Energi Potensial Listrik ($E_p$)** | Skalar (tanda muatan diikutkan) | $E_p = k \\frac{q_1 q_2}{r}$ | Joule ($\\text{J}$) |\n| **Potensial Listrik ($V$)** | Skalar (tanda muatan diikutkan) | $V = k \\frac{q}{r}, \\quad E_p = qV$ | Volt ($\\text{V}$) |\n| **Usaha Perpindahan Muatan** | Skalar | $W_{1\\to2} = q(V_2 - V_1) = \\Delta E_p$ | Joule ($\\text{J}$) |\n\n### B. Tabel Bola Konduktor Berongga ($R = \\text{jari-jari bola}$)\n| Wilayah Posisi Titik ($r$) | Kuat Medan Listrik ($E$) | Potensial Listrik ($V$) |\n| :--- | :--- | :--- |\n| **Di Dalam Bola ($r < R$)** | $E = 0$ (muatan hanya tersebar di kulit) | $V = k \\frac{q}{R}$ (sama rata dengan kulit) |\n| **Di Kulit Bola ($r = R$)** | $E = k \\frac{q}{R^2}$ | $V = k \\frac{q}{R}$ |\n| **Di Luar Bola ($r > R$)** | $E = k \\frac{q}{r^2}$ | $V = k \\frac{q}{r}$ |\n\n### C. Tabel Kapasitor Keping Sejajar\n| Parameter Kapasitor | Tanpa Dielektrik (Udara) | Dengan Bahan Dielektrik ($\\varepsilon_r$) |\n| :--- | :--- | :--- |\n| **Kapasitansi ($C$)** | $C_0 = \\varepsilon_0 \\frac{A}{d}$ | $C = \\varepsilon_r C_0 = \\varepsilon_r \\varepsilon_0 \\frac{A}{d}$ |\n| **Energi Tersimpan ($W$)** | $W = \\frac{1}{2}QV = \\frac{1}{2}CV^2 = \\frac{Q^2}{2C}$ | Satuan SI: Joule ($\\text{J}$) |\n| **Rangkaian Seri** | $\\frac{1}{C_s} = \\frac{1}{C_1} + \\frac{1}{C_2}$, muatan sama ($Q_1 = Q_2$) | Tegangan terbagi: $V = V_1 + V_2$ |\n| **Rangkaian Paralel** | $C_p = C_1 + C_2$, tegangan sama ($V_1 = V_2$) | Muatan terbagi: $Q = Q_1 + Q_2$ |\n"
   },
 
+  // Bab 16: Rangkaian Arus Searah (DC) (Kelistrikan)
   {
     index: 16,
     blok: "Kelistrikan",
     judul: "Rangkaian Arus Searah (DC)",
-    materi: `# Rangkaian Arus Searah (DC)
-**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan
-
-## A. Hukum Ohm dan Hambatan Listrik
-1. **Hukum Ohm:**
-   Kuat arus berbanding lurus dengan tegangan dan berbanding terbalik dengan hambatan:
-   $$V = I \\cdot R$$
-2. **Resistansi Kawat Penghantar:**
-   $$R = \\rho \\frac{L}{A}$$
-   ($\\rho$ = hambatan jenis, $L$ = panjang kawat, $A$ = luas penampang)
-3. **Kombinasi Hambatan:**
-   * **Seri:** Arus sama ($I_1 = I_2$), $R_s = R_1 + R_2$
-   * **Paralel:** Tegangan sama ($V_1 = V_2$), $\\frac{1}{R_p} = \\frac{1}{R_1} + \\frac{1}{R_2}$
-
----
-
-## B. Hukum Kirchhoff dan Analisis Loop
-1. **Hukum I Kirchhoff (Percabangan Arus):**
-   $$\\Sigma I_{\\text{masuk}} = \\Sigma I_{\\text{keluar}}$$
-2. **Hukum II Kirchhoff (Loop Tegangan):**
-   Di dalam sebuah rangkaian tertutup, jumlah aljabar gaya gerak listrik (GGL) dan penurunan tegangan sama dengan nol:
-   $$\\Sigma \\mathcal{E} + \\Sigma I R = 0$$
-   * Aturan Tanda: Jika saat mengitari loop menjumpai kutub positif baterai lebih dulu, $\\mathcal{E}$ bertanda $(+)$; jika kutub negatif lebih dulu, bertanda $(-)$.
-3. **Energi dan Daya Listrik:**
-   $$W = V I t = I^2 R t = \\frac{V^2}{R} t$$
-   $$P = \\frac{W}{t} = V I = I^2 R = \\frac{V^2}{R}$$
-`,
-    cs: `# Variasi Contoh Soal — Rangkaian Arus Searah (DC)
-**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan
-
-### Contoh Soal 1: Rangkaian 1 Loop
-Sebuah rangkaian tertutup terdiri atas sumber tegangan $\\mathcal{E}_1 = 12\\text{ V}$ (hambatan dalam $r_1 = 1\\,\\Omega$) dan $\\mathcal{E}_2 = 4\\text{ V}$ ($r_2 = 1\\,\\Omega$) yang berlawanan arah, serta resistor luar $R = 6\\,\\Omega$. Tentukan kuat arus yang mengalir dalam rangkaian!
-
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Terapkan Hukum II Kirchhoff:
-> $$\\Sigma \\mathcal{E} + \\Sigma I(R + r) = 0$$
-> Misalkan loop searah $\\mathcal{E}_1$:
-> $$-\\mathcal{E}_1 + \\mathcal{E}_2 + I(R + r_1 + r_2) = 0$$
-> $$-12 + 4 + I(6 + 1 + 1) = 0 \\implies -8 + 8I = 0 \\implies 8I = 8 \\implies I = 1\\text{ Ampere}$$
->
-> **Jawaban:** Kuat arus yang mengalir adalah $1\\text{ A}$.
-`,
-    rangkuman: `# Rangkuman Rumus Cepat — Arus Searah
-**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan
-
-* **Hukum Ohm:** $V = IR$
-* **Hambatan Kawat:** $R = \\rho \\frac{L}{A}$
-* **Hukum I Kirchhoff:** $\\Sigma I_{\\text{masuk}} = \\Sigma I_{\\text{keluar}}$
-* **Hukum II Kirchhoff:** $\\Sigma \\mathcal{E} + \\Sigma IR = 0$
-* **Daya Listrik:** $P = VI = I^2 R = \\frac{V^2}{R}$
-`
+    materi: "# Rangkaian Arus Searah (DC)\n**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan\n\n## A. Hukum Ohm dan Hambatan Listrik\n1. **Hukum Ohm:**\n   Kuat arus berbanding lurus dengan tegangan dan berbanding terbalik dengan hambatan:\n   $$V = I \\cdot R$$\n2. **Resistansi Kawat Penghantar:**\n   $$R = \\rho \\frac{L}{A}$$\n   ($\\rho$ = hambatan jenis, $L$ = panjang kawat, $A$ = luas penampang)\n3. **Kombinasi Hambatan:**\n   * **Seri:** Arus sama ($I_1 = I_2$), $R_s = R_1 + R_2$\n   * **Paralel:** Tegangan sama ($V_1 = V_2$), $\\frac{1}{R_p} = \\frac{1}{R_1} + \\frac{1}{R_2}$\n\n---\n\n## B. Hukum Kirchhoff dan Analisis Loop\n1. **Hukum I Kirchhoff (Percabangan Arus):**\n   $$\\Sigma I_{\\text{masuk}} = \\Sigma I_{\\text{keluar}}$$\n2. **Hukum II Kirchhoff (Loop Tegangan):**\n   Di dalam sebuah rangkaian tertutup, jumlah aljabar gaya gerak listrik (GGL) dan penurunan tegangan sama dengan nol:\n   $$\\Sigma \\mathcal{E} + \\Sigma I R = 0$$\n   * Aturan Tanda: Jika saat mengitari loop menjumpai kutub positif baterai lebih dulu, $\\mathcal{E}$ bertanda $(+)$; jika kutub negatif lebih dulu, bertanda $(-)$.\n3. **Energi dan Daya Listrik:**\n   $$W = V I t = I^2 R t = \\frac{V^2}{R} t$$\n   $$P = \\frac{W}{t} = V I = I^2 R = \\frac{V^2}{R}$$\n",
+    cs: "# Variasi Contoh Soal — Rangkaian Arus Searah (DC)\n**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan\n\n### Contoh Soal 1: Analisis Rangkaian 1 Loop\nSebuah rangkaian listrik tertutup terdiri atas sumber tegangan $\\mathcal{E}_1 = 12\\text{ V}$ ($r_1 = 1\\,\\Omega$) dan $\\mathcal{E}_2 = 4\\text{ V}$ ($r_2 = 1\\,\\Omega$) yang disusun berlawanan arah kutub, serta sebuah resistor beban $R = 6\\,\\Omega$. Tentukan kuat arus listrik yang mengalir!\n\n> [!EXAMPLE] Pembahasan Langkah demi Langkah:\n> **Langkah 1:** Tetapkan arah loop searah dengan sumber tegangan terbesar ($\\mathcal{E}_1$):\n>\n> **Langkah 2:** Terapkan Hukum II Kirchhoff:\n> $$\\begin{aligned}\n> \\Sigma \\mathcal{E} + \\Sigma I R_{\\text{total}} &= 0 \\\\\n> -\\mathcal{E}_1 + \\mathcal{E}_2 + I(R + r_1 + r_2) &= 0 \\\\\n> -12 + 4 + I(6 + 1 + 1) &= 0 \\\\\n> -8 + 8I &= 0 \\\\\n> 8I &= 8 \\\\\n> I &= \\frac{8}{8} \\\\\n> I &= 1\\text{ Ampere}\n> \\end{aligned}$$\n>\n> **Jawaban:** Kuat arus yang mengalir dalam rangkaian adalah $1\\text{ Ampere}$.\n",
+    rangkuman: "# Rangkuman Rumus Cepat — Rangkaian Arus Searah (DC)\n**Kategori:** TKA Fisika | **Pembungkus:** Kelistrikan\n\n### A. Tabel Besaran Dasar Listrik Dinamis DC\n| Besaran / Parameter | Formulasi Matematis | Keterangan & Satuan SI |\n| :--- | :--- | :--- |\n| **Kuat Arus Listrik ($I$)** | $I = \\frac{Q}{t} = n \\cdot e \\cdot v_d \\cdot A$ | Satuan SI: Ampere ($\\text{A}$) |\n| **Hukum Ohm** | $V = I \\cdot R$ | Beda potensial ($V$), Hambatan ($R$) |\n| **Hambatan Kawat Penghantar** | $R = \\rho \\frac{L}{A}$ | $\\rho = \\text{hambat jenis}, L = \\text{panjang}, A = \\text{luas}$ |\n| **Pengaruh Suhu terhadap $R$** | $R_T = R_0(1 + \\alpha\\Delta T)$ | $\\alpha = \\text{koefisien suhu hambatan}$ |\n| **Daya Listrik ($P$)** | $P = V \\cdot I = I^2 R = \\frac{V^2}{R}$ | Satuan SI: Watt ($\\text{W}$) |\n| **Energi Listrik ($W$)** | $W = P \\cdot t = V \\cdot I \\cdot t$ | Satuan SI: Joule ($\\text{J}$) atau $\\text{kWh}$ |\n\n### B. Tabel Rangkaian Resistor & Hukum Kirchhoff\n| Konfigurasi Rangkaian | Hambatan Pengganti ($R_{\\text{total}}$) | Karakteristik Arus ($I$) | Karakteristik Tegangan ($V$) |\n| :--- | :--- | :--- | :--- |\n| **Susunan Seri** | $R_s = R_1 + R_2 + \\dots$ | $I_1 = I_2 = I_{\\text{total}}$ | $V_{\\text{total}} = V_1 + V_2$ (Pembagi Tegangan) |\n| **Susunan Paralel** | $\\frac{1}{R_p} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\dots$ | $I_{\\text{total}} = I_1 + I_2$ (Pembagi Arus) | $V_1 = V_2 = V_{\\text{total}}$ |\n| **Hukum I Kirchhoff** | $\\Sigma I_{\\text{masuk}} = \\Sigma I_{\\text{keluar}}$ | Kekekalan muatan di percabangan | Nilai arus total tetap |\n| **Hukum II Kirchhoff** | $\\Sigma \\mathcal{E} + \\Sigma I R = 0$ | Kekekalan energi dalam loop tertutup | Kutub pertama dijumpai loop menentukan tanda $\\mathcal{E}$ |\n"
   }
+
 ];
 
 console.log('Fisika chapters defined:', fisikaChapters.length);

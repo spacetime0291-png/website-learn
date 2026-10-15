@@ -234,6 +234,11 @@ function parseMarkdownToHtml(markdownText) {
     `;
   });
 
+  // 4B. Bungkus tabel Markdown dengan wrapper responsif untuk tampilan mobile sempurna
+  html = html.replace(/<table>([\s\S]*?)<\/table>/gi, (match) => {
+    return `<div class="table-wrap">${match}</div>`;
+  });
+
   // 5. Kembalikan & Render Display Math via KaTeX
   html = html.replace(/<p>\s*@@KATEX_DISPLAY_(\d+)@@\s*<\/p>/g, (m, idx) => `@@KATEX_DISPLAY_${idx}@@`);
   html = html.replace(/@@KATEX_DISPLAY_(\d+)@@/g, (match, idx) => {

@@ -245,45 +245,65 @@
             </div>
           </div>
 
-          <!-- Pengaturan Sesi (Jumlah, Kesulitan, Timer) Rapi, Seimbang & Tidak Menumpuk -->
-          <div class="setup-controls-grid">
-            <div class="control-box">
-              <span class="control-box-label">📊 Jumlah Soal</span>
-              <div class="pill-group-mini" id="setup-count-group">
-                <button class="pill-option active" data-value="5">5</button>
-                <button class="pill-option" data-value="10">10</button>
-                <button class="pill-option" data-value="15">15</button>
-                <button class="pill-option" data-value="semua">Semua</button>
+          <!-- Pengaturan Sesi (Progressive Disclosure: Opsi Lanjutan) -->
+          <details class="drilling-advanced-disclosure" id="drilling-advanced-disclosure">
+            <summary class="drilling-advanced-summary">
+              <div class="summary-left-group">
+                <span class="summary-badge-icon">⚙️</span>
+                <div class="summary-text-wrap">
+                  <span class="summary-title">Pengaturan Lanjutan Sesi</span>
+                  <span class="summary-subtitle">Jumlah Soal, Tingkat Kesulitan & Timer</span>
+                </div>
               </div>
-            </div>
+              <div class="summary-right-group">
+                <span class="summary-pill-indicator">Opsi Lanjutan</span>
+                <span class="summary-chevron">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </div>
+            </summary>
 
-            <div class="control-box">
-              <span class="control-box-label">🎯 Tingkat Kesulitan</span>
-              <div class="pill-group-mini" id="setup-difficulty-group">
-                <button class="pill-option active" data-value="semua">Semua</button>
-                <button class="pill-option" data-value="mudah">Mudah</button>
-                <button class="pill-option" data-value="sedang">Sedang</button>
-                <button class="pill-option" data-value="sulit">Sulit</button>
+            <div class="setup-controls-grid">
+              <div class="control-box">
+                <span class="control-box-label">📊 Jumlah Soal</span>
+                <div class="pill-group-mini" id="setup-count-group">
+                  <button class="pill-option active" data-value="5">5</button>
+                  <button class="pill-option" data-value="10">10</button>
+                  <button class="pill-option" data-value="15">15</button>
+                  <button class="pill-option" data-value="semua">Semua</button>
+                </div>
               </div>
-            </div>
 
-            <div class="control-box timer-control-box">
-              <div class="control-box-label-row">
-                <span class="control-box-label">⏱️ Timer Sesi</span>
-                <label class="toggle-container-mini" title="Aktifkan / Matikan Timer">
-                  <input type="checkbox" id="setup-timer-toggle" checked>
-                  <span class="toggle-slider"></span>
-                </label>
+              <div class="control-box">
+                <span class="control-box-label">🎯 Tingkat Kesulitan</span>
+                <div class="pill-group-mini" id="setup-difficulty-group">
+                  <button class="pill-option active" data-value="semua">Semua</button>
+                  <button class="pill-option" data-value="mudah">Mudah</button>
+                  <button class="pill-option" data-value="sedang">Sedang</button>
+                  <button class="pill-option" data-value="sulit">Sulit</button>
+                </div>
               </div>
-              <div id="timer-duration-wrapper" class="timer-duration-mini">
-                <div class="pill-group-mini" id="setup-duration-group">
-                  <button class="pill-option active" data-value="auto">1m/soal</button>
-                  <button class="pill-option" data-value="300">5m</button>
-                  <button class="pill-option" data-value="600">10m</button>
+
+              <div class="control-box timer-control-box">
+                <div class="control-box-label-row">
+                  <span class="control-box-label">⏱️ Timer Sesi</span>
+                  <label class="toggle-container-mini" title="Aktifkan / Matikan Timer">
+                    <input type="checkbox" id="setup-timer-toggle" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div id="timer-duration-wrapper" class="timer-duration-mini">
+                  <div class="pill-group-mini" id="setup-duration-group">
+                    <button class="pill-option active" data-value="auto">1m/soal</button>
+                    <button class="pill-option" data-value="300">5m</button>
+                    <button class="pill-option" data-value="600">10m</button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </details>
 
         </div>
 

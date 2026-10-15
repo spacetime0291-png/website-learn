@@ -1,19 +1,40 @@
-# Rangkuman Rumus Cepat — Fluida Statis
+# Rangkuman Rumus Cepat & Intisari Materi — Fluida Statis
 **Kategori:** TKA Fisika | **Pembungkus:** Fluida
 
-### A. Tabel Hukum Pokok Fluida Statis
-| Hukum / Parameter | Formulasi Matematis | Keterangan & Satuan SI |
-| :--- | :--- | :--- |
-| **Tekanan Hidrostatis** | $P_h = \rho g h$ | Tergantung kedalaman ($h$), bukan bentuk wadah |
-| **Tekanan Mutlak** | $P = P_0 + \rho g h$ | $P_0 = 1\text{ atm} \approx 10^5\text{ Pa} \approx 76\text{ cmHg}$ |
-| **Hukum Pascal** | $\frac{F_1}{A_1} = \frac{F_2}{A_2} \implies F_2 = F_1 \left(\frac{D_2}{D_1}\right)^2$ | Digunakan pada dongkrak dan rem hidrolik |
-| **Gaya Apung Archimedes** | $F_a = \rho_f V_{\text{celup}} g$ | Gaya ke atas sebanding berat fluida yang dipindahkan |
-| **Tegangan Permukaan** | $\gamma = \frac{F}{d} = \frac{F}{2L}$ | Selaput tipis cairan |
-| **Hukum Stokes (Viskositas)** | $F_s = 6\pi \eta r v, \quad v_t = \frac{2r^2g}{9\eta}(\rho_b - \rho_f)$ | Gesekan fluida & kecepatan terminal kelereng |
+### A. Intisari Konsep & Peta Definisi
+Fluida statis menelaah zat alir yang diam tanpa tegangan geser. Distribusi tekanan hanya bergantung pada kedalaman fluida dan massa jenisnya, bukan pada bentuk wadah (paradoks hidrostatis).
 
-### B. Tabel Kondisi Benda dalam Fluida
-| Kondisi Benda | Perbandingan Massa Jenis | Kesetimbangan Gaya | Volume Tercelup |
-| :--- | :--- | :--- | :--- |
-| **Terapung** | $\rho_{\text{benda}} < \rho_{\text{fluida}}$ | $F_a = W_{\text{benda}}$ | $\frac{V_{\text{celup}}}{V_{\text{total}}} = \frac{\rho_{\text{benda}}}{\rho_{\text{fluida}}}$ |
-| **Melayang** | $\rho_{\text{benda}} = \rho_{\text{fluida}}$ | $F_a = W_{\text{benda}}$ | $V_{\text{celup}} = V_{\text{total}}$ |
-| **Tenggelam** | $\rho_{\text{benda}} > \rho_{\text{fluida}}$ | $F_a < W_{\text{benda}}$ | Berat semu: $W' = W - F_a$ |
+| Hukum Fisika | Konsep Pokok | Prinsip Kerja |
+| :--- | :--- | :--- |
+| **Hidrostatika** | $P = \rho g h$ | Tekanan berbanding lurus dengan kedalaman |
+| **Hukum Pascal** | $\frac{F_1}{A_1} = \frac{F_2}{A_2}$ | Tekanan fluida diteruskan sama rata ke segala arah |
+| **Hukum Archimedes** | $F_A = \rho_f V_c g$ | Gaya apung sama dengan berat fluida dipindahkan |
+
+---
+
+### B. Matriks Rumus Utama & Rumus Cepat
+| Kasus Fluida | Formula Kunci | Keterangan & Batasan |
+| :--- | :--- | :--- |
+| **Pipa U Bejana** | $\rho_1 h_1 = \rho_2 h_2$ | Bidang batas cairan sejenis sama |
+| **Dongkrak Pascal** | $F_1 = F_2 \left(\frac{D_1}{D_2}\right)^2$ | Hubungan kuadrat diameter |
+| **Fraksi Terapung** | $\frac{V_{\text{celup}}}{V_b} = \frac{\rho_b}{\rho_f}$ | Rasio massa jenis benda ke fluida |
+| **Berat Semu Air** | $w_{\text{semu}} = w_{\text{udara}} - F_A$ | Berat benda di dalam cairan |
+| **Kapilaritas Pipa** | $h = \frac{2\gamma \cos\theta}{\rho g r}$ | Kenaikan/penurunan meniskus fluida |
+
+---
+
+### C. Kasus Khusus & Analisis Pola Soal TKA
+1. **Benda Terapung di Antara Dua Lapisan Fluida Tak Campur:**
+   $$F_A = \rho_1 V_1 g + \rho_2 V_2 g = m_b g \implies \rho_1 V_1 + \rho_2 V_2 = \rho_b V_{\text{total}}$$
+2. **Kenaikan Kapiler Meniskus Cekung vs Cembung:**
+   * Air pada pipa kaca (sudut kontak $\theta < 90^\circ$): Meniskus cekung, cairan naik ($h > 0$).
+   * Raksa pada pipa kaca (sudut kontak $\theta > 90^\circ$): Meniskus cembung, cairan turun ($h < 0$).
+
+---
+
+### D. Jebakan Ujian & Solusi Cepat
+> [!WARNING] Jebakan Konsep:
+> Bedakan antara tekanan hidrostatis murni ($P_h = \rho g h$) dan tekanan mutlak ($P = P_0 + \rho g h$). Jika soal menanyakan "tekanan total" atau "tekanan yang dialami penyelam", tekanan atmosfer $P_0$ wajib dijumlahkan!
+
+> [!TIP] Super Solusi Cepat:
+> Persentase bagian benda yang tercelup selalu sama dengan rasio massa jenisnya: $\frac{\rho_{\text{benda}}}{\rho_{\text{fluida}}} \times 100\%$!

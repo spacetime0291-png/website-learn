@@ -1,41 +1,56 @@
 # Variasi Contoh Soal — Gelombang Cahaya dan Alat Optik
 **Kategori:** TKA Fisika | **Pembungkus:** Gelombang
 
-### Contoh Soal 1: Perbesaran Total Mikroskop
-Sebuah mikroskop memiliki lensa objektif dengan fokus $1\text{ cm}$ dan lensa okuler dengan fokus $5\text{ cm}$. Benda diletakkan pada jarak $1{,}1\text{ cm}$ di depan objektif. Jika mata berakomodasi maksimum ($S_n = 25\text{ cm}$), tentukan perbesaran total bayangan!
+### Contoh Soal 1: Interferensi Celah Ganda Young
+Pada eksperimen celah ganda Young, jarak kedua celah adalah $0{,}2\text{ mm}$ dan layar diletakkan pada jarak $1\text{ meter}$ di belakang celah. Jika jarak antara garis terang pusat ke garis terang orde ke-2 adalah $6\text{ mm}$, berapakah panjang gelombang cahaya yang digunakan?
 
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Hitung jarak bayangan lensa objektif ($s_{\text{ob}}'$):
-> $$\begin{aligned}
-> \frac{1}{s_{\text{ob}}'} &= \frac{1}{f_{\text{ob}}} - \frac{1}{s_{\text{ob}}} \\
-> &= \frac{1}{1} - \frac{1}{1{,}1} \\
-> &= 1 - \frac{10}{11} \\
-> &= \frac{1}{11}
-> \end{aligned}$$
-> $$\begin{aligned}
-> s_{\text{ob}}' &= 11\text{ cm}
-> \end{aligned}$$
->
-> **Langkah 2:** Hitung perbesaran lensa objektif:
-> $$\begin{aligned}
-> M_{\text{ob}} &= \left|\frac{s_{\text{ob}}'}{s_{\text{ob}}}\right| \\
-> &= \frac{11}{1{,}1} \\
-> &= 10\text{ kali}
-> \end{aligned}$$
->
-> **Langkah 3:** Hitung perbesaran okuler (akomodasi maksimum):
-> $$\begin{aligned}
-> M_{\text{ok}} &= \frac{S_n}{f_{\text{ok}}} + 1 \\
-> &= \frac{25}{5} + 1 \\
-> &= 5 + 1 \\
-> &= 6\text{ kali}
-> \end{aligned}$$
->
-> **Langkah 4:** Hitung perbesaran total mikroskop:
-> $$\begin{aligned}
-> M_{\text{total}} &= M_{\text{ob}} \times M_{\text{ok}} \\
-> &= 10 \times 6 \\
-> &= 60\text{ kali}
-> \end{aligned}$$
->
-> **Jawaban:** Perbesaran total mikroskop adalah $60\text{ kali}$.
+#### Pembahasan:
+**Langkah 1: Identifikasi Variabel dalam Satuan SI**
+* Jarak antardua celah: $d = 0{,}2\text{ mm} = 2 \times 10^{-4}\text{ m}$
+* Jarak celah ke layar: $L = 1\text{ m}$
+* Jarak terang orde ke-2 ($n = 2$): $y = 6\text{ mm} = 6 \times 10^{-3}\text{ m}$
+
+**Langkah 2: Terapkan Persamaan Pola Terang Interferensi Young**
+$$\begin{aligned}
+d \frac{y}{L} &= n \lambda \\
+\lambda &= \frac{d \cdot y}{n \cdot L}
+\end{aligned}$$
+
+**Langkah 3: Substitusi Nilai dan Hitung $\lambda$**
+$$\begin{aligned}
+\lambda &= \frac{(2 \times 10^{-4}) \times (6 \times 10^{-3})}{2 \times 1} \\
+&= \frac{12 \times 10^{-7}}{2} \\
+&= 6 \times 10^{-7}\text{ m} \\
+&= 600\text{ nm}
+\end{aligned}$$
+
+> [!TIP] Shortcut Ujian:
+> Jarak antar dua garis terang berurutan ($\Delta y$) selalu memenuhi: $\Delta y = \frac{\lambda L}{d}$.
+
+**Jawaban Akhir:** Panjang gelombang cahaya tersebut adalah $600\text{ nm}$ atau $6 \times 10^{-7}\text{ m}$.
+
+---
+
+### Contoh Soal 2: Perbesaran Sudut Teropong Bintang
+Sebuah teropong bintang memiliki lensa objektif dengan jarak fokus $100\text{ cm}$ dan lensa okuler dengan jarak fokus $5\text{ cm}$. Tentukan perbesaran sudut teropong dan panjang tabung teropong untuk mata tanpa berakomodasi!
+
+#### Pembahasan:
+**Langkah 1: Identifikasi Data Teropong Bintang**
+* Jarak fokus objektif: $f_{\text{ob}} = 100\text{ cm}$
+* Jarak fokus okuler: $f_{\text{ok}} = 5\text{ cm}$
+
+**Langkah 2: Hitung Perbesaran Sudut Teropong ($M$)**
+$$\begin{aligned}
+M &= \frac{f_{\text{ob}}}{f_{\text{ok}}} \\
+&= \frac{100}{5} \\
+&= 20\text{ kali}
+\end{aligned}$$
+
+**Langkah 3: Hitung Panjang Tabung Teropong ($d$)**
+$$\begin{aligned}
+d &= f_{\text{ob}} + f_{\text{ok}} \\
+&= 100 + 5 \\
+&= 105\text{ cm}
+\end{aligned}$$
+
+**Jawaban Akhir:** Perbesaran sudut teropong adalah $20\text{ kali}$ dan panjang tabung teropong adalah $105\text{ cm}$.

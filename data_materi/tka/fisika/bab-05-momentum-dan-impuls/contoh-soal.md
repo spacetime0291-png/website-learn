@@ -1,26 +1,52 @@
 # Variasi Contoh Soal — Momentum dan Impuls
 **Kategori:** TKA Fisika | **Pembungkus:** Dinamika
 
-### Contoh Soal 1: Ayunan Balistik
-Peluru bermassa $20\text{ g}$ ditembakkan mendatar menembus balok diam bermassa $1{,}98\text{ kg}$ yang tergantung pada seutas tali. Peluru bersarang di balok sehingga sistem berayun naik setinggi $h = 20\text{ cm}$. Tentukan kelajuan awal peluru ($g = 10\text{ m/s}^2$)!
+### Contoh Soal 1: Dua Benda Menempel Setelah Tumbukan
+Sebuah gerbong kereta bermassa $2000\text{ kg}$ bergerak dengan kecepatan $10\text{ m/s}$ menabrak gerbong lain bermassa $3000\text{ kg}$ yang sedang diam di rel. Setelah tabrakan, kedua gerbong saling terkait dan bergerak bersama. Berapakah kelajuan bersama kedua gerbong tersebut?
 
-> [!EXAMPLE] Pembahasan Langkah demi Langkah:
-> **Langkah 1:** Hitung kelajuan gabungan sesaat setelah tumbukan dari kekekalan energi ayunan:
-> $$\begin{aligned}
-> v' &= \sqrt{2gh} \\
-> &= \sqrt{2(10)(0{,}2)} \\
-> &= \sqrt{4} \\
-> &= 2\text{ m/s}
-> \end{aligned}$$
->
-> **Langkah 2:** Terapkan hukum kekekalan momentum linear:
-> $$\begin{aligned}
-> m_p v_p + m_b v_b &= (m_p + m_b) v' \\
-> (0{,}02)v_p + 0 &= (0{,}02 + 1{,}98)(2) \\
-> 0{,}02 v_p &= (2{,}00)(2) \\
-> 0{,}02 v_p &= 4 \\
-> v_p &= \frac{4}{0{,}02} \\
-> v_p &= 200\text{ m/s}
-> \end{aligned}$$
->
-> **Jawaban:** Kelajuan awal peluru adalah $200\text{ m/s}$.
+#### Pembahasan:
+**Langkah 1: Identifikasi Besaran Sebelum Tumbukan**
+* Massa gerbong 1: $m_1 = 2000\text{ kg}$
+* Kecepatan gerbong 1: $v_1 = 10\text{ m/s}$
+* Massa gerbong 2: $m_2 = 3000\text{ kg}$
+* Kecepatan gerbong 2: $v_2 = 0\text{ m/s}$
+
+**Langkah 2: Terapkan Hukum Kekekalan Momentum ($e = 0$)**
+$$\begin{aligned}
+p_{\text{awal}} &= m_1 v_1 + m_2 v_2 \\
+&= 2000 \times 10 + 3000 \times 0 \\
+&= 20000\text{ kg}\cdot\text{m/s}
+\end{aligned}$$
+
+**Langkah 3: Hitung Kecepatan Bersama Setelah Tumbukan**
+$$\begin{aligned}
+v' &= \frac{p_{\text{awal}}}{m_1 + m_2} \\
+&= \frac{20000}{2000 + 3000} \\
+&= \frac{20000}{5000} \\
+&= 4\text{ m/s}
+\end{aligned}$$
+
+> [!TIP] Shortcut Ujian:
+> Jika benda kedua dalam keadaan diam, kecepatan bersama selalu memenuhi fraksi massa: $v' = \frac{m_1}{m_1 + m_2} v_1$!
+
+**Jawaban Akhir:** Kelajuan bersama kedua gerbong setelah tabrakan adalah $4\text{ m/s}$.
+
+---
+
+### Contoh Soal 2: Pantulan Bola pada Lantai
+Sebuah bola dijatuhkan bebas dari ketinggian $h_1 = 5\text{ m}$ di atas lantai dan memantul kembali mencapai ketinggian $h_2 = 3{,}2\text{ m}$. Tentukan koefisien kelentingan antara bola dan lantai!
+
+#### Pembahasan:
+**Langkah 1: Identifikasi Rumus Koefisien Restitusi Ketinggian**
+$$\begin{aligned}
+e &= \sqrt{\frac{h_2}{h_1}}
+\end{aligned}$$
+
+**Langkah 2: Substitusi Nilai Ketinggian Pantulan**
+$$\begin{aligned}
+e &= \sqrt{\frac{3{,}2}{5}} \\
+&= \sqrt{0{,}64} \\
+&= 0{,}8
+\end{aligned}$$
+
+**Jawaban Akhir:** Koefisien kelentingan antara bola dan lantai adalah $0{,}8$.

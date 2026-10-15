@@ -1,4 +1,4 @@
-const CACHE_NAME = 'edumandiri-cache-v30';
+const CACHE_NAME = 'edumandiri-cache-v31';
 
 const STATIC_ASSETS = [
   './',
@@ -62,39 +62,47 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Siklus Fetch: Strategi Cache First, Network Fallback
+// Siklus Fetch: Network First untuk kode & data aplikasi (real-time fresh), Cache First untuk font & vendor
 self.addEventListener('fetch', (event) => {
-  // Hanya handle permintaan HTTP/HTTPS GET
   if (event.request.method !== 'GET') return;
 
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      // 1. Kembalikan respons dari cache jika ditemukan (Cache First)
-      if (cachedResponse) {
-        return cachedResponse;
-      }
+  const url = new URL(event.request.url);
+  const isVendorAsset = url.pathname.includes('/vendor/') || url.pathname.endsWith('.woff2') || url.pathname.endsWith('.svg');
 
-      // 2. Jika tidak ada di cache, lakukan request jaringan (Network Fallback)
-      return fetch(event.request)
-        .then((networkResponse) => {
-          if (!networkResponse || networkResponse.status !== 200) {
-            return networkResponse;
+  if (isVendorAsset) {
+    // Cache First untuk aset statis vendor
+    event.respondWith(
+      caches.match(event.request).then((cachedResponse) => {
+        if (cachedResponse) return cachedResponse;
+        return fetch(event.request).then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const clone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
           }
-
-          const responseToCache = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache);
-          });
-
           return networkResponse;
-        })
-        .catch((error) => {
-          console.error('[Service Worker] Gagal mengambil dari jaringan saat offline:', error);
+        });
+      })
+    );
+    return;
+  }
+
+  // Network First untuk materi, kode aplikasi, dan stylesheet
+  event.respondWith(
+    fetch(event.request)
+      .then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const clone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+        }
+        return networkResponse;
+      })
+      .catch(() => {
+        return caches.match(event.request).then((cachedResponse) => {
+          if (cachedResponse) return cachedResponse;
           if (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html')) {
             return caches.match('./index.html');
           }
-          throw error;
         });
-    })
+      })
   );
 });

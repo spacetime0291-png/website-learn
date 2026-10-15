@@ -1,19 +1,43 @@
-# Rangkuman Rumus Cepat — Pengukuran dan Ketelitian Alat Ukur
+# Rangkuman Rumus Cepat & Intisari Materi — Pengukuran dan Ketelitian Alat Ukur
 **Kategori:** TKA Fisika | **Pembungkus:** Kinematika
 
-### A. Tabel Komparasi Alat Ukur Panjang & Massa
-| Alat Ukur | Skala Utama (SU) | Nilai Skala Terkecil (NST) | Ketidakpastian ($\Delta x$) | Formula Pembacaan |
-| :--- | :--- | :--- | :--- | :--- |
-| **Jangka Sorong** | $\text{cm}$ / $\text{mm}$ | $0{,}1\text{ mm}$ / $0{,}05\text{ mm}$ | $\frac{1}{2} \times \text{NST}$ | $\text{SU} + (\text{Nonius} \times \text{NST})$ |
-| **Mikrometer Sekrup** | $\text{mm}$ (sleeve) | $0{,}01\text{ mm}$ (thimble) | $0{,}005\text{ mm}$ | $\text{SU} + (\text{Putar} \times 0{,}01\text{ mm})$ |
-| **Neraca Ohaus** | Gram (g) | $0{,}1\text{ g}$ atau $0{,}05\text{ g}$ | $0{,}05\text{ g}$ | Lengan Belakang + Tengah + Depan |
+### A. Intisari Konsep & Peta Definisi
+Pengukuran fisis memerlukan pemahaman batas ketelitian instrumen dan metode pelaporan ilmiah untuk meminimalkan ketidakpastian.
 
-### B. Tabel Aturan Angka Penting & Operasi Hitung
-| Aturan / Operasi | Ketentuan Pembulatan | Contoh Operasi |
+| Instrumen Ukur | NST & Ketidakpastian ($\Delta x$) | Aplikasi Khas Soal TKA |
 | :--- | :--- | :--- |
-| **Perkalian / Pembagian** | Ikuti jumlah angka penting (AP) paling sedikit | $12{,}5\text{ (3 AP)} \times 2{,}0\text{ (2 AP)} = 25\text{ (2 AP)}$ |
-| **Penjumlahan / Pengurangan** | Ikuti desimal (angka taksiran) paling sedikit | $15{,}35\text{ (2 des)} + 2{,}4\text{ (1 des)} = 17{,}8\text{ (1 des)}$ |
-| **Pelaporan Hasil Ukur** | Format: $x = \bar{x} \pm \Delta x$ | $x = (24{,}35 \pm 0{,}025)\text{ mm}$ |
+| **Jangka Sorong** | $\text{NST} = 0{,}1\text{ mm}$ atau $0{,}05\text{ mm}$ | Diameter pipa, kelereng, kedalaman tabung |
+| **Mikrometer Sekrup** | $\text{NST} = 0{,}01\text{ mm}$ (Presisi tertinggi) | Ketebalan pelat tipis, diameter kawat |
+| **Neraca Ohaus** | $\text{NST} = 0{,}1\text{ g}$ atau $0{,}05\text{ g}$ | Massa padat melalui kesetimbangan torsi |
 
-> [!TIP] Shortcut Ujian:
-> Satuan SU dan NST wajib disamakan terlebih dahulu (misal sama-sama dalam $\text{mm}$) sebelum dilakukan penjumlahan!
+---
+
+### B. Matriks Rumus Utama & Rumus Cepat
+| Parameter Ukur | Formula Matematis | Kondisi Penerapan |
+| :--- | :--- | :--- |
+| **Bacaan Jangka Sorong** | $\text{Hasil} = \text{SU} + (\text{SN} \times \text{NST})$ | Garis nonius tegak lurus SU |
+| **Bacaan Mikrometer** | $\text{Hasil} = \text{SU} + (\text{SP} \times 0{,}01\text{ mm})$ | Garis selubung putar berimpit |
+| **Ketidakpastian Tunggal** | $\Delta x = \frac{1}{2} \times \text{NST}$ | Pengukuran satu kali |
+| **Ketidakpastian Relatif** | $I = \frac{\Delta x}{\bar{x}} \times 100\%$ | Penentu jumlah hak angka penting |
+
+---
+
+### C. Kasus Khusus & Analisis Pola Soal TKA
+1. **Analisis Dimensi Pengujian Rumus:**
+   * Gaya: $[F] = [M][L][T]^{-2}$
+   * Usaha & Energi: $[W] = [M][L]^2[T]^{-2}$
+   * Daya: $[P] = [M][L]^2[T]^{-3}$
+   * Tekanan: $[P] = [M][L]^{-1}[T]^{-2}$
+2. **Kaidah Hak Angka Penting Berdasarkan Ketidakpastian Relatif:**
+   * Relatif sekitar $10\%$: Berhak atas 2 angka penting.
+   * Relatif sekitar $1\%$: Berhak atas 3 angka penting.
+   * Relatif sekitar $0{,}1\%$: Berhak atas 4 angka penting.
+
+---
+
+### D. Jebakan Ujian & Solusi Cepat
+> [!WARNING] Jebakan Konsep:
+> Jangan pernah menjumlahkan SU dalam $\text{cm}$ langsung dengan SN dalam $\text{mm}$! Satuan skala utama wajib dikonversikan ke $\text{mm}$ terlebih dahulu sebelum dijumlahkan.
+
+> [!TIP] Super Solusi Cepat:
+> Pada soal perkalian atau pembagian angka penting di TKA, periksa faktor dengan angka penting paling sedikit. Opsi jawaban yang benar pasti memiliki jumlah angka penting yang sama dengan faktor tersedikit tersebut!

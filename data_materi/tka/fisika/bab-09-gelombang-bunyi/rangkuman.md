@@ -1,24 +1,43 @@
-# Rangkuman Rumus Cepat — Gelombang Bunyi
+# Rangkuman Rumus Cepat & Intisari Materi — Gelombang Bunyi
 **Kategori:** TKA Fisika | **Pembungkus:** Gelombang
 
-### A. Tabel Cepat Rambat Gelombang Bunyi
-| Medium Perambatan | Formula Cepat Rambat ($v$) | Parameter Utama |
-| :--- | :--- | :--- |
-| **Zat Padat (Batang)** | $v = \sqrt{\frac{E}{\rho}}$ | $E = \text{modulus Young}, \rho = \text{massa jenis}$ |
-| **Zat Cair** | $v = \sqrt{\frac{B}{\rho}}$ | $B = \text{modulus Bulk}$ |
-| **Gas / Udara** | $v = \sqrt{\frac{\gamma R T}{M}} = \sqrt{\frac{\gamma P}{\rho}}$ | $\gamma = \text{konstanta Laplace}, T = \text{suhu mutlak (K)}$ |
-| **Dawai / Senar (Hukum Melde)** | $v = \sqrt{\frac{F}{\mu}} = \sqrt{\frac{F \cdot L}{m}}$ | $F = \text{tegangan tali}, \mu = m/L$ |
+### A. Intisari Konsep & Peta Definisi
+Gelombang bunyi merupakan gelombang longitudinal yang merambat melalui rapatan dan renggangan medium. Taraf intensitas menggunakan skala logaritmik decibel (dB) yang menggambarkan respon pendengaran manusia.
 
-### B. Tabel Resonansi Frekuensi Harmonik
-| Sumber Gelombang | Pola Panjang Gelombang ($\lambda_n$) | Frekuensi Harmonik ($f_n$) | Rasio Nada ($f_0 : f_1 : f_2$) |
-| :--- | :--- | :--- | :--- |
-| **Dawai & Pipa Organa Terbuka (POB)** | $\lambda_n = \frac{2L}{n + 1}$ | $f_n = (n + 1)\frac{v}{2L}$ | $1 : 2 : 3 : \dots$ |
-| **Pipa Organa Tertutup (POT)** | $\lambda_n = \frac{4L}{2n + 1}$ | $f_n = (2n + 1)\frac{v}{4L}$ | $1 : 3 : 5 : \dots$ |
-
-### C. Tabel Taraf Intensitas & Efek Doppler
-| Konsep / Fenomena | Formula Matematis | Aturan Tanda & Catatan |
+| Sumber Resonansi | Hubungan Frekuensi Nada Harmonik | Pola Perbandingan Frekuensi |
 | :--- | :--- | :--- |
-| **Taraf Intensitas Tunggal** | $TI = 10 \log\left(\frac{I}{I_0}\right)$ | $I_0 = 10^{-12}\text{ W/m}^2\text{ (ambang pendengaran)}$ |
-| **$n$ Sumber Identik** | $TI_n = TI_1 + 10 \log n$ | $10\text{ sumber} \implies +10\text{ dB}; 100\text{ sumber} \implies +20\text{ dB}$ |
-| **Perubahan Jarak ($r_1 \to r_2$)** | $TI_2 = TI_1 - 20 \log\left(\frac{r_2}{r_1}\right)$ | Tiap jarak naik $10\times$, $TI$ berkurang $20\text{ dB}$ |
-| **Efek Doppler** | $f_p = \left(\frac{v \pm v_p}{v \mp v_s}\right) f_s$ | Pendengar mendekat ($+v_p$), Sumber mendekat ($-v_s$) |
+| **Dawai & POB** | $f_n = (n + 1) \frac{v}{2L}$ | Lengkap ($1 : 2 : 3 : 4 \dots$) |
+| **Pipa Tertutup (POT)** | $f_n = (2n + 1) \frac{v}{4L}$ | Hanya ganjil ($1 : 3 : 5 : 7 \dots$) |
+| **Pelayangan Bunyi** | $f_{\text{layang}} = |f_1 - f_2|$ | Selisih dua frekuensi berdekatan |
+
+---
+
+### B. Matriks Rumus Utama & Rumus Cepat
+| Fenomena Akustik | Formula Kunci | Keterangan & Batasan |
+| :--- | :--- | :--- |
+| **Hukum Melde** | $v = \sqrt{\frac{F}{\mu}}$ | Tegangan dawai per rapat massa |
+| **Efek Doppler** | $f_p = \frac{v \pm v_p}{v \mp v_s} f_s$ | Aturan tanda arah gerak |
+| **Intensitas Titik** | $I = \frac{P}{4\pi r^2}$ | Berbanding terbalik kuadrat jarak |
+| **Taraf Intensitas $n$ Mesin** | $TI_n = TI_1 + 10 \log n$ | Tambahan $+10\text{ dB}$ tiap kelipatan 10 |
+| **Taraf Intensitas Jarak** | $TI_2 = TI_1 - 20 \log\left(\frac{r_2}{r_1}\right)$ | Penurunan $-20\text{ dB}$ tiap kelipatan 10x jarak |
+
+---
+
+### C. Kasus Khusus & Analisis Pola Soal TKA
+1. **Resonansi Nada Atas Pertama POB vs Nada Dasar POT:**
+   * Nada atas pertama POB: $f_{1,\text{POB}} = \frac{v}{L_{\text{POB}}}$.
+   * Nada dasar POT: $f_{0,\text{POT}} = \frac{v}{4L_{\text{POT}}}$.
+   * Jika kedua frekuensi bernilai sama, maka: $L_{\text{POB}} = 4 L_{\text{POT}}$.
+2. **Aturan Cepat Skala Logaritma Taraf Intensitas:**
+   * Kelipatan $2\times$ sumber bunyi menambah $+3\text{ dB}$.
+   * Kelipatan $10\times$ sumber bunyi menambah $+10\text{ dB}$.
+   * Kelipatan $100\times$ sumber bunyi menambah $+20\text{ dB}$.
+
+---
+
+### D. Jebakan Ujian & Solusi Cepat
+> [!WARNING] Jebakan Konsep:
+> Jangan lupa bahwa pada POT, nilai $n=1$ adalah Nada Atas Pertama (harmonik ketiga dengan frekuensi $rac{3v}{4L}$), bukan harmonik kedua! POT tidak memiliki harmonik genap.
+
+> [!TIP] Super Solusi Cepat:
+> Jika jarak ke sumber bunyi bertambah menjadi $10$ kali lipat (misal dari $1\text{ m}$ ke $10\text{ m}$), Taraf Intensitasnya selalu berkurang tepat sebesar $20\text{ dB}$!

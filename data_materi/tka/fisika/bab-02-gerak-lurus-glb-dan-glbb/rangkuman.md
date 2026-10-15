@@ -1,21 +1,43 @@
-# Rangkuman Rumus Cepat — Gerak Lurus (GLB dan GLBB)
+# Rangkuman Rumus Cepat & Intisari Materi — Gerak Lurus (GLB dan GLBB)
 **Kategori:** TKA Fisika | **Pembungkus:** Kinematika
 
-### A. Tabel Matriks Formula Gerak Lurus
-| Jenis Gerak | Syarat Percepatan | Kecepatan Sesaat ($v_t$) | Jarak / Ketinggian ($s$ atau $h$) |
-| :--- | :--- | :--- | :--- |
-| **GLB** | $a = 0$ | $v = \text{konstan}$ | $s = v \cdot t$ |
-| **GLBB** | $a = \text{konstan}$ | $v_t = v_0 + at$ | $s = v_0 t + \frac{1}{2}at^2$, $v_t^2 = v_0^2 + 2as$ |
-| **Jatuh Bebas (GJB)** | $v_0 = 0, a = +g$ | $v_t = gt = \sqrt{2gh}$ | $h = \frac{1}{2}gt^2 \implies t = \sqrt{\frac{2h}{g}}$ |
-| **Vertikal ke Atas (GVA)** | $a = -g, v_{\text{puncak}} = 0$ | $v_t = v_0 - gt$ | $h_{\max} = \frac{v_0^2}{2g}, \quad t_{\text{naik}} = \frac{v_0}{g}$ |
-| **Vertikal ke Bawah (GVB)** | $v_0 \ne 0, a = +g$ | $v_t = v_0 + gt$ | $h = v_0 t + \frac{1}{2}gt^2, \quad v_t^2 = v_0^2 + 2gh$ |
+### A. Intisari Konsep & Peta Definisi
+Gerak lurus meninjau gerak satu dimensi pada lintasan lurus. Pemahaman kunci bertumpu pada apakah percepatan sistem nol atau konstan.
 
-### B. Tabel Analisis Grafik Kinematika
-| Bentuk Kurva | Kemiringan / Gradien ($m$) | Luas Area di Bawah Kurva |
+| Ragam Gerak | Nilai Percepatan | Karakteristik Lintasan |
 | :--- | :--- | :--- |
-| **Grafik $s-t$** | Kecepatan sesaat ($v = \Delta s / \Delta t$) | Tidak memiliki interpretasi fisis |
-| **Grafik $v-t$** | Percepatan sesaat ($a = \Delta v / \Delta t$) | Jarak tempuh / perpindahan ($s$) |
-| **Grafik $a-t$** | Sentakan (*jerk*) | Perubahan kecepatan ($\Delta v$) |
+| **GLB** | $a = 0$ | Kecepatan konstan setiap saat |
+| **GLBB** | $a = \text{konstan}$ | Kecepatan berubah secara teratur |
+| **GJB** | $a = +g$ | Jatuh bebas tanpa dorongan awal ($v_0 = 0$) |
+| **GVA** | $a = -g$ | Diperlambat ke atas hingga $v_{\text{puncak}} = 0$ |
 
-> [!TIP] Trik Cepat Grafik $v-t$:
-> Jarak tempuh selalu sama dengan luas bidang antara garis grafik kecepatan dan sumbu waktu $t$.
+---
+
+### B. Matriks Rumus Utama & Rumus Cepat
+| Jenis Kasus | Formula Kunci | Keterangan & Batasan |
+| :--- | :--- | :--- |
+| **Persamaan Jarak GLB** | $s = v \cdot t$ | Kecepatan selalu konstan |
+| **Kecepatan Akhir GLBB** | $v_t = v_0 + at$ | Tanda $(+)$ dipercepat, $(-)$ diperlambat |
+| **Jarak Tempuh GLBB** | $s = v_0 t + \frac{1}{2}at^2$ | Hubungan kuadratik waktu |
+| **Formula Tanpa Waktu** | $v_t^2 = v_0^2 + 2as$ | Solusi cepat jika $t$ tidak diketahui |
+| **Tinggi Maksimum GVA** | $h_{\max} = \frac{v_0^2}{2g}$ | Titik tertinggi gerak vertikal |
+| **Waktu Jatuh Bebas** | $t = \sqrt{\frac{2h}{g}}$ | Waktu menyentuh tanah ($v_0 = 0$) |
+
+---
+
+### C. Kasus Khusus & Analisis Pola Soal TKA
+1. **Dua Benda Berlawanan Arah (Saling Mendekat):**
+   $$t_{\text{papasan}} = \frac{s_{\text{total}}}{v_A + v_B}$$
+2. **Dua Benda Searah (Pengejaran):**
+   $$t_{\text{susul}} = \frac{\Delta s_0}{v_{\text{pengejar}} - v_{\text{dikejar}}}$$
+3. **Analisis Luas Bidang Grafik $v-t$:**
+   * Jarak tempuh selalu sama dengan **luas bidang** antara grafik kecepatan dan sumbu waktu $t$.
+
+---
+
+### D. Jebakan Ujian & Solusi Cepat
+> [!WARNING] Jebakan Konsep:
+> Jangan lupa bahwa percepatan gravitasi selalu bekerja ke bawah ($a = -g$). Saat benda bergerak vertikal ke atas, percepatannya bertanda negatif meskipun kecepatannya positif.
+
+> [!TIP] Super Solusi Cepat:
+> Pada gerak jatuh bebas, perbandingan jarak tempuh pada interval tiap detik yang berturutan selalu mengikuti **Deret Ganjil Galilei**: $1 : 3 : 5 : 7 : 9$!

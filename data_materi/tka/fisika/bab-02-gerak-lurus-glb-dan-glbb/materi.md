@@ -2,20 +2,23 @@
 **Kategori:** TKA Fisika | **Pembungkus:** Kinematika
 
 ## A. Besaran Kinematika Gerak Lurus
-1. **Posisi & Perpindahan:** Perpindahan ($\Delta \vec{x} = \vec{x}_2 - \vec{x}_1$) adalah besaran vektor yang merepresentasikan perubahan kedudukan, sedangkan jarak ($s$) adalah panjang total lintasan fisik riil (skalar).
-2. **Kelajuan vs Kecepatan:**
-   * Kelajuan rata-rata (skalar): $v = \frac{s_{\text{total}}}{\Delta t}$
-   * Kecepatan rata-rata (vektor): $\vec{v} = \frac{\Delta \vec{x}}{\Delta t}$
-   * Kecepatan sesaat: $\vec{v}(t) = \frac{d\vec{x}}{dt}$
-3. **Percepatan:** Perubahan kecepatan tiap satuan waktu: $\vec{a}(t) = \frac{d\vec{v}}{dt} = \frac{d^2\vec{x}}{dt^2}$.
+1. **Posisi, Jarak, dan Perpindahan:**
+   * Jarak ($s$): Besaran skalar berupa total panjang lintasan fisik riil yang ditempuh benda.
+   * Perpindahan ($\Delta \vec{r}$): Besaran vektor perubahan kedudukan dari titik awal ke titik akhir ($\Delta \vec{r} = \vec{r}_2 - \vec{r}_1$).
+2. **Kelajuan dan Kecepatan:**
+   * Kelajuan rata-rata: $v = \frac{s_{\text{total}}}{\Delta t}$ (skalar).
+   * Kecepatan rata-rata: $\vec{v} = \frac{\Delta \vec{r}}{\Delta t}$ (vektor).
+   * Kecepatan sesaat: $\vec{v}(t) = \frac{d\vec{r}}{dt}$.
+3. **Percepatan:**
+   $$\vec{a}(t) = \frac{d\vec{v}}{dt} = \frac{d^2\vec{r}}{dt^2}$$
 
 ---
 
 ## B. Gerak Lurus Beraturan (GLB)
-Benda bergerak lurus dengan **kecepatan konstan** (percepatan $a = 0$):
-$$x(t) = x_0 + v \cdot t$$
-* **Grafik $v-t$:** Garis horizontal mendatar. Luas daerah di bawah kurva $v-t$ sama dengan jarak perpindahan.
-* **Grafik $x-t$:** Garis lurus linier dengan gradien kemiringan $\tan\alpha = v$.
+Benda bergerak lurus dengan **kecepatan konstan** dan percepatan nol ($a = 0$):
+$$s = v \cdot t$$
+* **Grafik $s-t$:** Garis linier miring dengan kemiringan gradien $m = v$.
+* **Grafik $v-t$:** Garis horizontal konstan. Luas daerah di bawah kurva grafik $v-t$ merepresentasikan jarak perpindahan.
 
 ---
 
@@ -24,11 +27,11 @@ Benda bergerak lurus dengan **percepatan tetap** ($a = \text{konstan}$):
 $$v_t = v_0 + a t$$
 $$s = v_0 t + \frac{1}{2} a t^2$$
 $$v_t^2 = v_0^2 + 2 a s$$
-* Jika percepatan searah kecepatan ($a > 0$), gerak dipercepat beraturan.
-* Jika percepatan berlawanan arah kecepatan ($a < 0$), gerak diperlambat hingga berhenti ($v_t = 0$).
 
-### Kasus Khusus Gerak Vertikal (Pengaruh Gravitasi $g$):
-1. **Gerak Jatuh Bebas (GJB):** $v_0 = 0, a = +g$
-   $$v_t = gt, \quad h = \frac{1}{2}gt^2, \quad v_t = \sqrt{2gh}$$
-2. **Gerak Vertikal ke Atas (GVA):** $a = -g$
-   $$h_{\max} = \frac{v_0^2}{2g}, \quad t_{\text{puncak}} = \frac{v_0}{g}, \quad t_{\text{total}} = \frac{2v_0}{g}$$
+### Kasus Gerak Vertikal Bawah Pengaruh Gravitasi ($g$):
+1. **Gerak Jatuh Bebas (GJB):** Benda dilepaskan tanpa kelajuan awal ($v_0 = 0$, $a = +g$).
+   $$v_t = gt = \sqrt{2gh}, \quad h = \frac{1}{2}gt^2$$
+2. **Gerak Vertikal ke Atas (GVA):** Benda dilempar ke atas dengan perlambatan gravitasi ($a = -g$). Di puncak $v_{\text{puncak}} = 0$.
+   $$h_{\max} = \frac{v_0^2}{2g}, \quad t_{\text{naik}} = \frac{v_0}{g}, \quad t_{\text{total}} = \frac{2v_0}{g}$$
+3. **Gerak Vertikal ke Bawah (GVB):** Benda dilempar ke bawah dengan kecepatan awal ($v_0 \neq 0$, $a = +g$).
+   $$v_t = v_0 + gt, \quad h = v_0 t + \frac{1}{2}gt^2$$

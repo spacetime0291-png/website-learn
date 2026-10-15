@@ -1,34 +1,37 @@
 # Gelombang Cahaya dan Alat Optik
 **Kategori:** TKA Fisika | **Pembungkus:** Gelombang
 
-## A. Sifat Gelombang Cahaya & Pembiasan
-1. **Hukum Pembiasan Snellius:**
-   $$n_1 \sin\theta_1 = n_2 \sin\theta_2$$
-   * Indeks bias: $n = \frac{c}{v} = \frac{\lambda_0}{\lambda_n}$
-   * Sudut kritis & pemantulan sempurna (dari rapat ke renggang, $n_1 > n_2$):
-     $$\sin\theta_k = \frac{n_2}{n_1}$$
-2. **Interferensi Celah Ganda Young:**
-   * Garis terang (maksimum): $d \sin\theta = \frac{d \cdot p}{L} = m \lambda$ ($m = 0, 1, 2, \dots$)
-   * Garis gelap (minimum): $d \sin\theta = \frac{d \cdot p}{L} = \left(m - \frac{1}{2}\right) \lambda$
-3. **Difraksi Kisi:** $d \sin\theta = n \lambda$, di mana tetapan kisi $d = \frac{1}{N}$.
+## A. Optik Fisis (Gelombang Cahaya)
+Cahaya adalah gelombang elektromagnetik transversal.
+1. **Interferensi Celah Ganda Young:**
+   * Pola Terang (Maksimum):
+     $$d \sin\theta = n \lambda \implies d \frac{y}{L} = n \lambda, \quad n = 0, 1, 2, \dots$$
+   * Pola Gelap (Minimum):
+     $$d \frac{y}{L} = \left(n - \frac{1}{2}\right) \lambda, \quad n = 1, 2, \dots$$
+2. **Difraksi Kisi:**
+   $$d \sin\theta = n \lambda, \quad d = \frac{1}{N}\text{ (konstanta kisi)}$$
 
 ---
 
-## B. Pembentukan Bayangan Cermin dan Lensa
-$$\frac{1}{f} = \frac{1}{s} + \frac{1}{s'}, \quad M = \left|\frac{s'}{s}\right| = \left|\frac{h'}{h}\right|$$
-* Cermin cekung & lensa cembung: $f > 0$ (konvergen).
-* Cermin cembung & lensa cekung: $f < 0$ (divergen).
-* Kekuatan lensa: $P = \frac{1}{f\text{ (meter)}} = \frac{100}{f\text{ (cm)}}$ dioptri.
+## B. Cermin dan Lensa
+1. **Persamaan Umum Cermin & Lensa Tipis:**
+   $$\frac{1}{f} = \frac{1}{s} + \frac{1}{s'}, \quad M = \left|\frac{s'}{s}\right|$$
+   * Fokus lensa cembung / cermin cekung: $f > 0$ (positif/konvergen).
+   * Fokus lensa cekung / cermin cembung: $f < 0$ (negatif/divergen).
+2. **Kekuatan Lensa ($P$):**
+   $$P = \frac{100}{f\text{ (cm)}}\text{ dioptri}$$
 
 ---
 
-## C. Prinsip Alat Optik
-1. **Mata Normal & Cacat Mata:**
-   * Miopi (rabun jauh): $P = -\frac{100}{PR\text{ (cm)}}$
-   * Hipermetropi (rabun dekat): $P = 4 - \frac{100}{PP\text{ (cm)}}$
+## C. Alat-Alat Optik
+1. **Mata dan Kacamata:**
+   * Miopi (Rabun Jauh): Titik jauh $PR < \infty$, lensa cekung $P = -\frac{100}{PR\text{ (cm)}}$.
+   * Hipermetropi (Rabun Dekat): Titik dekat $PP > 25\text{ cm}$, lensa cembung $P = 4 - \frac{100}{PP\text{ (cm)}}$.
 2. **Lup (Kaca Pembesar):**
-   * Mata berakomodasi maksimum: $M = \frac{S_n}{f} + 1$
-   * Mata tidak berakomodasi: $M = \frac{S_n}{f}$ ($S_n = 25\text{ cm}$)
+   * Mata Akomodasi Maksimum: $M = \frac{s_n}{f} + 1$
+   * Mata Berakomodasi Rileks (Tanpa Akomodasi): $M = \frac{s_n}{f}$
 3. **Mikroskop:**
    $$M_{\text{total}} = M_{\text{ob}} \times M_{\text{ok}} = \left|\frac{s_{\text{ob}}'}{s_{\text{ob}}}\right| \times M_{\text{ok}}$$
-   Panjang tubus mikroskop: $d = s_{\text{ob}}' + s_{\text{ok}}$.
+   Panjang tabung mikroskop: $d = s_{\text{ob}}' + s_{\text{ok}}$.
+4. **Teropong Bintang (Tanpa Akomodasi):**
+   $$M = \frac{f_{\text{ob}}}{f_{\text{ok}}}, \quad d = f_{\text{ob}} + f_{\text{ok}}$$

@@ -170,8 +170,13 @@ function parseMarkdownToHtml(markdownText) {
   // 1. Ekstrak & Lindungi Display Math $$...$$ dari parser markdown
   const displayMath = [];
   let processed = markdownText.replace(/\$\$([\s\S]*?)\$\$/g, (match, formula) => {
+    const cleanFormula = formula
+      .split('\n')
+      .map((line) => line.replace(/^\s*>\s*/, ''))
+      .join('\n')
+      .trim();
     const idx = displayMath.length;
-    displayMath.push(formula.trim());
+    displayMath.push(cleanFormula);
     return `\n\n@@KATEX_DISPLAY_${idx}@@\n\n`;
   });
 
@@ -179,8 +184,9 @@ function parseMarkdownToHtml(markdownText) {
   const inlineMath = [];
   processed = processed.replace(/(^|[^\$])\$([^\$]+?)\$(?!\$)/g, (match, prefix, formula) => {
     if (formula.length > 500) return match;
+    const cleanFormula = formula.replace(/^\s*>\s*/, '').trim();
     const idx = inlineMath.length;
-    inlineMath.push(formula.trim());
+    inlineMath.push(cleanFormula);
     return `${prefix}@@KATEX_INLINE_${idx}@@`;
   });
 
@@ -273,10 +279,6 @@ function parseMarkdownToHtml(markdownText) {
   html = html.replace(/<p><strong>(Hasil|Jawaban)[\s–—\-:]*<\/strong>(.*?)<\/p>/gi, (match, label, text) => {
     return `<div class="hasil-highlight"><strong>${label}:</strong> ${text.trim()}</div>`;
   });
-
-  // 8. Bungkus tabel agar responsive scrolling di HP
-  html = html.replace(/<table/g, '<div class="table-responsive"><table');
-  html = html.replace(/<\/table>/g, '</table></div>');
 
   return html;
 }
@@ -2658,6 +2660,19 @@ function registerServiceWorker() {
         .register('./sw.js')
         .then((reg) => {
           console.log('[PWA] Service Worker berhasil didaftarkan:', reg.scope);
+          // Periksa update Service Worker secara aktif
+          reg.update();
+          reg.onupdatefound = () => {
+            const installing = reg.installing;
+            if (installing) {
+              installing.onstatechange = () => {
+                if (installing.state === 'installed' && navigator.serviceWorker.controller) {
+                  console.log('[PWA] Konten materi baru terdeteksi. Menyegarkan halaman...');
+                  window.location.reload();
+                }
+              };
+            }
+          };
         })
         .catch((error) => {
           console.warn('[PWA] Pendaftaran Service Worker gagal:', error);

@@ -1,26 +1,42 @@
-# Rangkuman Rumus Cepat — Gelombang Cahaya dan Alat Optik
+# Rangkuman Rumus Cepat & Intisari Materi — Gelombang Cahaya & Alat Optik
 **Kategori:** TKA Fisika | **Pembungkus:** Gelombang
 
-### A. Tabel Cermin & Lensa (Optik Geometri)
-| Elemen Optik | Persamaan Titik Fokus & Perbesaran | Karakteristik Tanda |
-| :--- | :--- | :--- |
-| **Cermin Cekung / Lensa Cembung** | $\frac{1}{f} = \frac{1}{s} + \frac{1}{s'}, \quad M = \left|\frac{s'}{s}\right|$ | Fokus positif ($f > 0$, konvergen) |
-| **Cermin Cembung / Lensa Cekung** | $\frac{1}{f} = \frac{1}{s} + \frac{1}{s'}, \quad P = \frac{100}{f\text{ (cm)}}$ | Fokus negatif ($f < 0$, divergen) |
-| **Tanda Bayangan** | $s' > 0 \implies \text{nyata, terbalik}$ | $s' < 0 \implies \text{maya, tegak}$ |
+### A. Intisari Konsep & Peta Definisi
+Optika fisis mempelajari sifat gelombang cahaya (interferensi, difraksi, dan polarisasi), sedangkan optika geometri memodelkan pembentukan bayangan oleh pemantulan dan pembiasan sinar pada lensa/cermin.
 
-### B. Tabel Optik Fisis (Pola Interferensi & Difraksi)
-| Fenomena | Pola Terang (Maksimum) | Pola Gelap (Minimum) |
+| Alat Optik | Syarat Kerja Normal | Rumus Perbesaran ($M$) |
 | :--- | :--- | :--- |
-| **Interferensi Celah Ganda (Young)** | $d \frac{p}{L} = m \lambda$ | $d \frac{p}{L} = \left(m - \frac{1}{2}\right)\lambda$ |
-| **Difraksi Celah Tunggal** | $d \frac{p}{L} = \left(m + \frac{1}{2}\right)\lambda$ | $d \frac{p}{L} = m \lambda$ |
-| **Difraksi Kisi** | $d \sin\theta = m \lambda \implies \frac{1}{N}\sin\theta = m\lambda$ | $N = \text{tetapan jumlah garis per meter}$ |
-| **Sudut Polarisasi Brewster** | $\tan\theta_p = \frac{n_2}{n_1}$ | Sinar pantul terpolarisasi linier murni |
+| **Lup (Maks)** | Akomodasi maksimum ($s' = -s_n$) | $M = \frac{s_n}{f} + 1$ |
+| **Lup (Rileks)** | Tanpa akomodasi ($s = f$) | $M = \frac{s_n}{f}$ |
+| **Mikroskop** | Bayangan akhir maya di okuler | $M = M_{\text{ob}} \times M_{\text{ok}}$ |
+| **Teropong Bintang** | Mengamati benda di tak terhingga | $M = \frac{f_{\text{ob}}}{f_{\text{ok}}}$ |
 
-### C. Tabel Formulasi Lengkap Alat Optik
-| Alat Optik | Mata Tanpa Akomodasi ($s' = \infty$) | Mata Akomodasi Maksimum ($s' = -S_n$) |
+---
+
+### B. Matriks Rumus Utama & Rumus Cepat
+| Instrumen Optis | Formula Kunci | Keterangan & Batasan |
 | :--- | :--- | :--- |
-| **Kacamata Miopi** | $P = -\frac{100}{PR\text{ (cm)}}$ | Lensa negatif (cekung) |
-| **Kacamata Hipermetropi** | $P = 4 - \frac{100}{PP\text{ (cm)}}$ | Lensa positif (cembung) |
-| **Lup (Kaca Pembesar)** | $M = \frac{S_n}{f}$ | $M = \frac{S_n}{f} + 1$ |
-| **Mikroskop** | $M_{\text{total}} = M_{\text{ob}} \times \frac{S_n}{f_{\text{ok}}}, \quad d = s_{\text{ob}}' + f_{\text{ok}}$ | $M_{\text{total}} = M_{\text{ob}} \times \left(\frac{S_n}{f_{\text{ok}}} + 1\right)$ |
-| **Teropong Bintang** | $M = \frac{f_{\text{ob}}}{f_{\text{ok}}}, \quad d = f_{\text{ob}} + f_{\text{ok}}$ | Objektif selalu lebih panjang dari okuler |
+| **Interferensi Terang** | $d \frac{y}{L} = n \lambda$ | Celah ganda Young |
+| **Difraksi Kisi** | $d \sin\theta = n \lambda$ | Tetapan kisi $d = 1/N$ |
+| **Kacamata Miopi** | $P = -\frac{100}{PR\text{ (cm)}}$ | Koreksi rabun jauh |
+| **Kacamata Hipermetropi** | $P = 4 - \frac{100}{PP\text{ (cm)}}$ | Koreksi rabun dekat |
+| **Panjang Tabung Teropong** | $d = f_{\text{ob}} + f_{\text{ok}}$ | Kondisi tanpa akomodasi |
+| **Panjang Tabung Mikroskop** | $d = s_{\text{ob}}' + f_{\text{ok}}$ | Mata rileks tanpa akomodasi |
+
+---
+
+### C. Kasus Khusus & Analisis Pola Soal TKA
+1. **Lensa Cembung Dicelupkan ke Dalam Air:**
+   * Jarak fokus lensa cembung di dalam zat cair selalu **bertambah panjang** karena selisih indeks bias relatif yang mengecil:
+     $$\frac{f_{\text{air}}}{f_{\text{udara}}} = \frac{\frac{n_l}{n_u} - 1}{\frac{n_l}{n_a} - 1} > 1$$
+2. **Karakteristik Lensa Objektif vs Okuler Mikroskop:**
+   * Pada mikroskop: $f_{\text{ob}} < f_{\text{ok}}$, benda harus diletakkan di antara $f_{\text{ob}}$ dan $2f_{\text{ob}}$ agar menghasilkan bayangan nyata, terbalik, diperbesar.
+
+---
+
+### D. Jebakan Ujian & Solusi Cepat
+> [!WARNING] Jebakan Konsep:
+> Satuan panjang gelombang ($	ext{nm}$ atau $	ext{AA}$) dan jarak celah ($	ext{mm}$) wajib dikonversi ke meter ($	ext{m}$) sebelum melakukan perhitungan formula difraksi/interferensi! Ingat: $1\text{ nm} = 10^{-9}\text{ m}$, $1\text{ \AA} = 10^{-10}\text{ m}$.
+
+> [!TIP] Super Solusi Cepat:
+> Pada teropong bintang, jarak fokus lensa objektif selalu jauh lebih panjang daripada okuler ($f_{\text{ob}} \gg f_{\text{ok}}$), berkebalikan dengan mikroskop!

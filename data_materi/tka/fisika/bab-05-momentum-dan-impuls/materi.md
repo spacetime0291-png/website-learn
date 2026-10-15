@@ -3,30 +3,28 @@
 
 ## A. Konsep Dasar Momentum dan Impuls
 1. **Momentum Linier ($\vec{p}$):**
-   Ukuran tingkat kesukaran menghentikan benda yang sedang bergerak, merupakan besaran vektor:
-   $$\vec{p} = m \cdot \vec{v} \quad (\text{satuan: } \text{kg}\cdot\text{m/s})$$
-2. **Impuls ($\vec{I}$):**
-   Gaya impulsif yang bekerja dalam selang waktu sangat singkat:
-   $$\vec{I} = \vec{F} \cdot \Delta t = \int_{t_1}^{t_2} \vec{F}\,dt \quad (\text{satuan: } \text{N}\cdot\text{s})$$
-   * Pada grafik $F-t$, Impuls sama dengan luas daerah di bawah kurva $F-t$.
+   Tingkat kesukaran untuk menghentikan benda yang sedang bergerak, berbanding lurus dengan massa dan kecepatannya (besaran vektor):
+   $$\vec{p} = m \vec{v}$$
+2. **Impuls Gaya ($\vec{I}$):**
+   Hasil kali gaya kontak rata-rata dengan selang waktu sentuh:
+   $$\vec{I} = \vec{F} \cdot \Delta t = \int \vec{F}\,dt$$
 3. **Teorema Impuls-Momentum:**
-   Impuls gaya sama dengan perubahan momentum yang dialami benda:
-   $$\vec{I} = \Delta \vec{p} = m(\vec{v}_2 - \vec{v}_1)$$
+   Impuls yang dikerjakan pada suatu benda sama dengan perubahan momentum linier benda tersebut:
+   $$\vec{I} = \Delta \vec{p} = m \vec{v}_2 - m \vec{v}_1$$
 
 ---
 
-## B. Hukum Kekekalan Momentum & Tumbukan
-Jika resultan gaya luar pada sistem sama dengan nol ($\Sigma \vec{F}_{\text{ext}} = 0$):
+## B. Hukum Kekekalan Momentum Linier
+Jika tidak ada gaya luar netto yang bekerja pada sistem ($\Sigma \vec{F}_{\text{luar}} = 0$):
+$$\Sigma \vec{p}_{\text{sebelum}} = \Sigma \vec{p}_{\text{sesudah}}$$
 $$m_1 v_1 + m_2 v_2 = m_1 v_1' + m_2 v_2'$$
 
-### Koefisien Restitusi ($e$):
-Derajat elastisitas tumbukan:
-$$e = -\frac{v_1' - v_2'}{v_1 - v_2} = \frac{v_2' - v_1'}{v_1 - v_2}$$
-1. **Tumbukan Lenting Sempurna ($e = 1$):**
-   Berlaku Hukum Kekekalan Momentum dan Kekekalan Energi Kinetik ($EK_{\text{awal}} = EK_{\text{akhir}}$).
-2. **Tumbukan Lenting Sebagian ($0 < e < 1$):**
-   Berlaku Hukum Kekekalan Momentum, sebagian energi kinetik berubah menjadi kalor/bunyi.
-   * Pantulan bola dari lantai: $e = \sqrt{\frac{h_2}{h_1}} = \sqrt{\frac{h_3}{h_2}}$
-3. **Tumbukan Tidak Lenting Sama Sekali ($e = 0$):**
-   Kedua benda bersatu setelah tumbukan ($v_1' = v_2' = v'$):
+---
+
+## C. Klasifikasi Tumbukan dan Koefisien Restitusi ($e$)
+Koefisien kelentingan didefinisikan sebagai perbandingan negatif selisih kecepatan setelah tumbukan terhadap sebelum tumbukan:
+$$e = -\frac{v_2' - v_1'}{v_2 - v_1}$$
+1. **Lenting Sempurna ($e = 1$):** Berlaku Hukum Kekekalan Momentum dan Hukum Kekekalan Energi Kinetik ($EK_{\text{sebelum}} = EK_{\text{sesudah}}$).
+2. **Lenting Sebagian ($0 < e < 1$):** Berlaku Kekekalan Momentum, namun terjadi kehilangan sebagian energi kinetik menjadi kalor atau suara.
+3. **Tidak Lenting Sama Sekali ($e = 0$):** Kedua benda menempel dan bergerak bersama dengan kecepatan akhir yang sama ($v_1' = v_2' = v'$):
    $$v' = \frac{m_1 v_1 + m_2 v_2}{m_1 + m_2}$$

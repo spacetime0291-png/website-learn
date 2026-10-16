@@ -1,36 +1,73 @@
 # Rangkuman Rumus Cepat & Konsep Inti — Fluida Statis
 **Kategori:** TKA Fisika | **Pembungkus:** Fluida | **Pendekatan:** Kurikulum 2013 & Merdeka
 
-### A. Tabel Rumus Tekanan Hidrostatis & Hukum Pascal
-| Prinsip Fluida | Formula Kunci | Konsep Penting & Ketentuan |
-| :--- | :--- | :--- |
-| **Massa Jenis & Campuran** | $\rho = \frac{m}{V}, \quad \rho_c = \frac{\rho_1 V_1 + \rho_2 V_2}{V_1 + V_2}$ | Konversi: $1\text{ g/cm}^3 = 1000\text{ kg/m}^3$; air murni $= 1000\text{ kg/m}^3$ |
-| **Tekanan Hidrostatis** | $P_h = \rho_f \cdot g \cdot h$ | $h$ diukur dari permukaan atas cairan ke bawah; tidak bergantung bentuk wadah |
-| **Tekanan Mutlak / Total** | $P_{\text{total}} = P_0 + \rho_f g h$ | $P_0$ tekanan atmosfer luar ($1\text{ atm} = 1{,}013 \times 10^5\text{ Pa} = 76\text{ cmHg}$) |
-| **Hukum Pokok Hidrostatika** | $\rho_1 h_1 = \rho_2 h_2$ | Pipa U berisi dua cairan tak bercampur (misal air dan minyak) |
-| **Hukum Pascal (Dongkrak Hidrolik)** | $\frac{F_1}{A_1} = \frac{F_2}{A_2} \implies F_2 = F_1 \left(\frac{D_2}{D_1}\right)^2$ | Gaya berbanding lurus dengan kuadrat diameter piston ($F \propto D^2$) |
+---
+
+### A. Tekanan Hidrostatis & Hukum Pokok Hidrostatis
+
+* **Massa Jenis & Tekanan Dasar:**
+  $$\rho = \frac{m}{V}, \quad P = \frac{F}{A}$$
+
+* **Tekanan Hidrostatis & Tekanan Mutlak:**
+  $$P_h = \rho \cdot g \cdot h$$
+  $$P_{\text{mutlak}} = P_0 + \rho g h$$
+  * $P_0$ adalah tekanan atmosfer permukaan ($1\text{ atm} = 1{,}013 \times 10^5\text{ Pa} = 76\text{ cmHg}$).
+  * Titik-titik pada kedalaman horizontal yang sama di dalam fluida homogen yang terhubung memiliki tekanan yang sama.
+
+* **Pipa U Bejana Berhubungan (Dua Fluida Tak Bercampur):**
+  $$\rho_1 h_1 = \rho_2 h_2$$
 
 ---
 
-### B. Tabel Hukum Archimedes, Kapilaritas, & Viskositas Stokes
-| Fenomena Fluida | Formula Kunci | Konsep Penting & Ketentuan |
-| :--- | :--- | :--- |
-| **Gaya Apung Archimedes** | $F_A = \rho_f \cdot V_{\text{celup}} \cdot g$ | Besar gaya apung sama dengan berat fluida yang dipindahkan |
-| **Benda Terapung** | $\rho_b < \rho_f \implies \frac{V_{\text{celup}}}{V_b} = \frac{\rho_b}{\rho_f}$ | Fraksi muncul di atas cairan: $\frac{V_{\text{muncul}}}{V_b} = 1 - \frac{\rho_b}{\rho_f}$ |
-| **Benda Melayang** | $\rho_b = \rho_f \implies V_{\text{celup}} = V_b$ | $F_A = w$; seimbang di sembarang kedalaman |
-| **Benda Tenggelam & Berat Semu** | $\rho_b > \rho_f$<br>$w' = w - F_A = (\rho_b - \rho_f) V_b g$ | $w'$ berat semu saat ditimbang di dalam fluida ($w' < w$) |
-| **Tegangan Permukaan Kawat Film** | $\gamma = \frac{F}{d} = \frac{F}{2 L}$ | $d = 2L$ karena selaput cairan memiliki 2 lapisan permukaan |
-| **Kenaikan / Penurunan Kapiler** | $h = \frac{2 \gamma \cos\theta}{\rho g r}$ | Air: meniskus cekung ($\theta < 90^{\circ}$, cairan naik $h > 0$); Raksa: meniskus cembung ($\theta > 90^{\circ}$, cairan turun $h < 0$) |
-| **Viskositas Hambat Stokes** | $F_s = 6 \pi \eta r v$ | Gaya gesekan fluida kental pada bola pejal jari-jari $r$ |
-| **Kecepatan Terminal Bola Jatuh** | $v_t = \frac{2 r^2 g (\rho_b - \rho_f)}{9 \eta}$ | Kecepatan konstan maksimum saat $w = F_A + F_s$ |
+### B. Hukum Pascal & Dongkrak Hidrolik
+
+* **Prinsip Pascal (Penerusan Tekanan ke Segala Arah):**
+  $$\frac{F_1}{A_1} = \frac{F_2}{A_2} \implies F_2 = F_1 \left(\frac{D_2}{D_1}\right)^2$$
+  * Gaya bertambah sebanding dengan kuadrat perbandingan diameter penampang!
 
 ---
 
-### C. Jebakan Ujian & Solusi Cepat
+### C. Hukum Archimedes & Kondisi Terapung/Melayang/Tenggelam
+
+* **Gaya Apung Ke Atas:**
+  $$F_A = \rho_f \cdot V_{\text{celup}} \cdot g$$
+
+* **Berat Semu di Dalam Fluida:**
+  $$W' = W_{\text{udara}} - F_A$$
+
+* **Tiga Keadaan Benda di Dalam Fluida:**
+  * **Terapung ($\rho_b < \rho_f$):**
+    $$V_{\text{celup}} = \frac{\rho_b}{\rho_f} V_{\text{total}}$$
+    * Persentase volume tercelup langsung menyatakan rasio massa jenis benda terhadap fluida!
+  * **Melayang ($\rho_b = \rho_f$):**
+    $$V_{\text{celup}} = V_{\text{total}}, \quad F_A = W$$
+  * **Tenggelam ($\rho_b > \rho_f$):**
+    $$V_{\text{celup}} = V_{\text{total}}, \quad N = W - F_A > 0$$
+
+---
+
+### D. Gejala Meniskus, Kapilaritas, & Hukum Stokes
+
+* **Tegangan Permukaan:**
+  $$\gamma = \frac{F}{d} = \frac{F}{2 L}$$
+
+* **Kenaikan / Penurunan Kapilaritas:**
+  $$h = \frac{2 \gamma \cos\theta}{\rho g r}$$
+  * Naik jika sudut kontak basah $\theta < 90^{\circ}$ (meniskus cekung, misal air dalam kaca).
+  * Turun jika sudut kontak tak basah $\theta > 90^{\circ}$ (meniskus cembung, misal raksa dalam kaca).
+
+* **Gaya Gesek Viskositas Fluida (Hukum Stokes):**
+  $$F_s = 6 \pi \eta r v$$
+
+* **Kecepatan Terminal Bola Jatuh dalam Fluida Viskos:**
+  $$v_t = \frac{2 r^2 g}{9 \eta} (\rho_b - \rho_f)$$
+
+---
+
+### E. Jebakan Ujian & Solusi Cepat
+
 > [!WARNING] Jebakan Konsep:
-> Kedalaman $h$ pada rumus $P_h = \rho g h$ **wajib diukur dari permukaan atas cairan**, bukan dari dasar wadah!
+> Pada rumus gaya Archimedes $F_A = \rho_f V_{\text{celup}} g$, massa jenis yang digunakan adalah **massa jenis fluida/cairan ($\rho_f$)**, BUKAN massa jenis benda! Volume yang dihitung hanyalah **volume bagian yang tercelup saja**.
 
 > [!TIP] Super Solusi Cepat:
-> Pada benda terapung, persentase volume yang tercelup langsung menunjukkan perbandingan massa jenis benda terhadap fluida:
-> $$\frac{V_{\text{celup}}}{V_{\text{total}}} = \frac{\rho_{\text{benda}}}{\rho_{\text{fluida}}}$$
-> Jika $80\%$ volume es terbenam di air, maka massa jenis es adalah $0{,}8 \times 1000 = 800\text{ kg/m}^3$!
+> Jika es terapung di air dengan bagian yang muncul di atas permukaan sebesar $20\%$, maka bagian yang tercelup adalah $80\%$, sehingga massa jenis es langsung: $\rho_{\text{es}} = 0{,}8 \times 1\text{ g/cm}^3 = 0{,}8\text{ g/cm}^3$!

@@ -1,31 +1,60 @@
 # Rangkuman Rumus Cepat & Konsep Inti — Pemanasan Global dan Efek Rumah Kaca
-**Kategori:** TKA Fisika | **Pembungkus:** Kalor dan Termodinamika | **Pendekatan:** Kurikulum 2013 & Merdeka
-
-### A. Tabel Parameter Radiasi Bumi & Karakteristik Gas Rumah Kaca
-| Parameter / Konsep | Formula Kunci | Konsep Penting & Ketentuan |
-| :--- | :--- | :--- |
-| **Konstanta Surya ($S$)** | $S = \frac{P_{\text{matahari}}}{4 \pi R_{\text{orbit}}^2} \approx 1361\text{ W/m}^2$ | Fluks radiasi tegak lurus di puncak batas luar atmosfer bumi |
-| **Neraca Radiasi Termal Bumi** | $\frac{S (1 - \alpha)}{4} = \sigma T_{\text{efektif}}^4$ | Albedo $\alpha \approx 0{,}30$; tanpa GRK: $T \approx 255\text{ K} (-18^{\circ}\text{C})$; riil dengan GRK: $T \approx 288\text{ K} (+15^{\circ}\text{C})$; peningkatan alami $+33^{\circ}\text{C}$ |
-| **Jejak Emisi Karbon Setara** | $\text{Emisi CO}_2\text{e} = \sum_{i} (m_i \times \text{GWP}_i)$ | Menstandarkan daya rusak radiatif GRK terhadap acuan gas $\text{CO}_2$ selama 100 tahun |
-| **Nilai GWP Gas Rumah Kaca** | $\text{CO}_2 = 1$<br>$\text{CH}_4 \approx 28$<br>$\text{N}_2\text{O} \approx 265$<br>$\text{CFC-12} \approx 10.200$<br>$\text{SF}_6 \approx 23.500$ | Metana 28 kali lebih kuat dari $\text{CO}_2$; CFC dan $\text{SF}_6$ memiliki GWP ribuan kali lipat |
-| **Pemuaian Termal Air Laut** | $\Delta V = V_0 \cdot \beta_{\text{air}} \cdot \Delta T$<br>$\Delta h_{\text{laut}} = h_0 \beta_{\text{air}} \Delta T$ | Kenaikan muka air laut (*sea level rise*) bersamaan dengan pencairan es gletser kutub |
-| **Kimia Asidifikasi Samudra** | $\text{CO}_2 + \text{H}_2\text{O} \rightleftharpoons \text{H}_2\text{CO}_3 \rightleftharpoons \text{H}^+ + \text{HCO}_3^-$<br>$\text{H}^+ + \text{CO}_3^{2-} \rightleftharpoons \text{HCO}_3^-$ | Penyerapan $\text{CO}_2$ menurunkan pH laut, melarutkan kalsium karbonat biota karang ($\text{CaCO}_3$) |
+**Kategori:** TKA Fisika | **Pembungkus:** Fisika Lingkungan | **Pendekatan:** Kurikulum 2013 & Merdeka
 
 ---
 
-### B. Tabel Traktat Lingkungan & Strategi Mitigasi Global
-| Kebijakan / Solusi | Landasan / Target Fisis | Keterangan & Aplikasi |
-| :--- | :--- | :--- |
-| **Protokol Kyoto (1997)** | Penurunan emisi 6 GRK utama | Komitmen historis negara industri maju mengendalikan emisi gas buang |
-| **Paris Agreement (2015)** | Pembatasan kenaikan suhu global | Menjaga kenaikan suhu bumi **jauh di bawah $2^{\circ}\text{C}$** dan mengupayakan batas **$1{,}5^{\circ}\text{C}$** |
-| **Transisi EBT** | Energi Baru Terbarukan bebas karbon | PLTS (fotovoltaik surya), PLTB (angin), PLTA (air), Geotermal (panas bumi) |
-| **Teknologi CCS** | *Carbon Capture and Storage* | Menangkap emisi $\text{CO}_2$ industri untuk disimpan permanen di batuan bumi dalam |
+### A. Mekanisme Fisis Efek Rumah Kaca (*Greenhouse Effect*)
+
+* **Keseimbangan Radiasi Bumi:**
+  * Sinar matahari gelombang pendek (spektrum tampak dan UV) menembus atmosfer dan diserap permukaan bumi.
+  * Bumi meradiasikan kembali energi dalam bentuk gelombang panjang inframerah (panas).
+  * Gas rumah kaca menyerap radiasi inframerah tersebut dan memancarkannya kembali ke segala arah, memerangkap panas di lapisan troposfer.
+
+* **Albedo Permukaan Bumi:**
+  $$a = \frac{I_{\text{pantul}}}{I_{\text{datang}}}$$
+  * Salju dan es kutub memiliki albedo tinggi ($a \approx 0{,}8 - 0{,}9$), memantulkan sebagian besar panas kembali ke angkasa.
+  * Mencairnya es menyebabkan albedo menurun drastis $\to$ bumi menyerap lebih banyak panas (*ice-albedo positive feedback*).
 
 ---
 
-### C. Jebakan Ujian & Solusi Cepat
+### B. Gas-Gas Rumah Kaca (GRK) & Potensi Pemanasan Global (GWP)
+
+* **Karbon Dioksida ($CO_2$):**
+  * Kontributor volume terbesar emisi antropogenik (pembakaran bahan bakar fosil, deforestasi).
+  * Indeks acuan: $\text{GWP} = 1$.
+
+* **Metana ($CH_4$):**
+  * Dihasilkan dari fermentasi enterik ternak ruminansia, lahan persawahan anaerobik, dan kebocoran gas alam.
+  * Daya tangkap panas: $\text{GWP} \approx 25 - 28$ kali $CO_2$.
+
+* **Dinitrogen Oksida ($N_2O$):**
+  * Dihasilkan dari pemakaian pupuk nitrogen sintetis pada pertanian intensif dan limbah industri.
+  * Daya tangkap panas: $\text{GWP} \approx 265 - 298$ kali $CO_2$.
+
+* **Gas Terfluorinasi / Senyawa Sintetis (CFC, HFC, $SF_6$):**
+  * Refrigeran pendingin AC/kulkas, propelan aerosol, isolator trafo listrik.
+  * Daya tangkap panas sangat masif: $\text{GWP} > 1.000$ hingga $23.500$ kali $CO_2$.
+
+---
+
+### C. Kesepakatan Internasional & Solusi Mitigasi
+
+* **Protokol Montreal (1987):**
+  * Perjanjian penghapusan zat perusak lapisan ozon stratosfer (CFC / klorofluorokarbon).
+* **Protokol Kyoto (1997):**
+  * Perjanjian pembatasan dan komitmen pemotongan emisi GRK bagi negara-negara industri melalui perdagangan emisi (*carbon trading*).
+* **Persetujuan Paris / Paris Agreement (2015):**
+  * Komitmen global untuk menahan kenaikan suhu rata-rata global di bawah $2^{\circ}\text{C}$ dan berupaya menekan hingga $1{,}5^{\circ}\text{C}$ di atas tingkat pra-industri.
+* **Upaya Transisi Energi Bersih:**
+  * Pembangkit Listrik Tenaga Surya (PLTS), Angin (PLTB), Air (PLTA), Panas Bumi (PLTP).
+  * Efisiensi energi, elektrifikasi transportasi, serta penyerapan karbon alami (reboisasi hutan).
+
+---
+
+### D. Jebakan Ujian & Solusi Cepat
+
 > [!WARNING] Jebakan Konsep:
-> Efek rumah kaca terjadi di **troposfer** oleh gas $\text{CO}_2, \text{CH}_4, \text{H}_2\text{O}$ yang menyerap radiasi inframerah bumi. Penipisan ozon terjadi di **stratosfer** oleh radikal klorin CFC yang merusak pelindung radiasi UV matahari. Keduanya adalah fenomena berbeda!
+> Jangan keliru antara **penipisan lapisan ozon** dan **pemanasan global**! Ozon stratosfer ($O_3$) melindungi bumi dari bahaya radiasi ultraviolet (UV). Sementara pemanasan global disebabkan oleh terperangkapnya radiasi **inframerah (kalor)** oleh gas rumah kaca di lapisan troposfer!
 
 > [!TIP] Super Solusi Cepat:
-> Pada perhitungan jejak karbon, 1 ton emisi metana ($\text{CH}_4$) setara dengan 28 ton emisi $\text{CO}_2\text{e}$!
+> Gas rumah kaca dengan potensi pemanasan global (GWP) tertinggi per molekul adalah kelompok **gas sintetis buatan (CFC / $SF_6$)**, namun gas dengan kontribusi kumulatif volume terbesar terhadap pemanasan global adalah **$CO_2$**!

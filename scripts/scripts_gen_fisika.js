@@ -136,12 +136,22 @@ const fisikaChapters = [
   }
 ];
 
-// Attach standardized rich rangkuman
-const fisikaRangkuman = require('./tka_fisika_rangkuman.js');
-fisikaChapters.forEach(c => {
-  if (fisikaRangkuman[c.index]) {
-    c.rangkuman = fisikaRangkuman[c.index];
+// Attach standardized pure rangkuman (rumus + konsep penting tanpa penjelasan kalimat komponen)
+const fs = require('fs');
+const path = require('path');
+const fisikaBase = path.join(__dirname, '..', 'data_materi', 'tka', 'fisika');
+const fisikaFolders = fs.readdirSync(fisikaBase).filter(f => f.startsWith('bab-')).sort();
+
+fisikaChapters.forEach((c) => {
+  const pad = String(c.index).padStart(2, '0');
+  const folder = fisikaFolders.find(f => f.startsWith(`bab-${pad}`));
+  if (folder) {
+    const rangkumanPath = path.join(fisikaBase, folder, 'rangkuman.md');
+    if (fs.existsSync(rangkumanPath)) {
+      c.rangkuman = fs.readFileSync(rangkumanPath, 'utf8');
+    }
   }
 });
 
 module.exports = fisikaChapters;
+

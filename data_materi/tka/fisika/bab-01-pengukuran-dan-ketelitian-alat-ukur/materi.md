@@ -7,7 +7,7 @@
 1. **Hakikat Fisika:**
    * **Fisika sebagai Produk (*A Body of Knowledge*):** Kumpulan pengetahuan terstruktur yang mencakup fakta ilmiah, konsep, prinsip, hukum fisis, teori, dan model matematis.
    * **Fisika sebagai Proses (*A Way of Investigating*):** Prosedur empiris untuk menemukan konsep fisika melalui pengamatan (*observing*), pengukuran (*measuring*), pengelompokan (*classifying*), perumusan hipotesis (*hypothesizing*), dan eksperimen (*experimenting*).
-   * **Fisika sebagai Sikap (*A Way of Thinking*):** Nilai-nilai etika ilmiah berupa rasa ingin tahu mendalam, kejujuran objektif dalam menyajikan data, ketelitian analitis, keterbukaan pikiran, dan kehati-hatian.
+   * **Fisika sebagai Sikap (*A Way of Thinking*):** Nilai etika ilmiah berupa rasa ingin tahu mendalam, kejujuran objektif dalam menyajikan data, ketelitian analitis, keterbukaan pikiran, dan kehati-hatian.
 2. **Tahapan Metode Ilmiah:**
    * Identifikasi Masalah $\to$ Studi Kepustakaan $\to$ Perumusan Hipotesis $\to$ Desain & Eksperimen $\to$ Analisis Data $\to$ Penarikan Kesimpulan.
    * **Klasifikasi Variabel Eksperimen:**
@@ -111,28 +111,96 @@
 
 ---
 
-## D. Kaidah Angka Penting (AP) dan Operasi Hitung
-1. **Aturan Penentuan Jumlah Angka Penting:**
-   * Semua digit bukan nol adalah angka penting (contoh: $43{,}82$ memiliki 4 AP).
-   * Angka nol yang terletak di antara dua angka bukan nol adalah angka penting (contoh: $500{,}06$ memiliki 5 AP).
-   * Angka nol di sebelah kiri angka bukan nol pertama **bukan** angka penting (contoh: $0{,}0034$ memiliki 2 AP).
-   * Angka nol di sebelah kanan tanda desimal setelah angka bukan nol adalah angka penting (contoh: $2{,}700$ memiliki 4 AP).
-   * Angka nol di belakang angka bukan nol tanpa tanda desimal bukan AP, kecuali jika diberi tanda khusus (garis bawah) pada angka taksiran terakhir (contoh: $120\underline{0}$ memiliki 3 AP).
-2. **Aturan Pembulatan Angka:**
-   * Jika digit pertama setelah angka terakhir yang dipertahankan $> 5$, bulatkan ke atas.
-   * Jika digit $< 5$, buang digit tersebut (bulatkan ke bawah).
-   * Jika digit tepat $= 5$:
-     * Bulatkan ke atas jika angka sebelumnya **ganjil** (contoh: $4{,}35 \to 4{,}4$).
-     * Biarkan tetap jika angka sebelumnya **genap** (*even-rounding rule*, contoh: $4{,}25 \to 4{,}2$).
-3. **Kaidah Operasi Hitung Angka Penting:**
-   * **Penjumlahan dan Pengurangan:** Hasil operasi hanya boleh mengandung **satu angka taksiran** (mengikuti digit desimal tersedikit).
-   * **Perkalian dan Pembagian:** Hasil operasi dibulatkan memiliki jumlah AP **sama dengan faktor pengali yang memiliki angka penting paling sedikit**.
-   * **Pemangkatan dan Penarikan Akar:** Hasil operasi memiliki jumlah AP **sama dengan bilangan asal yang dipangkatkan atau ditarik akarnya**.
-   * **Operasi dengan Angka Eksak (Cacah):** Bilangan hasil membilang (non-pengukuran) memiliki tak hingga AP, sehingga hasil hitung mengikuti jumlah AP dari **angka hasil pengukuran**.
+## D. Tabel Aturan Lengkap Angka Penting (AP) & Pembulatan
+### 1. Tabel Aturan Penentuan Jumlah Angka Penting
+
+| No | Kaidah / Aturan | Contoh Angka | Jumlah AP | Alasan & Keterangan Fisis |
+| :---: | :--- | :---: | :---: | :--- |
+| **1** | Semua angka bukan nol adalah angka penting. | $24{,}68$ | **4 AP** | Seluruh digit diperoleh dari skala pengukuran riil. |
+| **2** | Angka nol di antara dua angka bukan nol adalah angka penting. | $305{,}04$ | **5 AP** | Nol terjepit menandakan presisi pengukuran antar digit pasti. |
+| **3** | Angka nol di sebelah kiri angka bukan nol pertama **bukan** angka penting. | $0{,}0075$ | **2 AP** | Nol hanya berfungsi sebagai penentu letak koma desimal. |
+| **4** | Angka nol di sebelah kanan tanda desimal setelah angka bukan nol adalah angka penting. | $4{,}200$ | **4 AP** | Nol di akhir menunjukkan batas daya ukur ketelitian instrumen. |
+| **5** | Angka nol di belakang angka bukan nol tanpa desimal adalah bukan AP, kecuali jika digarisbawahi. | $4500$ vs $45\underline{0}0$ | **2 AP** vs **3 AP** | Garis bawah menetapkan batas angka taksiran pengukuran. |
+
+### 2. Tabel Aturan Pembulatan Angka Penting
+
+| Kondisi Digit Terakhir | Kaidah Pembulatan | Contoh Angka Asal | Dibulatkan Menjadi | Alasan & Keterangan |
+| :--- | :--- | :---: | :---: | :--- |
+| **Digit $> 5$** | Dibulatkan ke atas (+1 pada digit sebelumnya). | $12{,}67$ (3 AP) | $12{,}7$ | Digit buang $7 > 5$, dibulatkan ke atas. |
+| **Digit $< 5$** | Dibulatkan ke bawah (dibuang tanpa penambahan). | $12{,}64$ (3 AP) | $12{,}6$ | Digit buang $4 < 5$, ditiadakan. |
+| **Digit tepat $= 5$, diikuti angka bukan nol** | Dibulatkan ke atas (+1 pada digit sebelumnya). | $12{,}651$ (3 AP) | $12{,}7$ | Ada nilai sisa setelah 5, dibulatkan ke atas. |
+| **Digit tepat $= 5$, angka sebelumnya GANJIL** | Dibulatkan ke atas menjadi angka genap. | $12{,}35$ (3 AP) | $12{,}4$ | Angka 3 adalah ganjil, dibulatkan ke genap terdekat. |
+| **Digit tepat $= 5$, angka sebelumnya GENAP** | Dibulatkan ke bawah (tetap genap / *even rule*). | $12{,}45$ (3 AP) | $12{,}4$ | Angka 4 sudah genap, dipertahankan tetap genap. |
 
 ---
 
-## E. Teori Ketidakpastian Pengukuran & Analisis Ralat
+## E. Kaidah Perhitungan Angka Penting Beserta Contoh Nyata
+### 1. Operasi Penjumlahan & Pengurangan
+* **Kaidah:** Hasil operasi penjumlahan atau pengurangan hanya boleh mengandung **satu angka taksiran** (mengikuti jumlah desimal tersedikit).
+* **Contoh Penjumlahan:**
+  $$\begin{aligned}
+  &\phantom{+}14{,}25\underline{6}\text{ m} \quad (3\text{ desimal, taksiran 6}) \\
+  &+\phantom{1}3{,}1\underline{2}\text{ m} \quad\phantom{6} (2\text{ desimal, taksiran 2}) \\
+  &+\phantom{1}0{,}4\underline{5}\text{ m} \quad\phantom{6} (2\text{ desimal, taksiran 5}) \\
+  \hline
+  &= 17{,}826\text{ m} \\
+  \text{Pelaporan (2 desimal)} &= 17{,}83\text{ m}
+  \end{aligned}$$
+* **Contoh Pengurangan:**
+  $$\begin{aligned}
+  &\phantom{-}458{,}6\underline{2}\text{ g} \quad (2\text{ desimal, taksiran 2}) \\
+  &-\phantom{4}24{,}1\phantom{2}\text{ g} \quad (1\text{ desimal, taksiran 1}) \\
+  \hline
+  &= 434{,}52\text{ g} \\
+  \text{Pelaporan (1 desimal)} &= 434{,}5\text{ g}
+  \end{aligned}$$
+
+### 2. Operasi Perkalian & Pembagian
+* **Kaidah:** Hasil akhir perkalian atau pembagian dibulatkan memiliki jumlah angka penting **sama dengan faktor yang memiliki angka penting paling sedikit**.
+* **Contoh Perkalian:**
+  Menghitung luas pelat seng: panjang $p = 12{,}45\text{ cm}$ (4 AP) dan lebar $l = 4{,}2\text{ cm}$ (2 AP).
+  $$\begin{aligned}
+  \text{Luas} &= 12{,}45 \times 4{,}2 \\
+  &= 52{,}29\text{ cm}^2 \\
+  \text{Pelaporan (2 AP)} &= 52\text{ cm}^2
+  \end{aligned}$$
+* **Contoh Pembagian:**
+  Menghitung massa jenis balok: massa $m = 45{,}0\text{ g}$ (3 AP) dan volume $V = 6{,}0\text{ cm}^3$ (2 AP).
+  $$\begin{aligned}
+  \rho &= \frac{m}{V} = \frac{45{,}0}{6{,}0} \\
+  &= 7{,}5\text{ g/cm}^3 \\
+  \text{Pelaporan (2 AP)} &= 7{,}5\text{ g/cm}^3
+  \end{aligned}$$
+
+### 3. Operasi Pemangkatan & Penarikan Akar
+* **Kaidah:** Hasil operasi pemangkatan atau penarikan akar memiliki jumlah angka penting **sama dengan bilangan yang dipangkatkan atau ditarik akarnya**.
+* **Contoh Pemangkatan:**
+  Menghitung luas permukaan kubus dari rusuk $s = 2{,}5\text{ cm}$ (2 AP):
+  $$\begin{aligned}
+  A &= s^2 = (2{,}5)^2 \\
+  &= 6{,}25\text{ cm}^2 \\
+  \text{Pelaporan (2 AP)} &= 6{,}3\text{ cm}^2
+  \end{aligned}$$
+* **Contoh Penarikan Akar:**
+  Menghitung panjang sisi dari luas persegi $A = 144{,}0\text{ cm}^2$ (4 AP):
+  $$\begin{aligned}
+  s &= \sqrt{A} = \sqrt{144{,}0} \\
+  &= 12{,}00\text{ cm} \quad (4\text{ AP})
+  \end{aligned}$$
+
+### 4. Operasi dengan Bilangan Eksak (Cacah/Konstanta Bulat)
+* **Kaidah:** Bilangan eksak adalah hasil membilang (non-pengukuran) yang memiliki jumlah AP tak hingga. Hasil operasi hitung mengikuti jumlah AP dari **angka hasil pengukuran**.
+* **Contoh:**
+  Tebal 1 lembar kertas hasil ukur adalah $0{,}125\text{ mm}$ (3 AP). Jika ditumpuk sebanyak 20 lembar (bilangan eksak):
+  $$\begin{aligned}
+  \text{Tebal Total} &= 20 \times 0{,}125\text{ mm} \\
+  &= 2{,}500\text{ mm} \\
+  \text{Pelaporan (3 AP)} &= 2{,}50\text{ mm}
+  \end{aligned}$$
+
+---
+
+## F. Teori Ketidakpastian Pengukuran & Analisis Ralat
 1. **Klasifikasi Sumber Ralat:**
    * **Kesalahan Umum (Human Error):** Kecerobohan pengamat saat membaca skala atau mengatur instrumen.
    * **Kesalahan Sistematik:** Akibat alat ukur atau lingkungan teratur (kesalahan kalibrasi, kesalahan titik nol, kelelahan pegas).
@@ -167,7 +235,7 @@
 
 ---
 
-## F. Representasi Vektor sebagai Fondasi Kinematika
+## G. Representasi Vektor sebagai Fondasi Spasial Kinematika
 1. **Besaran Skalar vs Vektor:**
    * *Skalar:* Hanya memiliki nilai (besar) fisis, patuh aljabar biasa (massa, waktu, suhu, jarak, kelajuan, usaha, energi).
    * *Vektor:* Memiliki nilai (besar) dan arah, patuh aljabar vektor geometris/analitis (posisi, perpindahan, kecepatan, percepatan, gaya, momentum).
@@ -205,3 +273,86 @@
      * Bersifat anti-komutatif: $\vec{A} \times \vec{B} = -(\vec{B} \times \vec{A})$.
      * $\hat{i} \times \hat{i} = 0$, $\hat{i} \times \hat{j} = \hat{k}$, $\hat{j} \times \hat{k} = \hat{i}$, $\hat{k} \times \hat{i} = \hat{j}$.
      * Aplikasi: Momen Gaya / Torsi $\vec{\tau} = \vec{r} \times \vec{F}$, Gaya Lorentz $\vec{F} = q(\vec{v} \times \vec{B})$.
+
+---
+
+## H. Contoh Soal Beranak Terpadu (HOTS) Aplikasi Kinematika
+> 📝 **Studi Kasus Laboratorium: Karakterisasi Balok Padat & Uji Gaya Tarik**
+> Sebuah kelompok siswa melakukan uji eksperimental terhadap sebuah balok kuningan padat:
+> 1. Panjang balok diukur dengan jangka sorong ($	ext{NST} = 0{,}05\text{ mm}$): skala utama menunjukkan $5{,}2\text{ cm}$ dan garis nonius ke-$8$ berimpit tepat.
+> 2. Lebar balok diukur dengan jangka sorong yang sama: skala utama menunjukkan $3{,}0\text{ cm}$ dan garis nonius ke-$12$ berimpit tepat.
+> 3. Tebal balok diukur dengan mikrometer sekrup ($	ext{NST} = 0{,}01\text{ mm}$): skala utama menunjukkan $4{,}5\text{ mm}$ dan garis skala putar ke-$26$ berimpit dengan garis mendatar.
+> 4. Massa balok ditimbang dengan neraca Ohaus tiga lengan terbaca $m = 136{,}50\text{ g}$ (5 AP).
+> 5. Balok ditarik di atas meja licin oleh dua tali horizontal dengan gaya $F_1 = 30\text{ N}$ dan $F_2 = 50\text{ N}$ yang membentuk sudut apit $60^{\circ}$ ($\cos 60^{\circ} = 0{,}5$).
+
+#### Pertanyaan & Pembahasan Terperinci:
+
+**a) Tentukan hasil pembacaan panjang ($p$), lebar ($l$), dan tebal ($t$) balok dalam satuan milimeter ($	ext{mm}$)!**
+* **Panjang ($p$):**
+  $$\begin{aligned}
+  p &= \text{SU} + (\text{SN} \times \text{NST}) \\
+  &= 52{,}0\text{ mm} + (8 \times 0{,}05\text{ mm}) \\
+  &= 52{,}0 + 0{,}40 = 52{,}40\text{ mm}
+  \end{aligned}$$
+* **Lebar ($l$):**
+  $$\begin{aligned}
+  l &= 30{,}0\text{ mm} + (12 \times 0{,}05\text{ mm}) \\
+  &= 30{,}0 + 0{,}60 = 30{,}60\text{ mm}
+  \end{aligned}$$
+* **Tebal ($t$):**
+  $$\begin{aligned}
+  t &= 4{,}5\text{ mm} + (26 \times 0{,}01\text{ mm}) \\
+  &= 4{,}5 + 0{,}26 = 4{,}76\text{ mm}
+  \end{aligned}$$
+* *Hasil:* $p = 52{,}40\text{ mm}$ (4 AP), $l = 30{,}60\text{ mm}$ (4 AP), $t = 4{,}76\text{ mm}$ (3 AP).
+
+**b) Hitung volume balok dan massa jenis balok berdasarkan kaidah angka penting lengkap!**
+* **Volume Balok ($V$):**
+  Faktor pengali adalah $p$ (4 AP), $l$ (4 AP), dan $t$ (3 AP). Sesuai kaidah perkalian AP, hasil harus dibulatkan ke **3 AP**.
+  $$\begin{aligned}
+  V &= p \times l \times t \\
+  &= 52{,}40 \times 30{,}60 \times 4{,}76 \\
+  &= 7632{,}44...\text{ mm}^3 \\
+  &= 7{,}63244...\text{ cm}^3 \\
+  \text{Volume Pelaporan (3 AP)} &= 7{,}63\text{ cm}^3
+  \end{aligned}$$
+* **Massa Jenis ($\rho$):**
+  Massa $m = 136{,}50\text{ g}$ (5 AP) dibagi volume $V = 7{,}63\text{ cm}^3$ (3 AP). Hasil akhir memiliki **3 AP**:
+  $$\begin{aligned}
+  \rho &= \frac{m}{V} = \frac{136{,}50}{7{,}63} \\
+  &= 17{,}8899...\text{ g/cm}^3 \\
+  \text{Massa Jenis Pelaporan (3 AP)} &= 17{,}9\text{ g/cm}^3 = 17{,}9 \times 10^3\text{ kg/m}^3
+  \end{aligned}$$
+
+**c) Tentukan ketidakpastian mutlak pengukuran tunggal tebal balok dan persentase ketidakpastian relatifnya!**
+* Ketidakpastian mutlak mikrometer: $\Delta t = \frac{1}{2} \times \text{NST} = \frac{1}{2} \times 0{,}01 = 0{,}005\text{ mm}$.
+* Ketidakpastian Relatif (KR):
+  $$\begin{aligned}
+  \text{KR} &= \frac{\Delta t}{t} \times 100\% \\
+  &= \frac{0{,}005\text{ mm}}{4{,}76\text{ mm}} \times 100\% \\
+  &= 0{,}105\% \approx 0{,}1\%
+  \end{aligned}$$
+* Karena $\text{KR} \approx 0{,}1\%$, hasil berhak dilaporkan dengan 4 AP: $t = (4{,}760 \pm 0{,}005)\text{ mm}$.
+
+**d) Buktikan kesetaraan dimensi antara Usaha ($W = F \cdot s$) dan Energi Kinetik ($EK = \frac{1}{2}mv^2$) yang diterapkan pada balok!**
+* Dimensi Usaha: $[W] = [F][s] = ([M][L][T]^{-2}) \times [L] = [M][L]^2[T]^{-2}$.
+* Dimensi Energi Kinetik: $[EK] = [m][v]^2 = [M] \times ([L][T]^{-1})^2 = [M][L]^2[T]^{-2}$.
+* Karena dimensi kedua besaran identik ($[M][L]^2[T]^{-2}$), terbukti bahwa Usaha dan Energi Kinetik setara secara fisis.
+
+**e) Hitung besar resultan kedua gaya tarik vektor pada balok dan tentukan arah sudutnya terhadap gaya $F_1$!**
+* Besar Resultan ($R$):
+  $$\begin{aligned}
+  R &= \sqrt{F_1^2 + F_2^2 + 2 F_1 F_2 \cos 60^{\circ}} \\
+  &= \sqrt{30^2 + 50^2 + 2(30)(50)(0{,}5)} \\
+  &= \sqrt{900 + 2500 + 1500} \\
+  &= \sqrt{4900} = 70\text{ N}
+  \end{aligned}$$
+* Arah Resultan terhadap $\vec{F}_1$ (Aturan Sinus):
+  $$\begin{aligned}
+  \frac{R}{\sin 60^{\circ}} &= \frac{F_2}{\sin\alpha} \\
+  \sin\alpha &= \frac{F_2 \sin 60^{\circ}}{R} \\
+  &= \frac{50 \times \frac{1}{2}\sqrt{3}}{70} \\
+  &= \frac{25\sqrt{3}}{70} = \frac{5\sqrt{3}}{14} \approx 0{,}6186 \\
+  \alpha &\approx 38{,}2^{\circ}
+  \end{aligned}$$
+* *Hasil Akhir:* Resultan gaya tarik adalah $70\text{ Newton}$ dengan arah membentuk sudut $38{,}2^{\circ}$ terhadap gaya $F_1$.

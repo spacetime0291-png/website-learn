@@ -681,6 +681,123 @@ window.toggleBabItem = function(babKey) {
   targetItem.classList.toggle('expanded', !isExpanded);
 };
 
+// ============================================================================
+// TRANSFOMASI SUB-BAB ACCORDION DI READER MATERI
+// Membungkus setiap sub-bab (Heading 2) ke dalam kartu accordion interaktif
+// ============================================================================
+function transformMateriToSubBabAccordions(containerElem) {
+  if (!containerElem) return;
+  const h2Elements = Array.from(containerElem.querySelectorAll('h2'));
+  if (h2Elements.length === 0) return;
+
+  const fragment = document.createDocumentFragment();
+
+  // 1. Bagian pengantar sebelum H2 pertama (judul & deskripsi)
+  const introContainer = document.createElement('div');
+  introContainer.className = 'subbab-intro-card';
+  let cur = containerElem.firstElementChild;
+  while (cur && cur.tagName !== 'H2') {
+    const next = cur.nextElementSibling;
+    introContainer.appendChild(cur);
+    cur = next;
+  }
+  if (introContainer.children.length > 0) {
+    fragment.appendChild(introContainer);
+  }
+
+  // 2. Toolbar kontrol sub-bab
+  const toolbar = document.createElement('div');
+  toolbar.className = 'subbab-accordion-toolbar';
+  toolbar.innerHTML = `
+    <div class="subbab-toolbar-count">
+      <span class="subbab-toolbar-icon">📑</span>
+      <span>Struktur Modul: <strong>${h2Elements.length} Sub-Bab Materi</strong></span>
+    </div>
+    <div class="subbab-toolbar-actions">
+      <button type="button" class="btn-subbab-action" onclick="window.toggleAllSubBabsInReader(true)">
+        ▼ Buka Semua
+      </button>
+      <button type="button" class="btn-subbab-action" onclick="window.toggleAllSubBabsInReader(false)">
+        ▲ Tutup Semua
+      </button>
+    </div>
+  `;
+  fragment.appendChild(toolbar);
+
+  // 3. Container kartu sub-bab accordion
+  const accordionContainer = document.createElement('div');
+  accordionContainer.className = 'subbab-accordion-container';
+
+  h2Elements.forEach((h2, idx) => {
+    const fullText = h2.textContent.trim();
+    const match = fullText.match(/^([A-Z0-9]+)\.\s*(.*)$/);
+    const badge = match ? match[1] : String.fromCharCode(65 + (idx % 26));
+    const title = match ? match[2] : fullText;
+
+    const card = document.createElement('div');
+    // Buka sub-bab pertama secara default
+    card.className = `subbab-wrapper-card ${idx === 0 ? 'expanded' : ''}`;
+    card.dataset.subbabIdx = idx;
+
+    const header = document.createElement('div');
+    header.className = 'subbab-wrapper-header';
+    header.setAttribute('role', 'button');
+    header.setAttribute('tabindex', '0');
+    header.onclick = function() {
+      card.classList.toggle('expanded');
+    };
+    header.onkeydown = function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.classList.toggle('expanded');
+      }
+    };
+
+    header.innerHTML = `
+      <div class="subbab-wrapper-header-left">
+        <span class="subbab-wrapper-badge">${escapeHtml(badge)}</span>
+        <div class="subbab-wrapper-title-group">
+          <span class="subbab-wrapper-meta">Sub-Bab ${escapeHtml(badge)}</span>
+          <h3 class="subbab-wrapper-title">${escapeHtml(title)}</h3>
+        </div>
+      </div>
+      <div class="subbab-wrapper-header-right">
+        <span class="subbab-wrapper-pill">Isi Sub-Bab</span>
+        <span class="subbab-wrapper-arrow">▼</span>
+      </div>
+    `;
+
+    const body = document.createElement('div');
+    body.className = 'subbab-wrapper-body markdown-reader';
+
+    // Pindahkan seluruh elemen sampai H2 berikutnya
+    let sibling = h2.nextElementSibling;
+    while (sibling && sibling.tagName !== 'H2') {
+      const nextSibling = sibling.nextElementSibling;
+      if (sibling.tagName === 'HR' && nextSibling && nextSibling.tagName === 'H2') {
+        sibling = nextSibling;
+        break;
+      }
+      body.appendChild(sibling);
+      sibling = nextSibling;
+    }
+
+    card.appendChild(header);
+    card.appendChild(body);
+    accordionContainer.appendChild(card);
+  });
+
+  fragment.appendChild(accordionContainer);
+  containerElem.innerHTML = '';
+  containerElem.appendChild(fragment);
+}
+
+window.toggleAllSubBabsInReader = function(expand) {
+  document.querySelectorAll('#reader-markdown-body .subbab-wrapper-card').forEach((card) => {
+    card.classList.toggle('expanded', expand);
+  });
+};
+
 // BUKA MATERI DI HALAMAN PENUH SPA DENGAN IN-READER MODE SWITCHER
 window.openMateriPage = function(babId) {
   const allBabModules = window.EDUMANDIRI_MATERI_BAB || [];
@@ -755,6 +872,9 @@ window.openMateriPage = function(babId) {
 
   if (bodyElem) {
     bodyElem.innerHTML = parseMarkdownToHtml(babData.content);
+    if (babData.tipe === 'materi') {
+      transformMateriToSubBabAccordions(bodyElem);
+    }
     renderLatex(bodyElem);
   }
 

@@ -165,3 +165,77 @@ v_t^2 &= v_0^2 - 2 g h
      * $t_{\text{susul}}$ = waktu yang dibutuhkan untuk menyusul tepat pada posisi sama (satuan: $\text{s}$)
 3. **Selisih Waktu Keberangkatan ($\Delta t$):**
    Jika benda B berangkat $\Delta t$ sekon setelah benda A: gunakan waktu $t_A = t$ dan $t_B = t - \Delta t$.
+
+---
+
+## F. Contoh Soal Beranak Terpadu (HOTS) Gerak Lurus Multitahap
+> 📝 **Studi Kasus Uji Coba: Mobil Listrik Cepat & Pelepasan Suar Penyelamat**
+> Sebuah prototipe mobil listrik pintar diuji pada lintasan lurus datar bebas hambatan:
+> 1. **Fase 1 (Akselerasi GLBB):** Mobil mulai bergerak dari keadaan diam ($v_0 = 0$) dengan percepatan konstan $a_1 = 4\text{ m/s}^2$ selama durasi $t_1 = 6\text{ s}$.
+> 2. **Fase 2 (Jelajah GLB):** Mobil melaju dengan kelajuan konstan yang dicapai pada akhir Fase 1 selama $t_2 = 15\text{ s}$.
+> 3. **Fase 3 (Pengereman GLBB):** Sopir menginjak rem hingga mobil mengalami perlambatan tetap sebesar $a_3 = 6\text{ m/s}^2$ hingga berhenti total.
+> 4. **Fase 4 (Pelepasan Suar Vertikal GVA):** Tepat ketika mobil berhenti, suar darurat ditembakkan vertikal ke atas dari atap mobil dengan kelajuan awal $v_0 = 40\text{ m/s}$ ($g = 10\text{ m/s}^2$).
+
+#### Pertanyaan & Pembahasan Terperinci:
+
+**a) Tentukan kelajuan mobil pada akhir Fase 1 dan jarak tempuh selama akselerasi Fase 1!**
+* Kelajuan akhir Fase 1 ($v_1$):
+  $$\begin{aligned}
+  v_1 &= v_0 + a_1 t_1 \\
+  &= 0 + (4 \times 6) \\
+  &= 24\text{ m/s}
+  \end{aligned}$$
+* Jarak tempuh Fase 1 ($s_1$):
+  $$\begin{aligned}
+  s_1 &= v_0 t_1 + \frac{1}{2} a_1 t_1^2 \\
+  &= 0 + \frac{1}{2}(4)(6^2) \\
+  &= 2 \times 36 = 72\text{ m}
+  \end{aligned}$$
+
+**b) Hitung jarak tempuh mobil selama fase jelajah GLB (Fase 2)!**
+* Kecepatan konstan $v = 24\text{ m/s}$ selama $t_2 = 15\text{ s}$:
+  $$\begin{aligned}
+  s_2 &= v \times t_2 \\
+  &= 24 \times 15 \\
+  &= 360\text{ m}
+  \end{aligned}$$
+
+**c) Tentukan waktu pengereman ($t_3$) dan jarak yang ditempuh mobil selama Fase 3 hingga berhenti!**
+* Waktu pengereman hingga berhenti ($v_3 = 0$):
+  $$\begin{aligned}
+  v_3 &= v_1 - a_3 t_3 \\
+  0 &= 24 - 6 t_3 \\
+  6 t_3 &= 24 \implies t_3 = 4\text{ s}
+  \end{aligned}$$
+* Jarak pengereman ($s_3$):
+  $$\begin{aligned}
+  s_3 &= \frac{v_1^2}{2 a_3} = \frac{24^2}{2(6)} \\
+  &= \frac{576}{12} = 48\text{ m}
+  \end{aligned}$$
+
+**d) Hitung total jarak tempuh, durasi total gerak mobil, dan kelajuan rata-rata mobil!**
+* Jarak total: $s_{\text{total}} = s_1 + s_2 + s_3 = 72 + 360 + 48 = 480\text{ m}$.
+* Durasi waktu total: $t_{\text{total}} = t_1 + t_2 + t_3 = 6 + 15 + 4 = 25\text{ s}$.
+* Kelajuan rata-rata:
+  $$\begin{aligned}
+  v_{\text{rata}} &= \frac{s_{\text{total}}}{t_{\text{total}}} = \frac{480\text{ m}}{25\text{ s}} \\
+  &= 19{,}2\text{ m/s}
+  \end{aligned}$$
+
+**e) Untuk suar darurat: tentukan tinggi maksimum yang dicapai, waktu total di udara, dan kelajuan suar pada ketinggian $60\text{ m}$!**
+* Tinggi Maksimum ($h_{\max}$):
+  $$\begin{aligned}
+  h_{\max} &= \frac{v_0^2}{2g} = \frac{40^2}{2(10)} \\
+  &= \frac{1600}{20} = 80\text{ m}
+  \end{aligned}$$
+* Waktu total melayang bolak-balik:
+  $$\begin{aligned}
+  t_{\text{total, suar}} &= \frac{2v_0}{g} = \frac{2(40)}{10} = 8\text{ s}
+  \end{aligned}$$
+* Kelajuan saat berada pada ketinggian $h = 60\text{ m}$:
+  $$\begin{aligned}
+  v_t^2 &= v_0^2 - 2gh \\
+  &= 40^2 - 2(10)(60) \\
+  &= 1600 - 1200 = 400 \\
+  v_t &= \sqrt{400} = 20\text{ m/s}
+  \end{aligned}$$

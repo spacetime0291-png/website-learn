@@ -136,4 +136,12 @@ const fisikaChapters = [
   }
 ];
 
+// Attach standardized rich rangkuman
+const fisikaRangkuman = require('./tka_fisika_rangkuman.js');
+fisikaChapters.forEach(c => {
+  if (fisikaRangkuman[c.index]) {
+    c.rangkuman = fisikaRangkuman[c.index];
+  }
+});
+
 module.exports = fisikaChapters;

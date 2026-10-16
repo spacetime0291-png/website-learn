@@ -1,42 +1,54 @@
-# Rangkuman Rumus Cepat & Intisari Materi — Gelombang Cahaya & Alat Optik
-**Kategori:** TKA Fisika | **Pembungkus:** Gelombang
+# Rangkuman Rumus Cepat & Intisari Materi — Gelombang Cahaya dan Alat Optik
+**Kategori:** TKA Fisika | **Pembungkus:** Gelombang | **Pendekatan:** Kurikulum 2013 Revisi & Kurikulum Merdeka
 
 ### A. Intisari Konsep & Peta Definisi
-Optika fisis mempelajari sifat gelombang cahaya (interferensi, difraksi, dan polarisasi), sedangkan optika geometri memodelkan pembentukan bayangan oleh pemantulan dan pembiasan sinar pada lensa/cermin.
+Optika fisis memodelkan cahaya sebagai gelombang elektromagnetik transversal yang mengalami fenomena dispersi, difraksi, interferensi, dan polarisasi. Optika geometri memodelkan perambatan berkas sinar lurus pada peristiwa pemantulan dan pembiasan melalui cermin dan lensa lengkung untuk membentuk bayangan instrumen optik.
 
-| Alat Optik | Syarat Kerja Normal | Rumus Perbesaran ($M$) |
-| :--- | :--- | :--- |
-| **Lup (Maks)** | Akomodasi maksimum ($s' = -s_n$) | $M = \frac{s_n}{f} + 1$ |
-| **Lup (Rileks)** | Tanpa akomodasi ($s = f$) | $M = \frac{s_n}{f}$ |
-| **Mikroskop** | Bayangan akhir maya di okuler | $M = M_{\text{ob}} \times M_{\text{ok}}$ |
-| **Teropong Bintang** | Mengamati benda di tak terhingga | $M = \frac{f_{\text{ob}}}{f_{\text{ok}}}$ |
-
----
-
-### B. Matriks Rumus Utama & Rumus Cepat
-| Instrumen Optis | Formula Kunci | Keterangan & Batasan |
-| :--- | :--- | :--- |
-| **Interferensi Terang** | $d \frac{y}{L} = n \lambda$ | Celah ganda Young |
-| **Difraksi Kisi** | $d \sin\theta = n \lambda$ | Tetapan kisi $d = 1/N$ |
-| **Kacamata Miopi** | $P = -\frac{100}{PR\text{ (cm)}}$ | Koreksi rabun jauh |
-| **Kacamata Hipermetropi** | $P = 4 - \frac{100}{PP\text{ (cm)}}$ | Koreksi rabun dekat |
-| **Panjang Tabung Teropong** | $d = f_{\text{ob}} + f_{\text{ok}}$ | Kondisi tanpa akomodasi |
-| **Panjang Tabung Mikroskop** | $d = s_{\text{ob}}' + f_{\text{ok}}$ | Mata rileks tanpa akomodasi |
+| Cabang Optika | Sifat Dominan Cahaya | Fenomena Kunci yang Dipelajari | Aplikasi Utama Soal Ujian |
+| :--- | :--- | :--- | :--- |
+| **Optika Fisis** | Gelombang Elektromagnetik Transversal | Celah Ganda Young, Kisi Difraksi, Polarisasi Brewster & Malus | Spektrofotometer kisi, kacamata polaroid 3D, lapisan anti-pantul |
+| **Optika Geometri** | Perambatan Berkas Sinar Lurus | Hukum Snellius, Sudut Kritis, Pembiasan Prisma | Serat optik (*fiber optic*), prisma dispersi pelangi |
+| **Alat-Alat Optik** | Rekayasa Bayangan Lensa & Cermin | Akomodasi Mata, Pembesaran Sudut Lup, Mikroskop, Teropong | Kacamata minus/plus, lup pengamat perangko, mikroskop biologi |
 
 ---
 
-### C. Kasus Khusus & Analisis Pola Soal TKA
-1. **Lensa Cembung Dicelupkan ke Dalam Air:**
-   * Jarak fokus lensa cembung di dalam zat cair selalu **bertambah panjang** karena selisih indeks bias relatif yang mengecil:
-     $$\frac{f_{\text{air}}}{f_{\text{udara}}} = \frac{\frac{n_l}{n_u} - 1}{\frac{n_l}{n_a} - 1} > 1$$
-2. **Karakteristik Lensa Objektif vs Okuler Mikroskop:**
-   * Pada mikroskop: $f_{\text{ob}} < f_{\text{ok}}$, benda harus diletakkan di antara $f_{\text{ob}}$ dan $2f_{\text{ob}}$ agar menghasilkan bayangan nyata, terbalik, diperbesar.
+### B. Matriks Rumus Optika Fisis (Interferensi, Difraksi & Polarisasi)
+| Sub-Materi / Topik | Persamaan / Formula Matematis | Penjelasan Komponen Rumus & Satuan SI | Keterangan Fisis & Kaidah Cepat |
+| :--- | :--- | :--- | :--- |
+| **Interferensi Celah Ganda Young (Terang)** | $\frac{d \cdot y}{L} = m \cdot \lambda$<br>$d \sin\theta = m \cdot \lambda$ | $d$: jarak pisah celah ganda ($\text{m}$); $y$: jarak garis terang ke-$m$ dari terang pusat ($\text{m}$); $L$: jarak dari celah ke layar pengamat ($\text{m}$); $m$: orde interferensi ($m = 0, 1, 2, \dots$); $\lambda$: panjang gelombang cahaya ($\text{m}$); $\theta$: sudut deviasi difraksi ($^{\circ}$) | Terang pusat terjadi saat $m = 0$. Syarat interferensi konstruktif: beda lintasan gelombang merupakan kelipatan bulat panjang gelombang |
+| **Interferensi Celah Ganda Young (Gelap)** | $\frac{d \cdot y}{L} = \left(m - \frac{1}{2}\right) \lambda$<br>$d \sin\theta = (2m - 1) \frac{\lambda}{2}$ | $m$: orde pita garis gelap ($m = 1, 2, 3, \dots$); garis gelap pertama terdekat dari pusat adalah $m = 1$ | Syarat interferensi destruktif: beda lintasan merupakan kelipatan ganjil setengah panjang gelombang |
+| **Jarak Antara Dua Garis Terang Berurutan** | $\Delta y = \frac{\lambda \cdot L}{d}$ | $\Delta y$: jarak pisah antara dua garis terang berdekatan atau dua garis gelap berdekatan di layar ($\text{m}$) | Jarak pita berbanding lurus dengan jarak layar ($L$) dan berbanding terbalik dengan jarak antarcelah ($d$) |
+| **Interferensi Selaput Tipis (Lapisan Minyak)** | Terang: $2 n d \cos r = \left(m - \frac{1}{2}\right) \lambda$<br>Gelap: $2 n d \cos r = m \lambda$ | $n$: indeks bias medium selaput tipis; $d$: ketebalan selaput minyak/sabun ($\text{m}$); $r$: sudut bias di dalam selaput ($^{\circ}$); $m$: orde ($1, 2, \dots$); $\lambda$: panjang gelombang cahaya di udara ($\text{m}$) | Pergeseran fase $\pi$ ($180^{\circ}$) terjadi saat cahaya memantul dari medium yang berindeks bias lebih rapat |
+| **Difraksi Celah Tunggal Fraunhofer** | Pita Gelap: $d \sin\theta = m \lambda$<br>Pita Terang: $d \sin\theta = \left(m + \frac{1}{2}\right) \lambda$ | $d$: lebar celah tunggal ($\text{m}$); $m$: orde difraksi ($m = 1, 2, 3, \dots$) | Lebar terang pusat adalah dua kali lipat jarak terang orde berikutnya: lebar pusat $= \frac{2\lambda L}{d}$ |
+| **Difraksi Kisi Banyak Celah** | $d \sin\theta = n \cdot \lambda$<br>$d = \frac{1}{N}$ | $d$: tetapan jarak antarcelah kisi ($\text{m}$ atau $\text{cm}$); $N$: jumlah garis goresan kisi per satuan panjang (misal: $500\text{ garis/mm}$); $n$: orde spektrum ($n = 1, 2, \dots$); $\theta$: sudut deviasi pita ($^{\circ}$) | Konversi tetapan kisi: jika $N = 500\text{ garis/mm}$, maka $d = \frac{1}{500}\text{ mm} = 2 \times 10^{-6}\text{ m}$ |
+| **Daya Urai Kriteria Rayleigh** | $d_m = 1{,}22 \frac{\lambda \cdot L}{D}$ | $d_m$: batas daya urai pemisahan linear minimum dua titik sumber cahaya yang masih dapat dibedakan terpisah ($\text{m}$); $D$: diameter bukaan pupil mata atau lensa objektif ($\text{m}$) | Panjang gelombang pendek (cahaya biru) menghasilkan daya pisah resolusi yang lebih tajam |
+| **Hukum Malus Polarisasi Cahaya** | $I_1 = \frac{1}{2} I_0$<br>$I_2 = I_1 \cos^2\theta = \frac{1}{2} I_0 \cos^2\theta$ | $I_0$: intensitas cahaya alami tak terpolarisasi ($\text{W/m}^2$); $I_1$: intensitas setelah melewati polarisator pertama ($\text{W/m}^2$); $I_2$: intensitas setelah lolos analisator ($\text{W/m}^2$); $\theta$: sudut sumbu transmisi analisator terhadap polarisator ($^{\circ}$) | Cahaya tak terpolarisasi langsung kehilangan separuh intensitasnya ($50\%$) pada polarisator pertama |
+| **Polarisasi Pantulan (Sudut Brewster)** | $\tan\theta_p = \frac{n_2}{n_1}$ | $\theta_p$: sudut polarisasi datang Brewster ($^{\circ}$); $n_1$: indeks bias medium asal; $n_2$: indeks bias medium pantul | Pada sudut Brewster, sinar pantul terpolarisasi linier sempurna tegak lurus sinar bias ($\theta_p + r = 90^{\circ}$) |
+
+---
+
+### C. Matriks Optika Geometri, Cermin, Lensa, & Alat-Alat Optik
+| Sub-Materi / Topik | Persamaan / Formula Matematis | Penjelasan Komponen Rumus & Satuan SI | Keterangan Fisis & Kaidah Cepat |
+| :--- | :--- | :--- | :--- |
+| **Hukum Snellius Pembiasan** | $n_1 \sin i = n_2 \sin r$<br>$\frac{n_2}{n_1} = \frac{v_1}{v_2} = \frac{\lambda_1}{\lambda_2}$ | $n_1, n_2$: indeks bias medium 1 dan 2; $i$: sudut datang dari garis normal ($^{\circ}$); $r$: sudut bias di medium 2 ($^{\circ}$); $v$: kelajuan cahaya ($\text{m/s}$); $\lambda$: panjang gelombang ($\text{m}$) | Menuju medium lebih rapat ($n_2 > n_1$): sinar dibelokkan **mendekati garis normal** ($r < i$), kelajuan dan panjang gelombang menyusut, frekuensi konstan |
+| **Sudut Kritis & Pemantulan Total** | $\sin\theta_k = \frac{n_2}{n_1}$ | $\theta_k$: sudut kritis datang ($^{\circ}$); $n_1 > n_2$ | Syarat pemantulan total sempurna: sinar datang dari medium **lebih rapat ke kurang rapat** dengan sudut datang $i > \theta_k$. Landasan serat optik |
+| **Sudut Deviasi Prisma Kaca** | $\delta = i_1 + r_2 - \beta$<br>$\delta_{\min} = 2 i_1 - \beta$<br>$\phi = (n_u - n_m) \beta$ | $\delta$: sudut deviasi berkas sinar prisma ($^{\circ}$); $\beta$: sudut pembias puncak prisma ($^{\circ}$); $\delta_{\min}$: sudut deviasi minimum ($^{\circ}$); $\phi$: sudut dispersi penguraian warna putih ($^{\circ}$); $n_u, n_m$: indeks bias cahaya ungu dan merah | Deviasi minimum tercapai saat jalannya sinar di dalam prisma simetris mendatar ($i_1 = r_2$ dan $r_1 = i_2$) |
+| **Hubungan Gauss Cermin & Lensa** | $\frac{1}{f} = \frac{1}{s} + \frac{1}{s'}$<br>$M = \left\vert\frac{s'}{s}\right\vert = \left\vert\frac{h'}{h}\right\vert$ | $f$: jarak fokus ($\text{cm}$); $s$: jarak benda dari optik ($\text{cm}$); $s'$: jarak bayangan ($\text{cm}$); $M$: perbesaran linier; $h, h'$: tinggi benda dan tinggi bayangan ($\text{cm}$) | **Konvensi Tanda:**<br>1. Cermin cekung / Lensa cembung: $f > 0$ (positif / konvergen)<br>2. Cermin cembung / Lensa cekung: $f < 0$ (negatif / divergen)<br>3. Bayangan nyata (di depan cermin / belakang lensa): $s' > 0$<br>4. Bayangan maya (tegak): $s' < 0$ |
+| **Kuat Lensa & Rumus Pembuat Lensa** | $P = \frac{100}{f\text{ (cm)}} = \frac{1}{f\text{ (m)}}$<br>$\frac{1}{f} = \left(\frac{n_l}{n_m} - 1\right) \left(\frac{1}{R_1} + \frac{1}{R_2}\right)$ | $P$: kuat lensa (Dioptri / $\text{D}$); $n_l$: indeks bias bahan lensa; $n_m$: indeks bias medium sekeliling (udara $= 1$); $R_1, R_2$: jari-jari kelengkungan permukaan lensa ($\text{m}$) | Permukaan cembung bernilai $R > 0$; permukaan cekung bernilai $R < 0$; permukaan datar memiliki $R = \infty$ (sehingga $\frac{1}{R} = 0$) |
+| **Mata Rabun Jauh (Miopi)** | $P = -\frac{100}{PR\text{ (cm)}}$ | $P$: daya kacamata lensa cekung minus (Dioptri); $PR$: titik jauh penderita miopi (*Punctum Remotum*, $\text{cm}$) | Menggeser bayangan dari titik tak terhingga ($s = \infty$) agar jatuh tepat di titik jauh penderita ($s' = -PR$) |
+| **Mata Rabun Dekat (Hipermetropi)** | $P = \frac{100}{s_n} - \frac{100}{PP\text{ (cm)}} = 4 - \frac{100}{PP\text{ (cm)}}$ | $P$: daya kacamata lensa cembung plus (Dioptri); $s_n$: jarak baca normal ($25\text{ cm}$); $PP$: titik dekat mata penderita (*Punctum Proximum*, $\text{cm}$) | Menempatkan benda pada jarak normal $25\text{ cm}$ agar bayangannya terbentuk di titik dekat penderita ($s' = -PP$) |
+| **Lup (Kaca Pembesar)** | Akomodasi Maksimum: $M = \frac{s_n}{f} + 1$<br>Tanpa Akomodasi (Rileks): $M = \frac{s_n}{f}$ | $M$: perbesaran anguler sudut lup; $s_n$: jarak baca normal ($25\text{ cm}$); $f$: jarak titik fokus lensa cembung lup ($\text{cm}$) | Mata tanpa akomodasi menghasilkan pandangan paling rileks dan tidak cepat lelah (bayangan jatuh di tak hingga) |
+| **Mikroskop Biologi Dua Lensa** | $M_{\text{total}} = M_{\text{ob}} \times M_{\text{ok}}$<br>$M_{\text{ob}} = \left\vert\frac{s_{\text{ob}}'}{s_{\text{ob}}}\right\vert$<br>Akomodasi Maks: $M_{\text{ok}} = \frac{s_n}{f_{\text{ok}}} + 1$<br>Tanpa Akomodasi: $M_{\text{ok}} = \frac{s_n}{f_{\text{ok}}}$<br>Panjang Tabung: $d = s_{\text{ob}}' + s_{\text{ok}}$ | $M_{\text{ob}}$: perbesaran lensa objektif (nyata, terbalik, diperbesar); $M_{\text{ok}}$: perbesaran okuler (lup); $f_{\text{ob}}, f_{\text{ok}}$: fokus objektif dan okuler ($f_{\text{ob}} < f_{\text{ok}}$); $d$: jarak tabung antara kedua lensa ($\text{cm}$) | Pengamatan tanpa akomodasi: bayangan objektif jatuh tepat di fokus okuler ($s_{\text{ok}} = f_{\text{ok}}$), panjang mikroskop $d = s_{\text{ob}}' + f_{\text{ok}}$ |
+| **Teropong Bintang (Teleskop Astronomi)** | Tanpa Akomodasi:<br>$M = \frac{f_{\text{ob}}}{f_{\text{ok}}}$<br>$d = f_{\text{ob}} + f_{\text{ok}}$ | $M$: perbesaran teropong bintang; $f_{\text{ob}}$: fokus lensa objektif (panjang); $f_{\text{ok}}$: fokus lensa okuler (pendek, $f_{\text{ob}} \gg f_{\text{ok}}$); $d$: panjang tabung teropong bintang ($\text{cm}$) | Benda luar angkasa berada di jarak tak terhingga ($s_{\text{ob}} = \infty$), bayangannya jatuh tepat di fokus objektif ($s_{\text{ob}}' = f_{\text{ob}}$) |
 
 ---
 
 ### D. Jebakan Ujian & Solusi Cepat
 > [!WARNING] Jebakan Konsep:
-> Satuan panjang gelombang ($	ext{nm}$ atau $	ext{AA}$) dan jarak celah ($	ext{mm}$) wajib dikonversi ke meter ($	ext{m}$) sebelum melakukan perhitungan formula difraksi/interferensi! Ingat: $1\text{ nm} = 10^{-9}\text{ m}$, $1\text{ \AA} = 10^{-10}\text{ m}$.
+> 1. Pada kisi difraksi, tetapan kisi $d$ harus dihitung dari kebalikan jumlah garis per panjang ($d = \frac{1}{N}$). Perhatikan satuan: jika $N = 400\text{ garis/cm}$, maka $d = \frac{1}{400}\text{ cm} = \frac{10^{-2}}{400}\text{ m} = 2{,}5 \times 10^{-6}\text{ m}$!
+> 2. Pada mikroskop, benda preparat **harus diletakkan di ruang II objektif** ($f_{\text{ob}} < s_{\text{ob}} < 2f_{\text{ob}}$) agar menghasilkan bayangan nyata terbalik diperbesar di ruang III yang kemudian diperbesar lagi oleh okuler sebagai lup.
 
 > [!TIP] Super Solusi Cepat:
-> Pada teropong bintang, jarak fokus lensa objektif selalu jauh lebih panjang daripada okuler ($f_{\text{ob}} \gg f_{\text{ok}}$), berkebalikan dengan mikroskop!
+> Untuk kacamata minus penderita miopi dengan titik jauh $PR$ dalam sentimeter, daya lensanya langsung:
+> $$P = -\frac{100}{PR\text{ (cm)}}$$
+> Jika seseorang hanya dapat melihat jelas hingga jarak terjauh $2\text{ meter} = 200\text{ cm}$, daya lensanya langsung $P = -\frac{100}{200} = -0{,}5\text{ Dioptri}$!
